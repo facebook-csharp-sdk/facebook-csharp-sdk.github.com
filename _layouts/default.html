@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{ page.title }}</title>
     <meta name="description" content="Facebook C# SDK Documentation">
 
@@ -21,10 +21,20 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-28972181-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
 
   <body>
-
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -33,12 +43,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="/">Facebook C# SDK</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="/docs">Overview</a></li>
+              <li><a href="/docs/web">Web</a></li>
+              <li><a href="/docs/phone">Windows Phone</a></li>
+              <li><a href="/docs/windows">Windows 8</a></li>
+              <li><a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk/">Source</a>
+              <li><a href="/docs/about.html">About</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -48,6 +61,11 @@
     <div class="container">
 
       {{content}}
+
+      <footer class="footer">
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      </footer>
 
     </div> <!-- /container -->
 

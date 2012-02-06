@@ -1,0 +1,115 @@
+---
+layout: default
+title: Facebook Controls for Windows Phone Overview
+---
+
+This article highlights the overall architecture of the Facebook Controls for Windows Phone for the purpose of getting developers up to speed on its intended usage.
+
+[[images/arch1.png|height=300px]]
+
+## FacebookDialogs class
+
+The Facebook.Phone.Dialogs namespace  consists of an API and UI components that enable Windows Phone application developers to quickly add the ability for users to log in and use Feed and Request dialogs for Facebook. It is dependent upon the Facebook C# SDK.
+
+The static FacebookDialogs class provides functionality to set the Facebook application ID, get & set the access token, keep track of the latest dialog result from Facebook, and other status information.
+
+[[images/arch2.png|height=300px]]
+
+The AppId property is required in order to communicate with the Facebook API. This should be set prior to using any other functionality in the library.
+
+```
+FacebookDialogs.AppId = "123456789012345";
+```
+
+The Show* methods will navigate to their associated dialog page control that is part of the library, e.g. ShowFeed will navigate to FacebookFeedPage.xaml and pass the provided parameters.
+
+ShowFeed call that navigates to Feed page with parameters:
+```
+FacebookDialogs.ShowFeed(
+    new Dictionary<string, object>()
+    {
+        {"to", "userId1,userId2"},
+        {"link", "http://www.facebook.com"}
+    });
+```
+
+Due to the nature of page navigation and communication with the Facebook API, results from dialogs are stored in the LastResult property as a dictionary of keys and values. It is up to the developer to parse the results if desired.
+
+The IsLoggedIn property provides the current status of the user.
+
+
+## Login and Logout UI
+
+[[images/arch3.png|height=400px]]
+
+**FacebookLoginButton**  
+The login/logout button navigates to the Facebook login page when clicked, or simply logs the user out if currently logged in.  
+```
+<facebook:FacebookLoginButton ExtendedPermissions="user_status" />
+```
+
+**FacebookAuthenticatedPanel**  
+This panel can be used in your application to define UI that you would like to show the user when in the logged in and logged out states.  
+```
+<facebook:FacebookAuthenticatedPanel>
+    <facebook:FacebookAuthenticatedPanel.LoggedInContent>
+                    
+    </facebook:FacebookAuthenticatedPanel.LoggedInContent>    
+    <facebook:FacebookAuthenticatedPanel.LoggedOutContent>
+        
+    </facebook:FacebookAuthenticatedPanel.LoggedOutContent>
+</facebook:FacebookAuthenticatedPanel>
+```
+
+**FacebookLoginControl**  
+This is just the login control, which allows you to host it any way that you wish. The control basically wraps the existing Facebook mobile dialog using the WebBrowser control.
+
+In XAML, display the login control when user is not logged in (see FacebookAuthenticatedPanel):
+
+```
+<facebook:FacebookLoginControl x:Name="loginControl" />
+```
+
+In code, initialize parameters for login control:
+
+```
+this.loginControl.Parameters["client_id"] = FacebookDialogs.AppId;
+this.loginControl.Parameters["scope"] = "email";
+this.loginControl.Parameters["response_type"] = "token";
+```
+
+**FacebookLoginTask**  
+Typically the best way to use the dialogs is to use the associated task, in this case FacebookLoginTask. This task model follows the recommended Windows Phone model and allows you to subscribe to an event that returns results from the dialog.  
+```
+FacebookLoginTask loginTask = new FacebookLoginTask(this.NavigationService, "user_status");
+loginTask.Completed += new EventHandler<FacebookDialogEventArgs>(loginTask_Completed);
+loginTask.Show();
+```
+
+
+## Feed UI
+
+The provided Feed UI is provided as a dialog control and task, similar to the login control.
+
+[[images/arch4.png|height=200px]]
+
+As you saw previously, the simplest way to invoke the Feed dialog is through the FacebookDialogs.ShowFeed method.  
+Here is a sample usage of the Feed task:
+```
+FacebookFeedTask feedTask = new FacebookFeedTask(
+    this.NavigationService,
+    new Dictionary<string, object>()
+    {
+        {"to", "userId1,userId2"},
+        {"link", "http://www.facebook.com"}
+    });
+feedTask.Completed += new EventHandler<FacebookDialogEventArgs>(feedTask_Completed);
+feedTask.Show();
+```
+
+
+## Request UI
+
+The provided Request UI mirrors the Feed UI.
+
+[[images/arch5.png|height=200px]]
