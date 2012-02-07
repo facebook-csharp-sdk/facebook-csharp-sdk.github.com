@@ -4,6 +4,10 @@ body {
 
 /* Header
 -------------------------------------------------- */
+.fbtitle {
+	float: left;
+	padding-right: 40px;
+}
 
 .hero-unit .btn-large {
   font-size: 26px;
@@ -24,6 +28,15 @@ body {
 
 .download-buttons .githubbutton {
 	padding-top: 30px;
+}
+
+.follow-buttons ul {
+	list-style-type: none;
+	margin-left: -15px;
+}
+
+.follow-buttons li {
+	float: left;
 }
 
 /* Footer
