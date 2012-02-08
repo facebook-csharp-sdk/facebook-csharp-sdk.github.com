@@ -20,108 +20,127 @@ It is highly recommended to read the official Facebook documentation on Graph Ap
 
 Here is a hello world Facebook C# SDK example on accessing public Facebook data without the access token.
 
-
-    var fb = new FacebookClient();
-    dynamic result = fb.Get("4");
-    dynamic id = result.id;
-    dynamic firstName = result.first_name;
-    dynamic lastName = result.last_name;
-    dynamic link = result.link;
-    dynamic locale = result.locale;
+{% highlight c# %}
+var fb = new FacebookClient();
+dynamic result = fb.Get("4");
+dynamic id = result.id;
+dynamic firstName = result.first_name;
+dynamic lastName = result.last_name;
+dynamic link = result.link;
+dynamic locale = result.locale;
+{% endhighlight %}
 
 Rather then accessing the value using dot operator as shown above you could also access the value using indexers as shown below.
 
-    dynamic id = result["id"];
-    dynamic firstName = result["first_name"];
+{% highlight c# %}
+dynamic id = result["id"];
+dynamic firstName = result["first_name"];
+{% endhighlight %}
 
 You could also explicitly mention the type of the value or use var keyword. But _result_ should be dynamic.
 
-    var fb = new FacebookClient();
-    dynamic result = fb.Get("4");
-    long id = result.id;
-    string firstName = result.first_name;
-    var lastName = result.last_name;
+{% highlight c# %}
+var fb = new FacebookClient();
+dynamic result = fb.Get("4");
+long id = result.id;
+string firstName = result.first_name;
+var lastName = result.last_name;
+{% endhighlight %}
 
 **Accessing protected resources**
 
 Facebook requires to access most of the protected resource using access token. You can pass the access token using the constructor.
 
-    var fb = new FacebookClient("access_token");
-    dynamic me = fb.Get("me");
-    var id = me.id;
-    var name = me.name;
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic me = fb.Get("me");
+var id = me.id;
+var name = me.name;
+{% endhighlight %}
 
 Or you can set/get the access token use the AccessToken property.
 
-    var fb = new FacebookClient { AccessToken = "access_token" };
-    dynamic result = fb.Get("4");
-    var id = me.id;
-    var name = me.name;
+{% highlight c# %}
+var fb = new FacebookClient { AccessToken = "access_token" };
+dynamic result = fb.Get("4");
+var id = me.id;
+var name = me.name;
+{% endhighlight %}
 
 ***Passing parameters***
 
 Some of the api's allows you to pass parameters to your request.
 Here is an example using anonymous objects.
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Get("me", new { fields = new[] { "id", "name" }});
-    var id = result.id;
-    var name = result.name;
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Get("me", new { fields = new[] { "id", "name" }});
+var id = result.id;
+var name = result.name;
+{% endhighlight %}
 
 _Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternate methods using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code._
 
 Another alternative would be to pass a type of IDictionary&lt;string,object&gt;
 
-    var fb = new FacebookClient("access_token");
-    var parameters = new Dictionary<string,object>();
-    parameters["fields"] = "id,name";
-    dynamic result = fb.Get("me", parameters);
-    var id = result.id;
-    var name = result.name;
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+var parameters = new Dictionary<string,object>();
+parameters["fields"] = "id,name";
+dynamic result = fb.Get("me", parameters);
+var id = result.id;
+var name = result.name;
+{% endhighlight %}
 
 You could also make use of [ExapndoObject](http://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject.aspx) for dynamic.
 
-    var fb = new FacebookClient("access_token");
-    dynamic parameters = new ExpandoObject();
-    parameters.fields = "id,name";
-    dynamic result = fb.Get("me", parameters);
-    var id = result.id;
-    var name = result.name;
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic parameters = new ExpandoObject();
+parameters.fields = "id,name";
+dynamic result = fb.Get("me", parameters);
+var id = result.id;
+var name = result.name;
+{% endhighlight %}
 
 ***Handling Graph Api Exceptions***
 
 For simplicity most of the examples shown here does not handle exceptions. It is always recommended to handle exceptions during production.
 
-    try
-    {
-        var fb = new FacebookClient("access_token");
-        dynamic result = fb.Get("me");
-    }
-    catch(FacebookOAuthException ex)
-    {
-        // oauth exception occurred
-    }
-    catch(FacebookApiLimitException ex)
-    {
-        // api limit exception occurred.
-    }
-    catch(FacebookApiException ex)
-    {
-        // other general facebook api exception
-    }
-    catch(Exception ex)
-    {
-        // non-facebook exception such as no internet connection.
-    }
+{% highlight c# %}
+try
+{
+    var fb = new FacebookClient("access_token");
+    dynamic result = fb.Get("me");
+}
+catch(FacebookOAuthException ex)
+{
+    // oauth exception occurred
+}
+catch(FacebookApiLimitException ex)
+{
+    // api limit exception occurred.
+}
+catch(FacebookApiException ex)
+{
+    // other general facebook api exception
+}
+catch(Exception ex)
+{
+    // non-facebook exception such as no internet connection.
+}
+{% endhighlight %}
 
 _Note: ```FacebookOAuthException``` and ```FacebookApiLimitException``` inherits from ```FacebookApiException```._
 
 ## POST
 Sample for posting to the wall.
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Post("me/feed", new { message = "My first wall post using Facebook C# SDK" });
-    var newPostId = result.id;
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Post("me/feed", new { message = "My first wall post using Facebook C# SDK" });
+var newPostId = result.id;
+{% endhighlight %}
 
 To post to the wall, you will need the user's permission. You can read more about these permissions (commonly known as ```extended permissions``` or ```scope```) in the official Facebook documentation at https://developers.facebook.com/docs/reference/api/permissions/
 
@@ -131,32 +150,36 @@ To upload files you will need to pass either FacebookMediaObject or FacebookMedi
 
 _Using FacebookMediaObject_
 
-    var fb = new FacebookClient("access_token");
-    string attachementPath = @"C:\\image.jpg";
-    dynamic result = fb.Post("me/photos",
-                                new
-                                    {
-                                        message = "my first photo upload using Facebook C# SDK",
-                                        file = new FacebookMediaObject
-                                                {
-                                                    ContentType = "image/jpg",
-                                                    FileName = Path.GetFileName(attachementPath)
-                                                }.SetValue(File.ReadAllBytes(attachementPath))
-                                    });
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+string attachementPath = @"C:\\image.jpg";
+dynamic result = fb.Post("me/photos",
+                            new
+                                {
+                                    message = "my first photo upload using Facebook C# SDK",
+                                    file = new FacebookMediaObject
+                                            {
+                                                ContentType = "image/jpg",
+                                                FileName = Path.GetFileName(attachementPath)
+                                            }.SetValue(File.ReadAllBytes(attachementPath))
+                                });
+{% endhighlight %}
 
 _Using FacebookMediaStream_
 
-    var fb = new FacebookClient("access_token");
-    string attachementPath = @"C:\\image.jpg";
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+string attachementPath = @"C:\\image.jpg";
 
-    using (var file = new FacebookMediaStream
-                            {
-                                ContentType = "image/jpge",
-                                FileName = Path.GetFileName(attachementPath)
-                            }.SetValue(File.OpenRead(attachementPath)))
-    {
-        dynamic result = fb.Post("me/photos", new { message = "upload using Facebook C# SDK", file });
-    }
+using (var file = new FacebookMediaStream
+                        {
+                            ContentType = "image/jpge",
+                            FileName = Path.GetFileName(attachementPath)
+                        }.SetValue(File.OpenRead(attachementPath)))
+{
+    dynamic result = fb.Post("me/photos", new { message = "upload using Facebook C# SDK", file });
+}
+{% endhighlight %}
 
 _Note: Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream. FacebookMediaStream implements IDisposable which internally calls Dispose on the stream thus you can use FacebookMediaStream on the using block._
 
@@ -164,84 +187,94 @@ _Note: Unlike FacebookMediaObject the developer must be responsible for correctl
 
 Sample code for deleting the previous wall post.
 
-    var fb = new FacebookClient("access_token");
-    var postIdToDelete = newPostId;
-    dynamic result = fb.Delete(postIdToDelete);
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+var postIdToDelete = newPostId;
+dynamic result = fb.Delete(postIdToDelete);
+{% endhighlight %}
 
 ## Facebook Query Language (FQL)
 It is highly recommended to read the official Facebook documentation on Facebook Query Language (FQL) which can be found at https://developers.facebook.com/docs/reference/fql/ before proceeding further.
 
 ### Query
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Get("fql", new { q = "SELECT uid FROM user WHERE uid=me()" });
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Get("fql", new { q = "SELECT uid FROM user WHERE uid=me()" });
+{% endhighlight %}
 
 ### Multi-query
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Get("fql", new
-                                        {
-                                            q = new[]
-                                                    {
-                                                        "SELECT uid from user where uid=me()",
-                                                        "SELECT name FROM user WHERE uid=me()"
-                                                    }
-                                        });
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Get("fql", new
+                                    {
+                                        q = new[]
+                                                {
+                                                    "SELECT uid from user where uid=me()",
+                                                    "SELECT name FROM user WHERE uid=me()"
+                                                }
+                                    });
+{% endhighlight %}
 
 ### Multi-query with dependency
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Get("fql",
-                            new
-                                {
-                                    q = new
-                                            {
-                                                id = "SELECT uid from user where uid=me()",
-                                                name = "SELECT name FROM user WHERE uid IN (SELECT uid FROM #id)",
-                                            }
-                                });
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Get("fql",
+                        new
+                            {
+                                q = new
+                                        {
+                                            id = "SELECT uid from user where uid=me()",
+                                            name = "SELECT name FROM user WHERE uid IN (SELECT uid FROM #id)",
+                                        }
+                            });
+{% endhighlight %}
 
 # Batch Requests
 It is highly recommended to read the official Facebook documentation on Batch Requests which can be found at https://developers.facebook.com/docs/reference/api/batch/ before proceeding further.
 
-    try
+{% highlight c# %}
+try
+{
+    var fb = new FacebookClient("access_token");
+    
+    dynamic result = fb.Batch(
+        new FacebookBatchParameter("me"),
+        new FacebookBatchParameter("me/feed", new { limit = 10 }));
+    
+    if (result[0] is Exception)
     {
-        var fb = new FacebookClient("access_token");
-        
-        dynamic result = fb.Batch(
-            new FacebookBatchParameter("me"),
-            new FacebookBatchParameter("me/feed", new { limit = 10 }));
-        
-        if (result[0] is Exception)
-        {
-            var ex = (Exception)result[0];
-            // handle exception
-            Console.WriteLine(ex);
-        }
-        else
-        {
-            Console.WriteLine(result[0]);
-        }
-        
-        if (result[1] is Exception)
-        {
-            var ex = (Exception)result[1];
-            // handle exception
-            Console.WriteLine(ex);
-        }
-        else
-        {
-            Console.WriteLine(result[1]);
-        }
-    }
-    catch(FacebookApiException ex)
-    {
+        var ex = (Exception)result[0];
         // handle exception
+        Console.WriteLine(ex);
     }
-    catch(Exception ex)
+    else
     {
-        // handle exception
+        Console.WriteLine(result[0]);
     }
+    
+    if (result[1] is Exception)
+    {
+        var ex = (Exception)result[1];
+        // handle exception
+        Console.WriteLine(ex);
+    }
+    else
+    {
+        Console.WriteLine(result[1]);
+    }
+}
+catch(FacebookApiException ex)
+{
+    // handle exception
+}
+catch(Exception ex)
+{
+    // handle exception
+}
+{% endhighlight %}
 
 Always warp batch request in a ```try...catch``` block. Result of batch request is always ```IList<object>```. Make sure to always check for exceptions in each result.
 
@@ -249,18 +282,22 @@ Always warp batch request in a ```try...catch``` block. Result of batch request 
 
 FQL in batch requests are similar to normal FQL Query. You can also execute multi query and multi query with dependency.
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Batch(
-        new FacebookBatchParameter("fql", new { q = "SELECT uid FROM user WHERE uid=me()" }));
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Batch(
+    new FacebookBatchParameter("fql", new { q = "SELECT uid FROM user WHERE uid=me()" }));
+{% endhighlight %}
 
 **Advanced Batch Requests**
 
 If you want to set the parameters such as ```omit_response_on_success``` or ```name```, you will need to make use of ```Data``` property.
 
-    var fb = new FacebookClient("access_token");
-    dynamic result = fb.Batch(
-        new FacebookBatchParameter("me/friends", new { limit = 1 }) { Data = new { name = "one-friend", omit_response_on_success = false } },
-        new FacebookBatchParameter(null, new { ids = "{result=one-friend:$.data.0.id}" }));
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
+dynamic result = fb.Batch(
+    new FacebookBatchParameter("me/friends", new { limit = 1 }) { Data = new { name = "one-friend", omit_response_on_success = false } },
+    new FacebookBatchParameter(null, new { ids = "{result=one-friend:$.data.0.id}" }));
+{% endhighlight %}
 
 # Legacy REST Api
 It is highly recommended to read the official Facebook documentation on Legacy REST Api which can be found at https://developers.facebook.com/docs/reference/rest/ before proceeding further. 
@@ -286,14 +323,16 @@ Similar to graph api, you can continue to pass parameter as either IDictionary&l
 
 ## POST
 
-    var fb = new FacebookClient("access_token");
+{% highlight c# %}
+var fb = new FacebookClient("access_token");
 
-    dynamic result = fb.Post(new
-                                {
-                                    method = "stream.publish",
-                                    message = "My first wall post using Facebook C# SDK via legacy rest api."
-                                });
-    Console.WriteLine(result);
+dynamic result = fb.Post(new
+                            {
+                                method = "stream.publish",
+                                message = "My first wall post using Facebook C# SDK via legacy rest api."
+                            });
+Console.WriteLine(result);
+{% endhighlight %}
 
 **Note**
 
