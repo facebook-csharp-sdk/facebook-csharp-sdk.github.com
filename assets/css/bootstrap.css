@@ -458,6 +458,7 @@ small {
 cite {
   font-style: normal;
 }
+/**
 code, pre {
   padding: 0 3px 2px;
   font-family: Menlo, Monaco, "Courier New", monospace;
@@ -496,6 +497,7 @@ pre code {
   padding: 0;
   background-color: transparent;
 }
+**/
 form {
   margin: 0 0 18px;
 }

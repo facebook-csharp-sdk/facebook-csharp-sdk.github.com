@@ -270,15 +270,17 @@ It is highly recommended to read the official Facebook documentation on Legacy R
 ## GET
 For rest api make sure to set the name of the rest api as **method** in the parameter.
 
-    var fb = new FacebookClient("accessToken");
+{% highlight c# %}
+var fb = new FacebookClient("accessToken");
 
-    dynamic result = fb.Get(new
-                                {
-                                    method = "users.getInfo",
-                                    fields = new[] { "name" },
-                                    uids = new[] { 4 }
-                                });
-    Console.WriteLine(result);
+dynamic result = fb.Get(new
+                            {
+                                method = "users.getInfo",
+                                fields = new[] { "name" },
+                                uids = new[] { 4 }
+                            });
+Console.WriteLine(result);
+{% endhighlight %}
 
 Similar to graph api, you can continue to pass parameter as either IDictionary&lt;string,object&gt; or ExpandoObject.
 
