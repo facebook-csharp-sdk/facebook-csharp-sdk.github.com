@@ -253,3 +253,30 @@ div.highlight {
   -webkit-background-clip: padding-box;
   margin: 0px;
 }
+
+
+/* About Page
+-------------------------------------------------- */
+
+.person {
+  padding-bottom: 30px;
+}
+
+.person img {
+  padding-right: 20px;
+  float: left;
+  border-image: none;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Bootstrap Overrides
+-------------------------------------------------- */
+
+blockquote p {
+  font-size: 13px; /* default: 16px */
+  font-weight: 300; /* default: 300 */
+  line-height: 20px; /* default: 22.5px */
+}

@@ -47,12 +47,12 @@
           <a class="brand" href="/">Facebook C# SDK</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/docs">Overview</a></li>
-              <li><a href="/docs/web">Web</a></li>
+              <li{% if page.url == "/docs/index.html" %} class="active" {% endif %}><a href="/docs">Overview</a></li>
+              <li{% if page.url == "/docs/web/index.html" %} class="active" {% endif %}><a href="/docs/web">Web</a></li>
               <!--<li><a href="/docs/windows">Windows 8</a></li>-->
-              <li><a href="/docs/azure">Windows Azure</a></li>
-              <li><a href="/docs/phone">Windows Phone</a></li>
-              <li><a href="/docs/about.html">About</a></li>
+              <li{% if page.url == "/docs/azure/index.html" %} class="active" {% endif %}><a href="/docs/azure">Windows Azure</a></li>
+              <li{% if page.url == "/docs/phone/index.html" %} class="active" {% endif %}><a href="/docs/phone">Windows Phone</a></li>
+              <li{% if page.url == "/docs/about.html" %} class="active" {% endif %}><a href="/docs/about.html">About</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
