@@ -23,41 +23,33 @@ After you install the package you must configure the application...
 ## Making Your First Request
 Retrieving data form the Facebook Graph API is very easy using the Facebook C# SDK. The following code shows how to call the Graph API to retrieve [Nathan Totten's](http://facebook.com/totten) public information.
 
-<pre class="brush: csharp">
-var client = new FacebookClient();
-dynamic me = client.Get("totten");
-</pre>
+	var client = new FacebookClient();
+	dynamic me = client.Get("totten");
 
 The result of this request is a dynamic object containing various properties such as first_name, last_name, user name, etc. You can see the values of this request by browsing to [http://graph.facebook.com/totten](http://graph.facebook.com/totten) in your web browser. The JSON result is shown below.
 
-<pre class="brush: js">
-{
-	id: "14812017",
-	name: "Nathan Totten",
-	first_name: "Nathan",
-	last_name: "Totten",
-	link: "https://www.facebook.com/totten",
-	username: "totten",
-	gender: "male",
-	locale: "en_US"
-}
-</pre>
+	{
+		id: "14812017",
+		name: "Nathan Totten",
+		first_name: "Nathan",
+		last_name: "Totten",
+		link: "https://www.facebook.com/totten",
+		username: "totten",
+		gender: "male",
+		locale: "en_US"
+	}
 
 In you aren't familiar with dynamic objects in C# you can see below that they are very easy to use. 
 
-<pre class="brush: csharp">
-dynamic me = client.Get("totten");
-string firstName = me.first_name;
-string lastName = me.last_name;
-</pre>
+	dynamic me = client.Get("totten");
+	string firstName = me.first_name;
+	string lastName = me.last_name;
 
 A dynamic object is an object that is evaluated only at runtime. You can think of it as being a ```Dictionary<string, object>``` that is easier to use. In fact, the dynamic object we use actually _is_ an ```IDictionary<string, object>```. So if you don't like dynamic objects or are on a platform such as Windows Phone that doesn't support dynamic you can access the same information with a dictionary.
 
-<pre class="brush: csharp">
-var me = client.Get("totten") as IDictionary&lt;string, object&gt;;
-string firstName = (string)me["first_name"];
-string lastName = me["last_name"].ToString();
-</pre>
+	var me = client.Get("totten") as IDictionary<string, object>;
+	string firstName = (string)me["first_name"];
+	string lastName = me["last_name"].ToString();
 
 As you can see, using a dictionary is possible, but it requires casting or conversion.
 
@@ -71,12 +63,10 @@ For the purposes of this walk through we are going to start by obtaining an acce
 ### Retrieving Profile Data
 Now that you have obtained a valid access token you are ready to make a request for private data. Because this access token did not request any special permissions (discussed later) we will only be able to access limited details from the user.
 
-<pre class="brush: csharp">
-var accessToken = "your access token here";
-var client = new FacebookClient(accessToken);
-dynamic me = client.Get("me");
-string aboutMe = me.about;
-</pre>
+	var accessToken = "your access token here";
+	var client = new FacebookClient(accessToken);
+	dynamic me = client.Get("me");
+	string aboutMe = me.about;
 
 > Note: "me" is a special user name that indicates you are making the request in the context of the user who's access token was provided with the request.
 
@@ -95,45 +85,33 @@ In order to get an access token from your users on a website you must use the ei
 ### Adding the Facebook JavaScript SDK to Your Site
 The first step in using the Facebook JavaScript SDK to your web application is to add the script references. To do this add the following code immediately before the ```</body>``` tag on your web page.
 
-<pre class="brush: js">
-TODO: FB JavaScript SDK here
-</pre>
+	TODO: FB JavaScript SDK here
 
 > Be sure to set the ```'your_app_id'``` string equal to the AppId of the Facebook application you created at the beginning of this tutorial.
 
 ### Authenticating a User
 Now that you have the Facebook JavaScript SDK installed on your application you will want to create a Facebook Login button.
 
-<pre class="brush: html">
-TODO: FB Login Button
-</pre>
+	TODO: FB Login Button
 
 After your user has authenticated and authorized your application you need to obtain the access token. You can do this by adding the following JavaScript to your site.
 
-<pre class="brush: js">
-TODO: FB Post Auth javascript
-</pre>
+	TODO: FB Post Auth javascript
 
 Now that you have obtained the access token you will need to send it to the server. You can do this in a variety of ways. The easiest to do this is perform an HTTP POST with the access token and then redirect your user to a new page. Once you have obtained the token on the server you can use any standard method for storing it. The easiest way to store the access token is to simply place it in the Session State and let ASP.NET manage the state for you. You can see how to do this with the following code.
 
 First, here is your client side JavaScript.
 
-<pre class="brush: js">
-TODO: Access token post
-</pre>
+	TODO: Access token post
 
 Next, create a page, action, or handler to recieve the token and redirect the user. For this example we will create a generic handler.
 
-<pre class="brush: csharp">
-TODO: Access token generic handler
-</pre>
+	TODO: Access token generic handler
 
 ### Using the Access Token
 Now that you have successfully saved the access token to the session state you can make requests on behalf of that user when they are browsing your site.
 
-<pre class="brush: csharp">
-TODO: ASP.NET Action using session state access token
-</pre>
+	TODO: ASP.NET Action using session state access token
 
 Using these examples you should be able to handle most of the basic actions for your users. For additional reading see the topics below.
 

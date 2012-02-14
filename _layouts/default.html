@@ -14,8 +14,6 @@
     <!-- Le styles -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
-    <link href="/assets/css/shCore.css" rel="stylesheet">
-    <link href="/assets/css/shCoreDefault.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -86,16 +84,12 @@
     <script src="/assets/js/bootstrap-collapse.js"></script>
     <script src="/assets/js/bootstrap-carousel.js"></script>
     <script src="/assets/js/bootstrap-typeahead.js"></script>
-    <script src="/assets/js/shCore.js" type="text/javascript"></script>
-    <script src="/assets/js/shAutoloader.js" type="text/javascript"></script>
+    <script src="/assets/js/prettify.js" type="text/javascript"></script>
     <script type="text/javascript">
-    SyntaxHighlighter.autoloader(
-      'js          /assets/js/shBrushJScript.js',
-      'csharp      /assets/js/shBrushCSharp.js',
-      'xml html    /assets/js/shBrushXml.js'
-    );
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
+      $(document).ready(function() {
+        $('code').addClass('prettyprint');
+        prettyPrint();
+      });
     </script>
   </body>
 </html>
