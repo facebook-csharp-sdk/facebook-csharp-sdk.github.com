@@ -8,36 +8,11 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "main.sublime-project",
 			"settings":
 			{
-				"buffer_size": 7925,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "assets/css/style.css",
-			"settings":
-			{
-				"buffer_size": 5221,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ntotten/AppData/Roaming/Sublime Text 2/Packages/User/Jekyll.sublime-build",
-			"settings":
-			{
-				"buffer_size": 23,
-				"line_ending": "Windows",
-				"name": "untitled.sublime-build"
-			}
-		},
-		{
-			"file": "docs/about.md",
-			"settings":
-			{
-				"buffer_size": 2103,
-				"line_ending": "Windows"
+				"buffer_size": 104,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -65,6 +40,7 @@
 	},
 	"file_history":
 	[
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/main.sublime-project"
 	],
 	"find":
 	{
@@ -101,110 +77,28 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "main.sublime-project",
 					"settings":
 					{
-						"buffer_size": 7925,
+						"buffer_size": 104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								566,
-								566
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "assets/css/style.css",
-					"settings":
-					{
-						"buffer_size": 5221,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5214,
-								5218
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3677.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/ntotten/AppData/Roaming/Sublime Text 2/Packages/User/Jekyll.sublime-build",
-					"settings":
-					{
-						"buffer_size": 23,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								20,
-								20
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "docs/about.md",
-					"settings":
-					{
-						"buffer_size": 2103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2103,
-								2103
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -246,10 +140,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.exec":
-	{
-		"height": 106.0
-	},
 	"replace":
 	{
 		"height": 0.0
