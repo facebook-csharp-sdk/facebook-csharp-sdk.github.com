@@ -28,6 +28,6 @@ Jim Zimmerman is a developer and advisor to the Facebook C# SDK and the CTO of T
 
 <div class="person" style="height: 170px;">
 <h3><a href="http://ntotten.com">Nathan Totten</a></h3>
-<a href="http://www.thuzi.com"><img src="http://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=150" /></a>
+<a href="http://ntotten.com"><img src="http://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=150" /></a>
 Nathan Totten is the founder of the Facebook C# SDK and a Technical Evangelist at Microsoft where he focuses on Windows Azure. Nathan's current role with the Facebook C# SDK is to guide the strategy of the SDK from a high level. Additionally, Nathan contributes bug fixes, documentation, and assists with supporting the community on StackOverflow.
 </div>
