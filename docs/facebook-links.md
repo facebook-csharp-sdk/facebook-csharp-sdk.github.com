@@ -29,6 +29,7 @@ _For questions related to Facebook C# SDK please use **"facebook-c#-sdk" tag**. 
 * [How-To: Optimize Social Plugin Performance](https://developers.facebook.com/blog/post/530/)
 * [How-To: Build an app on Facebook with Fluid Canvas](https://developers.facebook.com/blog/post/549/)
 * [How-To: Publish updates to people who like your Open Graph Page](https://developers.facebook.com/blog/post/465/)
+* [How-To: Optimize the Graph API data fetch using ETags](https://developers.facebook.com/blog/post/627/)
 
 # Official Facebook Fan Page for Facebook C# SDK
 [https://www.facebook.com/csharpsdk](https://www.facebook.com/csharpsdk)
