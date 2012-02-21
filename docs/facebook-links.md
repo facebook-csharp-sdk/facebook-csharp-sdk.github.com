@@ -24,6 +24,7 @@ _For questions related to Facebook C# SDK please use **"facebook-c#-sdk" tag**. 
 # Tutorials from the Official Facebook Developer Blog
 
 * [How-To: Handle Revoked Auth Permissions](https://developers.facebook.com/blog/post/576/)
+* [How-To: Paging with the Graph API and FQL](https://developers.facebook.com/blog/post/478/)
 
 # Official Facebook Fan Page for Facebook C# SDK
 [https://www.facebook.com/csharpsdk](https://www.facebook.com/csharpsdk)
