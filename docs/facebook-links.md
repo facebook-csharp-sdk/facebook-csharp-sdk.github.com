@@ -26,7 +26,7 @@ _For questions related to Facebook C# SDK please use **"facebook-c#-sdk" tag**. 
 * [How-To: Handle Revoked Auth Permissions](https://developers.facebook.com/blog/post/576/)
 
 # Official Facebook Fan Page for Facebook C# SDK
-https://www.facebook.com/csharpsdk
+[https://www.facebook.com/csharpsdk](https://www.facebook.com/csharpsdk)
 
 # Official Twitter account for Facebook C# SDK 
-https://twitter.com/csharpsdk
+[https://twitter.com/csharpsdk](https://twitter.com/csharpsdk)
