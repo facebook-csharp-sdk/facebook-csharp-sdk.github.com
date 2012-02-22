@@ -1,0 +1,429 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"act",
+				"activeLinks"
+			],
+			[
+				"h",
+				"Home"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "assets/css/style.css",
+			"settings":
+			{
+				"buffer_size": 5417,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/* Wiki Styles\n/* To match the Github Wiki style some of these classes were copied from:\n/* https://github.com/pages/pages.github.com/blob/master/shared/css/documentation.css\n-------------------------------------------------- */\n\n.content {\n  width: 700px;\n}\n\n.content p {\n  margin: 1em 0;\n}\n\n.content h1 {\n  font-size: 20px;\n  border-bottom: 1px solid #cccccc;\n  padding: .5em 0;\n  margin: 2em 0 1em;\n}\n\n.content h1:first-child {\n  margin: 0 0 1em;\n}\n\n.content h2 {\n  font-size: 16px;\n  color: #333;\n  margin: 2em auto 1em;\n}\n\n.content h2 span.step {\n  color: #666;\n}\n\n.content h3 {\n  font-size: 14px;\n  color: #333;\n  margin: 1.5em 0 .5em;\n}\n\n.content h5 {\n  font-size: 13px;\n}\n\n.content h6 {\n  font-size: 13px;\n  color: #666;\n}\n\n.content a {\n  color: #4183C4;\n  text-decoration: none;\n}\n\n.content a:hover,\n.content a:active {\n  text-decoration:underline;\n}\n\n.content blockquote {\n  margin:0 0px;\n  padding: 0px 20px;\n}\n\n.content ul,\n.content ol {\n  margin: 0px;\n  padding: 0px;\n}\n\n.content dt {\n  color: #666;\n  font-weight: bold;\n}\n\n.content dd {\n  padding-left: 1em;\n  margin-bottom: 1em;\n}\n\n.content dd + dd {\n  margin-bottom: 0;\n}\n\n.content a img {\n  border: 0px;\n}\n\n.content dl {\n  margin-left: 10px;\n}\n\n.content ul,\n.content ol {\n  margin-left: 1.5em;\n}\n\n.content ul {\n  list-style-type: disc;\n}\n\n.content img {\n  max-width: 100%;\n  border: 1px solid #dddddd;\n  -webkit-box-shadow: 1px 1px 3px #ddd;\n  -moz-box-shadow: 1px 1px 3px #ddd;\n  box-shadow: 1px 1px 3px #ddd;\n}\n\ndiv.highlight {\n  border: 1px solid #cacaca;\n  padding: 10px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n  -moz-background-clip: padding;\n  -webkit-background-clip: padding-box;\n  margin: 0px;\n}\n",
+			"settings":
+			{
+				"buffer_size": 1712,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_layouts/default.html",
+			"settings":
+			{
+				"buffer_size": 4044,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 196.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Snippet: html"
+			],
+			[
+				"sni",
+				"Snippet: for (…) {…}"
+			],
+			[
+				"snippet: html",
+				"Snippet: html"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/full.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/public/js/app.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/layout.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/home/index.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/home/contact.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/home/about.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/node_modules/express-pjax/pjax.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/server.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/routes/home.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/index.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/package.json",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/about.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/layout1.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/index1.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/node_modules/express/package.json",
+		"/C/Github/ntotten/node-azure-starter/README.md",
+		"/C/Github/ntotten/node-azure-starter/WebRole1/public/app.html",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/.gitignore",
+		"/C/Github/ntotten/node-azure-starter/WebRole1/server.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/public/app.html",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/home/pjax.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/contact.jade",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/routes/index.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/node_modules/express/bin/express",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/index.ejs",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/app.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/public/css/style.css",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/public/js/jquery.pjax.js",
+		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/layout.ejs",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/getting-started.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_layouts/default.html",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/style.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-synchronous-requests.md",
+		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/WindowsAzureAcceleratorForWebRoles.depi",
+		"/C/Github/windowsazure-toolkits/wa-toolkit-games/SocialGamingToolkit.depi",
+		"/C/WindowsAzure/WATWindowsPhone/Setup.cmd",
+		"/C/WindowsAzure/WATWindowsPhone/Setup/dependencies.depi",
+		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/StartHere.cmd",
+		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/Sample.xml",
+		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/Setup/dependancies.depi",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/github.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/sh_main.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/sh_javascript.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/sh_csharp.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/sh_html.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/sh_css.min.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/sh_main.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_plugins/sitemap_generator.rb",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/sitemap.xml",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/404.html",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/404.md",
+		"/C/Github/microsoft-dpe/Node.js-Application-using-Socket.io/meta.xml",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/about.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_plugins/generate_sitemap.rb",
+		"/C/Users/ntotten/Downloads/jekyll-plugins.0.1.7/jekyll-plugins/generate_sitemap.rb",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/files1.txt",
+		"/C/Github/facebook-csharp-sdk/simple-json/files.txt",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/files.txt",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/documentation.css",
+		"/C/Python32/ez_setup.py",
+		"/C/Ruby193/lib/ruby/gems/1.9.1/gems/albino-1.3.3/lib/albino.rb",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/azure/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/README.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/nuget-button.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/Source/GlobalAssemblyInfo.cs",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/Samples/CS-WinForms/FacebookInfoDialog.cs",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/Samples/CS-WinForms/FacebookLoginDialog.cs",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/Build/rakefile.rb",
+		"/C/Users/ntotten/Downloads/JSON.cs",
+		"/C/node/Tutorial1/WebRole1/server.js",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/index.html",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/datetimeconverter.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/bootstrap.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/bootstrap.min.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_config.yml",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/windows/index.md",
+		"/C/Github/facebook-csharp-sdk/simple-json/src/SimpleJson/SimpleJson.cs",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/docs/phone/index.html",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/bootstrap-responsive.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/libraries/simple-json/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/libraries/simple-json/date-time-formatting.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/docs/phone/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/start.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_docs/phone/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/community-contents.html",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/community-contents.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/windows-phone-mobile-web-tutorial.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/facebook-links.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/faq.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/handling-exceptions.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests-with-async-await.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests-with-task-parallel-library.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-synchronous-requests-without-dynamic-support.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/optimizing-graph-api-data-fetch-using-etags.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Home.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Deploying-the-HTML5-'Hackbook'-Sample-for-Windows-Phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Deploying-the-html5-'hackbook'-sample-for-windows-phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Deploying-the-html5-'hello-world'-sample-for-windows-phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Facebook-mobile-platform-overview.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Mobile-web-tutorial-for-windows-phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Deploying-the-HTML5-'Hello-World'-Sample-for-Windows-Phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Facebook-Controls-for-Windows-Phone-Overview.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Facebook-Mobile-Platform-Overview.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Getting-Started-with-the-Facebook-Controls-for-Windows-Phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Mobile-Web-Tutorial-for-Windows-Phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/deploying-hackbook-html5-sample.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/deploying-hello-world-html5-sample.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/getting-started-facebook-windows-phone.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/windows-phone-controls-overview.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/phone/index.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/Home.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/something.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/docs/community-contents.md",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/.gitignore",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/css/style.css",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/CNAME",
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/README.md",
+		"/C/node/Tutorial1/WebRole1/pages/index.html",
+		"/C/node/MyEvents/WebRole1/EventService.js",
+		"/C/node/MyEvents/WebRole1/server.js",
+		"/C/node/tasklist1/WebRole1/app.js",
+		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/license.md",
+		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/_layouts/default.html"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"extends",
+			"codehilite",
+			"out = execute(options).out",
+			"Child.new(*(command + [proc_options.merge(:input => write_target)]))",
+			"codehilite",
+			"clear",
+			"container",
+			"div",
+			"../",
+			"footer",
+			"-bottom",
+			"navbar-fixed",
+			"footer",
+			">",
+			"!!!",
+			"pathname",
+			"config.",
+			"”",
+			"“",
+			"signature",
+			"url",
+			"signature",
+			"create",
+			"signed",
+			"createResourceName",
+			"protocol",
+			"createResourceName",
+			"blob",
+			"path",
+			"url",
+			"host",
+			"HTTP_PROXY",
+			"url",
+			"               //req.files.item.file.path 'C:\\node\\...\\afjdslafkjdslfk'\n               //req.files.item.file.type 'image/jpg'",
+			"\" />",
+			"Title"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"highlight",
+			"/",
+			"##",
+			"site.",
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "assets/css/style.css",
+					"settings":
+					{
+						"buffer_size": 5417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3747,
+								3747
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2296.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 1712,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_layouts/default.html",
+					"settings":
+					{
+						"buffer_size": 4044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3150,
+								3150
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 332.0,
+	"status_bar_visible": true
+}

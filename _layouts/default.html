@@ -71,10 +71,12 @@
     <script src="/assets/js/jquery-1.7.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/prettify.js" type="text/javascript"></script>
+    <script src="/assets/js/jquery.smooth-scroll.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('code').addClass('prettyprint');
         prettyPrint();
+        $('.content a').smoothScroll({offset: -50});
       });
     </script>
   </body>

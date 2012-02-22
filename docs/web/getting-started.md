@@ -5,10 +5,18 @@ title: Getting Started with the Facebook C# SDK for ASP.NET
 
 # Getting Started with the Facebook C# SDK for ASP.NET
 
-## Creating a Facebook Application
+## Contents
+
+* [Creating a Facebook Application](#1)
+* [Installation](#2)
+* [Making Your First Request](#3)
+* [Accessing User Information](#4)
+* [Obtaining an Access Token](#5 )
+
+## Creating a Facebook Application<a id="1">&nbsp;</a>
 Before you even begin using the Facebook C# SDK you must create a Facebook application. To do so navigate to [http://developers.facebook.com](http://developers.facebook.com) and....
 
-## Installation
+## Installation<a id="2">&nbsp;</a>
 The easiest way to get started using the Facebook C# SDK is to install it using [Nuget](http://nuget.org). If you don't already have it installed, download it from [nuget.org](http://nuget.org). If you do already have NuGet installed make sure you have the most recent version. So of the features used in the Facebook C# SDK will not work with old versions of NuGet.
 
 ### Adding the Facebook NuGet Package
@@ -20,7 +28,7 @@ To add the package to your project simply right click on the references folder a
 After you install the package you must configure the application...
 
 
-## Making Your First Request
+## Making Your First Request<a id="3">&nbsp;</a>
 Retrieving data form the Facebook Graph API is very easy using the Facebook C# SDK. The following code shows how to call the Graph API to retrieve [Nathan Totten's](http://facebook.com/totten) public information.
 
 	var client = new FacebookClient();
@@ -53,7 +61,7 @@ A dynamic object is an object that is evaluated only at runtime. You can think o
 
 As you can see, using a dictionary is possible, but it requires casting or conversion.
 
-## Accessing User Information
+## Accessing User Information<a id="4">&nbsp;</a>
 Now that you have seen how to make a request of public information using the Facebook C# SDK you probably want to do something a little more interesting. In order to access any information that is not public such as a user's profile details, friends list, or Time Line posts you need to provide a valid access token when making the request. 
 
 ### Obtaining an Access Token
@@ -72,7 +80,7 @@ Now that you have obtained a valid access token you are ready to make a request 
 
 This is the technique you will use for request all kinds of data such as friends lists, likes, Time Line posts and more. However, the types of data you can request depend on which permissions you have requested from the user. We will talk about that in more detail later.
 
-## Obtaining an Access Token
+## Obtaining an Access Token<a id="5">&nbsp;</a>
 In order to obtain an access token from your users you must present them with an authentication dialog. The method in which you present this dialog varies depending on which device your application is built for. Ultimately, regardless of the form factor you are presenting the user with a Facebook login web page. 
 
 > You cannot and must not ask your users for their user name and password directly. There is no way to convert a user name and password into an access token. Additionally, Facebook does not permit applications from requesting, storing, or transmitting Facebook credentials.

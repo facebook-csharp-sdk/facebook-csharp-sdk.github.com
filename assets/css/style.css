@@ -134,125 +134,6 @@ body {
     border: 0 !important;
 }
 
-/* Wiki Styles
-/* To match the Github Wiki style some of these classes were copied from:
-/* https://github.com/pages/pages.github.com/blob/master/shared/css/documentation.css
--------------------------------------------------- */
-
-.content {
-  width: 700px;
-}
-
-.content p {
-  margin: 1em 0;
-}
-
-.content h1 {
-  font-size: 20px;
-  border-bottom: 1px solid #cccccc;
-  padding: .5em 0;
-  margin: 2em 0 1em;
-}
-
-.content h1:first-child {
-  margin: 0 0 1em;
-}
-
-.content h2 {
-  font-size: 16px;
-  color: #333;
-  margin: 2em auto 1em;
-}
-
-.content h2 span.step {
-  color: #666;
-}
-
-.content h3 {
-  font-size: 14px;
-  color: #333;
-  margin: 1.5em 0 .5em;
-}
-
-.content h5 {
-  font-size: 13px;
-}
-
-.content h6 {
-  font-size: 13px;
-  color: #666;
-}
-
-.content a {
-  color: #4183C4;
-  text-decoration: none;
-}
-
-.content a:hover,
-.content a:active {
-  text-decoration:underline;
-}
-
-.content blockquote {
-  margin:0 0px;
-  padding: 0px 20px;
-}
-
-.content ul,
-.content ol {
-  margin: 0px;
-  padding: 0px;
-}
-
-.content dt {
-  color: #666;
-  font-weight: bold;
-}
-
-.content dd {
-  padding-left: 1em;
-  margin-bottom: 1em;
-}
-
-.content dd + dd {
-  margin-bottom: 0;
-}
-
-.content a img {
-  border: 0px;
-}
-
-.content dl {
-  margin-left: 10px;
-}
-
-.content ul,
-.content ol {
-  margin-left: 1.5em;
-}
-
-.content ul {
-  list-style-type: disc;
-}
-
-.content img {
-  max-width: 100%;
-  border: 1px solid #dddddd;
-  -webkit-box-shadow: 1px 1px 3px #ddd;
-  -moz-box-shadow: 1px 1px 3px #ddd;
-  box-shadow: 1px 1px 3px #ddd;
-}
-
-div.highlight {
-  border: 1px solid #cacaca;
-  padding: 10px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  margin: 0px;
-}
 
 
 /* About Page
@@ -272,15 +153,6 @@ div.highlight {
           box-shadow: none;
 }
 
-/* Bootstrap Overrides
--------------------------------------------------- */
-
-blockquote p {
-  font-size: 13px; /* default: 16px */
-  font-weight: 300; /* default: 300 */
-  line-height: 20px; /* default: 22.5px */
-}
-
 /* Prettify
 -------------------------------------------------- */
 .pln{color:#000}@media screen{.str{color:#080}.kwd{color:#008}.com{color:#800}.typ{color:#606}.lit{color:#066}.pun,.opn,.clo{color:#660}.tag{color:#008}.atn{color:#606}.atv{color:#080}.dec,.var{color:#606}.fun{color:red}}@media print,projection{.str{color:#060}.kwd{color:#006;font-weight:bold}.com{color:#600;font-style:italic}.typ{color:#404;font-weight:bold}.lit{color:#044}.pun,.opn,.clo{color:#440}.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#060}}pre.prettyprint{padding:2px;border:1px solid #888}ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}
@@ -292,4 +164,50 @@ pre {
   border-right: 1px solid #DCDCDC;
   background: #f5f5f5;
   padding: 10px 10px 10px 15px;
+}
+
+
+/* Body Styles
+-------------------------------------------------- */
+
+blockquote p {
+  font-size: 14px; /* default: 16px */
+  font-weight: 300; /* default: 300 */
+  line-height: 20px; /* default: 22.5px */
+}
+
+.content {
+  width: 700px;
+  font-family: 'Segoe UI Light', 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-weight: normal;
+  color: #707070;
+}
+
+.content h1 {
+  font-size: 36px;
+  line-height: 46px;
+  margin-bottom: 35px;
+}
+
+.content h2 {
+  font-size: 18px;
+  color: #DB7100;
+  line-height: 18px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+}
+
+.content h3 {
+  font-size: 14px;
+  color: #2A2A2A;
+  font-weight: bold;
 }

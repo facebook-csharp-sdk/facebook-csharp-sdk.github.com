@@ -6,14 +6,14 @@ title: About the Facebook C# SDK
 # About
 The Facebook C# SDK helps .Net developers build web, desktop, and phone applications that integrate with Facebook. This project is open source and is driven largely by volunteer efforts of our developers. 
 
-# Corporate Sponsors
-<div class="person" style="height: 50px;">
+## Corporate Sponsors
+<div class="person" style="height: 75px; padding-bottom: 35px;">
 <h3><a href="http://www.thuzi.com">Thuzi</a></h3>
 <a href="http://www.thuzi.com"><img src="http://www.thuzi.com/wp-content/themes/twentytenthuzi/images/thuzi_logo.png" /></a>
 Thuzi has generously provided funding and support for the Facebook C# SDK. Thuzi focuses on social media marketing for brands, offering detailed analytics, social optimization strategies and social media products tied to direct commerce growth. 
 </div>
 
-# People
+## People
 <div class="person" style="height: 170px;">
 <h3><a href="http://prabir.me">Prabir Shrestha</a></h3>
 <a href="http://prabir.me"><img src="http://www.gravatar.com/avatar/08580f0e341ffc9146050ac8d368a8e2.png?s=150" /></a>
