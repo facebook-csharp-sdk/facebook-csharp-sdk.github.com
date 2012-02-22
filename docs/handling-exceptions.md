@@ -1,6 +1,8 @@
 ---
 layout: default
-title: Facebook C# SDK Docs
+title: Handling Exceptions with the Facebook C# SDK
 ---
+
+# Handling Exceptions with the Facebook C# SDK
 
 [TODO]

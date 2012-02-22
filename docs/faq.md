@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Facebook C# SDK Docs
+title: Frequently Asked Questions about the Facebook C# SDK
 ---
+
+# Frequently Asked Questions about the Facebook C# SDK
 
 ## How do I get the Facebook Application Access Token?
 

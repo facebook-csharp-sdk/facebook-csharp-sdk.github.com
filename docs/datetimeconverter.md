@@ -1,7 +1,10 @@
 ---
 layout: default
-title: Facebook C# SDK Docs
+title: Facebook C# SDK DateTimeConverter Class Reference
 ---
+
+# DateTimeConverter Class Reference
+
 
 DateTimeConverter class contains some useful helper methods to interact with Facebook's date and time format.
 

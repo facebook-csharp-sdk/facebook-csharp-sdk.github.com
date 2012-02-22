@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Facebook C# SDK Docs
+title: Facebook C# SDK Community Content
 ---
 
-**Links to articles/blog posts by the community related to Facebook C# SDK**
+# Facebook C# SDK Community Content
 
 * [Facebook C# SDK - Windows 8 Metro Style Apps](http://blog.prabir.me/post/Facebook-CSharp-SDK-Windows-8-Metro-Style-Apps.aspx) - by [Prabir Shrestha](https://github.com/prabirshrestha)
 * [Facebook C# SDK - and Silverlight 5](http://blog.prabir.me/post/Facebook-CSharp-SDK-and-Silverlight-5.aspx) - by [Prabir Shrestha](https://github.com/prabirshrestha)
