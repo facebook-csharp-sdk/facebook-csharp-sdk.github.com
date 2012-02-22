@@ -17,8 +17,6 @@ If you are looking for the documentation for v5 of the Facebook C# SDK you can f
 * [Community Content](/docs/community-content.html)
 * [Facebook Links](/docs/facebook-links.html)
 
-## Technical Documentation
-
 ## Getting Starting
 
 * Coming Soon..

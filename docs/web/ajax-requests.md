@@ -1,4 +1,6 @@
 ---
 layout: default
-title: Facebook C# SDK for ASP.NET
+title: Making AJAX Requests with the Facebook C# SDK
 ---
+
+# Making AJAX Requests

@@ -11,11 +11,11 @@ title: Making Synchronous Requests with the Facbeook C# SDK
 
 > All samples below are shown using dynamic. For platforms such as .NET 3.5/Windows Phone where dynamic is not supported refer to [Making synchronous requests without dynamic support](Making-Synchronous-Requests-without-Dynamic-Support). All the samples shown below can be done without dynamic.
 
-# Graph Api
 It is highly recommended to read the official Facebook documentation on Graph Api which can be found at https://developers.facebook.com/docs/reference/api/ before proceeding further. 
 
 ## GET
-**Accessing unprotected resources**
+
+### Accessing unprotected resources
 
 Here is a hello world Facebook C# SDK example on accessing public Facebook data without the access token.
 
@@ -40,7 +40,7 @@ You could also explicitly mention the type of the value or use var keyword. But 
     string firstName = result.first_name;
     var lastName = result.last_name;
 
-**Accessing protected resources**
+### Accessing protected resources
 
 Facebook requires to access most of the protected resource using access token. You can pass the access token using the constructor.
 
@@ -56,7 +56,7 @@ Or you can set/get the access token use the AccessToken property.
     var id = me.id;
     var name = me.name;
 
-***Passing parameters***
+### Passing parameters
 
 Some of the api's allows you to pass parameters to your request.
 Here is an example using anonymous objects.
@@ -86,7 +86,7 @@ You could also make use of [ExapndoObject](http://msdn.microsoft.com/en-us/libra
     var id = result.id;
     var name = result.name;
 
-***Handling Graph Api Exceptions***
+### Handling Graph Api Exceptions
 
 For simplicity most of the examples shown here does not handle exceptions. It is always recommended to handle exceptions during production.
 
@@ -112,7 +112,7 @@ For simplicity most of the examples shown here does not handle exceptions. It is
         // non-facebook exception such as no internet connection.
     }
 
-> ```FacebookOAuthException``` and ```FacebookApiLimitException``` inherits from ```FacebookApiException```.
+> ```FacebookOAuthException``` and ```FacebookApiLimitException``` inherit from ```FacebookApiException```.
 
 ## POST
 Sample for posting to the wall.
@@ -123,7 +123,7 @@ Sample for posting to the wall.
 
 To post to the wall, you will need the user's permission. You can read more about these permissions (commonly known as ```extended permissions``` or ```scope```) in the official Facebook documentation at https://developers.facebook.com/docs/reference/api/permissions/
 
-**Uploading Files**
+### Uploading Files
 
 To upload files you will need to pass either FacebookMediaObject or FacebookMediaStream as a top level parameter.
 
@@ -202,7 +202,7 @@ It is highly recommended to read the official Facebook documentation on Facebook
                 }
             });
 
-# Batch Requests
+## Batch Requests
 It is highly recommended to read the official Facebook documentation on Batch Requests which can be found at https://developers.facebook.com/docs/reference/api/batch/ before proceeding further.
 
     try
@@ -247,7 +247,7 @@ It is highly recommended to read the official Facebook documentation on Batch Re
 
 > Always warp batch request in a ```try...catch``` block. Result of batch request is always ```IList<object>```. Make sure to always check for exceptions in each result.
 
-**FQL in Batch Requests**
+### FQL in Batch Requests
 
 FQL in batch requests are similar to normal FQL Query. You can also execute multi query and multi query with dependency.
 
@@ -256,7 +256,7 @@ FQL in batch requests are similar to normal FQL Query. You can also execute mult
         new FacebookBatchParameter("fql", 
         new { q = "SELECT uid FROM user WHERE uid=me()" }));
 
-**Advanced Batch Requests**
+### Advanced Batch Requests
 
 If you want to set the parameters such as ```omit_response_on_success``` or ```name```, you will need to make use of ```Data``` property.
 
@@ -273,37 +273,5 @@ If you want to set the parameters such as ```omit_response_on_success``` or ```n
                     ids = "{result=one-friend:$.data.0.id}" 
                 })
         );
-
-# Legacy REST Api
-It is highly recommended to read the official Facebook documentation on Legacy REST Api which can be found at https://developers.facebook.com/docs/reference/rest/ before proceeding further. 
-
-**Although legacy REST api is supported by Facebook C# SDK, it is highly discouraged to be used as Facebook is in the process of deprecating the legacy REST api.**
-
-## GET
-For rest api make sure to set the name of the rest api as **method** in the parameter.
-
-    var fb = new FacebookClient("accessToken");
-
-    dynamic result = fb.Get(new
-        {
-            method = "users.getInfo",
-            fields = new[] { "name" },
-            uids = new[] { 4 }
-        });
-    Console.WriteLine(result);
-
-Similar to graph api, you can continue to pass parameter as either ```IDictionary<string,object>``` or ```ExpandoObject```.
-
-## POST
-
-    var fb = new FacebookClient("access_token");
-
-    dynamic result = fb.Post(new
-        {
-            method = "stream.publish",
-            message = "My first wall post using Facebook " +
-                      "C# SDK via legacy rest api."
-        });
-    Console.WriteLine(result);
 
 > Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. It is highly recommend to handle exceptions. If possible it is always recommended to use the asynchronous alternatives - [Making Asynchronous Requests](Making-Asynchronous-Requests), [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library), [Making Asynchronous Requests with async await](Making-Asynchronous-Requests-with-async-await)

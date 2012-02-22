@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Requesting Extended Permissons
+title: Requesting Permissons
 ---
 
-# Requesting Extended Permissions
+# Requesting Permissions
