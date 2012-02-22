@@ -4,55 +4,37 @@ title: Facebook C# SDK DateTimeConverter Class Reference
 ---
 
 # DateTimeConverter Class Reference
+The ```DateTimeConverter``` class contains some useful helper methods to interact with Facebook's date and time format. Below you will find several common uses of this object.
 
+> Always make sure that the .NET DateTime is in UTC format before conversion.
 
-DateTimeConverter class contains some useful helper methods to interact with Facebook's date and time format.
+### Get the Epoch Date and Time
 
-**Note: Always make sure that the .NET DateTime is in UTC format before conversion.**
+	DateTime epoch = DateTimeConverter.Epoch;
 
-## Get the Epoch Date and Time
+### Convert from Unix time to .NET DateTime
 
-```
-DateTime epoch = DateTimeConverter.Epoch;
-```
+	//From double to .NET UTC DateTime:
+	DateTime result = DateTimeConvertor.FromUnixTime(1327774473);
 
-## Convert from Unix time to .NET DateTime
-
-### From double to .NET UTC DateTime
-
-```
-DateTime result = DateTimeConvertor.FromUnixTime(1327774473);
-```
-
-### From string to .NET UTC DateTime
-
-```
-DateTime result = DateTimeConvertor.FromUnixTime("1327774473");
-```
+	//From string to .NET UTC DateTime:
+	DateTime result = DateTimeConvertor.FromUnixTime("1327774473");
 
 ## Convert from .NET UTC DateTime to Unix time
 
-### From UTC DateTime
+	// From UTC DateTime
+	DateTime dateTime = new DateTime(2012, 1, 28, 18, 14, 33, DateTimeKind.Utc);
+	double unixTime = DateTimeConvertor.ToUnixTime(dateTime);
 
-```
-DateTime dateTime = new DateTime(2012, 1, 28, 18, 14, 33, DateTimeKind.Utc);
-double unixTime = DateTimeConvertor.ToUnixTime(dateTime);
-```
+	//From DateTimeOffset
+	[TODO]
 
-### From DateTimeOffset
+### Convert .NET UTC DateTime to ISO8601 Formatted Date and Time String
 
-[TODO]
+	DateTime dateTime = new DateTime(2012, 1, 28, 18, 14, 33, DateTimeKind.Utc);
+	string iso8601FormattedDateTime = DateTimeConvertor.ToIso8601FormattedDateTime(dateTime);
+	// iso8601FormattedDateTime = "2012-01-28T18:14:33Z"
 
-## Convert .NET UTC DateTime to ISO8601 Formatted Date and Time String
+### Convert from ISO8601 Date and Time from String to .NET UTC DateTime
 
-```
-DateTime dateTime = new DateTime(2012, 1, 28, 18, 14, 33, DateTimeKind.Utc);
-string iso8601FormattedDateTime = DateTimeConvertor.ToIso8601FormattedDateTime(dateTime);
-// iso8601FormattedDateTime = "2012-01-28T18:14:33Z"
-```
-
-## Convert from ISO8601 Date and Time from String to .NET UTC DateTime
-
-```
-DateTime dateTime = DateTimeConvertor.FromIso8601FormattedDateTime("2012-01-28T18:14:33Z");
-```
+	DateTime dateTime = DateTimeConvertor.FromIso8601FormattedDateTime("2012-01-28T18:14:33Z");
