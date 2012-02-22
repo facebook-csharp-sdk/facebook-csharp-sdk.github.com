@@ -20,7 +20,7 @@ The ```DateTimeConverter``` class contains some useful helper methods to interac
 	//From string to .NET UTC DateTime:
 	DateTime result = DateTimeConvertor.FromUnixTime("1327774473");
 
-## Convert from .NET UTC DateTime to Unix time
+### Convert from .NET UTC DateTime to Unix time
 
 	// From UTC DateTime
 	DateTime dateTime = new DateTime(2012, 1, 28, 18, 14, 33, DateTimeKind.Utc);
