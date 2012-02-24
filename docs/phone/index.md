@@ -3,8 +3,6 @@ layout: default
 title: Facebook C# SDK for Windows Phone
 ---
 
-# Facebook C# SDK for Windows Phone
-
 Over 350 million users access Facebook from a mobile device every month. Facebook Platform lets you bring these users and their friends to your mobile apps, creating a more engaging and personalized experience for your users.
 
 ##Seamless Social Experiences

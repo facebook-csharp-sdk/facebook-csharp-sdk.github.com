@@ -3,8 +3,6 @@ layout: default
 title: Getting Started with SimpleJson
 ---
 
-# Getting Started with SimpleJson
-
 ## Serialize a JSON object
 
 ```csharp

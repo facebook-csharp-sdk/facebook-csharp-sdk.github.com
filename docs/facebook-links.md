@@ -3,8 +3,6 @@ layout: default
 title: Facebook C# SDK Links and Related Content
 ---
 
-# Links and Related Content
-
 ## Facebook Developer Documents
 * [Facebook Developer Blog](https://developers.facebook.com/blog)
 * [Facebook Change Log](https://developers.facebook.com/docs/changelog/)

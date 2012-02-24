@@ -3,8 +3,6 @@ layout: default
 title: Making Synchronous Requests without Dynamic Support
 ---
 
-# Making Synchronous Requests without Dynamic Support
-
 This article is primarily for .NET 3.5 and Windows Phone developers where dynamic is not supported. If you are using a platform that supports dynamic you should read [Making Synchronous Requests](Making-Synchronous-Requests) first.
 
 > Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](Making Asynchronous Requests) or [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library) or [Making Asynchronous Requests with async await](Making Asynchronous Requests with async await).

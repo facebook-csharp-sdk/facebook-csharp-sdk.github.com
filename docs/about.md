@@ -3,7 +3,6 @@ layout: default
 title: About the Facebook C# SDK
 ---
 
-# About
 The Facebook C# SDK helps .Net developers build web, desktop, and phone applications that integrate with Facebook. This project is open source and is driven largely by volunteer efforts of our developers. 
 
 ## Corporate Sponsors

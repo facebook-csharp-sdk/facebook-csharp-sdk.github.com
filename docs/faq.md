@@ -3,8 +3,6 @@ layout: default
 title: Facebook C# SDK Frequently Asked Questions
 ---
 
-# Frequently Asked Questions
-
 ## General Questions
 
 ### How do I get the Facebook Application Access Token?

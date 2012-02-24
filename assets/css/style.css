@@ -166,18 +166,26 @@ code {
    font-family: "Consolas", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* Table of Contents
+-------------------------------------------------- */
+
+.sticky {
+  top: 50px;
+  position: fixed;
+}
 
 /* Body Styles
 -------------------------------------------------- */
+
+#doc {
+  border-left: 1px solid #B6B6B6;
+  padding-left: 20px;
+}
 
 blockquote p {
   font-size: 14px; /* default: 16px */
   font-weight: 300; /* default: 300 */
   line-height: 20px; /* default: 22.5px */
-}
-
-.content {
-  width: 700px;
 }
 
 .content h1,
@@ -208,4 +216,18 @@ blockquote p {
   font-size: 14px;
   color: #2A2A2A;
   font-weight: bold;
+}
+
+.content h6 {
+  font-size: 12px;
+  text-transform: none;
+}
+
+.content h6 a {
+  color: #707070;
+}
+
+.content h6 a:hover {
+  color: #03697A;
+  text-decoration: none;
 }

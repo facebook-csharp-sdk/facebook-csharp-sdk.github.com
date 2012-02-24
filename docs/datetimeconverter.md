@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Facebook C# SDK DateTimeConverter Class Reference
+title: DateTimeConverter Class Reference
 ---
 
-# DateTimeConverter Class Reference
 The ```DateTimeConverter``` class contains some useful helper methods to interact with Facebook's date and time format. Below you will find several common uses of this object.
 
 > Always make sure that the .NET DateTime is in UTC format before conversion.
