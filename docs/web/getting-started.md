@@ -85,8 +85,6 @@ In order to obtain an access token from your users you must present them with an
 
 > You cannot and must not ask your users for their user name and password directly. There is no way to convert a user name and password into an access token. Additionally, Facebook does not permit applications from requesting, storing, or transmitting Facebook credentials.
 
-> Some observant users will note that there are applications that ask you for your Facebook user name and password directly. For example, you can log in to [Spotify](http://spotify.com) using your Facebook credentials. Spotify does not use the standard Facebook authentication mechanisms. The authentication mechanism used by Spotify and other limited partners is granted only by Facebook to specific applications. I have no idea how this works or how you get permission to use this API. My advice is that unless you are a well established brand or know Mark Zuckerburg you probably aren't going to get access to this special authentication API. As such you must use the standard OAuth 2.0 authentication system.
-
 ### Requesting an Access Token from a Website
 In order to get an access token from your users on a website you must use the either the [Facebook JavaScript SDK](http://github.com/facebook/facebook-js-sdk) or perform what is called server flow authentication. In this tutorial we will use the Facebook JavaScript SDK to perform authentication. The Facebook JavaScript SDK will handle all the details of displaying the login dialog, requesting permissions, and parsing the authentication cookie for the access token.
 
