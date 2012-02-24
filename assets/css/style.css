@@ -47,10 +47,6 @@ body {
 	float: left;
 }
 
-.hcontent {
-  width: 700px;
-}
-
 /* Home Page
 -------------------------------------------------- */
 
@@ -166,6 +162,10 @@ pre {
   padding: 10px 10px 10px 15px;
 }
 
+code {
+   font-family: "Consolas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 
 /* Body Styles
 -------------------------------------------------- */
@@ -178,8 +178,6 @@ blockquote p {
 
 .content {
   width: 700px;
-  font-family: 'Segoe UI Light', 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
-  font-size: 12px;
 }
 
 .content h1,
