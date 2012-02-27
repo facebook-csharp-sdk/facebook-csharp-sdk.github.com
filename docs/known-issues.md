@@ -31,7 +31,7 @@ This error occurs when using display=wap or display=touch. There is currently no
 
 Facebook Bug: [291633774212504](https://developers.facebook.com/bugs/291633774212504)
 
-## Windows 8
+## Windows 8 Metro Style Apps
 
 ### HttpWebRequest.AutomaticDecompression in WinRT
 The HttpWebRequest object in Metro style apps does not contain AutomaticDecompression property.
