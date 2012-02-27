@@ -23,9 +23,11 @@ Regardless of whether you set display=touch or display=wap, Facebook will always
 ### All Dialogs except Authorization result in an error message
 When attempting to display dialogs on Windows Phone the following error message is displayed:
 
-> API Error Code: 3
-  API Error Description: Unknown method.
-  Error Message: This mesage isn't support on this display type.
+<pre>
+API Error Code: 3
+API Error Description: Unknown method.
+Error Message: This mesage isn't support on this display type.
+</pre>
 
 This error occurs when using display=wap or display=touch. There is currently no known work around for this issue. 
 
