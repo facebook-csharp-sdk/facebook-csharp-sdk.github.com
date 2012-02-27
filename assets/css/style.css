@@ -137,9 +137,11 @@ body {
 
 .person {
   padding-bottom: 30px;
+  height: 170px;
 }
 
 .person img {
+  height: 150px;
   padding-right: 20px;
   float: left;
   border-image: none;
@@ -163,7 +165,7 @@ pre {
 }
 
 code {
-   font-family: "Consolas", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: "Consolas", Arial;
 }
 
 /* Table of Contents
@@ -219,7 +221,7 @@ blockquote p {
 }
 
 .content h6 {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: none;
 }
 

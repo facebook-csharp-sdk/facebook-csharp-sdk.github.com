@@ -500,3 +500,5 @@ Congrats, you've built and deployed your social mobile web app. One of the key b
 Note that this tutorial covers most of the functionality offered to mobile web apps. Some features that are available on desktop aren't support on mobile yet. For an overview of those features, see the [feature support page](Congrats, you've built and deployed your social mobile web app. One of the key benefits of building a web app is that it works just about anywhere.
 
 Note that this tutorial covers most of the functionality offered to mobile web apps. Some features that are available on desktop aren't support on mobile yet. For an overview of those features, see the [feature support page](http://developers.facebook.com/docs/mobile/web/support/).
+
+{% include phone-see-also.md %}

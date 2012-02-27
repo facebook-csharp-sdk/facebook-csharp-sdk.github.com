@@ -19,28 +19,52 @@
 			"file": "assets/css/style.css",
 			"settings":
 			{
-				"buffer_size": 5417,
+				"buffer_size": 5587,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "/* Wiki Styles\n/* To match the Github Wiki style some of these classes were copied from:\n/* https://github.com/pages/pages.github.com/blob/master/shared/css/documentation.css\n-------------------------------------------------- */\n\n.content {\n  width: 700px;\n}\n\n.content p {\n  margin: 1em 0;\n}\n\n.content h1 {\n  font-size: 20px;\n  border-bottom: 1px solid #cccccc;\n  padding: .5em 0;\n  margin: 2em 0 1em;\n}\n\n.content h1:first-child {\n  margin: 0 0 1em;\n}\n\n.content h2 {\n  font-size: 16px;\n  color: #333;\n  margin: 2em auto 1em;\n}\n\n.content h2 span.step {\n  color: #666;\n}\n\n.content h3 {\n  font-size: 14px;\n  color: #333;\n  margin: 1.5em 0 .5em;\n}\n\n.content h5 {\n  font-size: 13px;\n}\n\n.content h6 {\n  font-size: 13px;\n  color: #666;\n}\n\n.content a {\n  color: #4183C4;\n  text-decoration: none;\n}\n\n.content a:hover,\n.content a:active {\n  text-decoration:underline;\n}\n\n.content blockquote {\n  margin:0 0px;\n  padding: 0px 20px;\n}\n\n.content ul,\n.content ol {\n  margin: 0px;\n  padding: 0px;\n}\n\n.content dt {\n  color: #666;\n  font-weight: bold;\n}\n\n.content dd {\n  padding-left: 1em;\n  margin-bottom: 1em;\n}\n\n.content dd + dd {\n  margin-bottom: 0;\n}\n\n.content a img {\n  border: 0px;\n}\n\n.content dl {\n  margin-left: 10px;\n}\n\n.content ul,\n.content ol {\n  margin-left: 1.5em;\n}\n\n.content ul {\n  list-style-type: disc;\n}\n\n.content img {\n  max-width: 100%;\n  border: 1px solid #dddddd;\n  -webkit-box-shadow: 1px 1px 3px #ddd;\n  -moz-box-shadow: 1px 1px 3px #ddd;\n  box-shadow: 1px 1px 3px #ddd;\n}\n\ndiv.highlight {\n  border: 1px solid #cacaca;\n  padding: 10px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n  -moz-background-clip: padding;\n  -webkit-background-clip: padding-box;\n  margin: 0px;\n}\n",
+			"file": "docs/about.md",
 			"settings":
 			{
-				"buffer_size": 1712,
+				"buffer_size": 2279,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "_layouts/default.html",
+			"file": "docs/making-synchronous-requests.md",
 			"settings":
 			{
-				"buffer_size": 4044,
+				"buffer_size": 10662,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_includes/web-see-also.md",
+			"settings":
+			{
+				"buffer_size": 489,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "docs/web/ajax-requests.md",
+			"settings":
+			{
+				"buffer_size": 115,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "docs/web/handling-expired-access-tokens.md",
+			"settings":
+			{
+				"buffer_size": 3455,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/User/jekyll.sublime-build",
 	"command_palette":
 	{
 		"height": 196.0,
@@ -76,6 +100,49 @@
 	},
 	"file_history":
 	[
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/handling-api-limit-errors.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/road-map.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/using-aspnet-membership.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/deploying-hackbook-html5-sample.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/deploying-hello-world-html5-sample.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/getting-started-facebook-windows-phone.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/windows-phone-controls-overview.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/windows-phone-mobile-web-tutorial.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_includes/web-see-also.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_includes/phone-see-also.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/404.html",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_includes/topnav.html",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_layouts/default.html",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_includes/google-analytics.html",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/index.html",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_includes/footer.html",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/getting-started.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/style.css",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/about.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/community-content.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/datetimeconverter.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/facebook-links.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/faq.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/handling-exceptions.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/index.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/legacy-rest-api.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests-with-async-await.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests-with-task-parallel-library.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-synchronous-requests-without-dynamic-support.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-synchronous-requests.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/optimizing-graph-api-data-fetch-using-etags.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/windows/index.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/permissions.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/index.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/handling-expired-access-tokens.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/web/ajax-requests.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/index.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/libraries/simple-json/index.md",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/azure/index.md",
+		"/Users/ntotten/Library/Application Support/Sublime Text 2/Packages/User/jekyll.sublime-build",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_config.yml",
+		"/Users/ntotten/Documents/github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/js/main.js",
 		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/full.jade",
 		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/public/js/app.js",
 		"/Users/ntotten/Documents/github/ntotten/SocialDrawing/WebRole1/views/layout.jade",
@@ -160,50 +227,7 @@
 		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/assets/css/bootstrap-responsive.css",
 		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/libraries/simple-json/index.md",
 		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/libraries/simple-json/date-time-formatting.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/docs/phone/index.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/start.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/index.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_docs/phone/index.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/community-contents.html",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/community-contents.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/windows-phone-mobile-web-tutorial.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/facebook-links.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/faq.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/handling-exceptions.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests-with-async-await.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests-with-task-parallel-library.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-asynchronous-requests.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/making-synchronous-requests-without-dynamic-support.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/optimizing-graph-api-data-fetch-using-etags.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Home.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Deploying-the-HTML5-'Hackbook'-Sample-for-Windows-Phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Deploying-the-html5-'hackbook'-sample-for-windows-phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Deploying-the-html5-'hello-world'-sample-for-windows-phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Facebook-mobile-platform-overview.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/html5/Mobile-web-tutorial-for-windows-phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Deploying-the-HTML5-'Hello-World'-Sample-for-Windows-Phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Facebook-Controls-for-Windows-Phone-Overview.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Facebook-Mobile-Platform-Overview.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Getting-Started-with-the-Facebook-Controls-for-Windows-Phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/Mobile-Web-Tutorial-for-Windows-Phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/deploying-hackbook-html5-sample.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/deploying-hello-world-html5-sample.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/getting-started-facebook-windows-phone.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/phone/windows-phone-controls-overview.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/phone/index.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/Home.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/docs/something.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/docs/community-contents.md",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/.gitignore",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/css/style.css",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/CNAME",
-		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk/README.md",
-		"/C/node/Tutorial1/WebRole1/pages/index.html",
-		"/C/node/MyEvents/WebRole1/EventService.js",
-		"/C/node/MyEvents/WebRole1/server.js",
-		"/C/node/tasklist1/WebRole1/app.js",
-		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/license.md",
-		"/C/Github/windowsazure-accelerators/wa-accelerator-webroles/_layouts/default.html"
+		"/C/Github/facebook-csharp-sdk/facebook-csharp-sdk.github.com/_site/docs/phone/index.md"
 	],
 	"find":
 	{
@@ -279,7 +303,6 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
 				{
@@ -287,15 +310,15 @@
 					"file": "assets/css/style.css",
 					"settings":
 					{
-						"buffer_size": 5417,
+						"buffer_size": 5587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3747,
-								3747
+								5453,
+								5453
 							]
 						],
 						"settings":
@@ -305,31 +328,30 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2296.0,
+						"translation.y": 2681.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "docs/about.md",
 					"settings":
 					{
-						"buffer_size": 1712,
+						"buffer_size": 2279,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								258,
-								230
+								973,
+								973
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -339,25 +361,105 @@
 				},
 				{
 					"buffer": 2,
-					"file": "_layouts/default.html",
+					"file": "docs/making-synchronous-requests.md",
 					"settings":
 					{
-						"buffer_size": 4044,
+						"buffer_size": 10662,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3150,
-								3150
+								4221,
+								4246
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
+							"spell_check": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1217.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "_includes/web-see-also.md",
+					"settings":
+					{
+						"buffer_size": 489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								488,
+								488
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "docs/web/ajax-requests.md",
+					"settings":
+					{
+						"buffer_size": 115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								78
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "docs/web/handling-expired-access-tokens.md",
+					"settings":
+					{
+						"buffer_size": 3455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3423,
+								3423
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

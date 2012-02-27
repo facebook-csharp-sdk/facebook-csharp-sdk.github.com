@@ -11,7 +11,7 @@ title: Making Synchronous Requests with the Facbeook C# SDK
 
 It is highly recommended to read the official Facebook documentation on Graph Api which can be found at https://developers.facebook.com/docs/reference/api/ before proceeding further. 
 
-## GET
+## Retrieve Data (HTTP GET)
 
 ### Accessing unprotected resources
 
@@ -112,7 +112,7 @@ For simplicity most of the examples shown here does not handle exceptions. It is
 
 > ```FacebookOAuthException``` and ```FacebookApiLimitException``` inherit from ```FacebookApiException```.
 
-## POST
+## Insert or Update Data (HTTP POST)
 Sample for posting to the wall.
 
     var fb = new FacebookClient("access_token");
@@ -157,7 +157,7 @@ _Using FacebookMediaStream_
 
 > Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream. FacebookMediaStream implements IDisposable which internally calls Dispose on the stream thus you can use FacebookMediaStream on the using block.
 
-## DELETE
+## Delete Data (HTTP DELETE)
 
 Sample code for deleting the previous wall post.
 

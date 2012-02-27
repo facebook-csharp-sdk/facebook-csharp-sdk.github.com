@@ -22,3 +22,5 @@ title: Deploying the HTML5 'Hackbook' Sample for Windows Phone
 *This sample has branching logic for WP7 in the cases where dialogs are to be shown and will navigate to m.facebook.com.
 
 *By default, the mobile send request dialog does not currently list friends, but rather includes a link that indicates that you can 'add some friends'. This does not currently work as expected and will instead navigate to the mobile Facebook experience. To work around this, it is recommended that you include a 'to' parameter listing the users to show in the dialog (see commented out code in sendRequest Javascript function).
+
+{% include phone-see-also.md %}

@@ -128,3 +128,5 @@ private void Button_Click(object sender, RoutedEventArgs e)
 ## Notes
 
 To learn more about the Facebook Controls please see http://github.com/microsoft-dpe/wp-toolkit-facebook/wiki/Facebook-Controls-for-Windows-Phone-Overview
+
+{% include phone-see-also.md %}
