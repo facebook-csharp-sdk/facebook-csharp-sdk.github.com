@@ -8,7 +8,7 @@ The Facebook C# SDK helps .Net developers build web, desktop, and phone applicat
 ## Corporate Sponsors
 <div class="person" style="padding-bottom: 35px;">
 <h3><a href="http://www.thuzi.com">Thuzi</a></h3>
-<a href="http://www.thuzi.com"><img src="http://www.thuzi.com/wp-content/themes/twentytenthuzi/images/thuzi_logo.png" width="54px" height="133px" /></a>
+<a href="http://www.thuzi.com"><img src="http://www.thuzi.com/wp-content/themes/twentytenthuzi/images/thuzi_logo.png" height="54px" width="133px" /></a>
 Thuzi has generously provided funding and support for the Facebook C# SDK. Thuzi focuses on social media marketing for brands, offering detailed analytics, social optimization strategies and social media products tied to direct commerce growth. 
 </div>
 
