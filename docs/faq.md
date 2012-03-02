@@ -5,14 +5,8 @@ title: Facebook C# SDK Frequently Asked Questions
 
 ## General Questions
 
-### How do I get the Facebook Application Access Token?
-
-	string appAccessToken = string.Concat("appid", "|", "appsecret");
-
-You can also you the constructor of Facebook Client to auto set the Facebook App Token for you.
-
-	var fb = new FacebookClient("appid", "appsecret");
-	string appAccessToken = fb.AccessToken;
+### How do I get a Facebook Application Access Token?
+In order retrieve an access token you must use Facebook OAuth. If you are developing a web application, you should use the Facebook Javascript SDK for authentication.
 
 ### I get "window.opener is null or not an object" when running Silverlight application.
 The built-in Visual Studio Cassini Web Server is not supported. Use IIS or IIS express.

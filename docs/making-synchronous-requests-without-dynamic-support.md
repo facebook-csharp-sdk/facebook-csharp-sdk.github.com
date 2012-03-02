@@ -3,7 +3,7 @@ layout: default
 title: Making Synchronous Requests without Dynamic Support
 ---
 
-This article is primarily for .NET 3.5 and Windows Phone developers where dynamic is not supported. If you are using a platform that supports dynamic you should read [Making Synchronous Requests](Making-Synchronous-Requests) first.
+This article is primarily for .NET 3.5 and Windows Phone developers where dynamic is not supported. If you are using a platform that supports dynamic you should read [Making Synchronous Requests](/docs/making-asynchronous-requests.html) instead.
 
 > Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](Making Asynchronous Requests) or [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library) or [Making Asynchronous Requests with async await](Making Asynchronous Requests with async await).
 
@@ -14,19 +14,17 @@ This section will show you how to make varios common Facebook Graph API requests
 
 > It is highly recommended to read the official Facebook documentation on Graph Api which can be found at https://developers.facebook.com/docs/reference/api/ before proceeding further. 
 
-## GET
+## Retrieve Data (HTTP GET)
 
 ### Accessing unprotected resources
 
 Here is a hello world Facebook C# SDK example on accessing public Facebook data without the access token.
 
-```csharp
-var fb = new FacebookClient();
-var result = (IDictionary<string,object>)fb.Get("4");
-var id = (long)result["id"];
-var firstName = (string)result["first_name"];
-var lastName = (string)result["last_name"];
-```
+	var fb = new FacebookClient();
+	var result = (IDictionary<string,object>)fb.Get("4");
+	var id = (long)result["id"];
+	var firstName = (string)result["first_name"];
+	var lastName = (string)result["last_name"];
 
 ### Accessing protected resources
 
@@ -65,7 +63,7 @@ Another alternative would be to pass a type of ```IDictionary<string,object>```
 	var id = (long)result["id"];
 	var name = (string)result["name"];
 
-## POST
+## Add or Update Data (HTTP POST)
 
 ### Sample for posting to the wall.
 
@@ -73,7 +71,7 @@ Another alternative would be to pass a type of ```IDictionary<string,object>```
 	var result = (IDictionary<string,object>)fb.Post("me/feed", new { message = "My first wall post using Facebook C# SDK" });
 	var newPostId = (string)result["id"];
 
-## DELETE
+## Delete Data (HTTP DELETE)
 
 ### Sample code for deleting the previous wall post.
 
