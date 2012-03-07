@@ -6,10 +6,12 @@ title: Facebook C# SDK Frequently Asked Questions
 ## General Questions
 
 ### How do I get a Facebook Application Access Token?
-```csharp
-var fb = new FacebookClient();
-dynamic result = fb.Get("oauth/access_token", new { client_id = "app_id", client_secret = "app_secret", grant_type = "client_credentials" });
-```
+
+    var fb = new FacebookClient();
+    dynamic result = fb.Get("oauth/access_token", new { 
+    	client_id = "app_id", 
+    	client_secret = "app_secret", 
+    	grant_type = "client_credentials" });
 
 ### I get "window.opener is null or not an object" when running Silverlight application.
 The built-in Visual Studio Cassini Web Server is not supported. Use IIS or IIS express.
