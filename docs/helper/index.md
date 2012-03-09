@@ -61,11 +61,15 @@ These steps will guide you on how to display a Facebook Like button into your We
 
 1. Add the bolded line from below in the page where you want to show the Like button, in this case for liking the Microsoft Web home page:
 
-    <body>
+    <!DOCTYPE html>
+    <html>
         ...
-        @Facebook.LikeButton("http://www.microsoft.com/web")
-        ...
-    </body>
+        <body>
+            ...
+            @Facebook.LikeButton("http://www.microsoft.com/web")
+            ...
+        </body>
+    </html>
 
 ## Getting Started With Initialization
 
