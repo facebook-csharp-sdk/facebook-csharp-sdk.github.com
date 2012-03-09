@@ -54,6 +54,7 @@ Depending on the social plugin you want to use, the helper requires that you cal
     </tbody>
 </table>
 
+
 ## Getting Started Without Initialization
 
 These steps will guide you on how to display a Facebook Like button into your Web site:
@@ -70,12 +71,13 @@ These steps will guide you on how to display a Facebook Like button into your We
         </body>
     </html>
 
+
 ## Getting Started With Initialization
 
 These steps will guide you on how to display a Facebook Comments box into your Web site:
 
 1. Make note of the <strong>Site URL</strong>where your Microsoft WebMatrix site is running (click the Site workspace | Settings page).
-    ![My Site Settings](/images/vm-mysite-setting.png)
+    ![My Site Settings](/images/wm-mysite-settings.png)
 2. [Register](http://www.facebook.com/developers/createapp.php) a new Facebook application and make note of the Application Id and Secret. (Check [http://www.facebook.com/developers](http://www.facebook.com/developers) for instructions on how to create a Facebook application).
     ![Facebook Create Application](/images/FBCreateApplication.png)
 3. When creating your Facebook application, make sure you set the Site Url to **http://localhost:[port]**, replacing the __[port]__ placeholder with the port where our local WebMatrix site is running.
@@ -99,6 +101,7 @@ These steps will guide you on how to display a Facebook Comments box into your W
 
 > Note: Some of the Facebook Social Plugins require that your site is published into a public address where others can use it; see the helper reference for a complete list. To do this you can try some of the *Free* WebMatrix Hostings providers (also check this tutorial on [publishing with WebMatrix](href="http://www.asp.net/webmatrix/tutorials/publish-a-website)).</p>
 
+
 ## Running the Facebook Helper Sample
 
 Optionally, you can download a sample WebMatrix web site where you can see the helper in action, and also see how to use the helper to **integrate the Facebook login mechanism with the membership model of your web site**. To download and run it with Microsoft WebMatrix, follow these steps:
@@ -106,7 +109,7 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 1. Download the sample site from the Downloads section.
 2. Extract the content of the package, right-click the Facebook.Bakery folder and select 'Open as a Web Site with Microsoft WebMatrix'. This will open the Bakery sample web site with WebMatrix.
 3. Change your WebMatrix site settings to match the Site Url you have configured in your Facebook application settings.
-    ![My Site Settings](/images/vm-mysite-setting.png)
+    ![My Site Settings](/images/wm-mysite-settings.png)
 4. Open the _AppStart.cshtml page, uncomment the following line and replace the placeholders with your Facebook Application Id and Secret.
     @{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
@@ -115,12 +118,14 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 5. Click on the Run button located in the Home tab.
 6. Play with the sample!
 
+
 ## Helper Reference
 
 The helper ships with the following files:
 
 * The **Facebook.cshtml** file located into the <strong>App_Code</strong> folder 
 * A **Login.cshtml* file under the **Facebook** folder that will handle user login when using his Facebook account. 
+
 
 ### Helper Properties
 
@@ -168,6 +173,7 @@ The helper ships with the following files:
         </tr>
     </tbody>
 </table>
+
 
 ### Helper Methods
 
@@ -463,6 +469,7 @@ The helper ships with the following files:
         </tr>
     </tbody>
 </table>
+
 
 ### User Profile Information
 
