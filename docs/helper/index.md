@@ -61,7 +61,6 @@ These steps will guide you on how to display a Facebook Like button into your We
 
 1. Add the bolded line from below in the page where you want to show the Like button, in this case for liking the Microsoft Web home page:
 
-    <!DOCTYPE html>
     <html>
         ...
         <body>
@@ -96,14 +95,12 @@ These steps will guide you on how to display a Facebook Comments box into your W
 
 5. Add the highlighted lines from below in the page where you want to show the Comments box:
 
-    <!DOCTYPE html>
     <html @Facebook.FbmlNamespaces()>
         ...
         <body>
             @Facebook.GetInitializationScripts()
             ...
             @Facebook.Comments()
-
             ...
         </body>
     </html>
@@ -126,9 +123,8 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 
     @{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
-    ... 
     }
-    
+
 5. Click on the Run button located in the Home tab.
 6. Play with the sample!
 
@@ -235,7 +231,7 @@ The helper ships with the following files:
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td><a href="#x_x_UserProfile">UserProfile</a></td>
+            <td>UserProfile</td>
             <td><strong>GetFacebookUserProfile()</strong></td>
             <td>Yes (calling GetInitializationScripts() not required)<strong>
                 <br />
