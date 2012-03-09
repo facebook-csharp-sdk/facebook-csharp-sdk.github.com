@@ -77,16 +77,25 @@ These steps will guide you on how to display a Facebook Like button into your We
 These steps will guide you on how to display a Facebook Comments box into your Web site:
 
 1. Make note of the <strong>Site URL</strong>where your Microsoft WebMatrix site is running (click the Site workspace | Settings page).
+
     ![My Site Settings](/images/wm-mysite-settings.png)
+
 2. [Register](http://www.facebook.com/developers/createapp.php) a new Facebook application and make note of the Application Id and Secret. (Check [http://www.facebook.com/developers](http://www.facebook.com/developers) for instructions on how to create a Facebook application).
+
     ![Facebook Create Application](/images/FBCreateApplication.png)
+
 3. When creating your Facebook application, make sure you set the Site Url to **http://localhost:[port]**, replacing the __[port]__ placeholder with the port where our local WebMatrix site is running.
+
     ![Facebook App Settings](/images/FBCoreSettings.png)
+
 4. Add the following line to the **_AppStart.cshtml** page of your WebMatrix Site (create this page if it does not exist). Replace the placeholders with your Application Id and Secret.
+
     @{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}"); 
     }
+
 5. Add the highlighted lines from below in the page where you want to show the Comments box:
+
     <!DOCTYPE html>
     <html @Facebook.FbmlNamespaces()>
         ...
@@ -99,6 +108,7 @@ These steps will guide you on how to display a Facebook Comments box into your W
         </body>
     </html>
 
+
 > Note: Some of the Facebook Social Plugins require that your site is published into a public address where others can use it; see the helper reference for a complete list. To do this you can try some of the *Free* WebMatrix Hostings providers (also check this tutorial on [publishing with WebMatrix](href="http://www.asp.net/webmatrix/tutorials/publish-a-website)).</p>
 
 
@@ -109,12 +119,16 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 1. Download the sample site from the Downloads section.
 2. Extract the content of the package, right-click the Facebook.Bakery folder and select 'Open as a Web Site with Microsoft WebMatrix'. This will open the Bakery sample web site with WebMatrix.
 3. Change your WebMatrix site settings to match the Site Url you have configured in your Facebook application settings.
+
     ![My Site Settings](/images/wm-mysite-settings.png)
+
 4. Open the _AppStart.cshtml page, uncomment the following line and replace the placeholders with your Facebook Application Id and Secret.
+
     @{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
     ... 
     }
+    
 5. Click on the Run button located in the Home tab.
 6. Play with the sample!
 
