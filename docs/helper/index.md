@@ -89,9 +89,9 @@ These steps will guide you on how to display a Facebook Comments box into your W
 
 4. Add the following line to the **_AppStart.cshtml** page of your WebMatrix Site (create this page if it does not exist). Replace the placeholders with your Application Id and Secret.
 
-    @{ 
+<pre><code>@{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}"); 
-    }
+    }</code></pre>
 
 5. Add the highlighted lines from below in the page where you want to show the Comments box:
 
@@ -121,9 +121,9 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 
 4. Open the _AppStart.cshtml page, uncomment the following line and replace the placeholders with your Facebook Application Id and Secret.
 
-    @{ 
+<pre><code>@{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
-    }
+    }</code></pre>
 
 5. Click on the Run button located in the Home tab.
 6. Play with the sample!
