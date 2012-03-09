@@ -1,0 +1,727 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook Helper for WebMatrix - Helper Reference</title>
+    <link href="content/site.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="content/images/webx-icon.png" alt="WebMatrix" />
+            <h1>
+                WebMatrix Helpers</h1>
+            <h2>
+                Facebook Helper - Reference</h2>
+        </div>
+        <div class="content">
+            <div class="navLinks">
+                <a href="startHere.htm">Start Here</a> | <a href="reference.htm">Helper Reference</a>
+            </div>
+            <h3>
+                Helper Properties</h3>
+			<p><em>Note: Current version does not support the full Facebook API.</em></p>
+            <table class="memberdecls">
+                <tr>
+                    <td width="63" class="memItemLeft">
+                        static string
+                    </td>
+                    <td width="715" class="memItemRight" valign="bottom">
+                        <b>AppId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Gets or sets the Facebook application id.<br />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        static string
+                    </td>
+                    <td class="memItemRight" valign="bottom">
+                        <b>AppSecret</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Gets or sets the Facebook application secret.<br />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        static string
+                    </td>
+                    <td class="memItemRight" valign="bottom">
+                        <b>MembershipDBName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Gets or sets the name of the database used for storing the membership data.<br />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        static string
+                    </td>
+                    <td class="memItemRight" valign="bottom">
+                        <b>Language</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Gets or sets the code of the language used to display the Facebook plugins.<br />
+                    </td>
+                </tr>
+            </table>
+            <h3>
+                Helper Methods</h3>
+            <table class="memberdecls">
+                <tr>
+                    <th class="memItemLeft">
+                        &nbsp;
+                    </th>
+                    <th class="memItemRight">
+                        Method
+                    </th>
+                    <th class="memItemRight">
+                        Requires Initialization
+                    </th>
+                    <th class="memItemRight">
+                        Requires Publishing
+                    </th>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        static void
+                    </td>
+                    <td class="memItemRight">
+                        <strong>Initialize</strong> (string appId, string appSecret, [string membershipDBName])
+                    </td>
+                    <td class="memItemRight">
+                        
+                    </td>
+                    <td class="memItemRight">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Initialize the helper with your Facebook application settings.<br />
+                        If the &#39;membershipDBName&#39; parameter is specified, Facebook membership integration
+                        will be enabled, allowing users to register and associate their Facebook user account
+                        (identified with the e-mail) with your site membership and the WebSecurity helper.
+                        In this case, the helper will initialize the WebSecurity WebMatrix helper automatically
+                        (if not done previously) and the store the membership information in the &#39;membershipDbName&#39;
+                        database.
+                    </td>
+                    <td class="mdescRight">
+                        -
+                    </td>
+                    <td class="mdescRight">
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>GetInitializationScripts</b>()
+                    </td>
+                    <td class="memItemRight">
+                        
+                    </td>
+                    <td class="memItemRight">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Initialize the Facebook JavaScript SDK to be able to support the XFBML tags of the
+                        social plugins.
+                    </td>
+                    <td class="mdescRight">
+                        -
+                    </td>
+                    <td class="mdescRight">
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        <a href="#UserProfile">UserProfile</a>
+                    </td>
+                    <td class="memItemRight">
+                        <strong>GetFacebookUserProfile</strong>()
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Retrieves the Facebook profile of current logged in user. See the section at the
+                        bottom of the page for details on the information you can access.
+                    </td>
+                    <td class="mdescRight">
+                        Yes (calling GetInitializationScripts() not required)
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        static void
+                    </td>
+                    <td class="memItemRight">
+                        <strong>AssociateMembershipAccount </strong>(string userName)
+                    </td>
+                    <td class="memItemRight">
+                        &nbsp;
+                    </td>
+                    <td class="memItemRight">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Associates the specified user name (e.g. email, depending on your membership model)
+                        with the current Facebook User Id from the logged user. See the Facebook.Bakery
+                        sample Web site for an example on how to use this method.
+                    </td>
+                    <td class="mdescRight">
+                        Yes (calling GetInitializationScripts() not required)
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        static bool
+                    </td>
+                    <td class="memItemRight">
+                        <strong>MembershipLogin</strong>()
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Creates an authentication cookie with the current Facebook logged User name and
+                        returns 'true'. If the membership user name cannot be retrieved returns 'false'
+                        This method can be called after postback to customize page redirection.
+                    </td>
+                    <td class="mdescRight">
+                        Yes (calling GetInitializationScripts() not required)
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>LoginButton</b> (string registerUrl, [string returnUrl], [string callbackUrl]
+                        [string buttonText], [bool autoLogoutLink], [string size], [string length], [bool
+                        showFaces], [string extendedPermissions])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebok Login Button, with site membership integration, allowing users to
+                        login on your site with their Facebook account (e-mail).<br />
+                        To use this method, you need to provide the &#39;membershipDbName&#39; in the helper&#39;s
+                        Initialize method.
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <strong>LoginButtonTagOnly</strong> ([string buttonText], [bool autoLogoutLink],
+                        [string size], [string length], [string onLogin], [bool showFaces], [string extendedPermissions])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Login Button, without integrating Facebook login with your site
+                        membership.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>LikeButton</b> ([string href], [string buttonLayout], [bool showFaces], [int
+                        width], [int height], [string action], [string font], [string colorScheme], [string
+                        refLabel])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Like Button. When the user clicks the Like button on your site,
+                        a story appears in the user's friends' News Feed with a link back to your website.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>Comments</b> ([string xid], [int width], [int numPosts], [bool reverseOrder],
+                        [bool removeRoundedBox])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Comments plugin. The Comments Box easily enables your users to
+                        comment on your site's content &mdash; whether it's for a web page, article, photo,
+                        or other piece of content.
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>Recommendations</b> ([string site], [int width], [int height], [bool showHeader],
+                        [string colorScheme], [string font], [string borderColor], [string filter], [string
+                        refLabel])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Recommendations plugin. The Recommendations plugin shows personalized
+                        recommendations to your users.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>LikeBox</b> ([string profileId], [string name], [int width], [int height], [string
+                        colorScheme], [int connections], [bool showStream], [bool showHeader])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Like Box. The Like Box is a social plugin that enables Facebook
+                        Page owners to attract and gain Likes from their own website.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>Facepile</b> ([int maxRows], [int width])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Facepile plugin. The Facepile plugin shows the Facebook profile
+                        pictures of the user's friends who have already signed up for your site.
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>LiveStream</b> ([int width], [int height], [string xid], [string viaUrl], [bool
+                        allwaysPostToFriends])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Live Stream plugin. The Live Stream plugin lets users visiting
+                        your site or application share activity and comments in real time.
+                    </td>
+                    <td class="mdescRight">
+                        Yes (calling GetInitializationScripts() not required)
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>ActivityFeed</b> ([string site], [int width], [int height], [bool showHeader],
+                        [string colorScheme], [string font], [string borderColor], [bool showRecommendations])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Shows a Facebook Activity Feed plugin. The activity feed displays stories both when
+                        users like content on your site and when users share content from your site back
+                        to Facebook.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>OpenGraphRequiredProperties</b> (string siteName, string title, string type,
+                        string url, string imageUrl, [string description])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        OpenGraph properties allows you to specify structured information about your web
+                        pages to show up your pages richly across Facebook and enable Facebook users to
+                        establish connections to your pages.<br />
+                        Use this method to show OpenGraph page data, as the page title, URL, and so on.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>OpenGraphLocationProperties</b> ([string latitude], [string longitude], [string
+                        streetAddress], [string locality], [string region], [string postalCode], [string
+                        countryName])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Use this method to show page location data. This is useful if your pages is a business
+                        profile or about anything else with a real-world location. You can specify location
+                        via latitude and longitude, a full address, or both.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>OpenGraphContactProperties</b> ([string email], [string phoneNumber], [string
+                        faxNumber])
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                        &nbsp;
+                    </td>
+                    <td class="mdescRight">
+                        Use this method to show contact information about your page. Consider including
+                        contact information if your page is about an entity that can be contacted.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemLeft">
+                        @helper
+                    </td>
+                    <td class="memItemRight">
+                        <b>FbmlNamespaces</b> ()
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                    <td class="memItemRight">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdescLeft">
+                    </td>
+                    <td class="mdescRight">
+                        Use this method inside your opening HTML tag for W3C compatibility.
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                    <td class="mdescRight">
+                        No
+                    </td>
+                </tr>
+            </table>
+            <h4 id="UserProfile">
+                User Profile Information</h4>
+            <table class="memberdecls">
+                <tr>
+                    <td width="163" class="memItemRight">
+                        string <strong>Id</strong>
+                    </td>
+                    <td width="625" class="memItemRight">
+                        Facebook User Id
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Name</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Display Name
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>First_Name</strong>
+                    </td>
+                    <td class="memItemRight">
+                        First Name
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Last_Name</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Last Name
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Link</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Link to Profile
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Bio</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Short biography
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Gender</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Gender
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Email</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Published e-mail address
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Timezone</strong>
+                    </td>
+                    <td class="memItemRight">
+                        User timezone
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Locale</strong>
+                    </td>
+                    <td class="memItemRight">
+                        User regional settings
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memItemRight">
+                        string <strong>Updated_Time</strong>
+                    </td>
+                    <td class="memItemRight">
+                        Last updated time on Facebook
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <ul class="footer">
+            <li>We're always looking for <a href="mailto:webapp@microsoft.com">bugs, feedback and
+                suggestions!</a></li>
+            <li>&copy; 2010-2011 Microsoft Corporation. Powered by IIS Express.</li>
+        </ul>
+    </div>
+</body>
+</html>
