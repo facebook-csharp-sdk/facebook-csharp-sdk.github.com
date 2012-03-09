@@ -61,16 +61,11 @@ These steps will guide you on how to display a Facebook Like button into your We
 
 1. Add the bolded line from below in the page where you want to show the Like button, in this case for liking the Microsoft Web home page:
 
-<pre><code>
-&lt;html&gt;
-    ...
-    &lt;body&gt;
+    <body>
         ...
         @Facebook.LikeButton("http://www.microsoft.com/web")
         ...
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+    </body>
 
 ## Getting Started With Initialization
 
@@ -90,25 +85,23 @@ These steps will guide you on how to display a Facebook Comments box into your W
 
 4. Add the following line to the **_AppStart.cshtml** page of your WebMatrix Site (create this page if it does not exist). Replace the placeholders with your Application Id and Secret.
 
-<pre><code>
-@{ 
-Facebook.Initialize("{your App ID}", "{your App Secret}"); 
-}
-</code></pre>
+    @{ 
+    Facebook.Initialize("{your App ID}", "{your App Secret}"); 
+    }
 
 5. Add the highlighted lines from below in the page where you want to show the Comments box:
 
-<pre><code>
-&lt;html @Facebook.FbmlNamespaces()&gt;
-    ...
-    &lt;body&gt;
-        @Facebook.GetInitializationScripts()
+    <!DOCTYPE html>
+    <html @Facebook.FbmlNamespaces()>
         ...
-        @Facebook.Comments()
-        ...
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+        <body>
+            @Facebook.GetInitializationScripts()
+            ...
+            @Facebook.Comments()
+            ...
+        </body>
+    </html>
+
 
 > Note: Some of the Facebook Social Plugins require that your site is published into a public address where others can use it; see the helper reference for a complete list. To do this you can try some of the *Free* WebMatrix Hostings providers (also check this tutorial on [publishing with WebMatrix](href="http://www.asp.net/webmatrix/tutorials/publish-a-website)).</p>
 
@@ -125,11 +118,9 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 
 4. Open the _AppStart.cshtml page, uncomment the following line and replace the placeholders with your Facebook Application Id and Secret.
 
-<pre><code>
-@{ 
-Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
-}
-</code></pre>
+    @{ 
+    Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
+    }
 
 5. Click on the Run button located in the Home tab.
 6. Play with the sample!
