@@ -7,7 +7,7 @@ title: Facebook Helper
 
 The Facebook helper is designed to integrate your WebMatrix site with Facebook, making it possible to add the [Facebook Social Plugins](http://developers.facebook.com/plugins), such as Like button, Facepile, Comments, Login Button and Like Box, among others, in a few simple steps. It also allows you easily integrate your site with the Facebook login mechanism, so users do not have to create another account just to access your website.
 
-Depending on the social plugin you want to use, the helper requires that you call an initialization method. Check the table below and if the social plugin you want to use does not require initialization see the **Getting Started in 60 seconds (without initialization)** section, otherwise see the **Getting Started in 60 seconds (with initialization)** section.
+Depending on the social plugin you want to use, the helper requires that you call an initialization method. Check the table below and if the social plugin you want to use does not require initialization see the **Getting Started without initialization** section, otherwise see the **Getting Started with initialization** section.
 
 <table>
     <thead>
@@ -54,7 +54,7 @@ Depending on the social plugin you want to use, the helper requires that you cal
     </tbody>
 </table>
 
-## Getting started in 60 seconds (without initialization)
+## Getting Started Without Initialization
 
 These steps will guide you on how to display a Facebook Like button into your Web site:
 
@@ -70,13 +70,16 @@ These steps will guide you on how to display a Facebook Like button into your We
         </body>
     </html>
 
-## Getting started in 60 seconds (with initialization)
+## Getting Started With Initialization
 
 These steps will guide you on how to display a Facebook Comments box into your Web site:
 
 1. Make note of the <strong>Site URL</strong>where your Microsoft WebMatrix site is running (click the Site workspace | Settings page).
+    ![My Site Settings](/images/vm-mysite-setting.png)
 2. [Register](http://www.facebook.com/developers/createapp.php) a new Facebook application and make note of the Application Id and Secret. (Check [http://www.facebook.com/developers](http://www.facebook.com/developers) for instructions on how to create a Facebook application).
+    ![Facebook Create Application](/images/FBCreateApplication.png)
 3. When creating your Facebook application, make sure you set the Site Url to **http://localhost:[port]**, replacing the __[port]__ placeholder with the port where our local WebMatrix site is running.
+    ![Facebook App Settings](/images/FBCoreSettings.png)
 4. Add the following line to the **_AppStart.cshtml** page of your WebMatrix Site (create this page if it does not exist). Replace the placeholders with your Application Id and Secret.
     @{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}"); 
@@ -103,8 +106,7 @@ Optionally, you can download a sample WebMatrix web site where you can see the h
 1. Download the sample site from the Downloads section.
 2. Extract the content of the package, right-click the Facebook.Bakery folder and select 'Open as a Web Site with Microsoft WebMatrix'. This will open the Bakery sample web site with WebMatrix.
 3. Change your WebMatrix site settings to match the Site Url you have configured in your Facebook application settings.
-
-
+    ![My Site Settings](/images/vm-mysite-setting.png)
 4. Open the _AppStart.cshtml page, uncomment the following line and replace the placeholders with your Facebook Application Id and Secret.
     @{ 
     Facebook.Initialize("{your App ID}", "{your App Secret}", "bakery"); 
