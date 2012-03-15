@@ -11,7 +11,8 @@ title: Facebook C# SDK Frequently Asked Questions
     dynamic result = fb.Get("oauth/access_token", new { 
     	client_id     = "app_id", 
     	client_secret = "app_secret", 
-    	grant_type    = "client_credentials" });
+    	grant_type    = "client_credentials" 
+    });
     	
 ### How do I exchange code for access token?
 
