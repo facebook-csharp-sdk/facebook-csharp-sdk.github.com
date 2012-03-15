@@ -22,6 +22,18 @@ title: Facebook C# SDK Frequently Asked Questions
 		redirect_uri  = "http://yoururl.com/callback",
 		code          = "code"		
 	});
+	
+### How do I extend the expiry time of the access token?
+
+	var fb = new FacebookClient();
+	dynamic result = fb.Get("oauth/acess_token", new {
+		client_id         = "app_id",
+		client_secret     = "app_secret",
+		grant_type        = "fb_exchange_token",
+		fb_exchange_token = "EXISTING_ACCESS_TOKEN"
+	});
+	
+For more information see https://developers.facebook.com/roadmap/offline-access-removal/
 
 ### I get "window.opener is null or not an object" when running Silverlight application.
 The built-in Visual Studio Cassini Web Server is not supported. Use IIS or IIS express.
