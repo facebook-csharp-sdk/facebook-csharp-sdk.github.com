@@ -3,11 +3,11 @@ layout: default
 title: Making Synchronous Requests without Dynamic Support
 ---
 
-This article is primarily for .NET 3.5 and Windows Phone developers where dynamic is not supported. If you are using a platform that supports dynamic you should read [Making Synchronous Requests](/docs/making-asynchronous-requests.html) instead.
+This article is primarily for .NET 3.5 and Windows Phone developers where dynamic is not supported. If you are using a platform that supports dynamic you should read [Making Synchronous Requests](/docs/making-asynchronous-requests) instead.
 
-> Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](Making Asynchronous Requests) or [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library) or [Making Asynchronous Requests with async await](Making Asynchronous Requests with async await).
+> Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](/docs/making-asynchronous-requests) or [Making Asynchronous Requests with Task Parallel Library](/docs/making-asynchronous-requests-with-task-parallel-library) or [Making Asynchronous Requests with async await](/docs/making-asynchronous-requests-with-task-parallel-library).
 
-> For simplicity, handling exceptions are ignored in the following samples (Always handle exceptions in production). Refer to [Handling Exceptions for Synchronous Requests](Handling Exceptions for Synchronous Requests) on how to handle exceptions.
+> For simplicity, handling exceptions are ignored in the following samples (Always handle exceptions in production). Refer to [Handling Exceptions for Synchronous Requests](docs/handling-exceptions) on how to handle exceptions.
 
 # Graph Api
 This section will show you how to make varios common Facebook Graph API requests using the Facebook C# SDK.
