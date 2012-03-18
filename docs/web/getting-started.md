@@ -141,19 +141,13 @@ First, here is your client side JavaScript. Place this immediately after the com
     // This is a form post since we don't want to use AJAX
     var form = document.createElement("form");
     form.setAttribute("method", 'post');
-    form.setAttribute("action", 'FacebookLogin.ashx');
+    form.setAttribute("action", '/FacebookLogin.ashx');
 
-    var uidField = document.createElement("input");
-    uidField.setAttribute("type", "hidden");
-    uidField.setAttribute("name", 'uid');
-    uidField.setAttribute("value", uid);
-    form.appendChild(uidField);
-
-    var tokenField = document.createElement("input");
-    tokenField.setAttribute("type", "hidden");
-    tokenField.setAttribute("name", 'accessToken');
-    tokenField.setAttribute("value", accessToken);
-    form.appendChild(tokenField);
+    var field = document.createElement("input");
+    field.setAttribute("type", "hidden");
+    field.setAttribute("name", 'accessToken');
+    field.setAttribute("value", accessToken);
+    form.appendChild(field);
 
     document.body.appendChild(form);
     form.submit();
