@@ -135,7 +135,7 @@ After your user has authenticated and authorized your application you need to ob
 
 Now that you have obtained the access token you will need to send it to the server. You can do this in a variety of ways. The easiest to do this is perform an HTTP POST with the access token and then redirect your user to a new page. Once you have obtained the token on the server you can use any standard method for storing it. The easiest way to store the access token is to simply place it in the Session State and let ASP.NET manage the state for you. You can see how to do this with the following code.
 
-First, here is your client side JavaScript.
+First, here is your client side JavaScript. Place this immediately after the comment ```// TODO: Handle the access token``` in the script form the previous step.
 
 	// Do a post to the server to finish the logon
     // This is a form post since we don't want to use AJAX
@@ -158,7 +158,7 @@ First, here is your client side JavaScript.
     document.body.appendChild(form);
     form.submit();
 
-Next, create a page, action, or handler to recieve the token and redirect the user. For this example we will create a generic handler.
+Next, create a page, action, or handler to receive the token and redirect the user. For this example we will create a generic handler.
 
 	public class FacebookLogin : IHttpHandler {
 
@@ -182,7 +182,7 @@ Now that you have successfully saved the access token to the session state you c
 	dynamic result = client.Get("me", new { fields = "name,id" });
 	string name = result.name;
 	string id = result.id;
-	
+
 Using these examples you should be able to handle most of the basic actions for your users. For additional reading see the topics below.
 
 {% include web-see-also.md %}
