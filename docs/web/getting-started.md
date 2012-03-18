@@ -4,18 +4,20 @@ title: Getting Started with the Facebook C# SDK for ASP.NET
 ---
 
 ## Creating a Facebook Application
-Before you even begin using the Facebook C# SDK you must create a Facebook application. To do so navigate to [http://developers.facebook.com](http://developers.facebook.com) and....
+Before you even begin using the Facebook C# SDK you must create a Facebook application. To do so navigate to [http://developers.facebook.com/apps](https://developers.facebook.com/apps) and click the 'Create New App' button. Follow the steps to create an app and record your AppId for use later.
 
 ## Installation
 The easiest way to get started using the Facebook C# SDK is to install it using [Nuget](http://nuget.org). If you don't already have it installed, download it from [nuget.org](http://nuget.org). If you do already have NuGet installed make sure you have the most recent version. So of the features used in the Facebook C# SDK will not work with old versions of NuGet.
 
 ### Adding the Facebook NuGet Package
-To add the package to your project simply right click on the references folder and select...
+To add the package to your project simply right click on the references folder and select 'Manage Nuget Packages...'. Search for the packaged title 'Facebook', select it, and then click 'install'.
 
 // TODO: Picture on NuGet package installation.
 
 ### Configuring the Facebook C# SDK
-After you install the package you must configure the application...
+After you install the package you must configure the application. The only setting we need to change is the 'Site URL' under the 'Website' settings. The Site URL must match the url you are using for local development. Set this URL to http://localhost:#### where #### is the port you are using for local development.
+
+> WARNING: There is a bug in the Facebook Javascript SDK that prevents you from performing logins when running on non-standard ports on localhost in Internet Explorer. You must either use port 80 or test this in a browser other than Internet Explorer.
 
 
 ## Making Your First Request
