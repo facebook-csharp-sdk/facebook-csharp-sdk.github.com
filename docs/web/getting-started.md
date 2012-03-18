@@ -79,36 +79,110 @@ In order to obtain an access token from your users you must present them with an
 In order to get an access token from your users on a website you must use the either the [Facebook JavaScript SDK](http://github.com/facebook/facebook-js-sdk) or perform what is called server flow authentication. In this tutorial we will use the Facebook JavaScript SDK to perform authentication. The Facebook JavaScript SDK will handle all the details of displaying the login dialog, requesting permissions, and parsing the authentication cookie for the access token.
 
 ### Adding the Facebook JavaScript SDK to Your Site
-The first step in using the Facebook JavaScript SDK to your web application is to add the script references. To do this add the following code immediately before the ```</body>``` tag on your web page.
+The first step in using the Facebook JavaScript SDK to your web application is to add the script references. To do this add the following code right after the ```<body>``` tag on your web page.
 
-	TODO: FB JavaScript SDK here
+	<div id="fb-root"></div>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : 'YOUR_APP_ID', // App ID
+	      status     : true, // check login status
+	      cookie     : true, // enable cookies to allow the server to access the session
+	      xfbml      : true  // parse XFBML
+	    });
 
-> Be sure to set the ```'your_app_id'``` string equal to the AppId of the Facebook application you created at the beginning of this tutorial.
+	    // Additional initialization code here
+	  };
+
+	  // Load the SDK Asynchronously
+	  (function(d){
+	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all.js";
+	     ref.parentNode.insertBefore(js, ref);
+	   }(document));
+	</script>
+
+> Be sure to set the ```'YOUR_APP_ID'``` string equal to the AppId of the Facebook application you created at the beginning of this tutorial.
 
 ### Authenticating a User
 Now that you have the Facebook JavaScript SDK installed on your application you will want to create a Facebook Login button.
 
-	TODO: FB Login Button
+	<div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1"></div>
 
-After your user has authenticated and authorized your application you need to obtain the access token. You can do this by adding the following JavaScript to your site.
+After your user has authenticated and authorized your application you need to obtain the access token. You can do this with the following Javascript. Add this script immediately after the ```// Additional initialization code here``` comment in the Javascript you added ealier.
 
-	TODO: FB Post Auth javascript
+	FB.Event.subscribe('auth.authResponseChange', function(response) {
+		if (response.status === 'connected') {
+			// the user is logged in and has authenticated your
+			// app, and response.authResponse supplies
+			// the user's ID, a valid access token, a signed
+			// request, and the time the access token 
+			// and signed request each expire
+			var uid = response.authResponse.userID;
+			var accessToken = response.authResponse.accessToken;
+
+			// TODO: Handle the access token
+
+		} else if (response.status === 'not_authorized') {
+			// the user is logged in to Facebook, 
+			// but has not authenticated your app
+		} else {
+			// the user isn't logged in to Facebook.
+		}
+	});
 
 Now that you have obtained the access token you will need to send it to the server. You can do this in a variety of ways. The easiest to do this is perform an HTTP POST with the access token and then redirect your user to a new page. Once you have obtained the token on the server you can use any standard method for storing it. The easiest way to store the access token is to simply place it in the Session State and let ASP.NET manage the state for you. You can see how to do this with the following code.
 
 First, here is your client side JavaScript.
 
-	TODO: Access token post
+	// Do a post to the server to finish the logon
+    // This is a form post since we don't want to use AJAX
+    var form = document.createElement("form");
+    form.setAttribute("method", 'post');
+    form.setAttribute("action", 'FacebookLogin.ashx');
+
+    var uidField = document.createElement("input");
+    uidField.setAttribute("type", "hidden");
+    uidField.setAttribute("name", 'uid');
+    uidField.setAttribute("value", uid);
+    form.appendChild(uidField);
+
+    var tokenField = document.createElement("input");
+    tokenField.setAttribute("type", "hidden");
+    tokenField.setAttribute("name", 'accessToken');
+    tokenField.setAttribute("value", accessToken);
+    form.appendChild(tokenField);
+
+    document.body.appendChild(form);
+    form.submit();
 
 Next, create a page, action, or handler to recieve the token and redirect the user. For this example we will create a generic handler.
 
-	TODO: Access token generic handler
+	public class FacebookLogin : IHttpHandler {
+
+		public void ProcessRequest(HttpContext context) {
+			var accessToken = context.Request["accessToken"];
+			context.Session["AccessToken"] = accessToken;
+
+			context.Response.Redirect("/MyUrlHere");
+		}
+
+		public bool IsReusable {
+			get { return false; }
+		}
+	}
 
 ### Using the Access Token
 Now that you have successfully saved the access token to the session state you can make requests on behalf of that user when they are browsing your site.
 
-	TODO: ASP.NET Action using session state access token
-
+	var accessToken = Session["AccessToken"].ToString();
+	var client = new FacebookClient(accessToken);
+	dynamic result = client.Get("me", new { fields = "name,id" });
+	string name = result.name;
+	string id = result.id;
+	
 Using these examples you should be able to handle most of the basic actions for your users. For additional reading see the topics below.
 
 {% include web-see-also.md %}
