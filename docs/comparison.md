@@ -70,7 +70,8 @@ string lastName = result.last_name;
 {% highlight %}
 var httpClient = new HttpClient();
 
-httpClient.GetAsync("http://graph.facebook.com/me?access_token=your_access_token").ContinueWith(response =>
+var url = "http://graph.facebook.com/me?access_token=your_access_token"
+httpClient.GetAsync(url).ContinueWith(response =>
 {
 		response.Result.Content.ReadAsAsync<JsonObject>().ContinueWith(json =>
 		{
@@ -85,7 +86,8 @@ httpClient.GetAsync("http://graph.facebook.com/me?access_token=your_access_token
 {% highlight %}
 var httpClient = new HttpClient();
 
-var response = await httpClient.GetAsync("https://graph.facebook.com/me?access_token=your_access_token");
+var url = "https://graph.facebook.com/me?access_token=your_access_token"
+var response = await httpClient.GetAsync(url);
 dynamic result = await response.Content.ReadAsAsync<JsonObject>();
 string firstName = result.first_name;
 string lastName = result.last_name;
