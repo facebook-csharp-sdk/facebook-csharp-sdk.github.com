@@ -18,7 +18,7 @@ There are many different ways you can make requests to the Facebook Graph API. T
  
 <div class="tab-content">
 	<div class="curl-1 active">
-{% highlight javascript %}
+{% code javascript %}
 curl \
 	-F 'access_token=your_access_token' \
 	https://graph.facebook.com/me
@@ -33,7 +33,7 @@ curl \
 	"link": "https://www.facebook.com/totten", 
 	"username": "totten"
 }
-{% endhighlight %}
+{% endcode %}
 	</div>
 	<div class="php-1">
 {% highlight csharp %}
