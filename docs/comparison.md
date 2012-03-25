@@ -18,8 +18,7 @@ There are many different ways you can make requests to the Facebook Graph API. T
  
 <div class="tab-content">
 	<div class="curl-1 active">
-{% code javascript %}
-curl \
+		<pre><code>curl \
 	-F 'access_token=your_access_token' \
 	https://graph.facebook.com/me
 
@@ -32,43 +31,35 @@ curl \
 	"last_name": "Totten", 
 	"link": "https://www.facebook.com/totten", 
 	"username": "totten"
-}
-{% endcode %}
+}</code></pre>
 	</div>
 	<div class="php-1">
-{% highlight csharp %}
-$facebook = new Facebook();
+		<pre><code>$facebook = new Facebook();
 $facebook->setAccessToken('your_access_token')
 
 $user_profile = $facebook->api('/me','GET');
 echo "First Name: " . $user_profile['first_name'];
-echo "Last Name: " . $user_profile['last_name'];
-{% endhighlight %}
+echo "Last Name: " . $user_profile['last_name'];</code></pre>
 	</div>
 	<div class="csharp4-1">
-{% highlight csharp %}
-var client = new FacebookClient("your_access_token");
+		<pre><code>var client = new FacebookClient("your_access_token");
 
 client.GetTaskAsync("/me").ContinueWith(task =>
 {
 	dynamic result = task.Result;
 	string firstName = result.first_name;
 	string lastName = result.last_name;
-});
-{% endhighlight %}
+});</code></pre>
 	</div>
 	<div class="csharp45-1">
-{% highlight csharp %}
-var client = new FacebookClient("your_access_token");
+		<pre><code>var client = new FacebookClient("your_access_token");
 
 dynamic result = await client.GetTaskAsync("me");
 string firstName = result.first_name;
-string lastName = result.last_name;
-{% endhighlight %}
+string lastName = result.last_name;</code></pre>
 	</div>
 	<div class="httpclient45-1">
-{% highlight csharp %}
-var httpClient = new HttpClient();
+		<pre><code>var httpClient = new HttpClient();
 
 var url = "http://graph.facebook.com/me?access_token=your_access_token"
 httpClient.GetAsync(url).ContinueWith(response =>
@@ -79,19 +70,16 @@ httpClient.GetAsync(url).ContinueWith(response =>
 				string firstName = result.first_name;
 				string lastName = result.last_name;
 		});
-});
-{% endhighlight %}
+});</code></pre>
 	</div>
 	<div class="httpclient45-1">
-{% highlight csharp %}
-var httpClient = new HttpClient();
+		<pre><code>var httpClient = new HttpClient();
 
 var url = "https://graph.facebook.com/me?access_token=your_access_token"
 var response = await httpClient.GetAsync(url);
 dynamic result = await response.Content.ReadAsAsync<JsonObject>();
 string firstName = result.first_name;
-string lastName = result.last_name;
-{% endhighlight %}
+string lastName = result.last_name;</code></pre>
 	</div>
 </div>
 
