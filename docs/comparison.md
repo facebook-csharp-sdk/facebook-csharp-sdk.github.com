@@ -17,7 +17,7 @@ There are many different ways you can make requests to the Facebook Graph API. T
 </ul>
  
 <div class="tab-content">
-	<div id="curl-1" class="active">
+	<div id="curl-1" class="tab-pane active">
 		<pre><code>curl \
 	-F 'access_token=your_access_token' \
 	https://graph.facebook.com/me
@@ -33,7 +33,7 @@ There are many different ways you can make requests to the Facebook Graph API. T
 	"username": "totten"
 }</code></pre>
 	</div>
-	<div id="php-1">
+	<div id="php-1" class="tab-pane">
 		<pre><code>$facebook = new Facebook();
 $facebook->setAccessToken('your_access_token')
 
@@ -41,7 +41,7 @@ $user_profile = $facebook->api('/me','GET');
 echo "First Name: " . $user_profile['first_name'];
 echo "Last Name: " . $user_profile['last_name'];</code></pre>
 	</div>
-	<div id="csharp4-1">
+	<div id="csharp4-1" class="tab-pane">
 		<pre><code>var client = new FacebookClient("your_access_token");
 
 client.GetTaskAsync("/me").ContinueWith(task =>
@@ -51,14 +51,14 @@ client.GetTaskAsync("/me").ContinueWith(task =>
 	string lastName = result.last_name;
 });</code></pre>
 	</div>
-	<div id="csharp45-1">
+	<div id="csharp45-1" class="tab-pane">
 		<pre><code>var client = new FacebookClient("your_access_token");
 
 dynamic result = await client.GetTaskAsync("me");
 string firstName = result.first_name;
 string lastName = result.last_name;</code></pre>
 	</div>
-	<div id="httpclient45-1">
+	<div id="httpclient45-1" class="tab-pane">
 		<pre><code>var httpClient = new HttpClient();
 
 var url = "http://graph.facebook.com/me?access_token=your_access_token"
@@ -72,7 +72,7 @@ httpClient.GetAsync(url).ContinueWith(response =>
 		});
 });</code></pre>
 	</div>
-	<div id="httpclient45-1">
+	<div id="httpclient45-1" class="tab-pane">
 		<pre><code>var httpClient = new HttpClient();
 
 var url = "https://graph.facebook.com/me?access_token=your_access_token"
