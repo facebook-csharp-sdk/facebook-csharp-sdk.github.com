@@ -35,7 +35,7 @@ curl \
 }
 {% endhighlight %}
 	</div>
-	<div class="php-1 active">
+	<div class="php-1">
 {% highlight csharp %}
 $facebook = new Facebook();
 $facebook->setAccessToken('your_access_token')
@@ -45,7 +45,7 @@ echo "First Name: " . $user_profile['first_name'];
 echo "Last Name: " . $user_profile['last_name'];
 {% endhighlight %}
 	</div>
-	<div class="csharp4-1 active">
+	<div class="csharp4-1">
 {% highlight csharp %}
 var client = new FacebookClient("your_access_token");
 
@@ -57,7 +57,7 @@ client.GetTaskAsync("/me").ContinueWith(task =>
 });
 {% endhighlight %}
 	</div>
-	<div class="csharp45-1 active">
+	<div class="csharp45-1">
 {% highlight csharp %}
 var client = new FacebookClient("your_access_token");
 
@@ -66,7 +66,7 @@ string firstName = result.first_name;
 string lastName = result.last_name;
 {% endhighlight %}
 	</div>
-	<div class="httpclient45-1 active">
+	<div class="httpclient45-1">
 {% highlight csharp %}
 var httpClient = new HttpClient();
 
@@ -82,7 +82,7 @@ httpClient.GetAsync(url).ContinueWith(response =>
 });
 {% endhighlight %}
 	</div>
-	<div class="httpclient45-1 active">
+	<div class="httpclient45-1">
 {% highlight csharp %}
 var httpClient = new HttpClient();
 
