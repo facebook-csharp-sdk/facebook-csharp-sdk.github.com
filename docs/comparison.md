@@ -8,12 +8,12 @@ There are many different ways you can make requests to the Facebook Graph API. T
 ## Get User Information
 
 <ul class="nav nav-tabs">
- 	<li class="active"><a href="#curlA" data-toggle="tab">cURL</a></li>
-	<li><a href="#phpA" data-toggle="tab">PHP SDK</a></li>
-	<li><a href="#csharp4A" data-toggle="tab">C# SDK</a></li>
-	<li><a href="#csharp45A" data-toggle="tab">C# SDK (await)</a></li>
-	<li><a href="#httpclient4A" data-toggle="tab">HttpClient</a></li>
-	<li><a href="#httpclient45A" data-toggle="tab">HttpClient (await)</a></li>
+ 	<li class="active"><a href="#curl-1" data-toggle="tab">cURL</a></li>
+	<li><a href="#php-1" data-toggle="tab">PHP SDK</a></li>
+	<li><a href="#csharp4-1" data-toggle="tab">C# SDK</a></li>
+	<li><a href="#csharp45-1" data-toggle="tab">C# SDK (await)</a></li>
+	<li><a href="#httpclient4-1" data-toggle="tab">HttpClient</a></li>
+	<li><a href="#httpclient45-1" data-toggle="tab">HttpClient (await)</a></li>
 </ul>
  
 <div class="tab-content">
