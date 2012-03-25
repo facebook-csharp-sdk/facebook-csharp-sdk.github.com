@@ -58,7 +58,7 @@ dynamic result = await client.GetTaskAsync("me");
 string firstName = result.first_name;
 string lastName = result.last_name;</code></pre>
 	</div>
-	<div id="httpclient45-1" class="tab-pane">
+	<div id="httpclient4-1" class="tab-pane">
 		<pre><code>var httpClient = new HttpClient();
 
 var url = "http://graph.facebook.com/me?access_token=your_access_token"
