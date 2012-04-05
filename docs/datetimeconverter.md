@@ -25,8 +25,12 @@ The ```DateTimeConverter``` class contains some useful helper methods to interac
 	DateTime dateTime = new DateTime(2012, 1, 28, 18, 14, 33, DateTimeKind.Utc);
 	double unixTime = DateTimeConvertor.ToUnixTime(dateTime);
 
-	//From DateTimeOffset
-	[TODO]
+### Convert from .NET DateTimeOffset to Unix time
+
+	// From DateTimeOffset
+	DateTime dateTime = new DateTime(2012, 04, 05, 06, 33, 57);
+	int pdtOffset = -25200; // pacific daylight time offset in seconds
+	double unixTime = DateTimeConvertor.ToUnixTime(new DateTimeOffset(dateTime, TimeSpan.FromSeconds(pdtOffset)));
 
 ### Convert .NET UTC DateTime to ISO8601 Formatted Date and Time String
 
