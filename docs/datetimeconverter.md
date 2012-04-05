@@ -27,10 +27,14 @@ The ```DateTimeConverter``` class contains some useful helper methods to interac
 
 ### Convert from .NET DateTimeOffset to Unix time
 
+Most of the the date and time used in Facebook requires the unix time to be expressed in Pacific Daylight Time.
+You can use `-25200` as an offset for Pacific Daylight Time.
+
 	// From DateTimeOffset
 	DateTime dateTime = new DateTime(2012, 04, 05, 06, 33, 57);
 	int pdtOffset = -25200; // pacific daylight time offset in seconds
-	double unixTime = DateTimeConvertor.ToUnixTime(new DateTimeOffset(dateTime, TimeSpan.FromSeconds(pdtOffset)));
+	DateTimeOffset = new DateTimeOffset(dateTime, TimeSpan.FromSeconds(pdtOffset));
+	double unixTime = DateTimeConvertor.ToUnixTime(dateTimeOffset);
 
 ### Convert .NET UTC DateTime to ISO8601 Formatted Date and Time String
 
