@@ -9,6 +9,7 @@ title: Facebook C# SDK Links and Related Content
 * [Facebook Platform Status](https://developers.facebook.com/live_status)
 * [Facebook Developer App](https://developers.facebook.com/apps)
 * [Facebook Social Plugins](https://developers.facebook.com/docs/plugins/)
+* [Extended Permissions](https://developers.facebook.com/docs/authentication/permissions/)
 * [Removal of offline_access Permission](https://developers.facebook.com/roadmap/offline-access-removal/)
 
 ## Official Facebook Tools
