@@ -56,3 +56,13 @@ If you are using dynamic you can call ContainsKey without explicit casting.
 	bool containsNameProperty = result.ContainsKey("name");
 
 _Arrays can be casted to ```IList<object>```._
+
+### How do I get the user id from the access token?
+Since the access token is encrypted for security reasons you will need to make a request to the server to extract
+the user id.
+
+	var fb = new FacebookClient("access_token");
+	dynamic result = fb.Get("me?fields=id");
+	var id = result.id;
+
+_It is highly recommended to save the user id along with the access token and access token expiration date._
