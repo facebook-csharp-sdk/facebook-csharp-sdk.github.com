@@ -65,4 +65,7 @@ the user id.
 	dynamic result = fb.Get("me?fields=id");
 	var id = result.id;
 
-_It is highly recommended to save the user id along with the access token and access token expiration date._
+_It is highly recommended to save the user id along with the access\token and access token expiration date._
+### I get `Attempt to access the method failed: .<>f__AnonymousType0``1.get_q()` when using anonymous objects as parameter in Windows Phone 7.
+This is due the the security limitations in Windows Phone 7, to solve this issue make sure to add `[assembly: InternalsVisibleTo("Facebook")]`
+in AssemblyInfo.cs file.
