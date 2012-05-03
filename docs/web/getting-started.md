@@ -156,7 +156,7 @@ First, here is your client side JavaScript. Place this immediately after the com
 
 Next, create a page, action, or handler to receive the token and redirect the user. For this example we will create a generic handler.
 
-	public class FacebookLogin : IHttpHandler {
+	public class FacebookLogin : IHttpHandler, System.Web.SessionState.IRequiresSessionState {
 
 		public void ProcessRequest(HttpContext context) {
 			var accessToken = context.Request["accessToken"];
