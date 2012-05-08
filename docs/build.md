@@ -10,9 +10,11 @@ Extract it to a temporary directory where you would like to build. For this samp
 
 ## Prerequisites
 Things to install:
-* Ruby (with rake) 
-* Albacore dependencies for Rake 
-* Silverlight 4 Toolkit - April 2010
+
+*    Ruby (with rake) 
+*    Albacore dependencies for Rake 
+*    Silverlight 4 Toolkit - April 2010
+
 These perquisite step needs to be executed only once.
 
 ### Install Ruby
