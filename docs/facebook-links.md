@@ -27,6 +27,7 @@ title: Facebook C# SDK Links and Related Content
 ## Tutorials from the Official Facebook Developer Blog
 * [How-To: Handle Revoked Auth Permissions](https://developers.facebook.com/blog/post/576/)
 * [How-To: Handle expired access tokens](https://developers.facebook.com/blog/post/500/)
+* [How-to: Improve the Experience for Returning Users](https://developers.facebook.com/blog/post/2012/05/08/how-to--improve-the-experience-for-returning-users/)
 * [How-To: Paging with the Graph API and FQL](https://developers.facebook.com/blog/post/478/)
 * [How-To: Optimize Social Plugin Performance](https://developers.facebook.com/blog/post/530/)
 * [How-To: Build an app on Facebook with Fluid Canvas](https://developers.facebook.com/blog/post/549/)
