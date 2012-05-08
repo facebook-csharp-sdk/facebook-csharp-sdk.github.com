@@ -86,19 +86,19 @@ rake build:sl4 build:wp7
 {% endhighlight %}
 
 ## Pusing to symbol source
-Make sure you have executed nuget task before pushing to symbol source. (Make sue to replace {nuget_api_key} with your nuget api key.)
+Make sure you have executed nuget task before pushing to symbol source. (Make sure to replace {nuget_api_key} with your nuget api key.)
 {% highlight powershell %}
 rake nuget
 rake nuget:push_source nuget_api_key={nuget_api_key}
 {% endhighlight %}
 
 ## Pushing to nuget.org
-Make sure you have executed nuget task before pushing to symbol source. (Make sue to replace {nuget_api_key} with your nuget api key.)
+Make sure you have executed nuget task before pushing to symbol source. (Make sure to replace {nuget_api_key} with your nuget api key.)
 {% highlight powershell %}
 rake nuget
 rake nuget:push nuget_api_key={nuget_api_key}
 {% endhighlight %}
-This command pushes to nuget.org. The package remains hidden. To make it available to public execute nuget:publish task. (Make sue to replace {nuget_api_key} with your nuget api key.)
+This command pushes to nuget.org. The package remains hidden. To make it available to public execute nuget:publish task. (Make sure to replace {nuget_api_key} with your nuget api key.)
 {% highlight powershell %}
 rake nuget
 rake nuget:publish nuget_api_key={nuget_api_key}
