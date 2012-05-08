@@ -35,7 +35,7 @@ The first order of business is to get yourself familiar with the product (and de
 
 1. Download the latest release and try the product out. 
 2. Read up on the docs at [csharpsdk.org](http://csharpsdk.org). 
-3. Get your [development environment set up](/docs/setting-up-the-development-environment)</a>. 
+3. Get your [development environment set up](/docs/setting-up-the-development-environment). 
 4. Familiarize yourself with the source code. Make sure you can build it. 
 5. Consider answering questions on Stackoverflow, to build on your understanding of the code. 
 6. Familiarize yourself with the [project guidelines](/docs/project-guidelines) and our [coding conventions](/docs/coding-guidelines). Following the coding conventions is very important to us as we're very picky about them out of necessity in order to maintain consistency. We know that sometimes, people will make a small mistake here and there and if it's a really nitpicky thing, we'll accept the pull request anyways and just fix the code ourselves. 
