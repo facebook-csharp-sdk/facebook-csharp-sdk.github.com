@@ -20,7 +20,7 @@ These perquisite step needs to be executed only once.
 ### Install Ruby
 Grab a copy of ruby installer from [Ruby Installer](http://rubyinstaller.org/) ([direct link](http://rubyforge.org/frs/download.php/76054/rubyinstaller-1.9.3-p194.exe))
 
-Make sure to *enable “Add Ruby executables to your PATH�?* when installing Ruby.
+Make sure to *enable "Add Ruby executables to your PATH"* when installing Ruby.
 
 ### Install Albacore dependencies for Rake
 Open Command Prompt and execute the following command.
@@ -32,9 +32,9 @@ ruby D:\FacebookSDK\Build\install_albacore_dependencies.rb
 Grab a copy of the April 2010 Silverlight 4 Toolkit installer from [CodePlex](http://silverlight.codeplex.com/releases/view/43528) and install it.
 
 ## Building Facebook C# SDK Libraries
-You can then build the libraries by double clicking “build.cmd�? in D:\FacebookSDK\ folder. This will build the binaries for .net 3.5, .net 4.0, silverlight 4.0 and windows phone7. (Make sure you have the appropriate SDKs installed). For .net 3.5 and .net 4.0 it builds all the libraries i.e. (Facebook.dll, Facebook.Web.dll, Facebook.Web.Mvc.dll)
+You can then build the libraries by double clicking "build.cmd" in D:\FacebookSDK\ folder. This will build the binaries for .net 3.5, .net 4.0, silverlight 4.0 and windows phone7. (Make sure you have the appropriate SDKs installed). For .net 3.5 and .net 4.0 it builds all the libraries i.e. (Facebook.dll, Facebook.Web.dll, Facebook.Web.Mvc.dll)
 
-You can then find the appropriate libraries that you just build at *“D:\FacebookSDK\Bin\Release�?*
+You can then find the appropriate libraries that you just build at *"D:\FacebookSDK\Bin\Release"*
 
 ## Advanced Build Options
 Incase you want to build particular version for .net 3.5 or .net 4.0 only, It is possible.
@@ -63,12 +63,12 @@ rake zip:source         # Create zip archive of the source files
 
 Inorder to view the above available task execute the following command.
 {code:powershell}
-rake -f d:\FacebookSDK\rakefile.rb –T
+rake -f d:\FacebookSDK\rakefile.rb -T
 {code:powershell}
 
 If you are currently in d:\FacebookSDK directory. It can be executed as (Note: –T is capital letter)
 {code:powershell}
-rake –T
+rake -T
 {code:powershell}
 
 If you want to build net 3.5 libraries you would then execute:
