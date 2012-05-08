@@ -4,7 +4,7 @@ title: Building the Facebook C# SDK
 ---
 
 ## Getting/Unpacking the Source
-Get the latest stable source code from [url:http://facebooksdk.codeplex.com/releases]
+Get the latest stable source code from [here.](http://facebooksdk.codeplex.com/releases)
 
 Extract it to a temporary directory where you would like to build. For this sample I assume the location for build.cmd after extraction is *D:\FacebookSDK\build.cmd*
 
@@ -16,7 +16,7 @@ Things to install:
 These perquisite step needs to be executed only once.
 
 ### Install Ruby
-Grab a copy of ruby installer from [url:http://rubyinstaller.org/] (direct link - [url:http://rubyforge.org/frs/download.php/74298/rubyinstaller-1.9.2-p180.exe])
+Grab a copy of ruby installer from [Ruby Installer](http://rubyinstaller.org/) ([direct link](http://rubyforge.org/frs/download.php/76054/rubyinstaller-1.9.3-p194.exe))
 
 Make sure to *enable â€œAdd Ruby executables to your PATHâ€?* when installing Ruby.
 
@@ -27,7 +27,7 @@ ruby D:\FacebookSDK\Build\install_albacore_dependencies.rb
 {code:powershell}
 
 ### Silverlight 4 Toolkit - April 2010
-Grab a copy of the April 2010 Silverlight 4 Toolkit installer from [url:http://silverlight.codeplex.com/releases/view/43528] and install it.
+Grab a copy of the April 2010 Silverlight 4 Toolkit installer from [CodePlex](http://silverlight.codeplex.com/releases/view/43528) and install it.
 
 ## Building Facebook C# SDK Libraries
 You can then build the libraries by double clicking â€œbuild.cmdâ€? in D:\FacebookSDK\ folder. This will build the binaries for .net 3.5, .net 4.0, silverlight 4.0 and windows phone7. (Make sure you have the appropriate SDKs installed). For .net 3.5 and .net 4.0 it builds all the libraries i.e. (Facebook.dll, Facebook.Web.dll, Facebook.Web.Mvc.dll)
