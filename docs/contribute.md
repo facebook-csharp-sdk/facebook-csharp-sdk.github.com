@@ -3,7 +3,7 @@ layout: default
 title: Contributing to the Facebook C# SDK
 ---
 
-So you want to contribute to the Facebook C# SDK. Great! We can use the help and appreciate the help!
+So you want to contribute to the Facebook C# SDK. Great! We can use the help and appreciate the help! Below you will find our contribution guidelines which are nearly identical to the [NuGet Project contribution guidelines](http://docs.nuget.org/docs/contribute/contributing-to-nuget).
 
 ## Ways to Contribute
 
@@ -55,7 +55,7 @@ Note that some of these steps are unnecessary for small changes.
 Navigate to the <a title="Facebook C# SDK Source Code" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk">Source Code</a> and 
 click **Fork** to create the remote clone of the main repository. The MvcContrib project has 
 <a title="How to contribute to MvcContrib" href="http://mvccontrib.codeplex.com/wikipage?title=HowToContribute&amp;referringTitle=T4MVC_contrib">
-a great write-up of this process. 
+a great write-up of this process.</a>
 3. Clone the fork you created in the previous step to your machine. 
 4. Run build.cmd from the command line to ensure packages are restored. 
 5. Make the relevant changes in your local clone (potentially adding a unit test if this is a bug fix).
