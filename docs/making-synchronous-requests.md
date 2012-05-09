@@ -64,7 +64,9 @@ Here is an example using anonymous objects.
     var id = result.id;
     var name = result.name;
 
-> Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternate methods using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
+> Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal 
+cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternative methods
+using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
 
 Another alternative would be to pass a type of IDictionary&lt;string,object&gt;
 
