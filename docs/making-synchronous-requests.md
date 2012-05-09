@@ -3,11 +3,16 @@ layout: default
 title: Making Synchronous Requests with the Facbeook C# SDK
 ---
 
-> Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](Making Asynchronous Requests) or [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library) or [Making Asynchronous Requests with async await](Making Asynchronous Requests with async await).
+> Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to
+[Making Asynchronous Requests](/docs/making-asynchronous-requests) or 
+[Making Asynchronous Requests with Task Parallel Library](/docs/making-asynchronous-requests-with-task-parallel-library) or 
+[Making Asynchronous Requests with Aync and Await](/docs/making-asynchronous-requests-with-async-await).
 
 > For simplicity, handling exceptions are ignored in the following samples (Always handle exceptions in production).
 
-> All samples below are shown using dynamic. For platforms such as .NET 3.5/Windows Phone where dynamic is not supported refer to [Making synchronous requests without dynamic support](Making-Synchronous-Requests-without-Dynamic-Support). All the samples shown below can be done without dynamic.
+> All samples below are shown using dynamic. For platforms such as .NET 3.5/Windows Phone where dynamic is not supported
+refer to [Making synchronous requests without dynamic support](Making-Synchronous-Requests-without-Dynamic-Support). 
+All the samples shown below can be done without dynamic.
 
 It is highly recommended to read the official Facebook documentation on Graph Api which can be found at 
 [https://developers.facebook.com/docs/reference/api/](https://developers.facebook.com/docs/reference/api/) before proceeding further. 
@@ -285,4 +290,8 @@ If you want to set the parameters such as ```omit_response_on_success``` or ```n
                 })
         );
 
-> Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. It is highly recommend to handle exceptions. If possible it is always recommended to use the asynchronous alternatives - [Making Asynchronous Requests](/docs/making-asynchronous-requests), [Making Asynchronous Requests with Task Parallel Library](/docs/making-asynchronous-requests-with-task-parallel-library), [Making Asynchronous Requests with Aync and Await](/docs/making-asynchronous-requests-with-async-await)
+> Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. 
+It is highly recommend to handle exceptions. If possible it is always recommended to use the asynchronous alternatives 
+- [Making Asynchronous Requests](/docs/making-asynchronous-requests), 
+[Making Asynchronous Requests with Task Parallel Library](/docs/making-asynchronous-requests-with-task-parallel-library), 
+[Making Asynchronous Requests with Aync and Await](/docs/making-asynchronous-requests-with-async-await)
