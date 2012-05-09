@@ -9,7 +9,8 @@ title: Making Synchronous Requests with the Facbeook C# SDK
 
 > All samples below are shown using dynamic. For platforms such as .NET 3.5/Windows Phone where dynamic is not supported refer to [Making synchronous requests without dynamic support](Making-Synchronous-Requests-without-Dynamic-Support). All the samples shown below can be done without dynamic.
 
-It is highly recommended to read the official Facebook documentation on Graph Api which can be found at https://developers.facebook.com/docs/reference/api/ before proceeding further. 
+It is highly recommended to read the official Facebook documentation on Graph Api which can be found at 
+[https://developers.facebook.com/docs/reference/api/](https://developers.facebook.com/docs/reference/api/) before proceeding further. 
 
 ## Retrieve Data (HTTP GET)
 
@@ -77,7 +78,8 @@ Another alternative would be to pass a type of IDictionary&lt;string,object&gt;
     var id = result.id;
     var name = result.name;
 
-You could also make use of [ExpandoObject](http://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject.aspx) for dynamic.
+You could also make use of [ExpandoObject](http://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject.aspx) 
+for dynamic.
 
     var fb = new FacebookClient("access_token");
     dynamic parameters = new ExpandoObject();
@@ -88,7 +90,8 @@ You could also make use of [ExpandoObject](http://msdn.microsoft.com/en-us/libra
 
 ### Handling Graph Api Exceptions
 
-For simplicity most of the examples shown here does not handle exceptions. It is always recommended to handle exceptions during production.
+For simplicity most of the examples shown here does not handle exceptions. It is always recommended to handle 
+exceptions during production.
 
     try
     {
@@ -121,7 +124,9 @@ Sample for posting to the wall.
     dynamic result = fb.Post("me/feed", new { message = "My first wall post using Facebook C# SDK" });
     var newPostId = result.id;
 
-To post to the wall, you will need the user's permission. You can read more about these permissions (commonly known as ```extended permissions``` or ```scope```) in the official Facebook documentation at https://developers.facebook.com/docs/reference/api/permissions/
+To post to the wall, you will need the user's permission. You can read more about these permissions 
+(commonly known as ```extended permissions``` or ```scope```) in the official Facebook documentation at 
+[https://developers.facebook.com/docs/reference/api/permissions/](https://developers.facebook.com/docs/reference/api/permissions/)
 
 ### Uploading Files
 
@@ -157,7 +162,9 @@ _Using FacebookMediaStream_
             new { message = "upload using Facebook C# SDK", file });
     }
 
-> Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream. FacebookMediaStream implements IDisposable which internally calls Dispose on the stream thus you can use FacebookMediaStream on the using block.
+> Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream.
+FacebookMediaStream implements IDisposable which internally calls Dispose on the stream thus you can use 
+FacebookMediaStream on the using block.
 
 ## Delete Data (HTTP DELETE)
 
@@ -168,7 +175,9 @@ Sample code for deleting the previous wall post.
     dynamic result = fb.Delete(postIdToDelete);
 
 ## Facebook Query Language (FQL)
-It is highly recommended to read the official Facebook documentation on Facebook Query Language (FQL) which can be found at https://developers.facebook.com/docs/reference/fql/ before proceeding further.
+It is highly recommended to read the official Facebook documentation on Facebook Query Language (FQL) which
+can be found at [https://developers.facebook.com/docs/reference/fql/](https://developers.facebook.com/docs/reference/fql/)
+before proceeding further.
 
 ### Query
 
@@ -203,7 +212,9 @@ It is highly recommended to read the official Facebook documentation on Facebook
             });
 
 ## Batch Requests
-It is highly recommended to read the official Facebook documentation on Batch Requests which can be found at https://developers.facebook.com/docs/reference/api/batch/ before proceeding further.
+It is highly recommended to read the official Facebook documentation on Batch Requests which can be found at 
+[https://developers.facebook.com/docs/reference/api/batch/](https://developers.facebook.com/docs/reference/api/batch/) 
+before proceeding further.
 
     try
     {
