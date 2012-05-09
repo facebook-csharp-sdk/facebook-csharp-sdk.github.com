@@ -79,3 +79,18 @@ Facebook requires to access most of the protected resource using access token. Y
 
     fb.GetAsync("me");
     
+Or you can set/get the access token use the AccessToken property.
+
+    var fb = new FacebookClient { AccessToken = "access_token" };
+
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var id = (string) result["id"];
+            var name = (string) result["name"];
+        };
+
+    fb.GetAsync("me");
+    
+    
