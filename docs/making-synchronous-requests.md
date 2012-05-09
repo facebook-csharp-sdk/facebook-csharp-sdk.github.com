@@ -30,7 +30,7 @@ Rather then accessing the value using dot operator as shown above you could also
     dynamic id = result["id"];
     dynamic firstName = result["first_name"];
 
-You could also explicitly mention the type of the value or use var keyword. But _result_ should be dynamic.
+You could also explicitly mention the type of the value or use var keyword if _result_ is dynamic.
 
     var fb = new FacebookClient();
     dynamic result = fb.Get("4");
