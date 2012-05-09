@@ -49,3 +49,10 @@ You can take advantage of dynamic if it is supported. (For example: Silverlight 
         };
 
     fb.GetAsync("4");
+
+Rather then accessing the value using dot operator as shown above you could also access the value using indexers for dynamic as shown below.
+
+    dynamic result = e.GetResultData();
+    dynamic id = result["id"];
+    dynamic firstName = result["first_name"];
+
