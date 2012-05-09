@@ -195,3 +195,25 @@ before checking for exception.
         };
 
     fb.GetAsync("me");
+
+> ```FacebookOAuthException``` and ```FacebookApiLimitException``` inherit from ```FacebookApiException```.
+
+### Multiple Async Calls
+
+Unlike the synchronous (`Get`, `Post` and `Delete`) and XTaskAsync (`GetTaskAsync`, `PostTaskAsync`, `DeleteTaskAsync`) 
+methods; `GetAsync`, `PostAsync` and `DeleteAsync` will call the same handler if you execute the async methods more than 
+once for the same instance of `FacebookClient`. In order to prevent event handlers being called multiple times it is 
+recommended to use different instance of `FacebookClient` for each request.
+
+    string accessToken = "access_token";
+    
+    var fbMe = new FacebookClient(accessToken);
+    fbMe.GetCompleted += (o, e) => { };
+    fbMe.GetAsync("me");
+    
+    var fbFeed = new FacebookClient(accessToken);
+    fbFeed.GetCompleted += (o, e) => { };
+    fbFeed.GetAsync("me/feed");
+
+    
+
