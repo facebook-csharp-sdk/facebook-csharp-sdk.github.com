@@ -3,7 +3,7 @@ layout: default
 title: Making Synchronous Requests with the Facbeook C# SDK
 ---
 
-> Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](Making Asynchronous Requests) or [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library) or [Making Asynchronous Requests with async await](Making Asynchronous Requests with async await).**
+> Synchronous requests are not supported in Silverlight, Windows Phone and Windows Metro Style apps. Refer to [Making Asynchronous Requests](Making Asynchronous Requests) or [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library) or [Making Asynchronous Requests with async await](Making Asynchronous Requests with async await).
 
 > For simplicity, handling exceptions are ignored in the following samples (Always handle exceptions in production).
 
