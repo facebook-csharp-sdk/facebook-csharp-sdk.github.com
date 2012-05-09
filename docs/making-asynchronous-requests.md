@@ -113,3 +113,22 @@ Here is an example using anonymous objects.
 > Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal 
 cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternative methods 
 using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
+
+Another alternative would be to pass a type of IDictionary&lt;string,object&gt;
+
+    var fb = new FacebookClient("access_token");
+    
+    var parameters = new Dictionary<string,object>();
+    parameters["fields"] = "id,name";
+    
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var id = (string) result["id"];
+            var name = (string) result["name"];
+        };
+    
+    fb.GetAsync("me", parameters);
+    
+    
