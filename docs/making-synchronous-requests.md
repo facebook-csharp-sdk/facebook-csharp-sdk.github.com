@@ -9,7 +9,7 @@ title: Making Synchronous Requests with the Facbeook C# SDK
 
 > All samples below are shown using dynamic. For platforms such as .NET 3.5/Windows Phone where dynamic is not supported refer to [Making synchronous requests without dynamic support](Making-Synchronous-Requests-without-Dynamic-Support). All the samples shown below can be done without dynamic.
 
-It is highly recommended to read the official Facebook documentation on Graph Api which can be found at https://developers.facebook.com/docs/reference/api/ before proceeding further. 
+It is highly recommended to read the official Facebook documentation on Graph Api which can be found at (https://developers.facebook.com/docs/reference/api/)[https://developers.facebook.com/docs/reference/api/] before proceeding further. 
 
 ## Retrieve Data (HTTP GET)
 
