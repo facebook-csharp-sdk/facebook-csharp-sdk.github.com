@@ -93,4 +93,23 @@ Or you can set/get the access token use the AccessToken property.
 
     fb.GetAsync("me");
     
+### Passing parameters
+
+Some of the api's allows you to pass parameters to your request.
+Here is an example using anonymous objects.
+
+    var fb = new FacebookClient("access_token");
     
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var id = (string) result["id"];
+            var name = (string) result["name"];
+        };
+        
+    fb.GetAsync("me", new { fields = new[] { "id", "name" }});
+
+> Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal 
+cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternative methods 
+using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
