@@ -149,3 +149,49 @@ for dynamic.
     
     fb.GetAsync("me", parameters);
 
+### Handling Graph Api Exceptions
+
+For simplicity most of the examples shown here does not handle exceptions. It is always recommended to handle 
+exceptions during production. If you are using `CancelAsync()` method make sure to check for `Cancelled` property
+before checking for exception.
+
+    var fb = new FacebookClient("access_token");
+
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            if (e.Cancelled)
+            {
+                // request was cancelled
+                return;
+            }
+
+            var ex = e.Error;
+            if (ex != null)
+            {
+                if (ex is FacebookOAuthException)
+                {
+                    // oauth exception occurred
+                }
+                else if (ex is FacebookApiLimitException)
+                {
+                    // api limit exception occurred.
+                }
+                else if (ex is FacebookApiException)
+                {
+                    // other general facebook api exception
+                }
+                else
+                {
+                    // non-facebook exception such as no internet connection.
+                }
+
+                return;
+            }
+            
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var id = (string) result["id"];
+            var name = (string)result["name"];
+        };
+
+    fb.GetAsync("me");
