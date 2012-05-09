@@ -77,7 +77,7 @@ Another alternative would be to pass a type of IDictionary&lt;string,object&gt;
     var id = result.id;
     var name = result.name;
 
-You could also make use of [ExapndoObject](http://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject.aspx) for dynamic.
+You could also make use of [ExpandoObject](http://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject.aspx) for dynamic.
 
     var fb = new FacebookClient("access_token");
     dynamic parameters = new ExpandoObject();
