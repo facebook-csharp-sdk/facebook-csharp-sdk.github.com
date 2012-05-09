@@ -56,3 +56,9 @@ Rather then accessing the value using dot operator as shown above you could also
     dynamic id = result["id"];
     dynamic firstName = result["first_name"];
 
+You could also explicitly mention the type of the value or use var keyword if _result_ is dynamic.
+
+    dynamic result = e.GetResultData();
+    long id = result.id;
+    string firstName = result.first_name;
+    var lastName = result.last_name;
