@@ -33,3 +33,19 @@ Here is a hello world async Facebook C# SDK example on accessing public Facebook
 
     fb.GetAsync("4");
     
+You can take advantage of dynamic if it is supported. (For example: Silverlight 4 supports dynamic but not TPL.)
+
+    var fb = new FacebookClient();
+
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            dynamic result = e.GetResultData();
+            var id = result.id;
+            var firstName = result.first_name;
+            var lastName = result.last_name;
+            var link = result.link
+            var locale = result.locale;
+        };
+
+    fb.GetAsync("4");
