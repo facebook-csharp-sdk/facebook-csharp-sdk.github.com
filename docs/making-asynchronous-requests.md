@@ -12,3 +12,24 @@ in not supported**. It is always recommended to use the TPL alternatives (XTaskA
 
 > For simplicity, handling exceptions are ignored in the following samples (Always handle exceptions in production).
 
+## Retrieve Data (HTTP GET)
+
+### Accessing unprotected resources
+
+Here is a hello world async Facebook C# SDK example on accessing public Facebook data without the access token.
+
+    var fb = new FacebookClient();
+
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var id = (string) result["id"];
+            var firstName = (string) result["first_name"];
+            var lastName = (string) result["last_name"];
+            var link = (string) result["link"];
+            var locale = (string) result["locale"];
+        };
+
+    fb.GetAsync("4");
+    
