@@ -131,4 +131,21 @@ Another alternative would be to pass a type of IDictionary&lt;string,object&gt;
     
     fb.GetAsync("me", parameters);
     
+You could also make use of [ExpandoObject](http://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject.aspx) 
+for dynamic.
+
+    var fb = new FacebookClient("access_token");
     
+    dynamic parameters = new ExpandoObject();
+    parameters.fields = "id,name";
+    
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            dynamic result = e.GetResultData();
+            var id = result.id;
+            var name = result.name;
+        };
+    
+    fb.GetAsync("me", parameters);
+
