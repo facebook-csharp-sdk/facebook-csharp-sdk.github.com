@@ -62,3 +62,20 @@ You could also explicitly mention the type of the value or use var keyword if _r
     long id = result.id;
     string firstName = result.first_name;
     var lastName = result.last_name;
+
+### Accessing protected resources
+
+Facebook requires to access most of the protected resource using access token. You can pass the access token using the constructor.
+
+    var fb = new FacebookClient("access_token");
+
+    fb.GetCompleted +=
+        (o, e) =>
+        {
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var id = (string) result["id"];
+            var name = (string) result["name"];
+        };
+
+    fb.GetAsync("me");
+    
