@@ -47,6 +47,11 @@ body {
 	float: left;
 }
 
+.st-search-input {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
 /* Home Page
 -------------------------------------------------- */
 
