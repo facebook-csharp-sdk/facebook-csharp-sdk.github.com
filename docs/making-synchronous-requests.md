@@ -285,4 +285,4 @@ If you want to set the parameters such as ```omit_response_on_success``` or ```n
                 })
         );
 
-> Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. It is highly recommend to handle exceptions. If possible it is always recommended to use the asynchronous alternatives - [Making Asynchronous Requests](Making-Asynchronous-Requests), [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library), [Making Asynchronous Requests with async await](Making-Asynchronous-Requests-with-async-await)
+> Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. It is highly recommend to handle exceptions. If possible it is always recommended to use the asynchronous alternatives - [Making Asynchronous Requests](/docs/making-asynchronous-requests), [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library), [Making Asynchronous Requests with async await](Making-Asynchronous-Requests-with-async-await)
