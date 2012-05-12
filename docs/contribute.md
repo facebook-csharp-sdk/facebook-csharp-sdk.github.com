@@ -3,11 +3,13 @@ layout: default
 title: Contributing to the Facebook C# SDK
 ---
 
-So you want to contribute to the Facebook C# SDK. Great! We can use the help and appreciate the help! Below you will find our contribution guidelines which are nearly identical to the [NuGet Project contribution guidelines](http://docs.nuget.org/docs/contribute/contributing-to-nuget).
+So you want to contribute to the Facebook C# SDK. Great! We can use the help and appreciate the help! Below you will find
+our contribution guidelines which are nearly identical to the [NuGet Project contribution guidelines](http://docs.nuget.org/docs/contribute/contributing-to-nuget).
 
 ## Ways to Contribute
 
-While writing code is certainly glamorous and gets all the attention, it's not the only way to contribute to the Facebook C# SDK. 
+While writing code is certainly glamorous and gets all the attention, it's not the only way to contribute to the 
+Facebook C# SDK. 
 In many cases, it's not even the most **valuable** way to contribute. 
 If you would like to contribute to the Facebook C# SDK to help the project along, consider these options 
 (which are valid for any OSS project, not just the Facebook C# SDK):
@@ -33,8 +35,8 @@ as the guidance he gives applies well to the Facebook C# SDK.
 
 The first order of business is to get yourself familiar with the product (and depending on the type of contribution you wish to make, the code).
 
-1. Download the latest release and try the product out. 
-2. Read up on the docs at [csharpsdk.org](http://csharpsdk.org). 
+1. Download the latest release and try the product out.
+2. Read up on the docs at [csharpsdk.org](http://csharpsdk.org).
 3. Get your [development environment set up](/docs/setting-up-the-development-environment). 
 4. Familiarize yourself with the source code. Make sure you can build it. 
 5. Consider answering questions on Stackoverflow, to build on your understanding of the code. 
@@ -47,8 +49,7 @@ contributing code! Please follow the following steps each time you take on a fea
 Note that some of these steps are unnecessary for small changes.
 
 1. Decide what feature or bug fix you plan to take on and start a discussion with the title of the bug so we know someone is already working on it. e.g. "I'm going to fix issue 59: Something's Broken." If you're just starting out, pick something small to fix such as:
-    * Add a missing unit test 
-    * Fix a StyleCop or FxCop issue 
+    * Add a missing unit test
     * Search for a // TODO comment in the code and address one 
     * Fix a defect in the <a title="Issue List" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/issues?milestone=&sort=updated&state=open">issue list</a> or just find one with the &ldquo;Proposed&rdquo; status). Try something small first and work your way up to larger issues. 
 2. Create a server-side Fork of the Facebook C# SDK project in Github.  
@@ -62,7 +63,7 @@ a great write-up of this process.</a>
 6. Run build.cmd from the command line and make sure that there are 0 errors. 
 7. Commit your changes in your local clone. You may end up repeating steps 4-6 multiple times as you work. When you are finished and ready to have us accept 
 your change, go to step 7. 
-8. Pull from Main and merge your changes with the latest from Main (fix any merge conflicts you might have).
+8. Pull from master and merge your changes with the latest from master (fix any merge conflicts you might have).
 9. Send a pull request and make sure the summary contains **relevant bug numbers** and **a good description of your changes**.
 10. If you need to revise your code, then do so locally and update the review. Repeat until we approve the review. 
 11. Wait for your review to be approved. We'll try to get to it as soon as possible. 
