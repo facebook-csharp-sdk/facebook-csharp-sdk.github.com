@@ -242,5 +242,5 @@ For platforms that do not support dynamic cast it to either `IDictionary<string,
 `IList<object>` if array. For primitive types cast it to `bool`, `string`, `dobule` or `long` depending on the type.
 
 > Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal 
-cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternative methods 
+cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the alternative methods 
 using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
