@@ -244,3 +244,31 @@ For platforms that do not support dynamic cast it to either `IDictionary<string,
 > Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal 
 cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the alternative methods 
 using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
+
+### Uploading Files
+
+To upload files you will need to pass either `FacebookMediaObject` or `FacebookMediaStream` as a top level parameter.
+
+_Using FacebookMediaObject_
+
+    var fb = new FacebookClient("access_token");
+    byte[] data = ......;
+    
+    fb.PostCompleted = (o, e) => {
+        if(e.Cancelled || e.Error != null) {
+            return;
+        }
+        
+        var result = e.GetResultData();
+    };
+    
+    var parameters = new Dictionary<string, object>();
+    parameters["message"] = "my first photo upload using Facebook C# SDK";
+    parameters["file"] = new FacebookMediaObject
+                            {
+                                ContentType = "image/jpg",
+                                FileName = "image.jpeg";
+                            }.SetValue(data);
+                            
+    fb.PostAsync("me/photos", parameters);
+
