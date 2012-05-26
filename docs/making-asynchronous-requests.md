@@ -294,7 +294,27 @@ _Using FacebookMediaStream_
                             ContentType = "image/jpeg",
                             FileName = "image.jpg"
                         }.SetValue(attachment);
+                        
+    fb.PostAsync("me/photos", parameters);
 
 > Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream.
 FacebookMediaStream implements IDisposable which internally calls Dispose on the stream thus you can use 
 FacebookMediaStream on the using block or call facebookMediaStream.Dispose() or call dispose on the stream itself.
+
+## Delete Data (HTTP DELETE)
+
+Sample code for deleting the previous wall post.
+
+    var fb = new FacebookClient("access_token");
+    
+    fb.DeleteCompleted += (o, e) => {
+        if(e.Cancelled || e.Error != null) {
+            return;
+        }
+        
+        var result = e.GetResultData();
+    };
+    
+    var postIdToDelete = newPostId;
+    fb.DeleteAsync(postIdToDelete);
+    
