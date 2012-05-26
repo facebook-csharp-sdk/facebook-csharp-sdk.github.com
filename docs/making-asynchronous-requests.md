@@ -266,7 +266,7 @@ _Using FacebookMediaObject_
     parameters["message"] = "my first photo upload using Facebook C# SDK";
     parameters["file"] = new FacebookMediaObject
                             {
-                                ContentType = "image/jpg",
+                                ContentType = "image/jpeg",
                                 FileName = "image.jpeg";
                             }.SetValue(data);
                             
