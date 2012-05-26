@@ -272,3 +272,29 @@ _Using FacebookMediaObject_
                             
     fb.PostAsync("me/photos", parameters);
 
+_Using FacebookMediaStream_
+
+    var fb = new FacebookClient("access_token");
+    Stream attachement = .....;
+    
+    fb.PostCompleted += (o, e) => {
+        attachment.Dispose();
+        
+        if(e.Cancelled || e.Error != null) {
+            return;
+        }
+        
+        var result = e.GetResultData();
+    };
+
+    var parameters = new Dictionary<string, object>();
+    parameters["message"] = "upload using Facebook C# SDK";
+    parameters["file"] = new FacebookMediaStream
+                        {
+                            ContentType = "image/jpeg",
+                            FileName = "image.jpg"
+                        }.SetValue(attachment);
+
+> Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream.
+FacebookMediaStream implements IDisposable which internally calls Dispose on the stream thus you can use 
+FacebookMediaStream on the using block or call facebookMediaStream.Dispose() or call dispose on the stream itself.
