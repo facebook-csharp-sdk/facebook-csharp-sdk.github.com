@@ -225,12 +225,14 @@ Sample for posting to the wall.
     
     fb.PostCompleted += (o, e) => {
         if(e.Error == null) {
-            dynamic result = e.GetResultData();
-            var newPostId = result.id;
+            var result = (IDictionary<string, object>)e.GetResultData();
+            var newPostId = (string)result.id;
         }
     };
     
-    fb.PostAsync("me/feed", new { message = "My first wall post using Facebook C# SDK" });
+    var parameters = new Dictionary<string, object>();
+    parameters["message"] = "My first wall post using Facebook C# SDK";
+    fb.PostAsync("me/feed", parameters);
 
 To post to the wall, you will need the user's permission. You can read more about these permissions 
 (commonly known as ```extended permissions``` or ```scope```) in the official Facebook documentation at 
@@ -239,3 +241,6 @@ To post to the wall, you will need the user's permission. You can read more abou
 For platforms that do not support dynamic cast it to either `IDictionary<string, object>` if json object or
 `IList<object>` if array. For primitive types cast it to `bool`, `string`, `dobule` or `long` depending on the type.
 
+> Note for Windows Phone 7 (WP7) Developers: Due to the security model of WP7, anonymous objects which are internal 
+cannot be accessed by Facebook.dll, in order to solve this problem you will need to use the below alternative methods 
+using ```IDictionary<string,object>``` or add ```[assembly: InternalsVisibleTo("Facebook")]``` in your source code.
