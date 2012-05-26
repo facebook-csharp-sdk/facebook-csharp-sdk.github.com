@@ -147,7 +147,7 @@ _Using FacebookMediaObject_
                 message = "my first photo upload using Facebook C# SDK",
                 file = new FacebookMediaObject
                         {
-                            ContentType = "image/jpg",
+                            ContentType = "image/jpeg",
                             FileName = Path.GetFileName(attachementPath)
                         }.SetValue(File.ReadAllBytes(attachementPath))
             });
@@ -159,7 +159,7 @@ _Using FacebookMediaStream_
 
     using (var file = new FacebookMediaStream
                     {
-                        ContentType = "image/jpge",
+                        ContentType = "image/jpeg",
                         FileName = Path.GetFileName(attachementPath)
                     }.SetValue(File.OpenRead(attachementPath)))
     {
