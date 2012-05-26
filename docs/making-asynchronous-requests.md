@@ -218,4 +218,24 @@ recommended to use different instance of `FacebookClient` for each request.
 Unlike `GetAsync`, `PostAsync`, `DeleteAsync` and `BatchAsync`, you can use `GetTaskAsync`, `PostTaskAsync`, 
 `DeleteTaskAsync` and `BatchTaskAsync` on the same instance of `FacebookClient`.
 
+## Insert or Update Data (HTTP POST)
+Sample for posting to the wall.
+
+    var fb = new FacebookClient("access_token");
+    
+    fb.PostCompleted += (o, e) => {
+        if(e.Error == null) {
+            dynamic result = e.GetResultData();
+            var newPostId = result.id;
+        }
+    };
+    
+    fb.PostAsync("me/feed", new { message = "My first wall post using Facebook C# SDK" });
+
+To post to the wall, you will need the user's permission. You can read more about these permissions 
+(commonly known as ```extended permissions``` or ```scope```) in the official Facebook documentation at 
+[https://developers.facebook.com/docs/reference/api/permissions/](https://developers.facebook.com/docs/reference/api/permissions/)
+
+For platforms that do not support dynamic cast it to either `IDictionary<string, object>` if json object or
+`IList<object>` if array. For primitive types cast it to `bool`, `string`, `dobule` or `long` depending on the type.
 
