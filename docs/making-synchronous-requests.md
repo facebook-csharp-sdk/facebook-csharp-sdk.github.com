@@ -135,7 +135,7 @@ To post to the wall, you will need the user's permission. You can read more abou
 
 ### Uploading Files
 
-To upload files you will need to pass either FacebookMediaObject or FacebookMediaStream as a top level parameter.
+To upload files you will need to pass either `FacebookMediaObject` or `FacebookMediaStream` as a top level parameter.
 
 _Using FacebookMediaObject_
 
