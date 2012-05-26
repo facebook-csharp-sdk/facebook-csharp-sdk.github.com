@@ -215,5 +215,7 @@ recommended to use different instance of `FacebookClient` for each request.
     fbFeed.GetCompleted += (o, e) => { };
     fbFeed.GetAsync("me/feed");
 
-    
+Unlike `GetAsync`, `PostAsync`, `DeleteAsync` and `BatchAsync`, you can use `GetTaskAsync`, `PostTaskAsync`, 
+`DeleteTaskAsync` and `BatchTaskAsync` on the same instance of `FacebookClient`.
+
 
