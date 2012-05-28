@@ -57,7 +57,7 @@ As you can see, using a dictionary is possible, but it requires casting or conve
 Now that you have seen how to make a request of public information using the Facebook C# SDK you probably want to do something a little more interesting. In order to access any information that is not public such as a user's profile details, friends list, or Time Line posts you need to provide a valid access token when making the request. 
 
 ### Obtaining an Access Token
-For the purposes of this walk through we are going to start by obtaining an access token from Facebook's Graph API tool. You can find that tool at: ....
+For the purposes of this walk through we are going to start by obtaining an access token from Facebook's Graph API tool. You can find that tool at [https://developers.facebook.com/tools/access_token/](https://developers.facebook.com/tools/access_token/).
 
 
 ### Retrieving Profile Data
