@@ -126,7 +126,9 @@ exceptions during production.
 Sample for posting to the wall.
 
     var fb = new FacebookClient("access_token");
-    dynamic result = fb.Post("me/feed", new { message = "My first wall post using Facebook C# SDK" });
+    dynamic result = fb.Post("me/feed", new { 
+        message = "My first wall post using Facebook C# SDK" 
+    });
     var newPostId = result.id;
 
 To post to the wall, you will need the user's permission. You can read more about these permissions 
