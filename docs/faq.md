@@ -27,7 +27,7 @@ title: Facebook C# SDK Frequently Asked Questions
 ### How do I extend the expiry time of the access token?
 
 	var fb = new FacebookClient();
-	dynamic result = fb.Get("oauth/acess_token", new {
+	dynamic result = fb.Get("oauth/access_token", new {
 		client_id         = "app_id",
 		client_secret     = "app_secret",
 		grant_type        = "fb_exchange_token",
