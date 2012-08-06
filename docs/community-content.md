@@ -2,7 +2,7 @@
 layout: default
 title: Facebook C# SDK Community Content
 ---
-
+* [Facebook C# SDK - Youtube Playlist Tutorials in Arabic](http://www.youtube.com/playlist?list=PL8C1589BCF897CD55&feature=plcp) - by [Eslam Hamouda](http://eslamx.com/blog)
 * [Facebook C# SDK - Windows 8 Metro Style Apps](http://blog.prabir.me/post/Facebook-CSharp-SDK-Windows-8-Metro-Style-Apps.aspx) - by [Prabir Shrestha](https://github.com/prabirshrestha)
 * [Facebook C# SDK - and Silverlight 5](http://blog.prabir.me/post/Facebook-CSharp-SDK-and-Silverlight-5.aspx) - by [Prabir Shrestha](https://github.com/prabirshrestha)
 * [Facebook C# SDK - What’s new in v5.3](http://blog.prabir.me/post/Facebook-CSharp-SDK-What%E2%80%99s-new-in-v5-3.aspx) - by [Prabir Shrestha](https://github.com/prabirshrestha)
