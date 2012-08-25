@@ -61,6 +61,7 @@ Here are the list of available jake tasks. It may vary depending on version of F
 
 ```
 jake default                   # Build all binaries, run tests and create nuget and symbolsource packages
+
 jake build:net45               # Build .NET 4.5 binaries
 ```
 
