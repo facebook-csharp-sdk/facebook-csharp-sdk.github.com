@@ -3,10 +3,15 @@ layout: default
 title: Building the Facebook C# SDK
 ---
 
-## Getting/Unpacking the Source
-Get the latest stable source code from [here.](http://facebooksdk.codeplex.com/releases)
+## Getting the source code.
 
-Extract it to a temporary directory where you would like to build. For this sample I assume the location for build.cmd after extraction is *D:\FacebookSDK\build.cmd*
+```bash
+git clone https://github.com/facebook-csharp-sdk/facebook-csharp-sdk.git
+```
+
+If git is not installed you can also grab the zipped or tarball of the latest source code from 
+[https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/downloads](http://facebooksdk.codeplex.com/releases).
+Once downloaded extract it to a directory where you would like to build.
 
 ## Prerequisites
 Things to install:
