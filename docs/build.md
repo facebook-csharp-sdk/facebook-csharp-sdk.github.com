@@ -54,53 +54,51 @@ You can find the list of supported .NET Framework/Platforms in
 To clean and start a new build again run `clean.cmd` then `build.cmd`.
 
 ## Advanced Build Options
-Incase you want to build particular version for .net 3.5 or .net 4.0 only, It is possible.
+Unless you are buliiding under Windows 8 and have installed all the .NET Framework and SDKs your build will fail.
+In this case you will want to build only for a particular version of .NET Framework or Platform.
 
-Here are the list of available task . 
+Here are the list of available jake tasks. It may vary depending on version of Facebook C# SDK. 
 
-{% highlight powershell %}
-rake build              # Build All
-rake build:docs         # Build documentation files
-rake build:net35        # Build .NET 3.5 binaries
-rake build:net40        # Build .NET 4 binaries
-rake build:net45        # Build .NET 4.5 binaries
-rake build:sl4          # Build Silverlight 4 binaries
-rake build:sl5          # Build Silverlight 5 binaries
-rake build:wp7          # Build Windows Phone 7 binaries
-rake clean              # Clean All
-rake dist               # Create distribution packages
-rake libs               # Build All Libraries and run tests (default)
-rake nuget              # Build NuGet packages
-rake nuget:publish      # Publish .nupkg to nuget.org live feed
-rake nuget:push         # Push .nupkg to nuget.org but don't publish
-rake nuget:push_source  # Push .nupkg to symbol source & publish
-rake tests              # Run tests
-rake zip:source         # Create zip archive of the source files
-{% endhighlight %}
+```
+jake default                   # Build all binaries, run tests and create nuget and symbolsource packages
+jake build:net45               # Build .NET 4.5 binaries
+jake build:net40               # Build .NET 4.0 binaries
+jake build:net35               # Build .NET 3.5 binaries
+jake build:winstore            # Build Windows Store binaries
+jake build:wp71                # Build Windows Phone 7.1 binaries
+jake build:sl5                 # Build Silverlight 5 binaries
+jake clean                     # Clean all
+jake test                      # Run tests
+jake nuget:push:nuget          # Push nuget package to nuget.org
+jake nuget:push:symbolsource   # Push nuget package to symbolsource
+jake nuget:pack                # Create NuGet and SymbolSource pacakges
+```
 
-Inorder to view the above available task execute the following command.
-{% highlight powershell %}
-rake -f d:\FacebookSDK\rakefile.rb -T
-{% endhighlight %}
+Inorder to view the above available task execute the following command in the root source code.
 
-If you are currently in d:\FacebookSDK directory. It can be executed as (Note: –T is capital letter)
-{% highlight powershell %}
-rake -T
-{% endhighlight %}
+```
+jake -T
+```
+
+Additional task such as `jake clean:net45` are also available but are hidden. 
+For full list of tasks look at `jakefile.js`.
 
 If you want to build net 3.5 libraries you would then execute:
-{% highlight powershell %}
-rake -f d:\FacebookSDK\rakefile.rb build:net35
-{% endhighlight %}
-or 
-{% highlight powershell %}
-rake build:net35
-{% endhighlight %}
 
-You can also combine them together. For example if you want silverlight and windows phone 7 builds:
-{% highlight powershell %}
-rake build:sl4 build:wp7
-{% endhighlight %}
+```
+jake build:net35
+```
+
+You can also combine them together. For example if you want Silverlight and Windows Phone 7 builds:
+```
+jake build:sl5 build:wp71
+```
+
+If you want to clean all the output files.
+
+```
+jake clean
+```
 
 ## Pusing to symbol source
 Make sure you have executed nuget task before pushing to symbol source. (Make sure to replace {nuget_api_key} with your nuget api key.)
