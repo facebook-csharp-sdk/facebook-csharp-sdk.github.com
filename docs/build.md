@@ -43,9 +43,10 @@ You can find the list of supported .NET Framework/Platforms in
 [README.MD](https://github.com/facebook-csharp-sdk/facebook-csharp-sdk#supported-platforms).
 
 **Output Folders**
-* `Bin\Release`: Facebook.dll binaries grouped based on .NET Framework/Platform
-* `Dist\NuGet`: NuGet package
-* `Dist\SymbolSource`: SymbolSource NuGet Pacakge
+
+* **Bin\Release**: Facebook.dll binaries grouped based on .NET Framework/Platform
+* **Dist\NuGet**: NuGet package
+* **Dist\SymbolSource**: SymbolSource NuGet Pacakge
 
 To clean and start a new build again run `clean.cmd` then `build.cmd`.
 
