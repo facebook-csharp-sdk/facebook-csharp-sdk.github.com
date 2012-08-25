@@ -61,17 +61,7 @@ Here are the list of available jake tasks. It may vary depending on version of F
 
 ```
 jake default                   # Build all binaries, run tests and create nuget and symbolsource packages
-jake build:net45               # Build .NET 4.5 binaries
-jake build:net40               # Build .NET 4.0 binaries
-jake build:net35               # Build .NET 3.5 binaries
-jake build:winstore            # Build Windows Store binaries
-jake build:wp71                # Build Windows Phone 7.1 binaries
-jake build:sl5                 # Build Silverlight 5 binaries
-jake clean                     # Clean all
-jake test                      # Run tests
-jake nuget:push:nuget          # Push nuget package to nuget.org
-jake nuget:push:symbolsource   # Push nuget package to symbolsource
-jake nuget:pack                # Create NuGet and SymbolSource pacakges```
+```
 
 In order to view the above available task execute the following command in the root source code.
 
