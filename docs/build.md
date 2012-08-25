@@ -122,4 +122,3 @@ jake nuget:push:symbolsource['nuget_api_key']
 It is recommended to push to symbol source first and verify it has been published successfully before publishing to nuget.
 This will guarantee that sources will be available for all published nuget packages. You can find the symbol souce status
 at [http://www.symbolsource.org/Public/Status](http://www.symbolsource.org/Public/Status).
-
