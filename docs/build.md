@@ -14,27 +14,29 @@ If git is not installed you can also grab the zipped or tarball of the latest so
 Once downloaded extract it to a directory where you would like to build.
 
 ## Prerequisites
-Things to install:
 
-*    Ruby (with rake) 
-*    Albacore dependencies for Rake 
-*    Silverlight 4 Toolkit - April 2010
+We assume you already have Visual Studio (2010+) installed and .NET Framework installed.
+Depending on what you want to build you can have only specific version of .NET Framework/Silverlight/WindowsPhone 
+installed. If you would like to build the binary for Windows Store Apps you will need to run under Windows 8.
 
-These perquisite step needs to be executed only once.
+**Optional Prerequisites**:
+Installing these other prerequisites will also help you to easily automate builds. They are only required if you are using `build.cmd`, `clean.cmd`
+or `jake` from command line. We use this to ship every new Facebook C# SDK release as it helps in building all the
+binaries from the command line, running tests, creating nuget pacakges and publishing the nuget packages.
 
-### Install Ruby
-Grab a copy of ruby installer from [Ruby Installer](http://rubyinstaller.org/) ([direct link](http://rubyforge.org/frs/download.php/76054/rubyinstaller-1.9.3-p194.exe))
+*    [NodeJS](http://nodejs.org/)
+*    [jake](https://github.com/mde/jake)
 
-Make sure to *enable "Add Ruby executables to your PATH"* when installing Ruby.
+### Install NodeJS
+Grab a copy of NodeJs installer from the official [NodeJS](http://nodejs.org/) website and install it.
 
-### Install Albacore dependencies for Rake
-Open Command Prompt and execute the following command.
-{% highlight powershell %}
-ruby D:\FacebookSDK\Build\install_albacore_dependencies.rb
-{% endhighlight %}
+### Install jake
 
-### Silverlight 4 Toolkit - April 2010
-Grab a copy of the April 2010 Silverlight 4 Toolkit installer from [CodePlex](http://silverlight.codeplex.com/releases/view/43528) and install it.
+Open the command prompt and install the `jake` node module globally.
+
+```bash
+nmp install -g jake
+```
 
 ## Building Facebook C# SDK Libraries
 You can then build the libraries by double clicking "build.cmd" in D:\FacebookSDK\ folder. This will build the binaries for .net 3.5, .net 4.0, silverlight 4.0 and windows phone7. (Make sure you have the appropriate SDKs installed). For .net 3.5 and .net 4.0 it builds all the libraries i.e. (Facebook.dll, Facebook.Web.dll, Facebook.Web.Mvc.dll)
