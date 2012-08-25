@@ -5,9 +5,7 @@ title: Building Facebook C# SDK from Source
 
 ## Getting the source code.
 
-```
-git clone https://github.com/facebook-csharp-sdk/facebook-csharp-sdk.git
-```
+    git clone https://github.com/facebook-csharp-sdk/facebook-csharp-sdk.git
 
 If git is not installed you can also grab the zipped or tarball of the latest source code from 
 [https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/downloads](http://facebooksdk.codeplex.com/releases).
@@ -34,9 +32,7 @@ Grab a copy of NodeJs installer from the official [NodeJS](http://nodejs.org/) w
 
 Open the command prompt and install the `jake` node module globally.
 
-```
-nmp install -g jake
-```
+    nmp install -g jake
 
 ## Building Facebook C# SDK Libraries
 You can now build the libraries, run tests as well as create nuget packages using `build.cmd`.
@@ -74,48 +70,38 @@ Here are the list of available jake tasks. It may vary depending on version of F
 
 In order to view the above available task execute the following command in the root source code.
 
-```
-jake -T
-```
+    jake -T
 
 Additional task such as `jake clean:net45` are also available but are hidden. 
 For full list of tasks look at `jakefile.js`.
 
 If you want to build net 3.5 libraries you would then execute:
 
-```
-jake build:net35
-```
+    jake build:net35
 
 You can also combine them together. For example if you want Silverlight and Windows Phone 7 builds:
-```
-jake build:sl5 build:wp71
-```
+
+
+    jake build:sl5 build:wp71
 
 If you want to clean all the output files.
 
-```
-jake clean
-```
+    jake clean
 
 ## Pusing to symbol source
 
 Make sure you have executed nuget task before pushing to symbol source. 
 (Replace `nuget_api_key` with your nuget api key. Single quotes are required.)
 
-```
-jake nuget:pack
-jake nuget:push:nuget['nuget_api_key']
-```
+    jake nuget:pack
+    jake nuget:push:nuget['nuget_api_key']
 
 ## Pushing to nuget.org
 Make sure you have executed nuget task before pushing to nuget.org 
 (Replace `nuget_api_key` with your nuget api key. Single quotes are required.)
 
-```
-jake nuget:pack
-jake nuget:push:symbolsource['nuget_api_key']
-```
+    jake nuget:pack
+    jake nuget:push:symbolsource['nuget_api_key']
 
 It is recommended to push to symbol source first and verify it has been published successfully before publishing to nuget.
 This will guarantee that sources will be available for all published nuget packages. You can find the symbol souce status
