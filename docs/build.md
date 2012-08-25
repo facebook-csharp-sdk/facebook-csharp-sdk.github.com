@@ -5,7 +5,7 @@ title: Building the Facebook C# SDK
 
 ## Getting the source code.
 
-```bash
+```
 git clone https://github.com/facebook-csharp-sdk/facebook-csharp-sdk.git
 ```
 
@@ -34,7 +34,7 @@ Grab a copy of NodeJs installer from the official [NodeJS](http://nodejs.org/) w
 
 Open the command prompt and install the `jake` node module globally.
 
-```bash
+```
 nmp install -g jake
 ```
 
