@@ -7,7 +7,7 @@ This is the documentation for the Facebook C# SDK Version 6.0. You will find var
 
 Before you begin developing your Facebook app with the Facebook C# SDK we recommend you read the official [Facebook developer documentation](https://developers.facebook.com/docs/). You cannot develop Facebook apps using the Facebook C# SDK without understanding the Facebook Graph API, Facebook Javascript SDK, or OAuth 2.0. These concepts are not addressed in the documentation for the Facebook C# SDK. 
 
-## Getting Starting
+## Getting Started
 
 * [Getting Started with the Facebook C# SDK for ASP.NET](/docs/web/getting-started)
 * Getting Started with the Facebook C# SDK for Windows Phone (COMING SOON)
@@ -35,3 +35,4 @@ Before you begin developing your Facebook app with the Facebook C# SDK we recomm
 ## Miscellaneous
 
 * [Date and Time Conversion](/docs/datetimeconverter)
+* [Building Facebook C# SDK from Source](/docs/build)
