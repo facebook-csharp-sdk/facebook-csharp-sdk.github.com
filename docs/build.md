@@ -74,7 +74,7 @@ jake nuget:push:symbolsource   # Push nuget package to symbolsource
 jake nuget:pack                # Create NuGet and SymbolSource pacakges
 ```
 
-Inorder to view the above available task execute the following command in the root source code.
+In order to view the above available task execute the following command in the root source code.
 
 ```
 jake -T
@@ -101,20 +101,25 @@ jake clean
 ```
 
 ## Pusing to symbol source
-Make sure you have executed nuget task before pushing to symbol source. (Make sure to replace {nuget_api_key} with your nuget api key.)
-{% highlight powershell %}
-rake nuget
-rake nuget:push_source nuget_api_key={nuget_api_key}
-{% endhighlight %}
+
+Make sure you have executed nuget task before pushing to symbol source. 
+(Replace `nuget_api_key` with your nuget api key. Single quotes are required.)
+
+```
+jake nuget:pack
+jake nuget:push:nuget['nuget_api_key']
+```
 
 ## Pushing to nuget.org
-Make sure you have executed nuget task before pushing to symbol source. (Make sure to replace {nuget_api_key} with your nuget api key.)
-{% highlight powershell %}
-rake nuget
-rake nuget:push nuget_api_key={nuget_api_key}
-{% endhighlight %}
-This command pushes to nuget.org. The package remains hidden. To make it available to public execute nuget:publish task. (Make sure to replace {nuget_api_key} with your nuget api key.)
-{% highlight powershell %}
-rake nuget
-rake nuget:publish nuget_api_key={nuget_api_key}
-{% endhighlight %}
+Make sure you have executed nuget task before pushing to nuget.org 
+(Replace `nuget_api_key` with your nuget api key. Single quotes are required.)
+
+```
+jake nuget:pack
+jake nuget:push:symbolsource['nuget_api_key']
+```
+
+It is recommended to push to symbol source first and verify it has been published successfully before publishing to nuget.
+This will guarantee that sources will be available for all published nuget packages. You can find the symbol souce status
+at [http://www.symbolsource.org/Public/Status](http://www.symbolsource.org/Public/Status).
+
