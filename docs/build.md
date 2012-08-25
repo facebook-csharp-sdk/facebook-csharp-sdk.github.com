@@ -39,9 +39,19 @@ nmp install -g jake
 ```
 
 ## Building Facebook C# SDK Libraries
-You can then build the libraries by double clicking "build.cmd" in D:\FacebookSDK\ folder. This will build the binaries for .net 3.5, .net 4.0, silverlight 4.0 and windows phone7. (Make sure you have the appropriate SDKs installed). For .net 3.5 and .net 4.0 it builds all the libraries i.e. (Facebook.dll, Facebook.Web.dll, Facebook.Web.Mvc.dll)
+You can now build the libraries, run tests as well as create nuget packages using `build.cmd`.
+This will build the binaries for .NET 3.5/4.0/4.5, Silverlight 5.0, Windows Phone 7.1 (Mango)
+and Windows Store Apps. (Make sure you have the appropriate SDKs installed. For building 
+Windows Store Apps you will need to run under Windows 8).
+You can find the list of supported .NET Framework/Platforms in 
+[README.MD](https://github.com/facebook-csharp-sdk/facebook-csharp-sdk#supported-platforms).
 
-You can then find the appropriate libraries that you just build at *"D:\FacebookSDK\Bin\Release"*
+**Output Folders**
+* `Bin\Release`: Facebook.dll binaries grouped based on .NET Framework/Platform
+* `Dist\NuGet`: NuGet package
+* `Dist\SymbolSource`: SymbolSource NuGet Pacakge
+
+To clean and start a new build again run `clean.cmd` then `build.cmd`.
 
 ## Advanced Build Options
 Incase you want to build particular version for .net 3.5 or .net 4.0 only, It is possible.
