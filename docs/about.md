@@ -5,6 +5,12 @@ title: About the Facebook C# SDK
 
 The Facebook C# SDK helps .Net developers build web, desktop, phone and Windows 8 applications that integrate with Facebook. This project is open source and is driven largely by volunteer efforts of our developers. 
 
+## Outercurve Foundation
+<div class="person" style="height: 170px;">
+<a href="http://outercurve.org"><img src="http://www.outercurve.org/Portals/0/logo.gif" /></a>
+<p>The Facbook C# SDK is owned by the Outercurve Foundation. The mission of the Outercurve Foundation is to enable the exchange of code and understanding among software companies and open source communities. In practice this means providing software IP management and project development governance to enable and encourage organizations to develop software collaboratively in open source communities for faster results.</p>
+</div>
+
 ## People
 <div class="person" style="height: 170px;">
 <h3><a href="http://ntotten.com">Nathan Totten</a></h3>
