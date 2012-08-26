@@ -174,13 +174,17 @@ code {
 /* Table of Contents
 -------------------------------------------------- */
 
-#toc {
-  top: 0;
-  width: 220px;
-}
 
-#toc.affix {
-  top: 40px;
+/* Only on large displays */
+@media (min-width: 900px) {
+  #toc {
+    top: 0;
+    width: 220px;
+  }
+
+  #toc.affix {
+    top: 40px;
+  }
 }
 
 /* Body Styles
