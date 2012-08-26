@@ -7,6 +7,7 @@ body {
 .fbtitle {
 	float: left;
 	padding-right: 40px;
+  line-height: 0.65 !important;
 }
 
 .hero-unit .btn-large {
@@ -21,7 +22,7 @@ body {
 
 .hero-unit img {
   float: left;
-  margin: 7px 10px 0 0;
+  margin: 6px 10px 0 0;
   opacity: .8;
   width: 45px;
   height: 45px;
@@ -35,7 +36,7 @@ body {
 }
 
 .download-buttons .githubbutton {
-	padding-top: 30px;
+	padding-top: 35px;
 }
 
 .follow-buttons ul {
@@ -57,7 +58,7 @@ body {
 
 .bs-icon {
   float: left;
-  margin: 7px 10px 0 0;
+  margin: 18px 10px 0 0;
   opacity: .8;
 }
 
@@ -108,8 +109,7 @@ body {
 
 .nuget-button-command
 {
-    color: #72eb18; /*Green*/
-    color: #e2e2e2;
+    color: #e2e2e2 !important;
     font-family: Consolas, "Andale Mono WT" , "Andale Mono" , "Lucida Console" , "Lucida Sans Typewriter" , "DejaVu Sans Mono" , "Bitstream Vera Sans Mono" , "Liberation Mono" , "Nimbus Mono L" , Monaco, "Courier New" , Courier, monospace;
     font-size: 1.5em;
     line-height: 1.5em;
@@ -174,9 +174,13 @@ code {
 /* Table of Contents
 -------------------------------------------------- */
 
-.sticky {
-  top: 50px;
-  position: fixed;
+#toc {
+  top: 0;
+  width: 220px;
+}
+
+#toc.affix {
+  top: 40px;
 }
 
 /* Body Styles
@@ -200,7 +204,6 @@ blockquote p {
 .content h5,
 .content h6 {
   font-weight: normal;
-  color: #707070;
 }
 
 .content h1 {
@@ -211,15 +214,14 @@ blockquote p {
 
 .content h2 {
   font-size: 18px;
-  color: #DB7100;
   line-height: 18px;
   margin-bottom: 10px;
   padding-top: 5px;
+  font-weight: bold;
 }
 
 .content h3 {
   font-size: 14px;
-  color: #2A2A2A;
   font-weight: bold;
 }
 
@@ -229,10 +231,9 @@ blockquote p {
 }
 
 .content h6 a {
-  color: #707070;
+  color: black;
 }
 
 .content h6 a:hover {
-  color: #03697A;
   text-decoration: none;
 }
