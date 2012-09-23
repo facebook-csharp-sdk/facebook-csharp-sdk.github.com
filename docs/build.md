@@ -32,7 +32,7 @@ Grab a copy of NodeJs installer from the official [NodeJS](http://nodejs.org/) w
 
 Open the command prompt and install the `jake` node module globally.
 
-    nmp install -g jake
+    npm install -g jake
 
 ## Building Facebook C# SDK Libraries
 You can now build the libraries, run tests as well as create nuget packages using `build.cmd`.
