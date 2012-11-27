@@ -36,3 +36,4 @@ Before you begin developing your Facebook app with the Facebook C# SDK we recomm
 
 * [Date and Time Conversion](/docs/datetimeconverter)
 * [Building Facebook C# SDK from Source](/docs/build)
+* [Publishing a Release of the Facebook C# SDK](/docs/release)
