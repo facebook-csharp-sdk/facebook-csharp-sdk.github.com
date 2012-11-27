@@ -8,7 +8,7 @@ title: Building Facebook C# SDK from Source
     git clone https://github.com/facebook-csharp-sdk/facebook-csharp-sdk.git
 
 If git is not installed you can also grab the zipped or tarball of the latest source code from 
-[https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/downloads](http://facebooksdk.codeplex.com/releases).
+[https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/downloads](https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/downloads).
 Once downloaded extract it to a directory where you would like to build.
 
 ## Prerequisites
