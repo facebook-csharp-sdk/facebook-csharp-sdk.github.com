@@ -33,9 +33,19 @@ title: Facebook C# SDK Frequently Asked Questions
 		grant_type        = "fb_exchange_token",
 		fb_exchange_token = "EXISTING_ACCESS_TOKEN"
 	});
-	
+
 For more information see https://developers.facebook.com/roadmap/offline-access-removal/
 
+### How do I debug the access token?
+
+	var fb = new FacebookClient();
+	dynamic result = fb.Get("debug_token", new {
+		access_token = "your App Access Token or a valid User Access Token from a developer of the app",
+		input_token  = "the Access Token to debug"
+	});
+	
+For more information see https://developers.facebook.com/docs/howtos/login/debugging-access-tokens/
+	
 ### I get "window.opener is null or not an object" when running Silverlight application.
 The built-in Visual Studio Cassini Web Server is not supported. Use IIS or IIS express.
 
