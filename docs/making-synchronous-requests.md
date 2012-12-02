@@ -139,6 +139,9 @@ To post to the wall, you will need the user's permission. You can read more abou
 
 To upload files you will need to pass either `FacebookMediaObject` or `FacebookMediaStream` as a top level parameter.
 
+> Avoid using synchronous methods to upload files. Use the async version instead `PostAsync` or `PostTaskAsync`. 
+`FacebookMediaStream` is recommended over `FacebookMediaObject`.
+
 _Using FacebookMediaObject_
 
     var fb = new FacebookClient("access_token");
