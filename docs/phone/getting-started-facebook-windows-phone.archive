@@ -5,7 +5,7 @@ title: Getting Started with the Facebook Controls for Windows Phone
 
 **Prerequisites: Visual Studio 2010 SP1, Windows Phone SDK 7.1**
 
-This getting started guide will introduce the Facebook Controls for Windows Phone and help get the developer up to speed on how to incorporate the controls into their Windows Phone applications. The controls have a dependency on the Facebook C# SDK that can be found at http://facebooksdk.codeplex.com/. You will want to look into the Facebook C# SDK in order to interact with Facebook beyond showing dialogs.
+This getting started guide will introduce the Facebook Controls for Windows Phone and help get the developer up to speed on how to incorporate the controls into their Windows Phone applications. The controls have a dependency on the Facebook SDK for .NET that can be found at http://facebooksdk.codeplex.com/. You will want to look into the Facebook SDK for .NET in order to interact with Facebook beyond showing dialogs.
 
 [[images/wishlistScreen1.png|alt=Wishlist sample|height=300px]]  [[images/hackbookScreen1.png|alt=Hackbook sample|height=300px]]
 

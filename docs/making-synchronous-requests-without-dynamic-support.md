@@ -10,7 +10,7 @@ This article is primarily for .NET 3.5 and Windows Phone developers where dynami
 > For simplicity, handling exceptions are ignored in the following samples (Always handle exceptions in production). Refer to [Handling Exceptions for Synchronous Requests](docs/handling-exceptions) on how to handle exceptions.
 
 # Graph Api
-This section will show you how to make varios common Facebook Graph API requests using the Facebook C# SDK.
+This section will show you how to make varios common Facebook Graph API requests using the Facebook SDK for .NET.
 
 > It is highly recommended to read the official Facebook documentation on Graph Api which can be found at https://developers.facebook.com/docs/reference/api/ before proceeding further. 
 
@@ -18,7 +18,7 @@ This section will show you how to make varios common Facebook Graph API requests
 
 ### Accessing unprotected resources
 
-Here is a hello world Facebook C# SDK example on accessing public Facebook data without the access token.
+Here is a hello world Facebook SDK for .NET example on accessing public Facebook data without the access token.
 
 	var fb = new FacebookClient();
 	var result = (IDictionary<string,object>)fb.Get("4");
@@ -68,7 +68,7 @@ Another alternative would be to pass a type of ```IDictionary<string,object>```
 ### Sample for posting to the wall.
 
 	var fb = new FacebookClient("access_token");
-	var result = (IDictionary<string,object>)fb.Post("me/feed", new { message = "My first wall post using Facebook C# SDK" });
+	var result = (IDictionary<string,object>)fb.Post("me/feed", new { message = "My first wall post using Facebook SDK for .NET" });
 	var newPostId = (string)result["id"];
 
 ## Delete Data (HTTP DELETE)
@@ -83,4 +83,4 @@ Another alternative would be to pass a type of ```IDictionary<string,object>```
 Please refer to [Batch Requests](Batch-Requests) wiki.
 
 
-> Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. It is highly recommend to read [Handling Exceptions for Synchronous Requests](Handling Exceptions for Synchronous Requests). If possible it is always recommended to use the asynchronous alternatives - [Handling Exceptions for Synchronous Requests](Making-Asynchronous-Requests), [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library), [Making Asynchronous Requests with async await](Making-Asynchronous-Requests-with-async-await)
+> Examples shown above does not necessarily include best practices for Facebook development using Facebook SDK for .NET. It is highly recommend to read [Handling Exceptions for Synchronous Requests](Handling Exceptions for Synchronous Requests). If possible it is always recommended to use the asynchronous alternatives - [Handling Exceptions for Synchronous Requests](Making-Asynchronous-Requests), [Making Asynchronous Requests with Task Parallel Library](Making-Asynchronous-Requests-with-Task-Parallel-Library), [Making Asynchronous Requests with async await](Making-Asynchronous-Requests-with-async-await)

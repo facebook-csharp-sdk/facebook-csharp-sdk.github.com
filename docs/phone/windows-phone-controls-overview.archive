@@ -9,7 +9,7 @@ This article highlights the overall architecture of the Facebook Controls for Wi
 
 ## FacebookDialogs class
 
-The Facebook.Phone.Dialogs namespace  consists of an API and UI components that enable Windows Phone application developers to quickly add the ability for users to log in and use Feed and Request dialogs for Facebook. It is dependent upon the Facebook C# SDK.
+The Facebook.Phone.Dialogs namespace  consists of an API and UI components that enable Windows Phone application developers to quickly add the ability for users to log in and use Feed and Request dialogs for Facebook. It is dependent upon the Facebook SDK for .NET.
 
 The static FacebookDialogs class provides functionality to set the Facebook application ID, get & set the access token, keep track of the latest dialog result from Facebook, and other status information.
 

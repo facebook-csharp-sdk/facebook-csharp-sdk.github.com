@@ -1,27 +1,27 @@
 ---
 layout: default
-title: Getting Started with the Facebook C# SDK for ASP.NET
+title: Getting Started with the Facebook SDK for .NET for ASP.NET
 ---
 
 ## Creating a Facebook Application
-Before you even begin using the Facebook C# SDK you must create a Facebook application. To do so navigate to [http://developers.facebook.com/apps](https://developers.facebook.com/apps) and click the 'Create New App' button. Follow the steps to create an app and record your AppId for use later.
+Before you even begin using the Facebook SDK for .NET you must create a Facebook application. To do so navigate to [http://developers.facebook.com/apps](https://developers.facebook.com/apps) and click the 'Create New App' button. Follow the steps to create an app and record your AppId for use later.
 
 ## Installation
-The easiest way to get started using the Facebook C# SDK is to install it using [Nuget](http://nuget.org). If you don't already have it installed, download it from [nuget.org](http://nuget.org). If you do already have NuGet installed make sure you have the most recent version. So of the features used in the Facebook C# SDK will not work with old versions of NuGet.
+The easiest way to get started using the Facebook SDK for .NET is to install it using [Nuget](http://nuget.org). If you don't already have it installed, download it from [nuget.org](http://nuget.org). If you do already have NuGet installed make sure you have the most recent version. So of the features used in the Facebook SDK for .NET will not work with old versions of NuGet.
 
 ### Adding the Facebook NuGet Package
 To add the package to your project simply right click on the references folder and select 'Manage Nuget Packages...'. Search for the packaged title 'Facebook', select it, and then click 'install'.
 
 // TODO: Picture on NuGet package installation.
 
-### Configuring the Facebook C# SDK
+### Configuring the Facebook SDK for .NET
 After you install the package you must configure the application. The only setting we need to change is the 'Site URL' under the 'Website' settings. The Site URL must match the url you are using for local development. Set this URL to http://localhost:#### where #### is the port you are using for local development.
 
 > WARNING: There is a bug in the Facebook Javascript SDK that prevents you from performing logins when running on non-standard ports on localhost in Internet Explorer. You must either use port 80 or test this in a browser other than Internet Explorer.
 
 
 ## Making Your First Request
-Retrieving data form the Facebook Graph API is very easy using the Facebook C# SDK. The following code shows how to call the Graph API to retrieve [Nathan Totten's](http://facebook.com/totten) public information.
+Retrieving data form the Facebook Graph API is very easy using the Facebook SDK for .NET. The following code shows how to call the Graph API to retrieve [Nathan Totten's](http://facebook.com/totten) public information.
 
 	var client = new FacebookClient();
 	dynamic me = client.Get("totten");
@@ -54,7 +54,7 @@ A dynamic object is an object that is evaluated only at runtime. You can think o
 As you can see, using a dictionary is possible, but it requires casting or conversion.
 
 ## Accessing User Information
-Now that you have seen how to make a request of public information using the Facebook C# SDK you probably want to do something a little more interesting. In order to access any information that is not public such as a user's profile details, friends list, or Time Line posts you need to provide a valid access token when making the request. 
+Now that you have seen how to make a request of public information using the Facebook SDK for .NET you probably want to do something a little more interesting. In order to access any information that is not public such as a user's profile details, friends list, or Time Line posts you need to provide a valid access token when making the request. 
 
 ### Obtaining an Access Token
 For the purposes of this walk through we are going to start by obtaining an access token from Facebook's Graph API tool. You can find that tool at [https://developers.facebook.com/tools/access_token/](https://developers.facebook.com/tools/access_token/).

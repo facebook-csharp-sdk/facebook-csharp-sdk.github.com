@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Facebook C# SDK Links and Related Content
+title: Facebook SDK for .NET Links and Related Content
 ---
 
 ## Facebook Developer Documents
@@ -22,7 +22,7 @@ title: Facebook C# SDK Links and Related Content
 ## Stack Overflow
 [Facebook Stack Overflow](http://facebook.stackoverflow.com/) 
 
-> For questions related to Facebook C# SDK please use ["facebook-c#-sdk"](http://facebook.stackoverflow.com/questions/tagged/facebook-c%23-sdk) tag**. For general questions related to Facebook user ["facebook"](http://facebook.stackoverflow.com/questions/tagged/facebook) tag.
+> For questions related to Facebook SDK for .NET please use ["facebook-c#-sdk"](http://facebook.stackoverflow.com/questions/tagged/facebook-c%23-sdk) tag**. For general questions related to Facebook user ["facebook"](http://facebook.stackoverflow.com/questions/tagged/facebook) tag.
 
 ## Tutorials from the Official Facebook Developer Blog
 * [How-To: Handle Revoked Auth Permissions](https://developers.facebook.com/blog/post/576/)
@@ -34,6 +34,6 @@ title: Facebook C# SDK Links and Related Content
 * [How-To: Publish updates to people who like your Open Graph Page](https://developers.facebook.com/blog/post/465/)
 * [How-To: Optimize the Graph API data fetch using ETags](https://developers.facebook.com/blog/post/627/)
 
-## Facebook C# SDK Social Links
-* [Facebook Fan Page for Facebook C# SDK](https://www.facebook.com/csharpsdk)
-* [Twitter account for Facebook C# SDK](https://twitter.com/csharpsdk)
+## Facebook SDK for .NET Social Links
+* [Facebook Fan Page for Facebook SDK for .NET](https://www.facebook.com/csharpsdk)
+* [Twitter account for Facebook SDK for .NET](https://twitter.com/csharpsdk)

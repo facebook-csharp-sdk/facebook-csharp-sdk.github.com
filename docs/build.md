@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Building Facebook C# SDK from Source
+title: Building Facebook SDK for .NET from Source
 ---
 
 ## Getting the source code.

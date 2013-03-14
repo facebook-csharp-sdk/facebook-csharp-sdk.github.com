@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Facebook C# SDK Exchange Token
+title: Facebook SDK for .NET Exchange Token
 ---
 
 ## Version 6 and above
@@ -15,7 +15,7 @@ title: Facebook C# SDK Exchange Token
 
 ## Version 5 and below
 
-Exchanging access token in not supported by Facebook C# SDK prior to v6. You will need to write your custom code to support it. Here is the sample code to get started with.
+Exchanging access token in not supported by Facebook SDK for .NET prior to v6. You will need to write your custom code to support it. Here is the sample code to get started with.
 
     var appId = "app_id";
     var appSecret = "app_secret";

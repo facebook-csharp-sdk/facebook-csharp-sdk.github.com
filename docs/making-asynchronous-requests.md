@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Making Asynchronous Requests with the Facebook C# SDK
+title: Making Asynchronous Requests with the Facebook SDK for .NET
 ---
 
 **For synchronous requests refer to [Making Synchronous Requests](Making-Synchronous-Requests).**
@@ -16,7 +16,7 @@ in not supported**. It is always recommended to use the TPL alternatives (XTaskA
 
 ### Accessing unprotected resources
 
-Here is a hello world async Facebook C# SDK example on accessing public Facebook data without the access token.
+Here is a hello world async Facebook SDK for .NET example on accessing public Facebook data without the access token.
 
     var fb = new FacebookClient();
 
@@ -231,7 +231,7 @@ Sample for posting to the wall.
     };
     
     var parameters = new Dictionary<string, object>();
-    parameters["message"] = "My first wall post using Facebook C# SDK";
+    parameters["message"] = "My first wall post using Facebook SDK for .NET";
     fb.PostAsync("me/feed", parameters);
 
 To post to the wall, you will need the user's permission. You can read more about these permissions 
@@ -266,7 +266,7 @@ _Using FacebookMediaObject_
     };
     
     var parameters = new Dictionary<string, object>();
-    parameters["message"] = "my first photo upload using Facebook C# SDK";
+    parameters["message"] = "my first photo upload using Facebook SDK for .NET";
     parameters["file"] = new FacebookMediaObject
                             {
                                 ContentType = "image/jpeg",
@@ -291,7 +291,7 @@ _Using FacebookMediaStream_
     };
 
     var parameters = new Dictionary<string, object>();
-    parameters["message"] = "upload using Facebook C# SDK";
+    parameters["message"] = "upload using Facebook SDK for .NET";
     parameters["file"] = new FacebookMediaStream
                         {
                             ContentType = "image/jpeg",

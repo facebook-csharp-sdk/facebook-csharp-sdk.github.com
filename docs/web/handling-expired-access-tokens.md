@@ -6,7 +6,7 @@ title: Handling Expired Access Tokens
 Dealing with expired access tokens can be a little tricky. There is no way to determine if an access token is expired without making a request to Facebook. For this reason, you must **always assume that an access token could be expired** when making requests to Facebook. This means that ever request you make to Facebook could throw an OAuthException and that your application much be prepared to handle it. In short, you should always wrap your requests in a ```try { ... } catch (FacebookOAuthException) { }``` and be prepared to handle an unauthorized request.
 
 ## FacebookOAuthException
-When an access token is invalid or expired, Facebook will return an error and the Facebook C# SDK will throw a ```FacebookOAuthException```. The most basic example of handling the ```FacebookOAuthException``` is show below.
+When an access token is invalid or expired, Facebook will return an error and the Facebook SDK for .NET will throw a ```FacebookOAuthException```. The most basic example of handling the ```FacebookOAuthException``` is show below.
 
 	try {
 		var client = new FacebookClient("my_access_token");

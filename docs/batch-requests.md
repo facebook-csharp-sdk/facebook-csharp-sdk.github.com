@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Facebook C# SDK Batch Requests
+title: Facebook SDK for .NET Batch Requests
 ---
 
 [TODO]

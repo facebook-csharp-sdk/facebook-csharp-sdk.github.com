@@ -1,29 +1,29 @@
 ---
 layout: default
-title: Facebook C# SDK Overview
+title: Facebook SDK for .NET Overview
 ---
 
-This is the documentation for the Facebook C# SDK Version 6.0. You will find various tutorials and examples on how to use the SDK with ASP.NET, Windows Phone, Windows 8 Metro Style Apps, and Windows Azure.
+This is the documentation for the Facebook SDK for .NET Version 6.0. You will find various tutorials and examples on how to use the SDK with ASP.NET, Windows Phone, Windows Store Apps, and Windows Azure.
 
-Before you begin developing your Facebook app with the Facebook C# SDK we recommend you read the official [Facebook developer documentation](https://developers.facebook.com/docs/). You cannot develop Facebook apps using the Facebook C# SDK without understanding the Facebook Graph API, Facebook Javascript SDK, or OAuth 2.0. These concepts are not addressed in the documentation for the Facebook C# SDK. 
+Before you begin developing your Facebook app with the Facebook SDK for .NET we recommend you read the official [Facebook developer documentation](https://developers.facebook.com/docs/). You cannot develop Facebook apps using the Facebook SDK for .NET without understanding the Facebook Graph API, Facebook Javascript SDK, or OAuth 2.0. These concepts are not addressed in the documentation for the Facebook SDK for .NET. 
 
 ## Getting Started
 
-* [Getting Started with the Facebook C# SDK for ASP.NET](/docs/web/getting-started)
-* Getting Started with the Facebook C# SDK for Windows Phone (COMING SOON)
-* Getting Started with the Facebook C# SDK for Windows Azure (COMING SOON)
-* Getting Started with the Facebook C# SDK for Windows 8 (COMING SOON)
+* [Getting Started with the Facebook SDK for .NET for ASP.NET](/docs/web/getting-started)
+* Getting Started with the Facebook SDK for Windows Phone (COMING SOON)
+* Getting Started with Windows Azure and the Facebook SDK for .NET (COMING SOON)
+* Getting Started with the Facebook SDK for Windows (COMING SOON)
 
 ## General Content
 
 * [About](/docs/about)
 * [Frequently Asked Questions](/docs/faq)
-* [Contributing to the Facebook C# SDK](/docs/contribute)
+* [Contributing to the Facebook SDK for .NET](/docs/contribute)
 * [Known Issues](/docs/known-issues)
 * [Community Content](/docs/community-content)
 * [Facebook Links](/docs/facebook-links)
 
-## Making Requests using the Facebook C# SDK
+## Making Requests using the Facebook SDK for .NET
 
 * [Making Synchronous Requests](/docs/making-synchronous-requests)
 * [Making Synchronous Requests without Dynamic](/docs/making-synchronous-without-dynamic-support)
@@ -35,5 +35,5 @@ Before you begin developing your Facebook app with the Facebook C# SDK we recomm
 ## Miscellaneous
 
 * [Date and Time Conversion](/docs/datetimeconverter)
-* [Building Facebook C# SDK from Source](/docs/build)
-* [Publishing a Release of the Facebook C# SDK](/docs/release)
+* [Building Facebook SDK for .NET from Source](/docs/build)
+* [Publishing a Release of the Facebook SDK for .NET](/docs/release)

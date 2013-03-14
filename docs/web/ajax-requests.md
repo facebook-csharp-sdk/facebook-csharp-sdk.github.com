@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Making AJAX Requests with the Facebook C# SDK
+title: Making AJAX Requests with the Facebook SDK for .NET
 ---
 
 When making AJAX request you must remember to send the Facebook Access Token to the server. You can do this by either manually including it in the request. The other alternative is to store the access token in a persistent or semi-persistent store on the server. For example, you could use the ASP.NET Session State to store the access token and then retrieve it when you make a request. Below you will find a few examples.

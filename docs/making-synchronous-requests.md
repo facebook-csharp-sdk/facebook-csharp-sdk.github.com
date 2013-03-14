@@ -21,7 +21,7 @@ It is highly recommended to read the official Facebook documentation on Graph Ap
 
 ### Accessing unprotected resources
 
-Here is a hello world Facebook C# SDK example on accessing public Facebook data without the access token.
+Here is a hello world Facebook SDK for .NET example on accessing public Facebook data without the access token.
 
     var fb = new FacebookClient();
     dynamic result = fb.Get("4");
@@ -127,7 +127,7 @@ Sample for posting to the wall.
 
     var fb = new FacebookClient("access_token");
     dynamic result = fb.Post("me/feed", new { 
-        message = "My first wall post using Facebook C# SDK" 
+        message = "My first wall post using Facebook SDK for .NET" 
     });
     var newPostId = result.id;
 
@@ -149,7 +149,7 @@ _Using FacebookMediaObject_
     dynamic result = fb.Post("me/photos",
         new
             {
-                message = "my first photo upload using Facebook C# SDK",
+                message = "my first photo upload using Facebook SDK for .NET",
                 file = new FacebookMediaObject
                         {
                             ContentType = "image/jpeg",
@@ -169,7 +169,7 @@ _Using FacebookMediaStream_
                     }.SetValue(File.OpenRead(attachementPath)))
     {
         dynamic result = fb.Post("me/photos", 
-            new { message = "upload using Facebook C# SDK", file });
+            new { message = "upload using Facebook SDK for .NET", file });
     }
 
 > Unlike FacebookMediaObject the developer must be responsible for correctly disposing the stream.
@@ -295,7 +295,7 @@ If you want to set the parameters such as ```omit_response_on_success``` or ```n
                 })
         );
 
-> Examples shown above does not necessarily include best practices for Facebook development using Facebook C# SDK. 
+> Examples shown above does not necessarily include best practices for Facebook development using Facebook SDK for .NET. 
 It is highly recommend to handle exceptions. If possible it is always recommended to use the asynchronous alternatives 
 - [Making Asynchronous Requests](/docs/making-asynchronous-requests), 
 [Making Asynchronous Requests with Task Parallel Library](/docs/making-asynchronous-requests-with-task-parallel-library), 

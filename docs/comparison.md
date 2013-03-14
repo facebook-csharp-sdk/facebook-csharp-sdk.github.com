@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Facebook C# SDK Comparison of PHP SDK and HttpClient
+title: Facebook SDK for .NET Comparison of PHP SDK and HttpClient
 ---
 
-There are many different ways you can make requests to the Facebook Graph API. This document compares some of the most common Graph API actions using curl, the Facebook C# SDK, the Facebook PHP SDK, and System.Net.HttpClient.
+There are many different ways you can make requests to the Facebook Graph API. This document compares some of the most common Graph API actions using curl, the Facebook SDK for .NET, the Facebook PHP SDK, and System.Net.HttpClient.
 
 ## Get User Information
 

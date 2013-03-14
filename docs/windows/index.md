@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Facebook C# SDK for Windows 8
+title: Facebook SDK for Windows
 ---
 
 This documentation is in progress as of March 13, 2012. We are working on big improvements for the coming weeks.

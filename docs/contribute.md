@@ -1,22 +1,22 @@
 ---
 layout: default
-title: Contributing to the Facebook C# SDK
+title: Contributing to the Facebook SDK for .NET
 ---
 
-So you want to contribute to the Facebook C# SDK. Great! We can use the help and appreciate the help! Below you will find
+So you want to contribute to the Facebook SDK for .NET. Great! We can use the help and appreciate the help! Below you will find
 our contribution guidelines which are nearly identical to the [NuGet Project contribution guidelines](http://docs.nuget.org/docs/contribute/contributing-to-nuget).
 
 ## Ways to Contribute
 
 While writing code is certainly glamorous and gets all the attention, it's not the only way to contribute to the 
-Facebook C# SDK. 
+Facebook SDK for .NET. 
 In many cases, it's not even the most **valuable** way to contribute. 
-If you would like to contribute to the Facebook C# SDK to help the project along, consider these options 
-(which are valid for any OSS project, not just the Facebook C# SDK):
+If you would like to contribute to the Facebook SDK for .NET to help the project along, consider these options 
+(which are valid for any OSS project, not just the Facebook SDK for .NET):
 
 * Improve our [documentation](/docs/contributing-documentation). Documentation often gets little love and attention in an Open Source project, but those who help with documentation receive tremendous love and kudos from the team. 
-* Submit a <a title="Facebook C# SDK Issues" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/issues/new">bug report</a> (for an excellent guide on submitting good bug reports, read <a title="Painless Bug Tracking" href="http://www.joelonsoftware.com/articles/fog0000000029.html">Painless Bug Tracking</a>). 
-* Submit a <a title="Facebook C# SDK Issues" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/issues/new">feature request</a>. 
+* Submit a <a title="Facebook SDK for .NET Issues" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/issues/new">bug report</a> (for an excellent guide on submitting good bug reports, read <a title="Painless Bug Tracking" href="http://www.joelonsoftware.com/articles/fog0000000029.html">Painless Bug Tracking</a>). 
+* Submit a <a title="Facebook SDK for .NET Issues" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/issues/new">feature request</a>. 
 * Help verify submitted fixes for bugs. 
 * Help answer questions on [Stackoverflow](http://stackoverflow.com/questions/tagged/facebook-c%23-sdk)
 * Submit a unit test to help provide code coverage. 
@@ -25,11 +25,11 @@ If you would like to contribute to the Facebook C# SDK to help the project along
 
 ## Contributing Code
 
-Contributing code refers to making a contribution to the source code for Facebook C# SDK itself.
+Contributing code refers to making a contribution to the source code for Facebook SDK for .NET itself.
 
 Miguel de Icaza has a good post 
 on <a href="http://tirania.org/blog/archive/2010/Dec-31.html">Open Source Contribution Etiquette</a> that is worth reading, 
-as the guidance he gives applies well to the Facebook C# SDK.
+as the guidance he gives applies well to the Facebook SDK for .NET.
 
 ### Getting Started
 
@@ -52,8 +52,8 @@ Note that some of these steps are unnecessary for small changes.
     * Add a missing unit test
     * Search for a // TODO comment in the code and address one 
     * Fix a defect in the <a title="Issue List" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk/issues?milestone=&sort=updated&state=open">issue list</a> or just find one with the &ldquo;Proposed&rdquo; status). Try something small first and work your way up to larger issues. 
-2. Create a server-side Fork of the Facebook C# SDK project in Github.  
-Navigate to the <a title="Facebook C# SDK Source Code" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk">Source Code</a> and 
+2. Create a server-side Fork of the Facebook SDK for .NET project in Github.  
+Navigate to the <a title="Facebook SDK for .NET Source Code" href="https://github.com/facebook-csharp-sdk/facebook-csharp-sdk">Source Code</a> and 
 click **Fork** to create the remote clone of the main repository. The MvcContrib project has 
 <a title="How to contribute to MvcContrib" href="http://mvccontrib.codeplex.com/wikipage?title=HowToContribute&amp;referringTitle=T4MVC_contrib">
 a great write-up of this process.</a>
