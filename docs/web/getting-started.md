@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Getting Started with the Facebook SDK for .NET for ASP.NET
+title: Getting Started with the Facebook SDK for .NET and ASP.NET
 ---
 
 ## Creating a Facebook Application

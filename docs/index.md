@@ -9,7 +9,7 @@ Before you begin developing your Facebook app with the Facebook SDK for .NET we 
 
 ## Getting Started
 
-* [Getting Started with the Facebook SDK for .NET for ASP.NET](/docs/web/getting-started)
+* [Getting Started with the Facebook SDK for .NET and ASP.NET](/docs/web/getting-started)
 * Getting Started with the Facebook SDK for Windows Phone (COMING SOON)
 * Getting Started with Windows Azure and the Facebook SDK for .NET (COMING SOON)
 * Getting Started with the Facebook SDK for Windows (COMING SOON)
