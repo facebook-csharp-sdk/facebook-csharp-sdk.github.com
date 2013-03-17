@@ -23,6 +23,18 @@ Posted event on your timeline
 
 To complete the tutorial, you'll need some familiarity with Windows Store development. In particular, you will need familiarity with Visual Studio 2012 and being able to create and debug Windows Store projects in C# and XAML. Familiarity with Expression Blend for Visual Studio will be of additional benefit.
 
+### Setting up your Facebook Application
+Before you can get started with the Windows 8 Application, you have to create a _Facebook Application_ and obtain a Facebook AppId on the Facebook developer portal. To do this, first you need to go to [Facebook Developer Portal](http://developers.facebook.com/apps) and create a Facebook App.
+
+![Create Facebook App](images/FacebookAppWebsite/1-CreateFBApp.png)
+
+Once you have created the app, you need to edit the app and change a few settings. Make sure to set the _DisplayName_ and _namespace_ appropriately. Also, make sure to set the _email address_. One of the crucial things is the _App Domain_ box. In this box, you should add a domain without the _http://_ prefix. Make sure you have control of the website because later in this tutorial, you will need to place some static pages there. As of yet, Facebook does not have a dedicated section for Windows 8/WP8, so for now, select the section "Website with Facebook Login". in the _Site URL_ field, put the website that you earlier picked for the App Domain, except make sure that you prefix it with an "https://" this time. Don't worry,  you will not have to configure your website with a real SSL functionality. This is just to make the _Facebook Website with Facebook Login_ dialog happy.
+
+![Create Facebook App](images/FacebookAppWebsite/2-EditFBAppBasic.png)
+
+> ATTENTION: You may have to wait 5-10 minutes for the App you just created to propagate through the Facebook system before it becomes Active. If your app's facebook login is not working immediately after you created the App, give it 10 minutes and try again.
+
+### Getting Started on the Application
 To get started, create a Visual Studio project using the Visual C# -> Windows Store -> Blank App. Let us call our app the Facebook.Scrumptious.Windows8. Install the Facebook nuget package into the solution by starting the Package Manager powershell by following:
 
 Tools->Library Package Manager->Package Manager console
@@ -99,45 +111,188 @@ In App.xaml.cs add the following two variables to hold the Facebook OAuth Access
 Now Replace the contents of HomePage.xaml with the following. All the following does is to add some text to the Page and a button for facebook login. Additionally, it says that the button click will be handled by an event handler named "btnFacebookLogin_Click".
     
     <Page
-    x:Class="Facebook.Scrumptious.Views.HomePage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Facebook.Scrumptious.Views"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
+        x:Class="Facebook.Scrumptious.Windows8.Views.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:Facebook.Scrumptious.Windows8.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d">
+    
         <Grid>
-
+    
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Facebook Scrumptious Sample for Windows 8" FontSize="50"/>
             <Button Grid.Row="1" Content="Login To Facebook" Height="73" HorizontalAlignment="Center" Name="btnFacebookLogin" VerticalAlignment="Center" Width="276" Click="btnFacebookLogin_Click" />
-
+    
         </Grid>
     </Page>
 
-Save the access token
+In HomePage.xaml.cs, add the following two internal variables. The _permissions_ variable to hold a reference to all the extended permissions our application will require i.e. ability to access the user's profile, the ability to read their news feed and the publish to their news feed. The _fb_ variable of type FacebookClient to instantiate the SDK defined facebook client that we will use in the rest of the tutorial to interact with the Facebook APIs. 
 
-Logout - reset App.AccessToken = String.Empty
+    string _permissions = "user_about_me,read_stream,publish_stream";
+    FacebookClient _fb = new FacebookClient();
+    
+Additionally, add the following code which defines the event handlers for the facebook login button. The following code
 
-Destroy the cookie
+        private async void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
+        {
+            var redirectUrl = "https://www.facebook.com/connect/login_success.html";
+            try
+            {
+                //fb.AppId = facebookAppId;
+                var loginUrl = _fb.GetLoginUrl(new
+                {
+                    client_id = Constants.FacebookAppId,
+                    redirect_uri = redirectUrl,
+                    scope = _permissions,
+                    display = "popup",
+                    response_type = "token"
+                });
+
+                var endUri = new Uri(redirectUrl);
+
+                WebAuthenticationResult WebAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(
+                                                        WebAuthenticationOptions.None,
+                                                        loginUrl,
+                                                        endUri);
+                if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
+                {
+                    var callbackUri = new Uri(WebAuthenticationResult.ResponseData.ToString());
+                    var facebookOAuthResult = _fb.ParseOAuthCallbackUrl(callbackUri);
+                    var accessToken = facebookOAuthResult.AccessToken;
+                    if (String.IsNullOrEmpty(accessToken))
+                    {
+                        // User is not logged in, they may have canceled the login
+                    }
+                    else
+                    {
+                        App.AccessToken = accessToken;
+
+                        // User is logged in and token was returned
+                        LoginSucceded();
+                    }
+
+                }
+                else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
+                {
+                    throw new InvalidOperationException("HTTP Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseErrorDetail.ToString());
+                }
+                else
+                {
+                    // The user canceled the authentication
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+                // Bad Parameter, SSL/TLS Errors and Network Unavailable errors are to be handled here.
+                //
+                throw ex;
+            }
+        }
+
+Also add the following code to set the User's FacebookId in _App.FacebookId_ and to navigate to the LandingPage when the login has succeeded:
+ 
+        private async void LoginSucceded()
+        {
+            FacebookClient _fb = new FacebookClient(App.AccessToken);
+
+            dynamic parameters = new ExpandoObject();
+            parameters.access_token = App.AccessToken;
+            parameters.fields = "id";
+
+            dynamic result = await _fb.GetTaskAsync("me", parameters);
+
+            App.FacebookId = result.id;
+            Frame.Navigate(typeof(LandingPage));
+        }
+
+At this step, also add a new item of type _class_ to the _ViewModels_ folder. Call the class _Constants.cs_ and add the following code to it. Make sure to replace the string _Your Facebook App ID here_ with your Facebook App ID that you obtained earlier when you created your app on the Facebook Developer Portal.
+
+    class Constants
+    {
+        public static readonly string FacebookAppId = "Your Facebook App ID here";
+    }
+
+        
+Make sure to resolve any missing dependencies as illustrated earlier to ensure that the code builds without errors. You should now be able to run the app and login to Facebook. You should also see the dialog to add extended permissions. When executed, your app should present you with the following dialogs. When you are successfully logged in, you should be naviated to a blank page - LandingPage.
+
+Login Page
+
+![Login and Extended Permissions Page](images/Authenticate/5-LoginPage.png)
+
+Basic Permissions Page
+
+![Login and Extended Permissions Page](images/Authenticate/6-BasicPermission.png)
+
+Extended Permissions Page
+
+![Login and Extended Permissions Page](images/Authenticate/7-ExtendedPermissions.png)
+
+[Todo] Logout - reset App.AccessToken = String.Empty
+
 
 ##Personalize
 
-This tutorial outlines how to personalize your app experience with the Facebook SDK for Android by displaying the user's profile picture and name.
+This tutorial outlines how to personalize your app experience with the Facebook SDK for Windows 8 by displaying the user's profile picture and name.
 
-1. Setup the UI. Create a StackPanel with Image and TextBlock to hold the user's profile picture and their name.
+### Setup the UI. 
 
+Insert the following code to LandingPage.xaml with the following content, which merely adds an image control and a TextBlock to hold the User's profile picture and name. Make sure to insert this right after the declaration of the back button and page title Grid:
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="208*"/>
+                <ColumnDefinition Width="475*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image x:Name="MyImage" Height="100" Width="100"/>
+                <TextBlock x:Name="MyName" TextWrapping="Wrap" Text="TextBlock" FontFamily="Segoe UI" FontSize="29.333"/>
+            </StackPanel>
+        </Grid>
+        
+Also, give a correct name to the page by changing the AppName from _My Application_ to _Scrumptious_ in the XAML file.
+
+### Retrieve the User's profile data and display it
+
+At this point, the user has been Authenticated and their AccessToken and FacebookId is stored in App.xaml.cs static variables and hence it is available throughout the program. Now copy the following code into LandingPage.xaml.cs:
+
+        private async void LoadUserInfo()
+        {
+            FacebookClient _fb = new FacebookClient(App.AccessToken);
+
+            dynamic parameters = new ExpandoObject();
+            parameters.access_token = App.AccessToken;
+            parameters.fields = "name";
+
+            dynamic result = await _fb.GetTaskAsync("me", parameters);
+
+            string profilePictureUrl = string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", App.FacebookId, "large", _fb.AccessToken);
+
+            this.MyImage.Source = new BitmapImage(new Uri(profilePictureUrl));
+            this.MyName.Text = result.name;
+        }
+        
+The above code retrieves the user profile data. It additionally creates a URL for the user's profile picture and sets it as the source of the image. This causes the image to automatically retrieve the profile picture and load it correctly.
+
+As a Final step in personalization, we have to invoke the function as soon as the page has been loaded. To do this, add the following line in the Constructor after the InitializeComponent call:
+
+    LoadUserInfo();
+            
+As before, make sure to resolve any missing dependencies as illustrated earlier to ensure that the code builds and runs without errors. At the end of this step, your UI for landing page will look like the following:
+
+![Personalized Page](images/Personalize/Personalized-Page.png)
+
+### Next Steps
 Create three panels, one each for the restaurant, meal and friends. You can do this manually as well, but blend is a lot easier and faster. Setup event handlers for all the tap events.
 
-2. Connecting to open graph actions
+Connecting to open graph actions
 
 Look at the Open Graph API for reference on how to fetch various kinds of data. Use the GetDataAsync or PostDataAsync to navigate to the URL depending on operation. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. No need to pre-create these objects.
-
- 
 
 Wire up so that as soon as user navigates to this page, their usename and picture is fetched and connected to the interface.
 
@@ -152,8 +307,6 @@ We will now make the app a bit more interactive and let the user pick out their 
 3. Create the UI. Add a Listview to the UI. Edit item template in blend and add image and text box for friend names. Create data binding. Showcase what is happening under the hood. Allow multiselect on the list.
 
 4. Hook into the listview select event and creaet a list of all the selected friends in the model for later use. Save it in the Data Model.
-
- 
 
 ##Show Nearby Places
 
