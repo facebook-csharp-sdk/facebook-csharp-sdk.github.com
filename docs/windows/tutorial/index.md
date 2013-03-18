@@ -556,41 +556,344 @@ Running the app after this will lead to a ListBox that looks like the following 
 
 ![Well formatted list box](images/Friends/15-WellFormattedListBox.png)
 
+Now add the following code to the FacebookData class in FacebooDataModel.cs to store the list of selected friends in the FriendSelector page.
 
-4. Hook into the listview select event and creaet a list of all the selected friends in the model for later use. Save it in the Data Model.
-
-### Next Steps
-Create three panels, one each for the restaurant, meal and friends. You can do this manually as well, but blend is a lot easier and faster. Setup event handlers for all the tap events.
-
-Connecting to open graph actions
-
-Look at the Open Graph API for reference on how to fetch various kinds of data. Use the GetDataAsync or PostDataAsync to navigate to the URL depending on operation. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. No need to pre-create these objects.
-
-Wire up so that as soon as user navigates to this page, their usename and picture is fetched and connected to the interface.
+        private static ObservableCollection<Friend> selectedFriends = new ObservableCollection<Friend>();
+        public static ObservableCollection<Friend> SelectedFriends
+        {
+            get
+            {
+                return selectedFriends;
+            }
+        }
 
 
+Add the following code to FriendSelector.xaml.cs to allow the selected list of friends to be stored in the _FacebookData.SelectedFriends_ variable, when we navigate away from the FriendSelector page:
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            // this runs in the UI thread, so it is ok to modify the 
+            // viewmodel directly here
+            FacebookData.SelectedFriends.Clear();
+            var selectedFriends = this.friendsListBox.SelectedItems;
+            foreach (Friend oneFriend in selectedFriends)
+            {
+                FacebookData.SelectedFriends.Add(oneFriend);
+            }
+
+            base.OnNavigatedFrom(e);
+        }
+
+And finally, in LandingPage.xaml.cs, add the following code to update the LandingPage with the friends who have been selected:
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (FacebookData.SelectedFriends.Count > 0)
+            {
+                if (FacebookData.SelectedFriends.Count > 1)
+                {
+                    this.selectFriendsTextBox.Text = String.Format("with {0} and {1} others", FacebookData.SelectedFriends[0].Name, FacebookData.SelectedFriends.Count - 1);
+                }
+                else
+                {
+                    this.selectFriendsTextBox.Text = "with " + FacebookData.SelectedFriends[0].Name;
+                }
+            }
+            else
+            {
+                this.selectFriendsTextBox.Text = "Select Friends";
+            }
+        }
+        
+Build the code at this point of time and make sure you resolve all symbols as shown earlier in the tutorial. This time around when you select friends on the FriendSelector Page and navigate back to the LandingPage, you should see the list of selected friends on the LandingPage.
+        
 ##Show Nearby Places
 
-1. Add the UI on the Landing page to navigate to the place picking page and
+Next, we will see how to query Facebook for Nearby places to eat.
 
-2. In the event handler, write the code to initialize the Location sensor and get a location fix. We keep a default location in case the sensor has trouble getting a fix.
+### Setup the DataModel classes
+Add the following code to FacebookDataModel.cs as a class in the namespace directly to hold the details of a single restaurant:
 
-3. Using the location, make a graph query for restaurants. 
+    public class Location
+    {
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+        public string Zip { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
 
-4. Update the data model with the list of restaurants
+        public string Category { get; set; }
+        public string Name { get; set; }
+        public string Id { get; set; }
+        public Uri PictureUri { get; set; }
+    }
 
-5. Create the Page for picking a location. Setup the UI for that. Drop a listbox, Setup the data binding for that. Pick the "additional templates", Create a template, - setup the UI by using an image, two textboxes and multiple grid/stack panels. See if you can update the UI to pick the dark blue state on selected state. On selection event, update the DataModel with the element that has been selected.
+Add the following code to FacebookDataModel.cs in FacebookData class which sets up the Locations object as well as a variable to hold the SelectedRestaurant when the user selects a restaurant
+
+        private static ObservableCollection<Location> locations = new ObservableCollection<Location>();
+        public static ObservableCollection<Location> Locations
+        {
+            get
+            {
+                return locations;
+            }
+        }
+
+        private static bool isRestaurantSelected = false;
+        public static bool IsRestaurantSelected
+        {
+            get
+            {
+                return isRestaurantSelected;
+            }
+            set
+            {
+                isRestaurantSelected = value;
+            }
+        }
+
+        public static Location SelectedRestaurant { get; set; }
+
+###Setup the UI
+
+Let's first add UI elements to the LandingPage for the user to be able to select a place to eat. Copy the following code to the LandingPage.xaml just above the grid named _WithWhomGrid_:
+
+                <Grid x:Name="WhereAreYouEatingGrid" >
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="150"/>
+        				<ColumnDefinition Width="*"/>
+        			</Grid.ColumnDefinitions>
+        			<Image HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="150"  Grid.Column="0" Stretch="None" Source="ms-appx:///Assets/PlacesWin8.png" />
+        			<StackPanel Grid.Column="1">
+        				<TextBlock TextWrapping="Wrap" Text="Where are you?" FontFamily="Segoe UI" FontSize="48"/>
+        				<TextBlock x:Name="selectRestaurantTextBox" TextWrapping="Wrap" Text="Select One" FontFamily="Segoe UI" FontSize="26.667" Foreground="#FF6DB7C7" Tapped="selectRestaurantTextBox_Tapped"/>
+        			</StackPanel>
+        		</Grid>
+
+Also, add the event handler for the tap event handler for the place selector in LandingPage.xaml.cs which will take us to the Restaurant selector page, which we will add shortly.
+
+        async private void selectRestaurantTextBox_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Geolocator _geolocator = new Geolocator();
+            CancellationTokenSource _cts = new CancellationTokenSource();
+            CancellationToken token = _cts.Token;
+
+            // Carry out the operation
+            Geoposition pos = null;
+
+            // default location is somewhere in redmond, WA
+            double latitude = 47.627903;
+            double longitude =  -122.143185;
+            try
+            {
+                // We will wait 100 milliseconds and accept locations up to 48 hours old before we give up
+                pos = await _geolocator.GetGeopositionAsync(new TimeSpan(48,0,0), new TimeSpan(0,0,0,0,100)).AsTask(token);
+            }
+            catch (Exception )
+            {
+                // this API can timeout, so no point breaking the code flow. Use
+                // default latitutde and longitude and continue on.
+            }
+
+            if (pos != null)
+            {
+                latitude = pos.Coordinate.Latitude;
+                longitude = pos.Coordinate.Longitude;
+            }
+
+            FacebookClient fb = new FacebookClient(App.AccessToken);
+            dynamic restaurantsTaskResult = await fb.GetTaskAsync("/search", new { q = "restaurant", type = "place", center = latitude.ToString() + "," + longitude.ToString(), distance = "1000" });
+
+            var result = (IDictionary<string, object>)restaurantsTaskResult;
+
+            var data = (IEnumerable<object>)result["data"];
+
+            foreach (var item in data)
+            {
+                var restaurant = (IDictionary<string, object>)item;
+
+                var location = (IDictionary<string, object>)restaurant["location"];
+                FacebookData.Locations.Add(new Location
+                {
+                    // the address is one level deeper within the object
+                    Street = location.ContainsKey("street") ? (string)location["street"] : String.Empty,
+                    City = location.ContainsKey("city") ? (string)location["city"] : String.Empty,
+                    State = location.ContainsKey("state") ? (string)location["state"] : String.Empty,
+                    Country = location.ContainsKey("country") ? (string)location["country"] : String.Empty,
+                    Zip = location.ContainsKey("zip") ? (string)location["zip"] : String.Empty,
+                    Latitude = location.ContainsKey("latitude") ? ((double)location["latitude"]).ToString() : String.Empty,
+                    Longitude = location.ContainsKey("longitude") ? ((double)location["longitude"]).ToString() : String.Empty,
+
+                    // these properties are at the top level in the object
+                    Category = restaurant.ContainsKey("category") ? (string)restaurant["category"] : String.Empty,
+                    Name = restaurant.ContainsKey("name") ? (string)restaurant["name"] : String.Empty,
+                    Id = restaurant.ContainsKey("id") ? (string)restaurant["id"] : String.Empty,
+                    PictureUri = new Uri(string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", (string)restaurant["id"], "square", App.AccessToken))
+                });
+            }
+
+            Frame.Navigate(typeof(Restaurants));
+        }
+
+The above code tries to connect to the Location Services in the device to try and get your location. If it fails, it falls back to a known Location in Redmond, WA as the center of the search. To make sure that your application has access to the Location Services, you have to declare Location Capability in the application manifest.
+                
+![Location Capability](images/Locations/1-LocationCapability.png)
+
+The rest of the code above connects to the Graph API URL _/search_ and supplies appropriate parameters to it to perform a location search within 1 Mile. Once this data has been retrieved, _FacebookData.Locations_ static variable gets populated with the result.
+                
+Now, in the Views folder, add another Basic Page and name it Restaurants.xaml. As we did earlier with the FriendSelector page, we will setup DataBinding between a ListBox that we put on the Restaurants Page and the _Locations_ variable in the FacebookData class. For sake of brevity, copy the following code into Restaurants.xaml:
+
+    <common:LayoutAwarePage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Facebook.Scrumptious.Windows8.Views"
+    xmlns:common="using:Facebook.Scrumptious.Windows8.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Facebook.Scrumptious.Windows8.ViewModel"
+    x:Name="pageRoot"
+    x:Class="Facebook.Scrumptious.Windows8.Views.Restaurants"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
+    mc:Ignorable="d">
+
+    <common:LayoutAwarePage.Resources>
+
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">Pick a place</x:String>
+        <DataTemplate x:Key="RestaurantListBoxItemTemplate">
+        	<Grid>
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="11*"/>
+        			<ColumnDefinition Width="12*"/>
+        		</Grid.ColumnDefinitions>
+        		<Image HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" Source="{Binding PictureUri}"/>
+        		<StackPanel Grid.Column="1" Margin="0,0,0,18" Orientation="Vertical">
+        			<TextBlock x:Name="RestaurantName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="26.667" FontFamily="Segoe UI"/>
+        			<TextBlock x:Name="PlaceType" TextWrapping="Wrap" Text="{Binding Category}" FontFamily="Segoe  ui" FontSize="14.667"/>
+        		</StackPanel>
+        	</Grid>
+        </DataTemplate>
+       </common:LayoutAwarePage.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    	<Grid.DataContext>
+    		<ViewModel:FacebookData/>
+    	</Grid.DataContext>
+
+        <!-- Back button and page title -->
+        <Grid>
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="139*"/>
+        		<RowDefinition/>
+        	</Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}" Margin="36,0,0,35.274"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}" Margin="0,0,30,39.274"/>
+        </Grid>
+        <Grid Grid.Row="1">
+        	<ListBox x:Name="restaurantsListBox" VerticalAlignment="Top" ItemsSource="{Binding Locations}" ItemTemplate="{StaticResource RestaurantListBoxItemTemplate}"/>
+        </Grid>
+
+    </Grid>
+    </common:LayoutAwarePage>
+
+
+Finally, we need two more event handlers:
+
+- In Restaurants.xaml.cs, add the following code to note the selected Restaurant in the ViewModel:
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            if (this.restaurantsListBox.SelectedIndex >= 0)
+            {
+                FacebookData.SelectedRestaurant = (Location)this.restaurantsListBox.SelectedItem;
+                FacebookData.IsRestaurantSelected = true;
+            }
+
+            base.OnNavigatedFrom(e);
+        }
+
+- In LandingPage.xaml.cs, add the following code to the OnNavigatedTo event to display the selected Restaurant:
+
+            if (FacebookData.IsRestaurantSelected)
+            {
+                this.selectRestaurantTextBox.Text = FacebookData.SelectedRestaurant.Name;
+            }
+
+At this step, if you have followed all the steps correctly and resolved all references, you should see the UI flow like the following:
+
+Ask Permisson for Location Capability
+
+![Ask Permission](images/Locations/2-AskPermissionForLocation.png)
+
+Select a Restaurant
+
+![Select Restaurant](images/Locations/3-SelectedRestaurant.png)
+
+Final Landing Page UI
+
+![Landing Page UI](images/Locations/4-EndResultLocation.png)
 
 ## Publish Open Graph Story
 
 In this tutorial, you'll bring everything together and publish an Open Graph story. The previous steps let the user specify where they are and who they're with. Now, we'll implement a flow that lets the user select a meal and share what they're doing on their timeline.
 
-Copy these three steps as is:
+You should follow the following three 
 
 Step 1: Configure Open Graph in the App Dashboard
 Step 2: Set Up Your Backend Server
 Step 3: Publish a Test Action
- 
+
+Connecting to open graph actions
+
+Look at the Open Graph API for reference on how to fetch various kinds of data. Use the GetDataAsync or PostDataAsync to navigate to the URL depending on operation. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. No need to pre-create these objects.
+
+Wire up so that as soon as user navigates to this page, their usename and picture is fetched and connected to the interface. 
 
 Add the meal selection flow:
 
