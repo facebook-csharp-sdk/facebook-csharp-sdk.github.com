@@ -401,10 +401,161 @@ Following similar logic, we can retrieve each of our friends as a single object 
 
 Now that we have the Friends list as an ObservableCollection, we can create and bind it to the  UI using code, but it is much easier doing that using Expression Blend, so let's instead do that. To use Expression Blend on the project, right click on the project in Visual Studio and select _Open in Blend_. 
 
->NOTE: Expression blend is one of the tools that makes developing UI in XAML extremely easy. Additionally, binding list data to UI becomes extremely easy with Blend. It is worth learning Expression Blend if you plan to do any long term development in C#/XAML. 
+>NOTE: Expression blend is one of the tools that makes developing UI in XAML extremely easy. Additionally, binding list data to UI becomes extremely easy with Blend. It is worth learning Expression Blend if you plan to do any long term development in C#/XAML. A good resource for learning Expression Blend is [Pro Expression Blend](http://www.amazon.com/Pro-Expression-Blend-Andrew-Troelsen/dp/143023377X/ref=sr_1_1?ie=UTF8&qid=1363585145&sr=8-1&keywords=expression+blend)
+
+#### Set up a ListBox to hold the List of Friends
+- Go to Projects tab and double click the FriendSelector in Expression Blend. The FriendSelector page will open in the main pane.
+
+![Select FriendSelector.xaml in Blend](images/Friends/2-BlendFriendSelector.png)
+
+- Click on the Assets tab and search for _ListBox_. Taking care to make sure that the First Grid, which houses the entire page is selected in the _Objects and Timeline_ window, double click the _ListBox_. This will add the ListBox as the direct child of the top level _Grid_ panel.
+
+![Select ListBox in Assets](images/Friends/3-AssetsListBox.png)
+
+- The above step will add the ListBox right on top of the back button. The Outer grid has two rows, one that houses the back button and page title and the second where the content should go. Unfortunately, at this point, the ListBox is in Row 0. See below:
+
+![ListBox in wrong place](images/Friends/4-ListViewInWrongPlace.png)
+
+- Select the ListBox by clicking on it and then in the _Properties_ panel on the right side, set its _Row_ property to 1 - since row and column numbering starts from 0. This will bring the ListBox in the row meant for content. Additionally, we want the ListBox to occupy the entire width of screen but only as much vertical space is required. This can easily be done by Setting its Height and With property to Auto by clicking on the icons on the right side of Height and Width in the properties panel. Additionally, set the HorizontalAlignment and VerticalAlignment to scale. See the image below for illustration.
+
+![Set ListBox properties](images/Friends/5-SetRowHeightWidthAlignment.png)
+
+#### Setup the Data Binding of the ListBox
+- Click on the outermost Grid in the _Objects and Timeline_ window. Once this is done, in the _Properties_ window,  locate the _DataContext_ property. Click the _New_ button located next to it. This will pop up a Window titled _Select Object_. Expand the _Facebook.Scrumptious.Windows8.ViewModel_ and select the _FacebookData_ node. This makes the entire _FacebookData_ class available to this page as a resource. Any UI element can now bind to variables in the _DataContext_.
+
+![Set DataContext](images/Friends/6-SetDataContext.png)
+
+- Now, we will bind the ListBox to the _ObservableCollection_ of _Friends_ in the _FacebookData_ class that is available to us via the _DataContext_ we just created above. To do this, select the listbox in the _Objects and Timeline_ window and click on the little square next to the _ItemsSource_ property. This will pop up a Context Menu, select _Create Data Binding_ from it. This will open a window called "Create Data Binding for [ListBox].ItemsSource. Select the _Friends_ collection from this window and hit OK. This will set the Friends ObservableCollection to the Source of Data for this ListBox.
+
+Click on square next to Items Source
+
+![Click on ItemsSource](images/Friends/7-ClickOnItemsSource.png)
+
+Bind to _ObservableCollection<Friends>_
+
+![Bind to Friends](images/Friends/8-BindToFriends.png)
+
+- At this point, the ListBox is bound to the ObservableCollection, but individual properties in the Friend Objects are not bound to individual ListBoxItems in the ListBox. To do this, right click on the ListBox in the _Objects and Timeline_ window, select _Edit Additional Templates -> Edit Generated Items (ItemTemplate) -> Create Empty_ and hit OK on resulting dialog box.
+
+![Edit ItemTemplate](images/Friends/9-EditItemTemplate.png)
+
+This will create the layout of a single ListBoxItem. For each Friend, we are going to retrieve an Image and name, so lets search of Image and TextBlock items in the Assets Window and add them here under the _Grid_ element.
+
+![ItemTemplate with Image and Text](images/Friends/10-ItemTemplateWithImgTxt.png)
+
+Similar to how you bound the ItemsSource of the ListBox, you can now bind the Source for the Image and the Text for the TextBlock using Blend as well. See the illustrations below.
+
+Bind the image source to the Friend object's PictureUri property.
+
+![ItemTemplate with Image and Text](images/Friends/11-BindImageSource.png)
+
+Bind the TextBlock's Text to the Friend object's Name property.
+
+![ItemTemplate with Image and Text](images/Friends/12-BindFriendName.png)
+
+Also, set the Grid's height and width to Auto and the Image's Height and Width property to 50px each.
+
+Save your work and run the program. If you have followed through all the steps, you will see the following screen:
+
+![Landing Page with Select Friends](images/Friends/13-SelectFriendsLandingPage.png)
+
+If you click on the _Select Friends_ text, it will take you to a list of friends, that looks like the following:
+
+![Friends Picker](images/Friends/14-GarbledFriendsList.png)
+
+As you can see, using Blend, within a few easy steps, we are able to create a ListBox and bind the friend data to it without writing a single line of code. The UI looks a bit garbled and we can pick only one friend at a time, but this illustrates the power of using Expression Blend. I will leave it as an exercise to you on how to follow along Blend and style the ListBox and how to allow Multiple Select. In interest of of making progress, at this point of time, just overwrite all the contents of the FriendSelector.xaml with the following pre-built and styled ListBox code:
+
+    <common:LayoutAwarePage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Facebook.Scrumptious.Windows8.Views"
+    xmlns:common="using:Facebook.Scrumptious.Windows8.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Facebook.Scrumptious.Windows8.ViewModel"
+    x:Name="pageRoot"
+    x:Class="Facebook.Scrumptious.Windows8.Views.FriendSelector"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
+    mc:Ignorable="d">
+
+    <common:LayoutAwarePage.Resources>
+
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">Select Friends</x:String>
+        <DataTemplate x:Key="FriendsListBoxItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="
+					*"/>
+                </Grid.ColumnDefinitions>
+                <Image Height="50" Width="50" Grid.Column="0" Stretch="None" Source="{Binding PictureUri}"/>
+                <TextBlock x:Name="friendName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="26.667" Grid.ColumnSpan="2" Grid.Column="1"/>
+            </Grid>
+        </DataTemplate>
+    </common:LayoutAwarePage.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.DataContext>
+            <ViewModel:FacebookData/>
+        </Grid.DataContext>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
+        </Grid>
+        <ListBox x:Name="friendsListBox" Grid.Row="1" ItemsSource="{Binding Friends}" ItemTemplate="{StaticResource FriendsListBoxItemTemplate}" SelectionMode="Multiple"/>
+
+    </Grid>
+    </common:LayoutAwarePage>
 
 
-3. Create the UI. Add a Listview to the UI. Edit item template in blend and add image and text box for friend names. Create data binding. Showcase what is happening under the hood. Allow multiselect on the list.
+Running the app after this will lead to a ListBox that looks like the following and also allows MultiSelect.
+
+![Well formatted list box](images/Friends/15-WellFormattedListBox.png)
+
 
 4. Hook into the listview select event and creaet a list of all the selected friends in the model for later use. Save it in the Data Model.
 
