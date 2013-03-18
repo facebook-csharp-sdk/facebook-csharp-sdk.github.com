@@ -885,20 +885,351 @@ In this tutorial, you'll bring everything together and publish an Open Graph sto
 
 You should follow the following three 
 
-Step 1: Configure Open Graph in the App Dashboard
-Step 2: Set Up Your Backend Server
-Step 3: Publish a Test Action
+### Configure Open Graph in the App Dashboard
 
-Connecting to open graph actions
+In this step, you'll define the Open Graph action, object and aggregation in the App Dashboard. Define an _eat_ action with a corresponding _meal_ object. You can define a simple aggregation on the _eat_ action that displays a list of recent meals on the user's timeline. See the [Open Graph Tutorial](https://developers.facebook.com/docs/opengraph/tutorial/#define) to set up your action, object and aggregation.
 
-Look at the Open Graph API for reference on how to fetch various kinds of data. Use the GetDataAsync or PostDataAsync to navigate to the URL depending on operation. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. No need to pre-create these objects.
+![Open Graph Getting Started](images/OpenGraphMeal/1-GettingStartedAction.png)
 
-Wire up so that as soon as user navigates to this page, their usename and picture is fetched and connected to the interface. 
+When you're done with the flow, your Open Graph dashboard should look like this:
 
-Add the meal selection flow:
+![Finished Dashboard](images/OpenGraphMeal/2-OpenGraphAction.png)
 
-Setup the Data Model.
-Setup the UI - listview, bound to the Data Model. On Select event, change the data model with what was selected
-On Navigated event in Landing Page change the meal to the one you just selected.
-Wire up the Appbar button to post the action to facebook
+One thing to make sure is that you should edit your _Eat_ action to have these two capabilities, otherwise you will keep hitting exceptions about your app not having these capabilities:
+
+![Optional Capabilities](images/OpenGraphMeal/3-OptionalCapabilities.png)
+
+### Set Up Your Backend Server
+
+Open Graph objects need to exist as webpages on a server that Facebook can access. These pages use Open Graph tags that Facebook servers scrape to properly identify the data and connect it to the user. For example, you could have a ''pizza'' webpage that represents a ''pizza'' instance of a meal. When the user publishes a story with your app, this connects an ''eat'' action to the ''pizza'' object.
+
+In this tutorial, you'll set up static pages to represent each meal (ex: pizza or hotdog). Let's start by creating a webpage that represents a pizza object. You can start with a very simple webpage and add the appropriate Open Graph markup. Here's the initial HTML:
+
+    <html>
+    <head>
+    <!-- ADD SAMPLE OBJECT MARKUP CODE HERE -->   
+    </head>
+    <body>
+        <h1>Sample Meal</h1>
+    </body>
+    </html>
+
+You can get sample object markup code from the App Dashboard > Open Graph > Dashboard tab. Click the Get Code link next to the Meal object to show the sample markup:
+
+![Get Code](images/OpenGraphMeal/4-GetCode.png)
+
+Copying the sample code into your HTML should result in code similar to this:
+
+    <html>
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# scrumptiousmsft: http://ogp.me/ns/fb/scrumptiousmsft#">
+        <meta property="fb:app_id" content="540541885996234" /> 
+        <meta property="og:type"   content="scrumptiousmsft:meal" /> 
+        <meta property="og:url"    content="Put your own URL to the object here" /> 
+        <meta property="og:title"  content="Sample Meal" /> 
+        <meta property="og:image"  content="https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" /> 
+    </head>
+    <body>
+        <h1>Sample Meal</h1>
+    </body>
+    </html>
+    
+The prefix, fb:app_id and og:type will be different for your code as this corresponds to your Facebook App ID and your Facebook app's namespace.
+
+Replace the following values in the HTML code:
+
+- Put your own URL to the object here: replace this with the URL that's you'll use to host your pizza object (ex: https://fbsdkog.herokuapp.com/pizza.html)
+- Sample Meal: replace this with a title for the object (ex: Pizza)
+- og:image: replace this with a JPEG or PNG image URL that represents your object
+
+Save the HTML as _pizza.html_ and upload the file to your backend server. Remember you specified the backend server when you provisioned your Facebook App on the Facebook Dev Portal.
+
+Once you've uploaded the HTML page, test the sample object using the [Object Debugger](https://developers.facebook.com/tools/debug). Enter the pizza object URL into the debugger and submit the URL. Fix any errors you find before moving on.
+
+Now that you've set up a pizza object as a webpage, repeat this process for meal objects representing the following: Cheeseburger, Hotdog, Italian, French, Chinese, Thai and Indian.
+
+###Publish a Test Action
+Now that you've configured your Open Graph information and set up your objects, try publishing an action outside of your Android app with the Graph API Explorer. Go to the Graph API Explorer and select your app from the ''Application'' list. Then, change the action type from the default ''GET'' to ''POST''. Enter me/<YOUR_APP_NAMESPACE>:eat in the Graph API endpoint field and add the following POST data:
+
+- meal = <OBJECT_URL>
+- tags = <FRIEND_USER_ID>
+- place = <PLACE_ID> e.g. 111615355559307
+
+Once you enter the additional fields, your form should look like this:
+
+![Get Code](images/OpenGraphMeal/5-TestPublishAction.png)
+
+Submit your test action. You should see a response similar to this:
+
+    {
+        "id": "4907118722194"
+    }
+
+Now, login to Facebook and go to your Activity Log to verify the story posted correctly. You may hit the following error:
+
+    {
+        "error": {
+            "type": "Exception", 
+            "message": "These users can't be tagged by your app: 100002768941660. Either they aren't developers of your app or your action haven't been approved for tagging.", 
+            "code": 1611075
+        }
+    }
+
+The reason for this is that the user you're trying to tag is not an admin, developer or tester for your app. Go the Roles section for your app in the App Dashboard and add the user you want to tag to the appropriate role. You'll have to wait for that user to accept the request for you to add them to your app.
+
+If you ever have issues using Graph API queries in your Windows app test the same queries out using the [Graph API Explorer](https://developers.facebook.com/tools/explorer) tool.
+    
+### Add the Meal Selection Flow
+
+Add the following Meal object in the ViewModel:
+
+    public class Meal
+    {
+        public string Name { get; set; }
+        public string MealUri { get; set; }
+    }
+
+Additionally, add the following ObservableCollection of Meal objects for DataBinding to the MealSelector Page:
+
+    private static bool isLoadedMeals = false;
+        private static ObservableCollection<Meal> meals = new ObservableCollection<Meal>();
+        public static ObservableCollection<Meal> Meals
+        {
+            get
+            {
+                if (!isLoadedMeals)
+                {
+                    
+                    meals.Add(new Meal { Name = "Pizza", MealUri = Constants.FBActionBaseUri + "pizza.html" });
+                    meals.Add(new Meal { Name = "Cheeseburger", MealUri = Constants.FBActionBaseUri + "cheeseburger.html" });
+                    meals.Add(new Meal { Name = "Hotdog", MealUri = Constants.FBActionBaseUri + "hotdog.html" });
+                    meals.Add(new Meal { Name = "Italian", MealUri = Constants.FBActionBaseUri + "italian.html" });
+                    meals.Add(new Meal { Name = "French", MealUri = Constants.FBActionBaseUri + "french.html" });
+                    meals.Add(new Meal { Name = "Chinese", MealUri = Constants.FBActionBaseUri + "chinese.html" });
+                    meals.Add(new Meal { Name = "Thai", MealUri = Constants.FBActionBaseUri + "thai.html" });
+                    meals.Add(new Meal { Name = "Indian", MealUri = Constants.FBActionBaseUri + "indian.html" });
+                    isLoadedMeals = true;
+                }
+
+                return meals;
+            }
+        }
+
+        private static Meal selectedMeal = new Meal { Name = String.Empty, MealUri = String.Empty };
+        public static Meal SelectedMeal
+        {
+            get
+            {
+                return selectedMeal;
+            }
+
+            set
+            {
+                selectedMeal = value;
+            }
+        }
+
+Additionally, copy the following code to the Constants.cs class:
+
+        public static readonly string FBActionBaseUri = "Base URL for the website where your meal pages exist";
+        public static readonly string FacebookAppId = "<Your App ID>";
+        public static readonly string FacebookAppGraphAction = "<Your namespace>";
+
+Now create a Basic Page in the Views Folder called MealSelector that will host the Meal Selection ListBox and replace the contents of the MealSelector.xaml with the following XAML code inside it:
+
+    <common:LayoutAwarePage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Facebook.Scrumptious.Windows8.Views"
+    xmlns:common="using:Facebook.Scrumptious.Windows8.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Facebook.Scrumptious.Windows8.ViewModel"
+    x:Name="pageRoot"
+    x:Class="Facebook.Scrumptious.Windows8.Views.MealSelector"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
+    mc:Ignorable="d">
+
+    <common:LayoutAwarePage.Resources>
+
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Application</x:String>
+        <DataTemplate x:Key="MealsItemTemplate">
+        	<Grid>
+        		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="26.667"/>
+        	</Grid>
+        </DataTemplate>
+    </common:LayoutAwarePage.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    	<Grid.DataContext>
+    		<ViewModel:FacebookData/>
+    	</Grid.DataContext>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
+        </Grid>
+        <ListBox x:Name="mealSelectionListBox" Grid.Row="1" VerticalAlignment="Top" ItemsSource="{Binding Meals}" ItemTemplate="{StaticResource MealsItemTemplate}" SelectionChanged="mealSelectionListBox_SelectionChanged"/>
+
+    </Grid>
+    </common:LayoutAwarePage>
+
+Also, add the following event hanlder in MealSelector.xaml.cs to note down the selected meal to the ViewModel:
+
+        private void mealSelectionListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.mealSelectionListBox.SelectedItem != null)
+            {
+                FacebookData.SelectedMeal = (Meal)this.mealSelectionListBox.SelectedItem;
+            }
+        }
+        
+Now, Add the following XAML to the LandingPage.xaml just above the Grid named _WhereAreYouEatingGrid_ to add the UI elements to allow navigating to the MealSelector Page:
+
+        		<Grid x:Name="WhatAreYouEatingGrid" >
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="150"/>
+        				<ColumnDefinition Width="*"/>
+        			</Grid.ColumnDefinitions>
+        			<Image HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="150" Grid.Column="0" Stretch="None" Source="ms-appx:///Assets/CafeWin8.png" />
+        			<StackPanel Height="100" Grid.Column="1" >
+        				<TextBlock TextWrapping="Wrap" Text="What are you eating?" FontFamily="Segoe UI" FontSize="48"/>
+        				<TextBlock x:Name="selectMealTextBox" TextWrapping="Wrap" Text="Select One" FontFamily="Segoe UI" FontSize="26.667" Foreground="#FF6DB7C7" Tapped="selectMealTextBox_Tapped"/>
+        			</StackPanel>
+        		</Grid>
+ 
+Also, add the following code to LandingPage.xaml to navigate to the MealSelector page:
+
+        private void selectMealTextBox_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MealSelector));
+        }
+        
+And Finally add the following code to the OnNavigatedTo event hanlder in LandingPage.xaml.cs to pick up the selected Meal once the meal selection has happened and the user navigates back to the LandingPage:
+
+            if (!String.IsNullOrEmpty(FacebookData.SelectedMeal.Name))
+            {
+                this.selectMealTextBox.Text = FacebookData.SelectedMeal.Name;
+            }
+            
+If you  followed the tutorial correctly, you should, at this point be able to run the application and see the following additional UI:
+
+Meal Selection Page
+
+![Meal Selector](images/OpenGraphMeal/6-MealSelector.png)
+
+Finished Landing Page
+
+![Finished Landing Page](images/OpenGraphMeal/7-MealFilledLandingPage.png)
+
+### Add the Publish Action Button
+
+In this step, you'll finish setting up the UI by adding a submit button that publishes the Open Graph action through your app.
+
+Add the following code to LandingPage.xaml directly as a descendent of _<common:LayoutAwarePage>_ node to add an Appbar button for posting the Open Graph Action to Facebook:
+
+    <Page.BottomAppBar>
+        <AppBar>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal"/>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button x:Name="PostButtonAppbar" Style="{StaticResource AppBarButtonStyle}" AutomationProperties.Name="Post" Content="&#x0E122;" Tapped="PostButtonAppbar_Tapped"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+
+And Finally, add the following code to LandingPage.xaml.cs to post the Open Graph Action to Facebook and show a MessageDialog on success:
+
+        async private void PostButtonAppbar_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (FacebookData.SelectedFriends.Count < 1
+               || FacebookData.SelectedMeal.Name == String.Empty
+               || FacebookData.IsRestaurantSelected == false)
+            {
+                MessageDialog errorMessageDialog = new MessageDialog("Please select friends, a place to eat and something you ate before attempting to share!");
+                await errorMessageDialog.ShowAsync();
+                return;
+            }
+
+            FacebookClient fb = new FacebookClient(App.AccessToken);
+
+            try
+            {
+                dynamic fbPostTaskResult = await fb.PostTaskAsync(String.Format("/me/{0}:eat", Constants.FacebookAppGraphAction), new { meal = FacebookData.SelectedMeal.MealUri, tags = FacebookData.SelectedFriends[0].id, place = FacebookData.SelectedRestaurant.Id });
+                var result = (IDictionary<string, object>)fbPostTaskResult;
+
+                MessageDialog successMessageDialog = new MessageDialog("Posted Open Graph Action, id: " + (string)result["id"]);
+                await successMessageDialog.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageDialog exceptionMessageDialog = new MessageDialog("Exception during post: " + ex.Message);
+                exceptionMessageDialog.ShowAsync();
+            }
+        }
+        
+The above code simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API.
+
+>NOTE: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is No need to pre-create these objects.
+
+If you followed the tutorial correctly, at this step  you should be able to run and publish the action to Facebook and see the following UI:
+
+
+Post an action to Facebook:
+
+![Post action](images/OpenGraphMeal/8-Appbar.png)
+
+Response from Facebook:
+
+![Facebook Response](images/OpenGraphMeal/9-ActionPosted.png)
+
 Congratulations, you just finished the Windows 8 tutorial.
