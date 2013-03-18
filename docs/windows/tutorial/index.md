@@ -211,7 +211,7 @@ Also add the following code to set the User's FacebookId in _App.FacebookId_ and
             Frame.Navigate(typeof(LandingPage));
         }
 
-At this step, also add a new item of type _class_ to the _ViewModels_ folder. Call the class _Constants.cs_ and add the following code to it. Make sure to replace the string _Your Facebook App ID here_ with your Facebook App ID that you obtained earlier when you created your app on the Facebook Developer Portal.
+At this step, also add a new item of type _class_ to the _ViewModel_ folder. Call the class _Constants.cs_ and add the following code to it. Make sure to replace the string _Your Facebook App ID here_ with your Facebook App ID that you obtained earlier when you created your app on the Facebook Developer Portal.
 
     class Constants
     {
@@ -287,6 +287,127 @@ As before, make sure to resolve any missing dependencies as illustrated earlier 
 
 ![Personalized Page](images/Personalize/Personalized-Page.png)
 
+
+##Show Friends
+
+### Creating the UI
+
+Download the file [dl]: Assets/icons.zip to get the icons for the tutorial. Uncompress the file and drag all the icons to the Assets folder in Visual Studio project window.
+
+After that, add the following code to LandingPage.xaml. This adds an icon and Text for _Selecting Friends_. Additionally, it wires up the tap event on the _Select Friends_ TextBlock via an event handler named selectFriendsTextBox_Tapped.
+
+
+            <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                <Grid x:Name="WithWhomGrid" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="
+						*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="150"  Grid.Column="0" Stretch="None" Source="ms-appx:///Assets/PersonWin8.png" />
+                    <StackPanel Grid.Column="1">
+                        <TextBlock TextWrapping="Wrap" Text="With Whom?" FontFamily="Segoe UI" FontSize="48"/>
+                        <TextBlock x:Name="selectFriendsTextBox" TextWrapping="Wrap" Text="Select Friends" FontFamily="Segoe UI" FontSize="26.667" Foreground="#FF6DB7C7" Tapped="selectFriendsTextBox_Tapped"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+We will now make the app a bit more interactive and let the user pick out their friends.
+
+### Create the ViewModel class
+
+Create an static ObservableCollection of friends that you will later use to connect the UI to the data. Making it ObservableCollection allows you to use one of the strongest points of XAML, data binding.
+In the ViewModel folder, create a new item of type Class and set its name to be _FacebookDataModel.cs_ Inside this file, remove the class FacebookDataModel and paste the following code which defines a class representing a _Facebook Friend_. We are also declaring an _ObservableCollection of Friend_ inside another class called _FacebookData_ which will represent the list of our friends. Declaring this as an _ObservableCollection_ has the added advantage that we can use Expression Blend to easily bind the collection data to the UI without having to write complicated DataModel<->UI synchronization logic.
+
+        public class Friend
+        {
+            public string id { get; set; }
+            public string Name { get; set; }
+            public Uri PictureUri { get; set; }
+        }
+
+        public class FacebookData
+        {
+            private static ObservableCollection<Friend> friends = new ObservableCollection<Friend>();
+            public static ObservableCollection<Friend> Friends
+            {
+                get
+                {
+                    return friends;
+                }
+            }
+        }
+
+### Create the Friend Picker Page
+To the Views directory, add a Basic Page called FriendSelector.xaml. This page will hold the UI for showing and picking friends.
+
+Now finally, create the handler for the tapping event on the _Select Friends_ text box. Paste the following in the LandingPage.xaml.cs, which brings down the list of friends from Facebook.
+
+        async private void selectFriendsTextBox_Tapped(object sender, TappedRoutedEventArgs evtArgs)
+        {
+            FacebookClient fb = new FacebookClient(App.AccessToken);
+
+            dynamic friendsTaskResult = await fb.GetTaskAsync("/me/friends");
+            var result = (IDictionary<string, object>)friendsTaskResult;
+            var data = (IEnumerable<object>)result["data"];
+            foreach (var item in data)
+            {
+                var friend = (IDictionary<string, object>)item;
+
+                FacebookData.Friends.Add(new Friend { Name = (string)friend["name"], id = (string)friend["id"], PictureUri = new Uri(string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", (string)friend["id"], "square", App.AccessToken)) });
+            }
+
+            Frame.Navigate(typeof(FriendSelector));
+        }
+
+Let's take a deeper look at the code to fetch the list of Friends. The following line follows the async/await pattern in .NET 4.5, which is to say, that the GetTaskAsync function suspends execution of the selectFriendsTextBox_Tapped function and waits for the results of GetTaskAsync function to become available. One more thing to note is that the type of friendsTaskResult is _dynamic_ which means that the actual type of the variable will be interpreted at runtime. If the operation being performed on the data type is not valid, the runtime will issue an error.
+
+        dynamic friendsTaskResult = await fb.GetTaskAsync("/me/friends");
+
+Thus, when we want to unravel the friendsTaskResult, we have to understand it's schema. The [Graph Explorer on facebook](https://developers.facebook.com/tools/explorer/) is an invaluable tool for this purpose. Navigate to the above Graph Explorer website, login and fetch the URL _/me/friends_ to see how facebook sends the data back in JSON format:
+
+![Graph Explorer](images/Friends/1-graphexplorer.png)
+
+The data returned is similar to the following:
+        
+        {
+            "data": [
+                        {
+                            "name": "Ashu Razdan", 
+                            "id": "2516036"
+                        }, 
+                        {
+                            "name": "Jessie Rymph", 
+                            "id": "3103754"
+                        }
+                    ]
+        }
+    
+You can navigate data similar to above using _dynamic_ data type and _dictionaries_ pretty simply as shown below. The following typecasts the dynamic data returned into a dictionary of _<string,object>_. From that, we retrieve the value corresponding to the key _data_ in the dictionary.
+
+        var result = (IDictionary<string, object>)friendsTaskResult;
+        var data = (IEnumerable<object>)result["data"];
+            
+Following similar logic, we can retrieve each of our friends as a single object in the _foreach_ statement. Once we have obtained each object, we again typecast it to another dictionary and pick up the individual properties as shown below. This style of parsing data allows you to pick data from JSON objects without needing to create DeSerializer classes. We now, create _Friend_ objects and add them to the _static ObservableCollection_ named _Friends_ in the _FacebookData_ class. We will shortly use this Collection to create our Friend Selector page.
+
+            foreach (var item in data)
+            {
+                var friend = (IDictionary<string, object>)item;
+
+                FacebookData.Friends.Add(new Friend { Name = (string)friend["name"], id = (string)friend["id"], PictureUri = new Uri(string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", (string)friend["id"], "square", App.AccessToken)) });
+            }
+            
+### Create the Friend Picker
+
+Now that we have the Friends list as an ObservableCollection, we can create and bind it to the  UI using code, but it is much easier doing that using Expression Blend, so let's instead do that. To use Expression Blend on the project, right click on the project in Visual Studio and select _Open in Blend_. 
+
+>NOTE: Expression blend is one of the tools that makes developing UI in XAML extremely easy. Additionally, binding list data to UI becomes extremely easy with Blend. It is worth learning Expression Blend if you plan to do any long term development in C#/XAML. 
+
+
+3. Create the UI. Add a Listview to the UI. Edit item template in blend and add image and text box for friend names. Create data binding. Showcase what is happening under the hood. Allow multiselect on the list.
+
+4. Hook into the listview select event and creaet a list of all the selected friends in the model for later use. Save it in the Data Model.
+
 ### Next Steps
 Create three panels, one each for the restaurant, meal and friends. You can do this manually as well, but blend is a lot easier and faster. Setup event handlers for all the tap events.
 
@@ -296,17 +417,6 @@ Look at the Open Graph API for reference on how to fetch various kinds of data. 
 
 Wire up so that as soon as user navigates to this page, their usename and picture is fetched and connected to the interface.
 
-##Show Friends
-
-We will now make the app a bit more interactive and let the user pick out their friends.
-
-1. In the view model, create a class for representing a friend.
-
-2. Create an static ObservableCollection of friends that you will later use to connect the UI to the data. Making it ObservableCollection allows you to use one of the strongest points of XAML, data binding.
-
-3. Create the UI. Add a Listview to the UI. Edit item template in blend and add image and text box for friend names. Create data binding. Showcase what is happening under the hood. Allow multiselect on the list.
-
-4. Hook into the listview select event and creaet a list of all the selected friends in the model for later use. Save it in the Data Model.
 
 ##Show Nearby Places
 
