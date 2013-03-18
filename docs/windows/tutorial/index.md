@@ -233,8 +233,7 @@ Extended Permissions Page
 
 ![Login and Extended Permissions Page](images/Authenticate/7-ExtendedPermissions.png)
 
-[Todo] Logout - reset App.AccessToken = String.Empty
-
+You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Authenticated.zip)
 
 ##Personalize
 
@@ -287,12 +286,14 @@ As before, make sure to resolve any missing dependencies as illustrated earlier 
 
 ![Personalized Page](images/Personalize/Personalized-Page.png)
 
+You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Personalized.zip)
 
 ##Show Friends
 
 ### Creating the UI
 
-Download the file [dl]: Assets/icons.zip to get the icons for the tutorial. Uncompress the file and drag all the icons to the Assets folder in Visual Studio project window.
+
+[Download the icons file ](Assets/icons.zip) to get the icons for the tutorial. Uncompress the file and drag all the icons to the Assets folder in Visual Studio project window.
 
 After that, add the following code to LandingPage.xaml. This adds an icon and Text for _Selecting Friends_. Additionally, it wires up the tap event on the _Select Friends_ TextBlock via an event handler named selectFriendsTextBox_Tapped.
 
@@ -607,6 +608,8 @@ And finally, in LandingPage.xaml.cs, add the following code to update the Landin
         }
         
 Build the code at this point of time and make sure you resolve all symbols as shown earlier in the tutorial. This time around when you select friends on the FriendSelector Page and navigate back to the LandingPage, you should see the list of selected friends on the LandingPage.
+
+You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.FriendsAdded.zip)
         
 ##Show Nearby Places
 
@@ -878,6 +881,8 @@ Select a Restaurant
 Final Landing Page UI
 
 ![Landing Page UI](images/Locations/4-EndResultLocation.png)
+
+You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Restaurants.zip)
 
 ## Publish Open Graph Story
 
@@ -1231,5 +1236,7 @@ Post an action to Facebook:
 Response from Facebook:
 
 ![Facebook Response](images/OpenGraphMeal/9-ActionPosted.png)
+
+You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Finished.zip)
 
 Congratulations, you just finished the Windows 8 tutorial.
