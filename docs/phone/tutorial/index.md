@@ -230,7 +230,7 @@ At this point, if you compile the code, Visual Studio will complain that the nam
 
 at the top of the page if you know what library the symbols belong to. In future references, I will assume that you know how to resolve a reference.
 
-Make sure to resolve any missing dependencies as illustrated above to ensure that the code builds without errors. You should now be able to run the app and login to Facebook. You should also see the dialog to add extended permissions. When executed, your app should present you with the following dialogs. When you are successfully logged in, you should be navigated to a blank page - LandingPage.
+Make sure to resolve any missing dependencies as illustrated above to ensure that the code builds without errors. You should now be able to run the app and login to Facebook. When executed, your app should present you with the following dialogs. When you are successfully logged in, you should be navigated to a blank page - LandingPage.
 
 Login Page
 
