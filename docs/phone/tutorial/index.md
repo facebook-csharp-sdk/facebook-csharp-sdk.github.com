@@ -35,21 +35,27 @@ Once you have created the app, you need to edit the app and change a few setting
 > ATTENTION: You may have to wait 5-10 minutes for the App you just created to propagate through the Facebook system before it becomes Active. If your app's facebook login is not working immediately after you created the App, give it 10 minutes and try again.
 
 ### Getting Started on the Application
-To get started, create a Visual Studio project using the Visual C# -> Windows Phone -> Windows Phone App. Let us call our app the Facebook.Scrumptious.WindowsPhone. Visual Studio will ask if you want to target _Windows Phone OS 7.1 or 8.0_. You can choose either, the code for the Facebook integration works with both versions the same way. In this tutorial however, we will assume that the selected version is 7.1. For the sake of this tutorial, you should select 7.1 to avoid any surprises. This will create a barebones application with a single blank page.
+To get started, create a Visual Studio project using the Visual C# -> Windows Phone -> Windows Phone App. Let us call our app the Facebook.Scrumptious.WindowsPhone. Visual Studio will ask if you want to target _Windows Phone OS 7.1 or 8.0_. You can choose either, the code for the Facebook integration works with both versions the same way. In this tutorial however, we will assume that the selected version is 8.0. For the sake of this tutorial, you should select 8.0 to avoid any surprises. This will create a barebones application with a single blank page.
 
 Install the Facebook nuget package into the solution by starting the Package Manager powershell by following:
 
 Tools->Library Package Manager->Package Manager console
 
-Once the powershell command prompt is running, type
+Once the powershell command prompt is running, type the following two commands
 
 "Install-Package Facebook"
 
-This will download the nuget package and install the SDK into your project and add it to the references.
-
 ![Intall Nuget](images/Introduction/1.1-AddingFacebookNuget.png)
 
+"Install-Package Facebook.Client -pre"
+
+![Intall Nuget](images/Introduction/1.1.1-AddingFacebook.ClientNuget.png)
+
+These will download the nuget packages and install the SDK into your project and add it to the references.
+
 ![Facebook Reference](images/Introduction/1.2-AddingFacebook-References.png)
+
+> NOTE: The _-pre_ flag is applied to the Facebook.Client NuGet package because it is still in preview mode owing to currently being in active development. Once this package is stable, you will not need the _-pre_ flag.
 
 Once you've done that, work through the following steps of the tutorial:
 
@@ -70,7 +76,7 @@ Create two folders called ViewModel and  Pages in the project. This is how it wi
 ![Create Folder](images/Authenticate/2-CreateFolders.png)
 
 Add login button to MainPage
-Facebook Authentication on Windows Phone works using OAuth within a WebBrowser control that the application hosts in one of its pages. One of the pages will host the _Login to Facebook_ button and the other is going to host the WebBrowser control. Thus, we will start by adding a login button to the MainPage.xaml. To do this, replace the contents of MainPage.xaml with the following:
+Facebook Authentication on Windows Phone works using OAuth. The Facebook.Client library comes built in with the _FacebookSessionClient_ construct which automatically displays a WebBrowser for the Facebook login. However, whenever we make a login call from within a page, we will first see the UI in the page which made the login call and then we will navigate to the Login page and then back to the original page. If the original page has any UI, the flow will not be smooth as the user will see the UI and then suddently be transitioned to a login page and then transitioned back to the original UI. To avoid this, we will invoke the login page from a blank page and when the login has succeeded, we will navigate to the page where we will host the final Scrumptious UI. Thus, we will start by adding a login button to the MainPage.xaml. On clicking the Login button, we will navigate to another Page called _FacebookLoginPage_ which will be the blank page that will show the OAuth login page. To do this, replace the contents of MainPage.xaml with the following:
 
     <phone:PhoneApplicationPage 
         x:Class="Facebook.Scrumptious.WindowsPhone.MainPage"
@@ -116,61 +122,57 @@ We will keep the rest of our Pages in the _Pages_ Folder. The first page we want
 
 At this point, we will additionally add another page that we want to navigate to once the authentication has succeeded. To do so, just like before add another page to the _Pages_ folder using "Add new Item". Name this page _LandingPage.xaml_. In future references, I will assume you know how to add new Pages to the Pages folder.
 
-To put the WebBrowser control in the FacebookLoginPage, replace the contents of FacebookLoginPage.xaml with the following:
+To create the blank FacebookLoginPage, replace the contents of FacebookLoginPage.xaml with the following:
 
-    <phone:PhoneApplicationPage 
-        x:Class="Facebook.Scrumptious.WindowsPhone.Pages.FacebookLoginPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-        xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        FontFamily="{StaticResource PhoneFontFamilyNormal}"
-        FontSize="{StaticResource PhoneFontSizeNormal}"
-        Foreground="{StaticResource PhoneForegroundBrush}"
-        SupportedOrientations="Portrait" Orientation="Portrait"
-        mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-        shell:SystemTray.IsVisible="True">
-    
-        <!--LayoutRoot is the root grid where all page content is placed-->
-        <Grid x:Name="LayoutRoot" Background="Transparent">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-    
-            <!--ContentPanel - place additional content here-->
-            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-                <phone:WebBrowser x:Name="webBrowser1" IsScriptEnabled="True" Navigated="webBrowser1_Navigated" Loaded="webBrowser1_Loaded"/>
-            </Grid>
+<phone:PhoneApplicationPage 
+    x:Class="Facebook.Scrumptious.WindowsPhone.Pages.FacebookLoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            
         </Grid>
-    
-        <!--Sample code showing usage of ApplicationBar-->
-        <!--<phone:PhoneApplicationPage.ApplicationBar>
-            <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-                <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-                <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-                <shell:ApplicationBar.MenuItems>
-                    <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                    <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-                </shell:ApplicationBar.MenuItems>
-            </shell:ApplicationBar>
-        </phone:PhoneApplicationPage.ApplicationBar>-->
-    
-    </phone:PhoneApplicationPage>
-    
-In App.xaml.cs add the following two variables to hold the Facebook OAuth Access Token and the User's ID once they have logged in into Facebook:
+    </Grid>
 
-        internal static string AccessToken = String.Empty;
-        internal static string FacebookId = String.Empty;
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 
-In FacebookLogin.xaml.cs, add the following three internal variables. The _ExtendedPermissions_ variable to hold a reference to all the extended permissions our application will require i.e. ability to access the user's profile, the ability to read their news feed and the publish to their news feed. The _fb_ variable of type FacebookClient to instantiate the SDK defined facebook client that we will use in the rest of the tutorial to interact with the Facebook APIs. 
-
-        private readonly string AppId = Constants.FacebookAppId;
-        private const string ExtendedPermissions = "user_about_me,read_stream,publish_stream";
-        private readonly FacebookClient _fb = new FacebookClient();
+</phone:PhoneApplicationPage>
     
+In App.xaml.cs add the following four variables to hold the Facebook OAuth Access Token, the User's ID once they have logged in into Facebook, a flag to keep track that the user has already been authenticated and the FacebookSessionClient class which wraps the Facebook OAuth login in a convenient fashion:
+
+    internal static string AccessToken = String.Empty;
+    internal static string FacebookId = String.Empty;
+    public static bool isAuthenticated = false;
+    public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
+
 Let's now wire up the event handlers in MainPage to navigate to FacebookLogin page to authenticate to Facebook via OAuth when the user clicks the Facebook Login button. To do this, copy the following code to MainPage.xaml.cs:
 
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
@@ -178,79 +180,40 @@ Let's now wire up the event handlers in MainPage to navigate to FacebookLogin pa
             NavigationService.Navigate(new Uri("/Pages/FacebookLoginPage.xaml", UriKind.Relative));
         }
         
-Once the user has navigated, to the OAuth page, we want to connect the event handlers so that the FacebookLogin will load the OAuth dialog in the Web Browser and navigate to LandingPage when the login succeeds. To do this, copy the following four code snippets into FacebookLoginPage.xaml.cs. The first code snippet below sets up the WebBrowser control to navigate to Facebook OAuth Page after reading your Facebook AppID. The Facebook AppID will get defined in Constants.cs file, which we will add shortly.
+Once the user has navigated, to the OAuth page, we want to connect the event handlers so that the FacebookLogin will load the OAuth dialog using FacebookSessionClient and navigate to LandingPage when the login succeeds. To do this, copy the following code snippets into FacebookLoginPage.xaml.cs. First add the following line to the FacebookLoginPage constructor, which invokes the Facebook login as soon as we navigate to the FacebookLoginPage:
 
-        private void webBrowser1_Loaded(object sender, RoutedEventArgs e)
+    this.Loaded += FacebookLoginPage_Loaded;
+
+Then add the following code snippet to the LandingPage.xamls.cs, which checks if the user is already authenticated and if not, invokes the Authentication.
+
+        async void FacebookLoginPage_Loaded(object sender, RoutedEventArgs e)
         {
-            var loginUrl = GetFacebookLoginUrl(AppId, ExtendedPermissions);
-            webBrowser1.Navigate(loginUrl);
+            if (!App.isAuthenticated)
+            {
+                App.isAuthenticated = true;
+                await Authenticate();
+            }
         }
 
-The following code snippet sets up the various parameters that are required to ask for the extended permissions such as user profile information, friends list and publishing permissions and makes a request to Facebook to grant those permissions to our App.
+As the final step of Autentication add the following code to perform the Authentication and request read permissions for the user's profile and other data, and to navigate to the LandingPage when the login has succeeded:
         
-        private Uri GetFacebookLoginUrl(string appId, string extendedPermissions)
+        private FacebookSession session;
+        private async Task Authenticate()
         {
-            var parameters = new Dictionary<string, object>();
-            parameters["client_id"] = appId;
-            parameters["redirect_uri"] = "https://www.facebook.com/connect/login_success.html";
-            parameters["response_type"] = "token";
-            parameters["display"] = "touch";
-
-            // add the 'scope' only if we have extendedPermissions.
-            if (!string.IsNullOrEmpty(extendedPermissions))
+            string message = String.Empty;
+            try
             {
-                // A comma-delimited list of permissions
-                parameters["scope"] = extendedPermissions;
-            }
+                session = await App.FacebookSessionClient.LoginAsync("user_about_me,read_stream");
+                App.AccessToken = session.AccessToken;
+                App.FacebookId = session.FacebookId;
 
-            return _fb.GetLoginUrl(parameters);
-        }
-
-When the browser finally navigates from the Facebook login page, we hook into the Navigated event and try to get the user token from the redirect call.
-        
-        private void webBrowser1_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-            FacebookOAuthResult oauthResult;
-            if (!_fb.TryParseOAuthCallbackUrl(e.Uri, out oauthResult))
-            {
-                return;
-            }
-
-            if (oauthResult.IsSuccess)
-            {
-                var accessToken = oauthResult.AccessToken;
-                LoginSucceded(accessToken);
-            }
-            else
-            {
-                // user cancelled
-                MessageBox.Show(oauthResult.ErrorDescription);
-            }
-        }
-
-Notice how the above function parses the Auth Token from the redirect URL, sets the AccessToken and FacbookId of the user in the variables we earlier declared in App.xaml.cs and finally invokes the below snippet to navigate to the LandingPage, where the rest of the UI for the app will live. 
-
-        private void LoginSucceded(string accessToken)
-        {
-            var fb = new FacebookClient(accessToken);
-
-            fb.GetCompleted += (o, e) =>
-            {
-                if (e.Error != null)
-                {
-                    Dispatcher.BeginInvoke(() => MessageBox.Show(e.Error.Message));
-                    return;
-                }
-
-                var result = (IDictionary<string, object>)e.GetResultData();
-                var id = (string)result["id"];
-
-                App.AccessToken = accessToken;
-                App.FacebookId = id;
                 Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/Pages/LandingPage.xaml", UriKind.Relative)));
-            };
-
-            fb.GetAsync("me?fields=id");
+            }
+            catch (InvalidOperationException e)
+            {
+                message = "Login failed! Exception details: " + e.Message;
+                MessageBox.Show(message);
+            }
         }
 
         
@@ -277,11 +240,6 @@ Basic Permissions Page
 
 ![Login and Extended Permissions Page](images/Authenticate/6-BasicPermission.png)
 
-Extended Permissions Page
-
-![Login and Extended Permissions Page](images/Authenticate/7-ExtendedPermissions.png)
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.WindowsPhone.Authenticated.zip)
 
 ##Personalize
 
@@ -351,8 +309,6 @@ As a Final step in personalization, we have to invoke the function as soon as th
 As before, make sure to resolve any missing dependencies as illustrated earlier to ensure that the code builds and runs without errors. At the end of this step, your UI for landing page will look like the following:
 
 ![Personalized Page](images/Personalize/Personalized-Page.png)
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.WindowsPhone.Personalized.zip)
 
 ##Show Friends
 
@@ -725,8 +681,6 @@ And finally, in LandingPage.xaml.cs, add the following code to update the Landin
         }
         
 Build the code at this point of time and make sure you resolve all symbols as shown earlier in the tutorial. This time around when you select friends on the FriendSelector Page and navigate back to the LandingPage, you should see the list of selected friends on the LandingPage.
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.WindowsPhone.FriendsAdded.zip)
         
 ##Show Nearby Places
 
@@ -1017,8 +971,6 @@ Select a Restaurant
 Final Landing Page UI
 
 ![Landing Page UI](images/Locations/4-EndResultLocation.png)
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.WindowsPhone.Restaurants.zip)
 
 ## Publish Open Graph Story
 
@@ -1370,15 +1322,28 @@ Add the following code to LandingPage.xaml directly as a descendent of _<phone:P
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
-And Finally, add the following code to LandingPage.xaml.cs to post the Open Graph Action to Facebook and show a MessageDialog on success:
+And Finally, add the following code to LandingPage.xaml.cs to request _publish\_stream_ permissions from the user to get publish access to the user's timeline, post the Open Graph Action to Facebook and show a MessageDialog on success:
 
-        private void PostActionToFBHandler(object sender, EventArgs evtArgs)
+        async private void PostActionToFBHandler(object sender, EventArgs evtArgs)
         {
             if (FacebookData.SelectedFriends.Count < 1
                 || FacebookData.SelectedMeal.Name == String.Empty
                 || FacebookData.IsRestaurantSelected == false)
             {
                 MessageBox.Show("Please select friends, a place to eat and something you ate before attempting to share!");
+                return;
+            }
+
+            FacebookSession session;
+            string message = String.Empty;
+            try
+            {
+                session = await App.FacebookSessionClient.LoginAsync("publish_stream");
+            }
+            catch (InvalidOperationException e)
+            {
+                message = "Login failed! Exception details: " + e.Message;
+                MessageBox.Show(message);
                 return;
             }
 
@@ -1397,26 +1362,33 @@ And Finally, add the following code to LandingPage.xaml.cs to post the Open Grap
                 Dispatcher.BeginInvoke(() =>
                 {
                     MessageBox.Show("Posted Open Graph Action, id: " + (string)result["id"], "Result", MessageBoxButton.OK);
+
+                    // reset the selections after the post action has successfully concluded
+                    this.MealName.Text = "Select One";
+                    this.restaurantLocationTextBlock.Text = "Select One";
+                    this.WithWhoTextBox.Text = "Select Friends";
                 });
             };
 
             fb.PostAsync( String.Format("/me/{0}:eat", Constants.FacebookAppGraphAction), new { meal = FacebookData.SelectedMeal.MealUri, tags = FacebookData.SelectedFriends[0].id, place = FacebookData.SelectedRestaurant.Id});
         }
         
-The above code simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API.
+The above code simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API once the publish_permissions are granted by the user.
 
 >NOTE: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is No need to pre-create these objects.
 
 If you followed the tutorial correctly, at this step  you should be able to run and publish the action to Facebook and see the following UI:
 
-Post an action to Facebook:
+AppBar with the Post icon to post an action to Facebook:
 
 ![Post action](images/OpenGraphMeal/8-Appbar.png)
+
+Ask for publish permissions:
+
+![Login and Extended Permissions Page](images/Authenticate/7-ExtendedPermissions.png)
 
 Response from Facebook:
 
 ![Facebook Response](images/OpenGraphMeal/9-ActionPosted.png)
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.WindowsPhone.Finished.zip)
 
 Congratulations, you just finished the Windows Phone tutorial.
