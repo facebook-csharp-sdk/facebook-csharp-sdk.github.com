@@ -39,15 +39,21 @@ To get started, create a Visual Studio project using the Visual C# -> Windows St
 
 Tools->Library Package Manager->Package Manager console
 
-Once the powershell command prompt is running, type
+Once the powershell command prompt is running, type the following two commands
 
 "Install-Package Facebook"
 
-This will download the nuget package and install the SDK into your project and add it to the references.
-
 ![Intall Nuget](images/Introduction/1.1-AddingFacebookNuget.png)
 
+"Install-Package Facebook.Client -pre"
+
+![Intall Nuget](images/Introduction/1.1.1-AddingFacebook.ClientNuget.png)
+
+These will download the nuget packages and install the SDK into your project and add it to the references.
+
 ![Facebook Reference](images/Introduction/1.2-AddingFacebook-References.png)
+
+> NOTE: The _-pre_ flag is applied to the Facebook.Client NuGet package because it is still in preview mode owing to currently being in active development. Once this package is stable, you will not need the _-pre_ flag.
 
 Once you've done that, work through the following steps of the tutorial:
 
@@ -103,10 +109,12 @@ This will show a prompt saying that to satisfy dependencies, more files will be 
 
 ### Setup the User Interface
 
-In App.xaml.cs add the following two variables to hold the Facebook OAuth Access Token and the User's ID once they have logged in into Facebook:
+In App.xaml.cs add the following four variables to hold the Facebook OAuth Access Token, the User's ID once they have logged in into Facebook, a flag to keep track that the user has already been authenticated and the FacebookSessionClient class which wraps the Facebook OAuth login in a convenient fashion:
 
     internal static string AccessToken = String.Empty;
     internal static string FacebookId = String.Empty;
+    public static bool isAuthenticated = false;
+    public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
 
 Now Replace the contents of HomePage.xaml with the following. All the following does is to add some text to the Page and a button for facebook login. Additionally, it says that the button click will be handled by an event handler named "btnFacebookLogin_Click".
     
@@ -133,82 +141,38 @@ Now Replace the contents of HomePage.xaml with the following. All the following 
 
 In HomePage.xaml.cs, add the following two internal variables. The _permissions_ variable to hold a reference to all the extended permissions our application will require i.e. ability to access the user's profile, the ability to read their news feed and the publish to their news feed. The _fb_ variable of type FacebookClient to instantiate the SDK defined facebook client that we will use in the rest of the tutorial to interact with the Facebook APIs. 
 
-    string _permissions = "user_about_me,read_stream,publish_stream";
-    FacebookClient _fb = new FacebookClient();
+    private FacebookSession session;
     
-Additionally, add the following code which defines the event handlers for the facebook login button. The following code
+Additionally, add the following code which defines the event handlers for the facebook login button. 
 
-        private async void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
+        async private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
-            var redirectUrl = "https://www.facebook.com/connect/login_success.html";
-            try
+            if (!App.isAuthenticated)
             {
-                //fb.AppId = facebookAppId;
-                var loginUrl = _fb.GetLoginUrl(new
-                {
-                    client_id = Constants.FacebookAppId,
-                    redirect_uri = redirectUrl,
-                    scope = _permissions,
-                    display = "popup",
-                    response_type = "token"
-                });
-
-                var endUri = new Uri(redirectUrl);
-
-                WebAuthenticationResult WebAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(
-                                                        WebAuthenticationOptions.None,
-                                                        loginUrl,
-                                                        endUri);
-                if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
-                {
-                    var callbackUri = new Uri(WebAuthenticationResult.ResponseData.ToString());
-                    var facebookOAuthResult = _fb.ParseOAuthCallbackUrl(callbackUri);
-                    var accessToken = facebookOAuthResult.AccessToken;
-                    if (String.IsNullOrEmpty(accessToken))
-                    {
-                        // User is not logged in, they may have canceled the login
-                    }
-                    else
-                    {
-                        App.AccessToken = accessToken;
-
-                        // User is logged in and token was returned
-                        LoginSucceded();
-                    }
-
-                }
-                else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
-                {
-                    throw new InvalidOperationException("HTTP Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseErrorDetail.ToString());
-                }
-                else
-                {
-                    // The user canceled the authentication
-                }
-            }
-            catch (Exception ex)
-            {
-                //
-                // Bad Parameter, SSL/TLS Errors and Network Unavailable errors are to be handled here.
-                //
-                throw ex;
+                App.isAuthenticated = true;
+                await Authenticate();
             }
         }
 
-Also add the following code to set the User's FacebookId in _App.FacebookId_ and to navigate to the LandingPage when the login has succeeded:
+Also add the following code to perform the Authentication and request read permissions for the user's profile and other data, and to navigate to the LandingPage when the login has succeeded:
  
-        private async void LoginSucceded()
+        private async Task Authenticate()
         {
-            FacebookClient _fb = new FacebookClient(App.AccessToken);
-
-            dynamic parameters = new ExpandoObject();
-            parameters.access_token = App.AccessToken;
-            parameters.fields = "id";
-
-            dynamic result = await _fb.GetTaskAsync("me", parameters);
-
-            App.FacebookId = result.id;
-            Frame.Navigate(typeof(LandingPage));
+            string message = String.Empty;
+            try
+            {
+                session = await App.FacebookSessionClient.LoginAsync("user_about_me,read_stream");
+                App.AccessToken = session.AccessToken;
+                App.FacebookId = session.FacebookId;
+                
+                Frame.Navigate(typeof(LandingPage));
+            }
+            catch (InvalidOperationException e)
+            {
+                message = "Login failed! Exception details: " + e.Message;
+                MessageDialog dialog = new MessageDialog(message);
+                dialog.ShowAsync();
+            }
         }
 
 At this step, also add a new item of type _class_ to the _ViewModel_ folder. Call the class _Constants.cs_ and add the following code to it. Make sure to replace the string _Your Facebook App ID here_ with your Facebook App ID that you obtained earlier when you created your app on the Facebook Developer Portal.
@@ -218,22 +182,16 @@ At this step, also add a new item of type _class_ to the _ViewModel_ folder. Cal
         public static readonly string FacebookAppId = "Your Facebook App ID here";
     }
 
-        
 Make sure to resolve any missing dependencies as illustrated earlier to ensure that the code builds without errors. You should now be able to run the app and login to Facebook. You should also see the dialog to add extended permissions. When executed, your app should present you with the following dialogs. When you are successfully logged in, you should be naviated to a blank page - LandingPage.
 
 Login Page
 
-![Login and Extended Permissions Page](images/Authenticate/5-LoginPage.png)
+![Login Page](images/Authenticate/5-LoginPage.png)
 
 Basic Permissions Page
 
-![Login and Extended Permissions Page](images/Authenticate/6-BasicPermission.png)
+![Login and Basic Permissions Page](images/Authenticate/6-BasicPermission.png)
 
-Extended Permissions Page
-
-![Login and Extended Permissions Page](images/Authenticate/7-ExtendedPermissions.png)
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Authenticated.zip)
 
 ##Personalize
 
@@ -286,12 +244,9 @@ As before, make sure to resolve any missing dependencies as illustrated earlier 
 
 ![Personalized Page](images/Personalize/Personalized-Page.png)
 
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Personalized.zip)
-
 ##Show Friends
 
 ### Creating the UI
-
 
 [Download the icons file ](Assets/icons.zip) to get the icons for the tutorial. Uncompress the file and drag all the icons to the Assets folder in Visual Studio project window.
 
@@ -609,7 +564,6 @@ And finally, in LandingPage.xaml.cs, add the following code to update the Landin
         
 Build the code at this point of time and make sure you resolve all symbols as shown earlier in the tutorial. This time around when you select friends on the FriendSelector Page and navigate back to the LandingPage, you should see the list of selected friends on the LandingPage.
 
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.FriendsAdded.zip)
         
 ##Show Nearby Places
 
@@ -882,7 +836,6 @@ Final Landing Page UI
 
 ![Landing Page UI](images/Locations/4-EndResultLocation.png)
 
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Restaurants.zip)
 
 ## Publish Open Graph Story
 
@@ -1192,7 +1145,8 @@ Add the following code to LandingPage.xaml directly as a descendent of _<common:
         </AppBar>
     </Page.BottomAppBar>
 
-And Finally, add the following code to LandingPage.xaml.cs to post the Open Graph Action to Facebook and show a MessageDialog on success:
+
+We will now ask the user for publish permissions and then prompt them to post the Open Graph Action to Facebook. To do this, add the following code to LandingPage.xaml.cs:
 
         async private void PostButtonAppbar_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -1205,6 +1159,17 @@ And Finally, add the following code to LandingPage.xaml.cs to post the Open Grap
                 return;
             }
 
+            FacebookSession session = await App.FacebookSessionClient.LoginAsync("publish_stream");
+            if (session == null)
+            {
+                MessageDialog dialog = new MessageDialog("Error while getting publishing permissions. Please try again.");
+                await dialog.ShowAsync();
+                return;
+            }
+
+            // refresh your access token to contain the publish permissions
+            App.AccessToken = session.AccessToken;
+
             FacebookClient fb = new FacebookClient(App.AccessToken);
 
             try
@@ -1214,6 +1179,11 @@ And Finally, add the following code to LandingPage.xaml.cs to post the Open Grap
 
                 MessageDialog successMessageDialog = new MessageDialog("Posted Open Graph Action, id: " + (string)result["id"]);
                 await successMessageDialog.ShowAsync();
+
+                // reset the selections after the post action has successfully concluded
+                this.selectFriendsTextBox.Text = "Select Friends";
+                this.selectMealTextBox.Text = "Select One";
+                this.selectRestaurantTextBox.Text = "Select One";
             }
             catch (Exception ex)
             {
@@ -1222,12 +1192,15 @@ And Finally, add the following code to LandingPage.xaml.cs to post the Open Grap
             }
         }
         
-The above code simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API.
+The above code asks for the additional user permission _publish\_stream_ to be able to write to their timeline and then simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API.
 
 >NOTE: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is No need to pre-create these objects.
 
 If you followed the tutorial correctly, at this step  you should be able to run and publish the action to Facebook and see the following UI:
 
+Ask user for publish permissions:
+
+![Login and Extended Permissions Page](images/Authenticate/7-ExtendedPermissions.png)
 
 Post an action to Facebook:
 
@@ -1236,7 +1209,5 @@ Post an action to Facebook:
 Response from Facebook:
 
 ![Facebook Response](images/OpenGraphMeal/9-ActionPosted.png)
-
-You can download the tutorial finished up to this stage [here](projects/Facebook.Scrumptious.Windows8.Finished.zip)
 
 Congratulations, you just finished the Windows 8 tutorial.
