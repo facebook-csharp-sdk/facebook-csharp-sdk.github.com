@@ -17,6 +17,7 @@ Before you begin developing your Facebook app with the Facebook SDK for .NET we 
 ## General Content
 
 * [About](/docs/about)
+* [Project Governance](/docs/governance)
 * [Frequently Asked Questions](/docs/faq)
 * [Contributing to the Facebook SDK for .NET](/docs/contribute)
 * [Known Issues](/docs/known-issues)
