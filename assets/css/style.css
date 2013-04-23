@@ -1,5 +1,76 @@
 body {
-	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	padding-top: 50px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	color: #333;
+    line-height: 1.28;
+    text-align: left;
+    direction: ltr;
+    background: #f4f4f4;
+}
+
+li {
+	line-height: 34px;
+}
+
+/* Layout
+-------------------------------------------------- */
+
+.content {
+    background: #f4f4f4;
+    margin: auto;
+    width: auto;
+}
+
+.container-body {
+    background: #fff url(../img/content-background.png) repeat-y;
+    border: 1px solid #d9d9d9;
+    -webkit-border-radius: 3px;
+    -webkit-box-shadow: #ddd 0 1px 1px;
+    padding: 25px 20px 20px;
+    margin: auto;
+    max-width: 940px;
+    font-size: 12px;
+    color: #333;
+}
+
+.container-body:before, .container-body:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.container-body:after {
+    clear: both;
+}
+
+.bodyMenu {
+    float: left;
+    margin-left: -20px;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 166px;
+}
+
+.bodyText {
+    width: 732px;
+    float: right;
+}
+
+
+/* Footer
+-------------------------------------------------- */
+.footer {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 10px;
+    border:none;
+}
+
+.footer p {
+  margin-bottom: 2px;
+  color: gray;
+  font-size: 11px;
 }
 
 /* Header
@@ -7,9 +78,43 @@ body {
 .fbtitle {
 	float: left;
 	padding-right: 40px;
-  line-height: 0.65 !important;
+	line-height: 0.65 !important;
 }
 
+.navbar-inner {
+	background: #3b5998 url(../img/header-background.png) repeat-x;
+	height: 34px;
+	min-height: 34px;
+	width: 100%;
+	border-bottom: 1px solid #23487e;
+	font-weight: bold;
+}
+
+.navbar .nav > li > a {
+  padding: 0 11px;
+}
+
+.navbar .nav > li > a:hover {
+	background: #1A3C6C;
+}
+
+.navbar .brand {
+  padding: 0 10px;
+  margin-left: -30px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: 100;
+  color: white;
+  line-height: 34px;
+}
+
+.navbar .brand:hover {
+	background: #1A3C6C;
+}
+
+
+/* hero unit
+-------------------------------------------------- */
 .hero-unit h1 {
     font-size: 57px;
 }
@@ -64,18 +169,6 @@ body {
   float: left;
   margin: 18px 10px 0 0;
   opacity: .8;
-}
-
-/* Footer
--------------------------------------------------- */
-.footer {
-  margin-top: 45px;
-  padding: 35px 0 36px;
-  border-top: 1px solid #e5e5e5;
-}
-.footer p {
-  margin-bottom: 0;
-  color: #555;
 }
 
 /* Nuget Button
@@ -183,7 +276,7 @@ code {
 @media (min-width: 900px) {
   #toc {
     top: 0;
-    width: 220px;
+    /*width: 220px;*/
   }
 
   #toc.affix {
@@ -195,8 +288,10 @@ code {
 -------------------------------------------------- */
 
 #doc {
-  border-left: 1px solid #B6B6B6;
-  padding-left: 20px;
+  /*border-left: 1px solid #B6B6B6;*/
+  /*padding-left: 20px;*/
+  padding:0;
+  margin:0;
 }
 
 blockquote p {
