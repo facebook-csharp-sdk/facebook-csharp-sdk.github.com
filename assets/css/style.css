@@ -7,11 +7,58 @@ body {
     text-align: left;
     direction: ltr;
     background: #f4f4f4;
+    unicode-bidi:embed;
 }
 
 li {
-	line-height: 34px;
+	line-height: 18px;
 }
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/* Fonts Styles
+-------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 13px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: initial;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+h4, h5, h6 {
+    font-size: 11px;
+}
+
+p {
+    margin: 1em 0;
+}
+
+a {
+    color: #3b5998;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
 
 /* Layout
 -------------------------------------------------- */
@@ -68,7 +115,7 @@ li {
 }
 
 .footer p {
-  margin-bottom: 2px;
+  margin: 0 0 2px 0;
   color: gray;
   font-size: 11px;
 }
@@ -76,41 +123,45 @@ li {
 /* Header
 -------------------------------------------------- */
 .fbtitle {
-	float: left;
-	padding-right: 40px;
-	line-height: 0.65 !important;
+    float: left;
+    padding-right: 40px;
+    line-height: 0.65 !important;
 }
 
 .navbar-inner {
-	background: #3b5998 url(../img/header-background.png) repeat-x;
-	height: 34px;
-	min-height: 34px;
-	width: 100%;
-	border-bottom: 1px solid #23487e;
-	font-weight: bold;
+    background: #3b5998 url(../img/header-background.png) repeat-x;
+    height: 34px;
+    min-height: 34px;
+    width: 100%;
+    border-bottom: 1px solid #23487e;
+    font-weight: bold;
 }
 
-.navbar .nav > li > a {
-  padding: 0 11px;
+.navbar .nav > li {
+    line-height: 34px;
 }
 
-.navbar .nav > li > a:hover {
-	background: #1A3C6C;
-}
+    .navbar .nav > li > a {
+        padding: 0 11px;
+    }
+
+        .navbar .nav > li > a:hover {
+            background: #1A3C6C;
+        }
 
 .navbar .brand {
-  padding: 0 10px;
-  margin-left: -30px;
-  margin-right: 10px;
-  font-size: 18px;
-  font-weight: 100;
-  color: white;
-  line-height: 34px;
+    padding: 0 10px;
+    margin-left: -30px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+    line-height: 34px;
 }
 
-.navbar .brand:hover {
-	background: #1A3C6C;
-}
+    .navbar .brand:hover {
+        background: #1A3C6C;
+    }
 
 
 /* hero unit
@@ -310,33 +361,114 @@ blockquote p {
 }
 
 .content h1 {
-  font-size: 36px;
-  line-height: 46px;
-  margin-bottom: 35px;
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
 }
 
 .content h2 {
-  font-size: 18px;
-  line-height: 18px;
-  margin-bottom: 10px;
-  padding-top: 5px;
-  font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -0.03em;
+    margin: 25px 0 15px 0;
 }
 
 .content h3 {
-  font-size: 14px;
+  font-size: 15px;
+  margin: 25px 0 10px 0;
+  color: #333;
   font-weight: bold;
 }
 
+.content h5 {
+    display: block;
+    font-size: 0.83em;
+    -webkit-margin-before: 1.67em;
+    -webkit-margin-after: 1.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
 .content h6 {
-  font-size: 13px;
+  font-size: 11px;
   text-transform: none;
 }
 
 .content h6 a {
-  color: black;
+  color: #3b5998;
 }
 
 .content h6 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
+
+.container-body p {
+    margin: 0;
+    margin-bottom: 1em;
+    line-height: 18px;
+}
+
+.container-body ul {
+    list-style-type: disc;
+    margin: 0;
+    margin-bottom: 1em;
+    padding-left: 3em;
+}
+
+.container-body .header {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 25px;
+    padding-top: 0;
+}
+
+/* Sidebar Styles
+-------------------------------------------------- */
+#toc {
+    font-size: 11px;
+    line-height: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+    #toc h5 {
+        color: #777;
+        font-size: 11px;
+        margin: 0 0 10px 10px;
+    }
+
+    #toc h6 {
+        margin-left: 10px;
+        line-height: 18px;
+        padding: 1px 0;
+    }
+
+/* Documentation index Styles
+-------------------------------------------------- */
+
+.sections {
+    padding-top:10px;
+}
+
+    .sections .section {
+        display:block;
+        padding: 4px 10px 16px 6px;
+    }
+
+        .sections .section .logo {
+            float: left;
+            margin-right: 10px;
+            margin-top: -10px;
+        }
+
+        .sections .section .name {
+            font-size: 16px;
+            line-height: 24px;
+            margin-left: 136px;
+        }
+
+        .sections .section .desc {
+            margin-left: 136px;
+        }

@@ -43,7 +43,7 @@
           <a class="brand" href="/"><strong>Facebook</strong> SDK for .NET</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li{% if page.url == "/docs/index.html" %} class="active" {% endif %}><a href="/docs">Overview</a></li>
+              <li{% if page.url == "/docs/index.html" %} class="active" {% endif %}><a href="/docs">Docs</a></li>
               <li{% if page.url contains "/docs/web/" %} class="active" {% endif %}><a href="/docs/web">Web</a></li>
               <li{% if page.url contains "/docs/windows/" %} class="active" {% endif %}><a href="/docs/windows">Windows 8</a></li>
               <li{% if page.url contains "/docs/azure/" %} class="active" {% endif %}><a href="/docs/azure">Windows Azure</a></li>
@@ -59,12 +59,14 @@
         <div class="container-body">
             <div class="bodyMenu">
                 <div id="toc">
-                    <h2>Topics</h2>
+                    <h5>Topics</h5>
                 </div>
                 &nbsp;
             </div>
             <div class="bodyText">
-                <h1>{{page.title}}</h1>
+                <div class="header">
+                    <h1>{{page.title}}</h1>
+                </div>
                 <div id="doc">{{content}}</div>
             </div>
             <div class="clear"></div>

@@ -1,11 +1,48 @@
 ---
 layout: default
-title: Facebook SDK for .NET Overview
+title: Documentation
 ---
 
 This is the documentation for the Facebook SDK for .NET Version 6.0. You will find various tutorials and examples on how to use the SDK with ASP.NET, Windows Phone, Windows Store Apps, and Windows Azure.
 
 Before you begin developing your Facebook app with the Facebook SDK for .NET we recommend you read the official [Facebook developer documentation](https://developers.facebook.com/docs/). You cannot develop Facebook apps using the Facebook SDK for .NET without understanding the Facebook Graph API, Facebook Javascript SDK, or OAuth 2.0. These concepts are not addressed in the documentation for the Facebook SDK for .NET. 
+
+<div class="sections">
+    <div class="section clearfix">
+        <div class="logo"><a href="/docs/web/">
+            <img src="/assets/img/logos/WebMainIcon-100.png"></img></a></div>
+        <div class="name"><a href="/docs/web/">Web</a></div>
+        <div class="desc">
+            <p>Learn how to build Facebook Apps and websites that integrate with the Facebook Platform. This is the place to learn how to build ASP.NET or ASP.NET MVC Facebook Apps.</p>
+        </div>
+    </div>
+    <div class="section clearfix">
+        <div class="logo"><a href="/docs/phone/">
+            <img src="/assets/img/logos/WindowsPhoneMainIcon-100.png"></img></a></div>
+        <div class="name"><a href="/docs/phone/">Windows Phone</a></div>
+        <div class="desc">
+            <p>Learn how to use the Facebook SDK for Windows Phone to connect your mobile app or game to Facebook. You can use the Facebook SDK for Windows Phone to authenticate your users with Facebook or post status messages directly from your app.</p>
+        </div>
+    </div>
+    <div class="section clearfix">
+        <div class="logo"><a href="/docs/windows/">
+            <img src="/assets/img/logos/WindowsMainIcon-100.png"></img></a></div>
+        <div class="name"><a href="/docs/windows/">Windows 8</a></div>
+        <div class="desc">
+            <p>Learn how to use the Facebook SDK for Windows to build Windows Store apps. You can use the Facebook SDK for Windows to create a great social app on Windows 8.</p>
+        </div>
+    </div>
+    <div class="section clearfix">
+        <div class="logo"><a href="/docs/azure/">
+            <img src="/assets/img/logos/ConnectedWebPhoneMainIcon-100.png"></img></a></div>
+        <div class="name"><a href="/docs/azure/">Windows Azure</a></div>
+        <div class="desc">
+            <p>This section contains documentation about how to build Facebook apps using the Windows Azure Platform. Learn how to leverage the power of the cloud to build apps that scale do handle even the most demanding loads.</p>
+        </div>
+    </div>
+</div>
+
+---
 
 ## Getting Started
 
