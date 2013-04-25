@@ -8,6 +8,7 @@ body {
     direction: ltr;
     background: #f4f4f4;
     unicode-bidi:embed;
+    overflow-y: scroll;
 }
 
 li {
@@ -60,6 +61,7 @@ a {
         text-decoration: underline;
     }
 
+
 /* Layout
 -------------------------------------------------- */
 
@@ -91,6 +93,18 @@ a {
     clear: both;
 }
 
+.main-container {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-border-radius: 3px;
+    -webkit-box-shadow: #ddd 0 1px 1px;
+    margin: auto;
+    max-width: 980px;
+    padding:0;
+    font-size: 12px;
+    color: #333;
+}
+
 .bodyMenu {
     float: left;
     margin-left: -20px;
@@ -111,14 +125,18 @@ a {
     margin: 0 auto;
     max-width: 980px;
     padding: 10px;
-    border:none;
+    border: none;
 }
 
-.footer p {
-  margin: 0 0 2px 0;
-  color: gray;
-  font-size: 11px;
-}
+    .footer p {
+        margin: 0 0 2px 0;
+        color: gray;
+        font-size: 11px;
+    }
+
+        .footer p.pull-right {
+            margin-left: 15px;
+        }
 
 /* Header
 -------------------------------------------------- */
@@ -288,9 +306,9 @@ a {
 /* About Page
 -------------------------------------------------- */
 
-.person {
+/*.person {
   padding-bottom: 30px;
-}
+}*/
 
 .person img {
   padding-right: 20px;
@@ -472,3 +490,195 @@ blockquote p {
         .sections .section .desc {
             margin-left: 136px;
         }
+
+/* Home Styles
+-------------------------------------------------- */
+.wikiPanel {
+    border-bottom: 1px solid #d2d2d2;
+    height: 277px;
+    overflow: hidden;
+}
+
+    .wikiPanel .wikiHeader {
+        background-color: #cdd5e5;
+        height: 350px;
+        background-image: url('../img/mobile_ads_tile.png');
+    }
+
+        .wikiPanel .wikiHeader .wikiTitle {
+            float: left;
+            padding-top: 60px;
+            width: 700px;
+            margin-left: 160px;
+        }
+
+            .wikiPanel .wikiHeader .wikiTitle img {
+                position: relative;
+                top: -10px;
+                margin-right: 30px;
+                border: 0;
+                float: left;
+                vertical-align: top;
+                height: 140px;
+                width: 140px;
+            }
+
+            .wikiPanel .wikiHeader .wikiTitle h1 {
+                margin-bottom: 0px;
+                margin-left: 20px;
+                font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+                font-weight: bold;
+                text-rendering: optimizeLegibility;
+                font-size: 28px;
+            }
+
+            .wikiPanel .wikiHeader .wikiTitle .wikiDesc {
+                margin-left: 50px;
+                font-size: 16px;
+                padding-top: 5px;
+                padding-bottom: 15px;
+                line-height: 1.5;
+                font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+                font-weight: normal;
+                text-rendering: optimizelegibility;
+            }
+
+.linkBanner {
+    margin-top: -75px;
+}
+
+    .linkBanner img {
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: scale(1);
+        -webkit-transition-timing-function: ease-out;
+        -webkit-transition-duration: 200ms;
+    }
+
+        .linkBanner img:hover {
+            -webkit-transform: scale(1.05);
+            -webkit-transition-timing-function: ease-out;
+            -webkit-transition-duration: 200ms;
+        }
+
+    .linkBanner .imageLinkText {
+        float: left;
+        padding: 15px 25px;
+        text-align: center;
+        width: 275px;
+    }
+
+        .linkBanner .imageLinkText .title a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .linkBanner .imageLinkText .caption {
+            color: #666;
+            font-size: 11px;
+        }
+
+.sectionContainer {
+    margin: 5px 10px;
+    padding: 10px;
+}
+
+    .sectionContainer .section {
+        border-bottom: 1px solid #d2d2d2;
+        border-top: 1px solid #d2d2d2;
+        float: left;
+        font-weight: normal;
+        height: 235px;
+        margin: 0;
+        width: 290px;
+    }
+
+    .sectionContainer .sectionLeft {
+        border-left: none;
+        margin: 0;
+        padding-right: 15px;
+    }
+
+    .sectionContainer .sectionCenter {
+        border-left: 1px solid #d2d2d2;
+        border-right: 1px solid #d2d2d2;
+        padding: 0 15px;
+    }
+
+    .sectionContainer .sectionRight {
+        border-right: none;
+        padding-left: 20px;
+    }
+    
+
+/* Buttons Styles
+-------------------------------------------------- */
+
+.uiButton, .uiButtonSuppressed:active, .uiButtonSuppressed:focus, .uiButtonSuppressed:hover {
+    background-image: url('../img/assets.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: -1px -490px;
+    background-color: #eee;
+    border: 1px solid #999;
+    border-bottom-color: #888;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+}
+
+.uiButtonSpecial {
+    background-image: url('../img/assets.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: -1px -196px;
+    background-color: #69a74e;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+}
+
+    .uiButtonSpecial .uiButtonText {
+        color: #fff;
+    }
+
+.uiButton {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 13px;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+    .uiButtonText, .uiButton input {
+        background: none;
+        border: 0;
+        color: #333;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 13px;
+        margin: 0;
+        padding: 1px 0 2px;
+        white-space: nowrap;
+    }
+
+.uiButtonLarge, .uiButtonLarge .uiButtonText, .uiButtonLarge input {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.uiButtonLarge {
+    height: 19px;
+}
+
+/* Facebook Styles
+-------------------------------------------------- */
+.likePlugin {
+    height: 75px;
+    margin: 0 35px;
+    padding: 0 10px;
+}
