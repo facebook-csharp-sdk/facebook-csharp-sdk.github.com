@@ -596,14 +596,66 @@ blockquote p {
 
 .portalBlock {
     padding-left: 128px;
+    padding-top: 25px;
+    padding-bottom: 20px;
 }
+
+.portalBlock.tutorials {
+    padding-left: 128px;
+    background-color: rgb(239, 241, 246);
+    border-top-color: #d8dfea;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+    .portalBlock h2 {
+        font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+        font-weight: normal;
+        font-size: 24px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+    }
 
     .portalBlock .blockItem {
         float: left;
         text-align: left;
         width: 214px;
+    }
+
+    .portalBlock .blockRow.sr {
+        margin-bottom: 10px;
+    }
+
+    .portalBlock .blockItem.sr {
         margin-right: 40px;
     }
+
+        .portalBlock .blockItem h3 {
+            font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+            font-weight: normal;
+            font-size: 19px;
+            margin-bottom: 0px;
+            line-height: 28px;
+        }
+
+        .portalBlock.tutorials .blockItem h3 {
+            margin-top: 5px;
+        }
+
+        .portalBlock .blockItem a {
+            color: #3b5998;
+            text-decoration: none;
+        }
+
+        .portalBlock .blockItem .itemImage {
+            margin-top: 10px;
+        }
+
+        .portalBlock .blockItem .itemDescription {
+            font-size: 13px;
+            margin-top: 5px;
+            line-height: 18px;
+        }
 
 .linkBanner {
     margin-top: -75px;
