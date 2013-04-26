@@ -44,9 +44,9 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li{% if page.url == "/docs/index.html" %} class="active" {% endif %}><a href="/docs">Docs</a></li>
-              <li{% if page.url contains "/docs/web/" %} class="active" {% endif %}><a href="/docs/web">Web</a></li>
               <li{% if page.url contains "/docs/windows/" %} class="active" {% endif %}><a href="/docs/windows">Windows 8</a></li>
               <li{% if page.url contains "/docs/phone/" %} class="active" {% endif %}><a href="/docs/phone">Windows Phone</a></li>
+              <li{% if page.url contains "/docs/web/" %} class="active" {% endif %}><a href="/docs/web">Web</a></li>
               <li{% if page.url == "/docs/about/" %} class="active" {% endif %}><a href="/docs/about">About</a></li>
             </ul>
           </div>
@@ -83,7 +83,6 @@
     <script src="/assets/js/jquery-1.7.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/prettify.js" type="text/javascript"></script>
-    <script src="/assets/js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('code').addClass('prettyprint');
@@ -93,13 +92,6 @@
             $('<h6><a href="#' + i + '">' + h2.text() + '</a></h6>').appendTo('#toc');
             h2.after($('<a id="' + i + '" />'));
         });
-        //$('#toc a').smoothScroll({offset: -80});
-        //$('#back-to-top').smoothScroll({offset: -50});
-        //$('#toc').affix({
-        //  offset: {
-        //      top: 100
-        //    }
-        //});
       });
     </script>
   </body>

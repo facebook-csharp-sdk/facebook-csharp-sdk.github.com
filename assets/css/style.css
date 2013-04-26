@@ -491,6 +491,14 @@ blockquote p {
             margin-left: 136px;
         }
 
+.blueBox {
+    background-color: #edeff4;
+    border: 1px solid #d8dfea;
+    line-height: 18px;
+    margin: 20px 0;
+    padding: 13px;
+}
+
 /* Home Styles
 -------------------------------------------------- */
 .wikiPanel {
@@ -499,10 +507,18 @@ blockquote p {
     overflow: hidden;
 }
 
+.wikiPanel.small {
+    height: 210px;
+}
+
     .wikiPanel .wikiHeader {
         background-color: #cdd5e5;
         height: 350px;
         background-image: url('../img/mobile_ads_tile.png');
+    }
+
+    .wikiPanel .wikiHeader.small {
+        height: 210px;
     }
 
         .wikiPanel .wikiHeader .wikiTitle {
@@ -510,6 +526,11 @@ blockquote p {
             padding-top: 60px;
             width: 700px;
             margin-left: 160px;
+        }
+
+        .wikiPanel .wikiHeader .wikiTitle.small {
+            padding-top: 40px;
+            width: 500px;
         }
 
             .wikiPanel .wikiHeader .wikiTitle img {
@@ -532,6 +553,12 @@ blockquote p {
                 font-size: 28px;
             }
 
+            .wikiPanel .wikiHeader .wikiTitle h1.small {
+                font-weight: normal;
+                line-height: 30px;
+                margin-top: 5px;
+            }
+
             .wikiPanel .wikiHeader .wikiTitle .wikiDesc {
                 margin-left: 50px;
                 font-size: 16px;
@@ -542,6 +569,41 @@ blockquote p {
                 font-weight: normal;
                 text-rendering: optimizelegibility;
             }
+
+            .wikiPanel .wikiHeader .wikiMenu {
+                text-align: right;
+                float: left;
+                font-size: 12px;
+                line-height: 1.28;
+                list-style-type: none;
+                list-style-image: none;
+                list-style-position: outside;
+                margin-top: 45px;
+                margin-left: 117px;
+            }
+
+            .wikiPanel .wikiHeader .wikiMenu li {
+                padding-bottom: 5px;
+            }
+
+            .wikiPanel .wikiHeader .wikiMenu li a {
+                color: #555;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: bold; 
+                line-height: 18px;
+            }
+
+.portalBlock {
+    padding-left: 128px;
+}
+
+    .portalBlock .blockItem {
+        float: left;
+        text-align: left;
+        width: 214px;
+        margin-right: 40px;
+    }
 
 .linkBanner {
     margin-top: -75px;
@@ -566,6 +628,9 @@ blockquote p {
         text-align: center;
         width: 275px;
     }
+        .linkBanner .imageLinkText .image{
+            margin:3px 0;
+        }
 
         .linkBanner .imageLinkText .title a {
             text-decoration: none;
@@ -581,6 +646,7 @@ blockquote p {
 .sectionContainer {
     margin: 5px 10px;
     padding: 10px;
+    font-size: 11px;
 }
 
     .sectionContainer .section {
@@ -593,11 +659,54 @@ blockquote p {
         width: 290px;
     }
 
+        .sectionContainer .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .sectionContainer .section .caption {
+            color: #666;
+            font-size: 11px;
+            line-height: 14px;
+        }
+
+        .sectionContainer .section h2 {
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 15px 0 10px 0;
+            margin: 0 0 5px 0;
+        }
+
     .sectionContainer .sectionLeft {
         border-left: none;
         margin: 0;
         padding-right: 15px;
     }
+
+        .sectionContainer .sectionLeft ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 20px 0 0;
+        }
+
+            .sectionContainer .sectionLeft ul li {
+                background: url('../img/blog-icon.gif') 0 2px no-repeat;
+                padding-left: 22px;
+            }
+
+                .sectionContainer .sectionLeft ul li .title {
+                    font-weight: bold;
+                }
+
+                .sectionContainer .sectionLeft ul li.readmore {
+                    background: none;
+                }
+
+                    .sectionContainer .sectionLeft ul li.readmore a {
+                        font-weight: bold;
+                        background: url('../img/read-more-icon.gif') no-repeat right center;
+                        padding-right: 9px;
+                    }
 
     .sectionContainer .sectionCenter {
         border-left: 1px solid #d2d2d2;
@@ -609,7 +718,62 @@ blockquote p {
         border-right: none;
         padding-left: 20px;
     }
-    
+
+        .sectionContainer .sectionRight ul {
+            margin-left: 12px;
+        }
+
+            .sectionContainer .sectionRight ul li {
+                margin-bottom: 5px;
+                float: none;
+            }
+
+.carousel {
+    text-align:center;
+}
+
+.carousel-indicators {
+    padding-top: 10px;
+    display:inline-block;
+    z-index: 5;
+    margin: 0;
+    list-style: none;
+}
+
+    .carousel-indicators li {
+        display: block;
+        float: left;
+        width: 14px;
+        height: 14px;
+        margin-left: 5px;
+        text-indent: -999px;
+        background: url('../img/indicator-inactive.png') no-repeat;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .carousel-indicators .active {
+        background: url('../img/indicator-active.png') no-repeat;
+    }
+
+.carousel-inner {
+    height: 200px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.promo .sectionImg {
+    text-align: center;
+}
+
+.promo .caption {
+    margin: 10px 0;
+}
+
+.promo .sectionTemplateLink {
+    font-weight: bold;
+    margin: 0 5px;
+}
 
 /* Buttons Styles
 -------------------------------------------------- */
@@ -682,3 +846,29 @@ blockquote p {
     margin: 0 35px;
     padding: 0 10px;
 }
+
+/* Error page Styles
+-------------------------------------------------- */
+
+.error-container {
+    padding: 25px 20px 20px;
+    font-size: 11px;
+}
+
+    .error-container .header {
+        background: white;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+        padding-bottom: 25px;
+        padding-top: 0;
+    }
+
+    .error-container li {
+        line-height: 1.28;
+    }
+
+    .error-container ul {
+        padding-left: 3em;
+        margin:0 0 1em 0;
+    }
+
