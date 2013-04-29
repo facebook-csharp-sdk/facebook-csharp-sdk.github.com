@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;
     margin: 0;
     padding: 0;
-    line-height: initial;
+    line-height: 1.15;
 }
 
 h1 {
@@ -644,7 +644,6 @@ blockquote p {
 
         .portalBlock .blockItem a {
             color: #3b5998;
-            text-decoration: none;
         }
 
         .portalBlock .blockItem .itemImage {
