@@ -1,8 +1,8 @@
 body {
-	padding-top: 50px;
-	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-	font-size: 11px;
-	color: #333;
+    padding-top: 50px;
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    color: #333;
     line-height: 1.28;
     text-align: left;
     direction: ltr;
@@ -12,7 +12,7 @@ body {
 }
 
 li {
-	line-height: 18px;
+    line-height: 18px;
 }
 
 .clearfix:after {
@@ -448,13 +448,13 @@ blockquote p {
     font-size: 11px;
     line-height: 18px;
     padding: 0;
-    margin: 0;
+    margin: -25px 0 0 0;
 }
 
     #toc h5 {
         color: #777;
         font-size: 11px;
-        margin: 0 0 10px 10px;
+        margin: 25px 0 10px 10px;
     }
 
     #toc h6 {
@@ -923,3 +923,99 @@ blockquote p {
         margin:0 0 1em 0;
     }
 
+/* SDK Reference pages Styles
+-------------------------------------------------- */
+
+div.referenceTitle {
+    border-bottom: solid 1px #e2e2e2;
+    color: #3c4c6c;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    padding-bottom: 5px;
+}
+
+.summarySection table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+    .summarySection table tr th {
+        background: #f2f7fc;
+        border: solid 1px #e2e2e2;
+        border-bottom: none;
+        font-size: 16px;
+        padding: 3px 10px;
+        font-weight:normal;
+    }
+
+    .summarySection table tr td {
+        border: solid 1px #e2e2e2;
+        font-size: 14px;
+        text-align: left;
+        padding: 6px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-right: 10px;
+        vertical-align: top;
+    }
+
+        .summarySection table tr td span.itemName {
+            font-family: Courier, Consolas, monospace;
+        }
+
+        .summarySection table tr td div.itemSummary {
+            font-size: 12px;
+            line-height: 20px;
+            padding-left: 10px;
+        }
+
+div.itemDetails {
+    position: relative;
+    -webkit-background-clip: padding-box;
+}
+
+    div.itemDetails div.itemDetailsTitle {
+        background: lightgray;
+        font-family: Courier, Consolas, monospace;
+        font-size: 14px;
+        padding: 3px 10px;
+    }
+
+    div.itemDetails div.itemDetailsDescription {
+        font-size: 13px;
+        line-height: 18px;
+        padding: 1em;
+    }
+
+div.typeHeader {
+    margin-top: 20px;
+margin-bottom: 20px;
+}
+
+    div.typeHeader div.namespace {
+        padding-bottom: 5px;
+    }
+
+    div.typeHeader span.modifiers {
+        display: block;
+        font-size: 10px;
+        margin: 0;
+    }
+
+    div.typeHeader span.typeName {
+        font-size: 28px;
+    }
+
+    div.typeHeader span.father {
+        display: block;
+        font-size: 10px;
+        margin: 0;
+    }
+
+p.overview {
+    margin: 0 0 1em 0;
+    font-size: 14px;
+    line-height: 20px;
+}
