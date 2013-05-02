@@ -989,9 +989,25 @@ div.itemDetails {
         padding: 1em;
     }
 
+div.params, div.return {
+    margin-bottom: 20px;
+}
+
+span.paramsTitle, span.returnTitle {
+    font-weight: bold;
+}
+
+div.paramDesc, div.returnDesc {
+    margin: 5px 0 0 20px;
+}
+
+    div.paramDesc span.paramName {
+        font-weight: bold;
+    }
+
 div.typeHeader {
     margin-top: 20px;
-margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
     div.typeHeader div.namespace {
