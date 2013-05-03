@@ -44,6 +44,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li{% if page.url == "/docs/index.html" %} class="active" {% endif %}><a href="/docs">Docs</a></li>
+              <li{% if page.url contains "/docs/reference/" %} class="active" {% endif %}><a href="/docs/reference">SDK Reference</a></li>
               <li{% if page.url contains "/docs/windows/" %} class="active" {% endif %}><a href="/docs/windows">Windows 8</a></li>
               <li{% if page.url contains "/docs/phone/" %} class="active" {% endif %}><a href="/docs/phone">Windows Phone</a></li>
               <li{% if page.url contains "/docs/web/" %} class="active" {% endif %}><a href="/docs/web">Web</a></li>
