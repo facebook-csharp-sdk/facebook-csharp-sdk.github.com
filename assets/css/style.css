@@ -7,7 +7,7 @@ body {
     text-align: left;
     direction: ltr;
     background: #f4f4f4;
-    unicode-bidi:embed;
+    unicode-bidi: embed;
     overflow-y: scroll;
 }
 
@@ -83,15 +83,15 @@ a {
     color: #333;
 }
 
-.container-body:before, .container-body:after {
-    display: table;
-    content: "";
-    line-height: 0;
-}
+    .container-body:before, .container-body:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
 
-.container-body:after {
-    clear: both;
-}
+    .container-body:after {
+        clear: both;
+    }
 
 .main-container {
     background: #fff;
@@ -100,7 +100,7 @@ a {
     -webkit-box-shadow: #ddd 0 1px 1px;
     margin: auto;
     max-width: 980px;
-    padding:0;
+    padding: 0;
     font-size: 12px;
     color: #333;
 }
@@ -189,67 +189,66 @@ a {
 }
 
 .hero-unit .btn-large {
-  font-size: 26px;
-  font-weight: normal;
-  padding: 14px 24px;
-  margin-right: 10px;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+    font-size: 26px;
+    font-weight: normal;
+    padding: 14px 24px;
+    margin-right: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 
 .hero-unit img {
-  float: left;
-  margin: 6px 10px 0 0;
-  opacity: .8;
-  width: 45px;
-  height: 45px;
+    float: left;
+    margin: 6px 10px 0 0;
+    opacity: .8;
+    width: 45px;
+    height: 45px;
 }
 
 .download-buttons .nugetbutton {
-	padding-left: 15px;
-	padding-right: 15px;
-	width:322px; 
-	float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 322px;
+    float: left;
 }
 
 .download-buttons .githubbutton {
-	padding-top: 35px;
+    padding-top: 35px;
 }
 
 .follow-buttons ul {
-	list-style-type: none;
-	margin-left: -15px;
+    list-style-type: none;
+    margin-left: -15px;
 }
 
 .follow-buttons li {
-	float: left;
+    float: left;
 }
 
 .st-search-input {
-  margin-top: 5px;
-  margin-bottom: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 /* Home Page
 -------------------------------------------------- */
 
 .bs-icon {
-  float: left;
-  margin: 18px 10px 0 0;
-  opacity: .8;
+    float: left;
+    margin: 18px 10px 0 0;
+    opacity: .8;
 }
 
 /* Nuget Button
 -------------------------------------------------- */
 
-.nuget-button-commandWrapper
-{
+.nuget-button-commandWrapper {
     background: #d6d6d6;
     border: 0px solid #fff;
     padding: 0.25em;
     margin: 2.25em 0;
-    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#d6d6d6',  endColorstr='#505050');
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#d6d6d6', endColorstr='#505050');
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#d6d6d6), to(#505050));
     background: -moz-linear-gradient(top, #d6d6d6, #505050);
     border-radius: 0.5em;
@@ -257,12 +256,11 @@ a {
     -moz-border-radius: 0.5em;
 }
 
-.nuget-button-commandPrompt
-{
+.nuget-button-commandPrompt {
     background: #000;
     border: 1px solid #c4c4c4; /*CSS3 properties*/
-    text-shadow: 1px 1px 1px rgba(0, 0, 0 ,1.0);
-    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#5e5e5e',  endColorstr='#000');
+    text-shadow: 1px 1px 1px rgba(0, 0, 0,1.0);
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#5e5e5e', endColorstr='#000');
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#5e5e5e), to(#000));
     background: -moz-linear-gradient(top, #5e5e5e, #000);
     box-shadow: inset 6px 6px 14px rgba(0, 0, 0, 0.6), 1px 1px 4px rgba(102, 102, 102, 1.0);
@@ -273,27 +271,24 @@ a {
     -moz-border-radius: 0.38em;
 }
 
-.nuget-button-command
-{
+.nuget-button-command {
     color: #e2e2e2 !important;
-    font-family: Consolas, "Andale Mono WT" , "Andale Mono" , "Lucida Console" , "Lucida Sans Typewriter" , "DejaVu Sans Mono" , "Bitstream Vera Sans Mono" , "Liberation Mono" , "Nimbus Mono L" , Monaco, "Courier New" , Courier, monospace;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     font-size: 1.5em;
     line-height: 1.5em;
     margin: 0.8em 0.5em;
 }
 
 .nuget-button-commandWrapper a:link,
-.nuget-button-commandWrapper a:visited
-{
+.nuget-button-commandWrapper a:visited {
     outline: none;
     text-decoration: none !important;
     color: #e2e2e2 !important;
     background-color: transparent !important;
-    border:0 !important;
+    border: 0 !important;
 }
 
-.nuget-button-commandWrapper a:hover
-{
+.nuget-button-commandWrapper a:hover {
     outline: none;
     text-decoration: none !important;
     color: #72eb18 !important;
@@ -311,30 +306,138 @@ a {
 }*/
 
 .person img {
-  padding-right: 20px;
-  float: left;
-  border-image: none;
-  border: none;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+    padding-right: 20px;
+    float: left;
+    border-image: none;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 /* Prettify
 -------------------------------------------------- */
-.pln{color:#000}@media screen{.str{color:#080}.kwd{color:#008}.com{color:#800}.typ{color:#606}.lit{color:#066}.pun,.opn,.clo{color:#660}.tag{color:#008}.atn{color:#606}.atv{color:#080}.dec,.var{color:#606}.fun{color:red}}@media print,projection{.str{color:#060}.kwd{color:#006;font-weight:bold}.com{color:#600;font-style:italic}.typ{color:#404;font-weight:bold}.lit{color:#044}.pun,.opn,.clo{color:#440}.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#060}}pre.prettyprint{padding:2px;border:1px solid #888}ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}
+.pln {
+    color: #000;
+}
+
+@media screen {
+    .str {
+        color: #080;
+    }
+
+    .kwd {
+        color: #008;
+    }
+
+    .com {
+        color: #800;
+    }
+
+    .typ {
+        color: #606;
+    }
+
+    .lit {
+        color: #066;
+    }
+
+    .pun, .opn, .clo {
+        color: #660;
+    }
+
+    .tag {
+        color: #008;
+    }
+
+    .atn {
+        color: #606;
+    }
+
+    .atv {
+        color: #080;
+    }
+
+    .dec, .var {
+        color: #606;
+    }
+
+    .fun {
+        color: red;
+    }
+}
+
+@media print,projection {
+    .str {
+        color: #060;
+    }
+
+    .kwd {
+        color: #006;
+        font-weight: bold;
+    }
+
+    .com {
+        color: #600;
+        font-style: italic;
+    }
+
+    .typ {
+        color: #404;
+        font-weight: bold;
+    }
+
+    .lit {
+        color: #044;
+    }
+
+    .pun, .opn, .clo {
+        color: #440;
+    }
+
+    .tag {
+        color: #006;
+        font-weight: bold;
+    }
+
+    .atn {
+        color: #404;
+    }
+
+    .atv {
+        color: #060;
+    }
+}
+
+pre.prettyprint {
+    padding: 2px;
+    border: 1px solid #888;
+}
+
+ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+    list-style-type: none;
+}
+
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+    background: #eee;
+}
 
 pre {
-  border-top: 1px solid #DCDCDC;
-  border-bottom: 1px solid #DCDCDC;
-  border-left: 5px solid #DCDCDC;
-  border-right: 1px solid #DCDCDC;
-  background: #f5f5f5;
-  padding: 10px 10px 10px 15px;
+    border-top: 1px solid #DCDCDC;
+    border-bottom: 1px solid #DCDCDC;
+    border-left: 5px solid #DCDCDC;
+    border-right: 1px solid #DCDCDC;
+    background: #f5f5f5;
+    padding: 10px 10px 10px 15px;
 }
 
 code {
-   font-family: "Consolas", Arial;
+    font-family: "Consolas", Arial;
 }
 
 /* Table of Contents
@@ -343,30 +446,30 @@ code {
 
 /* Only on large displays */
 @media (min-width: 900px) {
-  #toc {
-    top: 0;
-    /*width: 220px;*/
-  }
+    #toc {
+        top: 0;
+        /*width: 220px;*/
+    }
 
-  #toc.affix {
-    top: 40px;
-  }
+        #toc.affix {
+            top: 40px;
+        }
 }
 
 /* Body Styles
 -------------------------------------------------- */
 
 #doc {
-  /*border-left: 1px solid #B6B6B6;*/
-  /*padding-left: 20px;*/
-  padding:0;
-  margin:0;
+    /*border-left: 1px solid #B6B6B6;*/
+    /*padding-left: 20px;*/
+    padding: 0;
+    margin: 0;
 }
 
 blockquote p {
-  font-size: 14px; /* default: 16px */
-  font-weight: 300; /* default: 300 */
-  line-height: 20px; /* default: 22.5px */
+    font-size: 14px; /* default: 16px */
+    font-weight: 300; /* default: 300 */
+    line-height: 20px; /* default: 22.5px */
 }
 
 .content h1,
@@ -375,13 +478,13 @@ blockquote p {
 .content h4,
 .content h5,
 .content h6 {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 .content h1 {
-  font-size: 18px;
-  margin: 0;
-  font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
 }
 
 .content h2 {
@@ -392,10 +495,10 @@ blockquote p {
 }
 
 .content h3 {
-  font-size: 15px;
-  margin: 25px 0 10px 0;
-  color: #333;
-  font-weight: bold;
+    font-size: 15px;
+    margin: 25px 0 10px 0;
+    color: #333;
+    font-weight: bold;
 }
 
 .content h5 {
@@ -409,17 +512,17 @@ blockquote p {
 }
 
 .content h6 {
-  font-size: 11px;
-  text-transform: none;
+    font-size: 11px;
+    text-transform: none;
 }
 
-.content h6 a {
-  color: #3b5998;
-}
+    .content h6 a {
+        color: #3b5998;
+    }
 
-.content h6 a:hover {
-  text-decoration: underline;
-}
+        .content h6 a:hover {
+            text-decoration: underline;
+        }
 
 .container-body p {
     margin: 0;
@@ -467,11 +570,11 @@ blockquote p {
 -------------------------------------------------- */
 
 .sections {
-    padding-top:10px;
+    padding-top: 10px;
 }
 
     .sections .section {
-        display:block;
+        display: block;
         padding: 4px 10px 16px 6px;
     }
 
@@ -507,9 +610,9 @@ blockquote p {
     overflow: hidden;
 }
 
-.wikiPanel.small {
-    height: 210px;
-}
+    .wikiPanel.small {
+        height: 210px;
+    }
 
     .wikiPanel .wikiHeader {
         background-color: #cdd5e5;
@@ -517,9 +620,9 @@ blockquote p {
         background-image: url('../img/mobile_ads_tile.png');
     }
 
-    .wikiPanel .wikiHeader.small {
-        height: 210px;
-    }
+        .wikiPanel .wikiHeader.small {
+            height: 210px;
+        }
 
         .wikiPanel .wikiHeader .wikiTitle {
             float: left;
@@ -528,10 +631,10 @@ blockquote p {
             margin-left: 160px;
         }
 
-        .wikiPanel .wikiHeader .wikiTitle.small {
-            padding-top: 40px;
-            width: 500px;
-        }
+            .wikiPanel .wikiHeader .wikiTitle.small {
+                padding-top: 40px;
+                width: 500px;
+            }
 
             .wikiPanel .wikiHeader .wikiTitle img {
                 position: relative;
@@ -553,11 +656,11 @@ blockquote p {
                 font-size: 28px;
             }
 
-            .wikiPanel .wikiHeader .wikiTitle h1.small {
-                font-weight: normal;
-                line-height: 30px;
-                margin-top: 5px;
-            }
+                .wikiPanel .wikiHeader .wikiTitle h1.small {
+                    font-weight: normal;
+                    line-height: 30px;
+                    margin-top: 5px;
+                }
 
             .wikiPanel .wikiHeader .wikiTitle .wikiDesc {
                 margin-left: 50px;
@@ -570,29 +673,29 @@ blockquote p {
                 text-rendering: optimizelegibility;
             }
 
-            .wikiPanel .wikiHeader .wikiMenu {
-                text-align: right;
-                float: left;
-                font-size: 12px;
-                line-height: 1.28;
-                list-style-type: none;
-                list-style-image: none;
-                list-style-position: outside;
-                margin-top: 45px;
-                margin-left: 117px;
-            }
+        .wikiPanel .wikiHeader .wikiMenu {
+            text-align: right;
+            float: left;
+            font-size: 12px;
+            line-height: 1.28;
+            list-style-type: none;
+            list-style-image: none;
+            list-style-position: outside;
+            margin-top: 45px;
+            margin-left: 117px;
+        }
 
             .wikiPanel .wikiHeader .wikiMenu li {
                 padding-bottom: 5px;
             }
 
-            .wikiPanel .wikiHeader .wikiMenu li a {
-                color: #555;
-                cursor: pointer;
-                font-size: 18px;
-                font-weight: bold; 
-                line-height: 18px;
-            }
+                .wikiPanel .wikiHeader .wikiMenu li a {
+                    color: #555;
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 18px;
+                }
 
 .portalBlock {
     padding-left: 128px;
@@ -600,13 +703,13 @@ blockquote p {
     padding-bottom: 20px;
 }
 
-.portalBlock.tutorials {
-    padding-left: 128px;
-    background-color: rgb(239, 241, 246);
-    border-top-color: #d8dfea;
-    border-top-style: solid;
-    border-top-width: 1px;
-}
+    .portalBlock.tutorials {
+        padding-left: 128px;
+        background-color: rgb(239, 241, 246);
+        border-top-color: #d8dfea;
+        border-top-style: solid;
+        border-top-width: 1px;
+    }
 
     .portalBlock h2 {
         font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
@@ -630,31 +733,31 @@ blockquote p {
         margin-right: 40px;
     }
 
-        .portalBlock .blockItem h3 {
-            font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-            font-weight: normal;
-            font-size: 19px;
-            margin-bottom: 0px;
-            line-height: 28px;
-        }
+    .portalBlock .blockItem h3 {
+        font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+        font-weight: normal;
+        font-size: 19px;
+        margin-bottom: 0px;
+        line-height: 28px;
+    }
 
-        .portalBlock.tutorials .blockItem h3 {
-            margin-top: 5px;
-        }
+    .portalBlock.tutorials .blockItem h3 {
+        margin-top: 5px;
+    }
 
-        .portalBlock .blockItem a {
-            color: #3b5998;
-        }
+    .portalBlock .blockItem a {
+        color: #3b5998;
+    }
 
-        .portalBlock .blockItem .itemImage {
-            margin-top: 10px;
-        }
+    .portalBlock .blockItem .itemImage {
+        margin-top: 10px;
+    }
 
-        .portalBlock .blockItem .itemDescription {
-            font-size: 13px;
-            margin-top: 5px;
-            line-height: 18px;
-        }
+    .portalBlock .blockItem .itemDescription {
+        font-size: 13px;
+        margin-top: 5px;
+        line-height: 18px;
+    }
 
 .linkBanner {
     margin-top: -75px;
@@ -679,8 +782,9 @@ blockquote p {
         text-align: center;
         width: 275px;
     }
-        .linkBanner .imageLinkText .image{
-            margin:3px 0;
+
+        .linkBanner .imageLinkText .image {
+            margin: 3px 0;
         }
 
         .linkBanner .imageLinkText .title a {
@@ -780,12 +884,12 @@ blockquote p {
             }
 
 .carousel {
-    text-align:center;
+    text-align: center;
 }
 
 .carousel-indicators {
     padding-top: 10px;
-    display:inline-block;
+    display: inline-block;
     z-index: 5;
     margin: 0;
     list-style: none;
@@ -920,7 +1024,7 @@ blockquote p {
 
     .error-container ul {
         padding-left: 3em;
-        margin:0 0 1em 0;
+        margin: 0 0 1em 0;
     }
 
 /* SDK Reference pages Styles
@@ -947,7 +1051,7 @@ div.referenceTitle {
         border-bottom: none;
         font-size: 16px;
         padding: 3px 10px;
-        font-weight:normal;
+        font-weight: normal;
     }
 
     .summarySection table tr td {
@@ -1035,3 +1139,44 @@ p.overview {
     font-size: 14px;
     line-height: 20px;
 }
+
+div.referenceSidebar a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* SDK Reference index page Styles
+-------------------------------------------------- */
+.namespaceCol {
+    float: left;
+    text-align: left;
+    padding: 4px 10px 4px 6px;
+    vertical-align: top;
+    font-size: 11px;
+    height: auto;
+}
+
+    .namespaceCol .namespaceName {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .namespaceCol ul {
+        list-style-type: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+        .namespaceCOl ul li:first-child {
+            padding: 0;
+            border-width: 0;
+        }
+
+        .namespaceCol ul li {
+            border-width: 1px 0 0 0;
+            padding-top: 5px;
+            padding-bottom: 0;
+            line-height: 14px;
+        }
