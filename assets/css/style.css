@@ -79,6 +79,7 @@ a {
     padding: 25px 20px 20px;
     margin: auto;
     max-width: 940px;
+    min-width: 940px;
     font-size: 12px;
     color: #333;
 }
@@ -100,6 +101,7 @@ a {
     -webkit-box-shadow: #ddd 0 1px 1px;
     margin: auto;
     max-width: 980px;
+    min-width: 980px;
     padding: 0;
     font-size: 12px;
     color: #333;
@@ -1091,6 +1093,13 @@ div.itemDetails {
         font-size: 13px;
         line-height: 18px;
         padding: 1em;
+    }
+
+    div.itemDetails div.itemDetailsValue {
+        font-size: 13px;
+        line-height: 18px;
+        padding: 0 1em 1em 1em;
+        font-weight: bold;
     }
 
 div.params, div.return {
