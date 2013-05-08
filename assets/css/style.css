@@ -1155,6 +1155,14 @@ div.referenceSidebar a {
     display: block;
 }
 
+div.supportedProjects {
+    margin-bottom: 20px;
+}
+
+    div.supportedProjects div.projectTitle {
+        font-weight: bold;
+    }
+
 /* SDK Reference index page Styles
 -------------------------------------------------- */
 .namespaceCol {
