@@ -416,6 +416,14 @@ pre.prettyprint {
     border: 1px solid #888;
 }
 
+code.prettyprint {
+    display: block;
+    width: auto;
+    overflow: auto;
+    white-space: pre;
+    word-wrap: normal;
+}
+
 ol.linenums {
     margin-top: 0;
     margin-bottom: 0;
