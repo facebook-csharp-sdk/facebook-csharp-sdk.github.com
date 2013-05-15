@@ -724,12 +724,15 @@ blockquote p {
     padding-bottom: 20px;
 }
 
-    .portalBlock.tutorials {
+    .portalBlock.tutorials, .portalBlock.guides {
         padding-left: 128px;
-        background-color: rgb(239, 241, 246);
         border-top-color: #d8dfea;
         border-top-style: solid;
         border-top-width: 1px;
+    }
+
+    .portalBlock.tutorials {
+        background-color: rgb(239, 241, 246);
     }
 
     .portalBlock h2 {
@@ -762,7 +765,7 @@ blockquote p {
         line-height: 28px;
     }
 
-    .portalBlock.tutorials .blockItem h3 {
+    .portalBlock.tutorials .blockItem h3, .portalBlock.guides .blockItem h3 {
         margin-top: 5px;
     }
 
