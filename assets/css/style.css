@@ -511,6 +511,13 @@ blockquote p {
     font-weight: bold;
 }
 
+.content h4 {
+    font-size: 13px;
+    margin: 25px 0 10px 0;
+    color: #333;
+    font-weight: bold;
+}
+
 .content h5 {
     display: block;
     font-size: 0.83em;
@@ -538,6 +545,10 @@ blockquote p {
     margin: 0;
     margin-bottom: 1em;
     line-height: 18px;
+}
+
+.container-body blockquote p {
+    font-size: 12px;
 }
 
 .container-body ul {
