@@ -28,7 +28,7 @@ Before you can get started with the Windows 8 Application, you have to create a 
 
 ![Create Facebook App](images/FacebookAppWebsite/1-CreateFBApp.png)
 
-Once you have created the app, you need to edit the app and change a few settings. Make sure to set the _DisplayName_ and _namespace_ appropriately. Also, make sure to set the _email address_. One of the crucial things is the _App Domain_ box. In this box, you should add a domain without the _http://_ prefix. Make sure you have control of the website because later in this tutorial, you will need to place some static pages there. As of yet, Facebook does not have a dedicated section for Windows 8/WP8, so for now, select the section "Website with Facebook Login". in the _Site URL_ field, put the website that you earlier picked for the App Domain, except make sure that you prefix it with an "https://" this time. Don't worry,  you will not have to configure your website with a real SSL functionality. This is just to make the _Facebook Website with Facebook Login_ dialog happy.
+Once you have created the app, you need to edit the app and change a few settings. Make sure to set the _DisplayName_ and _namespace_ appropriately. Also, make sure to set the _email address_. One of the crucial things is the _App Domain_ box. In this box, you should add a domain without the _http://_ prefix. Make sure you have control of the website because later in this tutorial, you will need to place some static pages there. As of yet, Facebook does not have a dedicated section for Windows 8/WP8, so for now, select the section "Website with Facebook Login". in the _Site URL_ field, put the website that you earlier picked for the App Domain, except make sure that you prefix it with an "https://" this time. Don't worry,  you will not have to configure your website with a real SSL functionality. This is just to make the _Website with Facebook Login_ dialog happy.
 
 ![Create Facebook App](images/FacebookAppWebsite/2-EditFBAppBasic.png)
 
@@ -73,7 +73,7 @@ By the end of this tutorial, you should have a working understanding of how to l
 
 ###Setup the project
 
-Create two folders called ViewModel and  Views in the project. This is how it will look like:
+Create two folders called ViewModel and Views in the project. This is how it will look like:
 
 ![Create Folder](images/Authenticate/2-CreateFolders.png)
 
@@ -191,7 +191,7 @@ Finally, add the following code which defines the event handlers for the faceboo
         }
     }
 
-You should now be able to run the app and login to Facebook. You should also see the dialog to add extended permissions. When executed, your app should present you with the following dialogs. When you are successfully logged in, you should be naviated to a blank page - LandingPage.
+You should now be able to run the app and login to Facebook. When executed, your app should present you with the following dialogs. When you are successfully logged in, you should be navigated to a blank page - LandingPage.
 
 Login Page
 
@@ -1140,7 +1140,7 @@ Also, add the following code to the _LandingPage.xaml.cs_ file to navigate to th
         Frame.Navigate(typeof(MealSelector));
     }
 
-Finally, add the following code to the _OnNavigatedTo_ event hanlder in _LandingPage.xaml.cs_ to pick up the selected Meal once the meal selection has happened and the user navigates back to the LandingPage:
+Finally, add the following code to the _OnNavigatedTo_ event handler in _LandingPage.xaml.cs_ to pick up the selected Meal once the meal selection has happened and the user navigates back to the LandingPage:
 
     if (!String.IsNullOrEmpty(FacebookData.SelectedMeal.Name))
     {
@@ -1227,7 +1227,7 @@ We will now ask the user for publish permissions and then prompt them to post th
 
 The above code asks for the additional user permission _publish\_stream_ to be able to write to their timeline and then simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API.
 
->**Note**: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is No need to pre-create these objects.
+> **Note**: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is No need to pre-create these objects.
 
 If you followed the tutorial correctly, at this step  you should be able to run and publish the action to Facebook and see the following UI:
 
