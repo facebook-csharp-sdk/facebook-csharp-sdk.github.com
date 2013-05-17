@@ -294,16 +294,15 @@ At this point, the user has been Authenticated and their AccessToken and Faceboo
             var result = (IDictionary<string, object>)e.GetResultData();
 
             Dispatcher.BeginInvoke(() =>
-            {
-                FacebookData.Me.Name = String.Format("{0} {1}", (string)result["first_name"], (string)result["last_name"]);
-                FacebookData.Me.PictureUri = new Uri(string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", App.FacebookId, "square", App.AccessToken));
+                {
+                    var profilePictureUrl = string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", App.FacebookId, "square", App.AccessToken);
 
-                this.MyImage.Source = new BitmapImage(FacebookData.Me.PictureUri);
-                this.MyName.Text = FacebookData.Me.Name;
-            });
+                    this.MyImage.Source = new BitmapImage(new Uri(profilePictureUrl));
+                    this.MyName.Text = String.Format("{0} {1}", (string)result["first_name"], (string)result["last_name"]);
+                });
         };
 
-        fb.GetAsync("me");
+        fb.GetTaskAsync("me");
     }
 
 The above code retrieves the user profile data. It additionally creates a URL for the user's profile picture and sets it as the source of the image. This causes the image to automatically retrieve the profile picture and load it correctly.
@@ -323,7 +322,7 @@ As before, make sure to resolve any missing dependencies as illustrated earlier 
 
 [Download the icons file ](Assets/icons.zip) to get the icons for the tutorial. Uncompress the file, create a folder named Images in the project and drag all the icons to the Images folder in Visual Studio project window.
 
-After that, add the following code to the LandingPage.xaml file. This adds an icon and Text for _Selecting Friends_. Additionally, it wires up the tap event on the _Select Friends_ TextBlock via an event handler named friendSelectorTextBlockHandler.
+After that, add the following code to the _LandingPage.xaml_ file below the StackPanel element. This adds an icon and Text for _Selecting Friends_. Additionally, it wires up the tap event on the _Select Friends_ TextBlock via an event handler named friendSelectorTextBlockHandler.
 
 
     <Border Grid.Row="1" HorizontalAlignment="Center" CornerRadius="10" Background="#FF2A2F91" Margin="0,20,0,0">
@@ -351,7 +350,9 @@ We will now make the app a bit more interactive and let the user pick out their 
 
 ### Create the ViewModel class
 
-Create an static ObservableCollection of friends that you will later use to connect the UI to the data. Making it ObservableCollection allows you to use one of the strongest points of XAML, data binding. Now, in the ViewModel folder, create a new item of type Class and set its name to be _FacebookDataModel.cs_ Inside this file, remove the class FacebookDataModel and paste the following code which defines a class representing a _Facebook Friend_. We are also declaring an _ObservableCollection of Friend_ inside another class called _FacebookData_ which will represent the list of our friends. Declaring this as an _ObservableCollection_ has the added advantage that we can use Expression Blend to easily bind the collection data to the UI without having to write complicated DataModel<->UI synchronization logic.
+Create an static ObservableCollection of friends that you will later use to connect the UI to the data. Making it ObservableCollection allows you to use one of the strongest points of XAML, data binding.
+
+In the ViewModel folder, create a new item of type Class and set its name to be _FacebookDataModel.cs_ Inside this file, remove the class FacebookDataModel and paste the following code which defines a class representing a _Facebook Friend_. We are also declaring an _ObservableCollection of Friend_ inside another class called _FacebookData_ which will represent the list of our friends. Declaring this as an _ObservableCollection_ has the added advantage that we can use Expression Blend to easily bind the collection data to the UI without having to write complicated DataModel<->UI synchronization logic.  After adding the following code, resolve the missing dependencies.
 
     public class Friend
     {
@@ -415,10 +416,10 @@ Now, create the handler for the tapping event on the _Select Friends_ text box. 
 
         };
 
-        fb.GetAsync("/me/friends");
+        fb.GetTaskAsync("/me/friends");
     }
 
-Let's take a deeper look at the code to fetch the list of Friends. You should notice that we setup the _FacebooClient_ class with the AccessToken, setup a _GetCompleted_ handler on it and then finally, perform a _fb.GetAsync()_ call on it. What we are doing here is that we are setting up the event handler for the asynchronous friend list retrieval operation operation first and then firing the retrieval request. 
+Let's take a deeper look at the code to fetch the list of Friends. You should notice that we setup the _FacebooClient_ class with the AccessToken, setup a _GetCompleted_ handler on it and then finally, perform a _fb.GetTaskAsync()_ call on it. What we are doing here is that we are setting up the event handler for the asynchronous friend list retrieval operation operation first and then firing the retrieval request. 
 
 > **Note**: One important point to keep in mind is the _Dispatcher.BeginInvoke_ lambda expression. In the next few steps, we will attach the retrieved data to the UI using Data Binding. Data Binding allows UI to be updated automatically whenver the underlying data changes. However, this also means that if any thread other than the UI thread changes the underlying data, the UI cannot handle the update operation and your application will crash with a _cross thread access exception_. Thus, anytime you wish to update the UI from a different thread, you should get a handle to the UI Dispatcher and update the UI within that thread.
 
@@ -463,24 +464,28 @@ Now that we have the Friends list as an ObservableCollection, we can create and 
 
 > **Note**: Expression blend is one of the tools that makes developing UI in XAML extremely easy. Additionally, binding list data to UI becomes extremely easy with Blend. It is worth learning Expression Blend if you plan to do any long term development in C#/XAML. A good resource for learning Expression Blend is [Pro Expression Blend](http://www.amazon.com/Pro-Expression-Blend-Andrew-Troelsen/dp/143023377X/ref=sr_1_1?ie=UTF8&qid=1363585145&sr=8-1&keywords=expression+blend).
 
-#### Set up a ListBox to hold the List of Friends
+#### Set up a LongListSelector/ListBox to hold the List of Friends
 Go to Projects tab and double click the FriendSelector in Expression Blend. The FriendSelector page will open in the main pane.
 
 ![Select FriendSelector.xaml in Blend](images/Friends/2-BlendFriendSelector.png)
 
-Click on the Assets tab and search for _ListBox_. Taking care to make sure that the ContentPanel element, which houses the entire page is selected in the _Objects and Timeline_ window, double click the _ListBox_. This will add the ListBox as the direct child of the _ContentPanel_.
+Click on the Assets tab and search for _LongListSelector_ (or _ListBox_ in Windows Phone 7). Taking care to make sure that the ContentPanel element, which houses the entire page is selected in the _Objects and Timeline_ window, double click the _LongListSelector_.
 
-![Select ListBox in Assets](images/Friends/3-AssetsListBox.png)
+![Select LongListSelector in Assets](images/Friends/3-AssetsLongListSelector.png)
 
-The above step will add the ListBox in the top left corner of the content panel with a square size which is not what we want.
+This will add the LongListSelector/ListBox as the direct child of the _LayoutRoot_ below the _ContentPanel_.
 
-![ListBox in wrong place](images/Friends/4-ListViewInWrongPlace.png)
+![Select LongListSelector in Assets](images/Friends/3-b-AssetsLongListSelector.png)
 
-Select the ListBox by clicking on it and then in the _Properties_ panel on the right side. What we really want is for the ListBox to occupy the entire width of screen but only as much vertical space is required. This can easily be done by setting its Height and With property to Auto by clicking on the icons on the right side of Height and Width in the properties panel. Additionally, set the HorizontalAlignment and VerticalAlignment to scale. See the image below for illustration.
+The above step will add the LongListSelector/ListBox in the top left corner of the content panel with a square size which is not what we want.
 
-![Set ListBox properties](images/Friends/5-SetRowHeightWidthAlignment.png)
+![LongListSelector in wrong place](images/Friends/4-ListViewInWrongPlace.png)
 
-#### Setup the Data Binding of the ListBox
+Select the LongListSelector/ListBox by clicking on it and drag and drop it under the _ContentPanel_ element. Then, in the _Properties_ panel on the right side. What we really want is for the LongListSelector/ListBox to occupy the entire width of screen but only as much vertical space is required. This can easily be done by setting its Height and With property to Auto by clicking on the icons on the right side of Height and Width in the properties panel. Additionally, set the HorizontalAlignment and VerticalAlignment to scale. See the image below for illustration.
+
+![Set LongListSelector properties](images/Friends/5-SetRowHeightWidthAlignment.png)
+
+#### Setup the Data Binding of the LongListSelector/ListBox
 
 Click on the tab in the right top corner named _Data_. In there, click on the icon that looks like a DB connected to a pipe (see illustration below) and select _Create Object Data Source_. 
 
@@ -490,7 +495,7 @@ This will pop up a Window titled _Create Object Data Source_. Expand the _Facebo
 
 ![Set DataContext](images/Friends/6-SetDataContext.png)
 
-Now, we will bind the ListBox to the _ObservableCollection_ of _Friends_ in the _FacebookData_ class that is available to us via the _DataContext_ we just created above. First make sure to reselect the _Properties_ tab instead of the _Data_ tab that is selected in the panel at the top right corner. Now, to create the data binding, select the listbox in the _Objects and Timeline_ window and click on the little square next to the _ItemsSource_ property. This will pop up a Context Menu, select _Create Data Binding_ from it. This will open a window called "Create Data Binding for [ListBox].ItemsSource. Select the _Friends_ collection from this window and hit OK. This will set the Friends ObservableCollection to the Source of Data for this ListBox.
+Now, we will bind the LongListSelector/ListBox to the _ObservableCollection_ of _Friends_ in the _FacebookData_ class that is available to us via the _DataContext_ we just created above. First make sure to reselect the _Properties_ tab instead of the _Data_ tab that is selected in the panel at the top right corner. Now, to create the data binding, select the LongListSelector/listbox in the _Objects and Timeline_ window and click on the little square next to the _ItemsSource_ property. This will pop up a Context Menu, select _Create Data Binding_ from it. This will open a window called "Create Data Binding for [LongListSelector].ItemsSource. Select the _Friends_ collection from this window and hit OK. This will set the Friends ObservableCollection to the Source of Data for this LongListSelector/ListBox.
 
 Click on square next to Items Source
 
@@ -500,15 +505,15 @@ Bind to _ObservableCollection<Friends>_
 
 ![Bind to Friends](images/Friends/8-BindToFriends.png)
 
-At this point, the ListBox is bound to the ObservableCollection, but individual properties in the Friend Objects are not bound to individual ListBoxItems in the ListBox. To do this, right click on the ListBox in the _Objects and Timeline_ window, select _Edit Additional Templates -> Edit Generated Items (ItemTemplate) -> Create Empty_ and hit OK on resulting dialog box.
+At this point, the LongListSelector/ListBox is bound to the ObservableCollection, but individual properties in the Friend Objects are not bound to individual list items in the LongListSelector/ListBox. To do this, right click on the LongListSelector/ListBox in the _Objects and Timeline_ window, select _Edit Additional Templates -> Edit ItemTemplate -> Create Empty_ and hit OK on resulting dialog box.
 
 ![Edit ItemTemplate](images/Friends/9-EditItemTemplate.png)
 
-This will create the layout of a single ListBoxItem. For each Friend, we are going to retrieve an Image and name, so lets search for Image and TextBlock items in the Assets Window and add them here under the _Grid_ element.
+This will create the layout of a single list item. For each Friend, we are going to retrieve an Image and name, so lets search for Image and TextBlock items in the Assets Window and add them here under the _Grid_ element.
 
 ![ItemTemplate with Image and Text](images/Friends/10-ItemTemplateWithImgTxt.png)
 
-Similar to how you bound the ItemsSource of the ListBox, you can now bind the Source for the Image and the Text for the TextBlock using Blend as well. See the illustrations below.
+Similar to how you bound the ItemsSource of the LongListSelector/ListBox, you can now bind the Source for the Image and the Text for the TextBlock using Blend as well. See the illustrations below.
 
 Bind the image source to the Friend object's PictureUri property.
 
@@ -528,7 +533,7 @@ If you click on the _Select Friends_ text, it will take you to a list of friends
 
 ![Friends Picker](images/Friends/14-GarbledFriendsList.png)
 
-As you can see, using Blend, within a few easy steps, we are able to create a ListBox and bind the friend data to it without writing a single line of code. The UI looks a bit garbled and we can pick only one friend at a time, but this illustrates the power of using Expression Blend. I will leave it as an exercise to you on how to follow along Blend and style the ListBox and how to allow Multiple Select. In interest of of making progress, at this point of time, just overwrite all the contents of the FriendSelector.xaml with the following pre-built and styled ListBox code:
+As you can see, using Blend, within a few easy steps, we are able to create a LongListSelector/ListBox and bind the friend data to it without writing a single line of code. The UI looks a bit garbled and we can pick only one friend at a time, but this illustrates the power of using Expression Blend. I will leave it as an exercise to you on how to follow along Blend and style the LongListSelector/ListBox and how to allow Multiple Select. In interest of making progress, at this point of time, just overwrite all the contents of the FriendSelector.xaml with the following pre-built and styled ListBox code:
 
     <phone:PhoneApplicationPage
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -679,16 +684,16 @@ And finally, in LandingPage.xaml.cs, add the following code to update the Landin
         {
             if (FacebookData.SelectedFriends.Count > 1)
             {
-                this.selectFriendsTextBox.Text = String.Format("with {0} and {1} others", FacebookData.SelectedFriends[0].Name, FacebookData.SelectedFriends.Count - 1);
+                this.WithWhoTextBox.Text = String.Format("with {0} and {1} others", FacebookData.SelectedFriends[0].Name, FacebookData.SelectedFriends.Count - 1);
             }
             else
             {
-                this.selectFriendsTextBox.Text = "with " + FacebookData.SelectedFriends[0].Name;
+                this.WithWhoTextBox.Text = "with " + FacebookData.SelectedFriends[0].Name;
             }
         }
         else
         {
-            this.selectFriendsTextBox.Text = "Select Friends";
+            this.WithWhoTextBox.Text = "Select Friends";
         }
     }
 
@@ -757,110 +762,7 @@ Add the following code to FacebookDataModel.cs in FacebookData class which sets 
 
 ###Setup the UI
 
-Let's first add UI elements to the LandingPage for the user to be able to select a place to eat. Copy the following code to the LandingPage.xaml just above the grid named _WithWhomGrid_:
-
-    <Grid x:Name="WhereAreYouGrid" HorizontalAlignment="Left" Height="96" VerticalAlignment="Top" Grid.Row="1">
-        Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15*"/>
-            <ColumnDefinition Width="31*"/>
-        </Grid.ColumnDefinitions>
-        <Image Grid.Column="0" Width="100" Height="100" Stretch="None" Source="/Images/Places.png"/>
-        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="15,0,0,0">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Where are you?" VerticalAlignment="Top" FontSize="26.667"/>
-            <TextBlock x:Name="restaurantLocationTextBlock"  TextWrapping="Wrap" Text="Select One" Tap="restaurantLocationTextBlock_Tap" FontSize="18.667" Foreground="#FF7CC8D4"/>
-        </StackPanel>
-    </Grid>
-
-Also, add the event handler for the tap event handler for the place selector in LandingPage.xaml.cs which will take us to the Restaurant selector page, which we will add shortly.
-
-    public GeoPosition<GeoCoordinate> GetCurrentLocation()
-    {
-        GeoCoordinateWatcher gcw = new GeoCoordinateWatcher();
-        GeoPosition<GeoCoordinate> currentCoordinate = new GeoPosition<GeoCoordinate>();
-        currentCoordinate.Location = new GeoCoordinate(47.627903, -122.143185);
-
-        var CurrentLocation = gcw.Position;
-
-        if (!CurrentLocation.Location.IsUnknown)
-        {
-            currentCoordinate.Location.Latitude = CurrentLocation.Location.Latitude;
-            currentCoordinate.Location.Longitude = CurrentLocation.Location.Longitude;
-        }
-
-        return currentCoordinate;
-    }
-
-    private void restaurantLocationTextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs evtArgs)
-    {
-        FacebookClient fb = new FacebookClient(App.AccessToken);
-
-        fb.GetCompleted += (o, e) =>
-        {
-            if (e.Error != null)
-            {
-                Dispatcher.BeginInvoke(() => MessageBox.Show(e.Error.Message));
-                return;
-            }
-
-            var result = (IDictionary<string, object>)e.GetResultData();
-
-            var data = (IEnumerable<object>)result["data"]; ;
-
-
-            Dispatcher.BeginInvoke(() =>
-            {
-                // The observable collection can only be updated from within the UI thread. See 
-                // http://10rem.net/blog/2012/01/10/threading-considerations-for-binding-and-change-notification-in-silverlight-5
-                // If you try to update the bound data structure from a different thread, you are going to get a cross
-                // thread exception.
-                foreach (var item in data)
-                {
-                    var restaurant = (IDictionary<string, object>)item;
-
-                    var location = (IDictionary<string, object>)restaurant["location"];
-                    //string name = (string)friend["name"];
-                    FacebookData.Locations.Add(new Location
-                    {
-                        // the address is one level deeper within the object
-                        Street = location.ContainsKey("street") ? (string)location["street"] : String.Empty,
-                        City = location.ContainsKey("city") ? (string)location["city"] : String.Empty,
-                        State = location.ContainsKey("state") ? (string)location["state"] : String.Empty,
-                        Country = location.ContainsKey("country") ? (string)location["country"] : String.Empty,
-                        Zip = location.ContainsKey("zip") ? (string)location["zip"] : String.Empty,
-                        Latitude = location.ContainsKey("latitude") ? ((double)location["latitude"]).ToString() : String.Empty,
-                        Longitude = location.ContainsKey("longitude") ? ((double)location["longitude"]).ToString() : String.Empty,
-
-                        // these properties are at the top level in the object
-                        Category = restaurant.ContainsKey("category") ? (string)restaurant["category"] : String.Empty,
-                        Name = restaurant.ContainsKey("name") ? (string)restaurant["name"] : String.Empty,
-                        Id = restaurant.ContainsKey("id") ? (string)restaurant["id"] : String.Empty,
-                        PictureUri = new Uri(string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", (string)restaurant["id"], "square", App.AccessToken))
-                    });
-                }
-
-                NavigationService.Navigate(new Uri("/Pages/Restaurants.xaml", UriKind.Relative));
-            });
-
-        };
-
-
-        GeoPosition<GeoCoordinate> currentLocation = GetCurrentLocation();
-        fb.GetAsync("/search", new { q = "restaurant", type = "place", center = currentLocation.Location.Latitude.ToString() + "," + currentLocation.Location.Longitude.ToString(), distance = "1000" });
-    }
-
-The above code tries to connect to the Location Services in the device to try and get your location. If it fails, it falls back to a known Location in Redmond, WA as the center of the search. To make sure that your application has access to the Location Services, you have to declare Location Capability (_ID_CAP_LOCATION_) in the application manifest. Additionally, for the above code to work, we need to add a reference to the assembly _System.Device_. Right click on references, select _System.Device_ by clicking on the checkbox next to it and add it to the list of references.
-
-Add System.Device assembly to references
-
-![Location Capability](images/Locations/0.5-AddAssemblyForSensors.png)
-                
-Declare the Location capability in the manifiest file _WMAppManifest.xml_
-
-![Location Capability](images/Locations/1-LocationCapability.png)
-
-The rest of the code above connects to the Graph API URL _/search_ and supplies appropriate parameters to it to perform a location search within 1 Mile. Once this data has been retrieved, _FacebookData.Locations_ static variable gets populated with the result.
-                
-Now, in the Pages folder, add another Basic Page and name it Restaurants.xaml. As we did earlier with the FriendSelector page, we will setup DataBinding between a ListBox that we put on the Restaurants Page and the _Locations_ variable in the FacebookData class. For sake of brevity, copy the following code into Restaurants.xaml:
+First, in the Pages folder, add another Basic Page and name it Restaurants.xaml. As we did earlier with the FriendSelector page, we will setup DataBinding between a ListBox that we put on the Restaurants Page and the _Locations_ variable in the FacebookData class. For sake of brevity, copy the following code into Restaurants.xaml.
 
     <phone:PhoneApplicationPage
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -964,9 +866,23 @@ Now, in the Pages folder, add another Basic Page and name it Restaurants.xaml. A
     </phone:PhoneApplicationPage>
 
 
-Finally, we need two more event handlers:
+Additionally, let's add UI elements to the LandingPage for the user to be able to select a place to eat. Copy the following code to the LandingPage.xaml just above the grid named _WithWhomGrid_:
 
-- In Restaurants.xaml.cs, add the following code to note the selected Restaurant in the ViewModel:
+    <Grid x:Name="WhereAreYouGrid" HorizontalAlignment="Left" Height="96" VerticalAlignment="Top" Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Width="100" Height="100" Stretch="None" Source="/Images/Places.png"/>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="15,0,0,0">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Where are you?" VerticalAlignment="Top" FontSize="26.667"/>
+            <TextBlock x:Name="restaurantLocationTextBlock"  TextWrapping="Wrap" Text="Select One" Tap="restaurantLocationTextBlock_Tap" FontSize="18.667" Foreground="#FF7CC8D4"/>
+        </StackPanel>
+    </Grid>
+
+Now, we need to add some event handlers.
+
+In Restaurants.xaml.cs, add the following code to note the selected Restaurant in the ViewModel and resolve the missing dependencies.
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
@@ -979,12 +895,97 @@ Finally, we need two more event handlers:
         base.OnNavigatedFrom(e);
     }
 
-- In LandingPage.xaml.cs, add the following code to the OnNavigatedTo event to display the selected Restaurant:
+In LandingPage.xaml.cs, add the following code to the OnNavigatedTo event to display the selected Restaurant:
 
-            if (FacebookData.IsRestaurantSelected)
+    if (FacebookData.IsRestaurantSelected)
+    {
+        this.restaurantLocationTextBlock.Text = FacebookData.SelectedRestaurant.Name;
+    }
+
+Finally, add the event handler for the tap event handler for the place selector in LandingPage.xaml.cs which will take us to the Restaurant selector page, which we will add shortly.
+
+    public GeoPosition<GeoCoordinate> GetCurrentLocation()
+    {
+        GeoCoordinateWatcher gcw = new GeoCoordinateWatcher();
+        GeoPosition<GeoCoordinate> currentCoordinate = new GeoPosition<GeoCoordinate>();
+        currentCoordinate.Location = new GeoCoordinate(47.627903, -122.143185);
+
+        var CurrentLocation = gcw.Position;
+
+        if (!CurrentLocation.Location.IsUnknown)
+        {
+            currentCoordinate.Location.Latitude = CurrentLocation.Location.Latitude;
+            currentCoordinate.Location.Longitude = CurrentLocation.Location.Longitude;
+        }
+
+        return currentCoordinate;
+    }
+
+    private void restaurantLocationTextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs evtArgs)
+    {
+        FacebookClient fb = new FacebookClient(App.AccessToken);
+
+        fb.GetCompleted += (o, e) =>
+        {
+            if (e.Error != null)
             {
-                this.restaurantLocationTextBlock.Text = FacebookData.SelectedRestaurant.Name;
+                Dispatcher.BeginInvoke(() => MessageBox.Show(e.Error.Message));
+                return;
             }
+
+            var result = (IDictionary<string, object>)e.GetResultData();
+
+            var data = (IEnumerable<object>)result["data"]; ;
+
+
+            Dispatcher.BeginInvoke(() =>
+            {
+                // The observable collection can only be updated from within the UI thread. See 
+                // http://10rem.net/blog/2012/01/10/threading-considerations-for-binding-and-change-notification-in-silverlight-5
+                // If you try to update the bound data structure from a different thread, you are going to get a cross
+                // thread exception.
+                foreach (var item in data)
+                {
+                    var restaurant = (IDictionary<string, object>)item;
+
+                    var location = (IDictionary<string, object>)restaurant["location"];
+                    //string name = (string)friend["name"];
+                    FacebookData.Locations.Add(new Location
+                    {
+                        // the address is one level deeper within the object
+                        Street = location.ContainsKey("street") ? (string)location["street"] : String.Empty,
+                        City = location.ContainsKey("city") ? (string)location["city"] : String.Empty,
+                        State = location.ContainsKey("state") ? (string)location["state"] : String.Empty,
+                        Country = location.ContainsKey("country") ? (string)location["country"] : String.Empty,
+                        Zip = location.ContainsKey("zip") ? (string)location["zip"] : String.Empty,
+                        Latitude = location.ContainsKey("latitude") ? ((double)location["latitude"]).ToString() : String.Empty,
+                        Longitude = location.ContainsKey("longitude") ? ((double)location["longitude"]).ToString() : String.Empty,
+
+                        // these properties are at the top level in the object
+                        Category = restaurant.ContainsKey("category") ? (string)restaurant["category"] : String.Empty,
+                        Name = restaurant.ContainsKey("name") ? (string)restaurant["name"] : String.Empty,
+                        Id = restaurant.ContainsKey("id") ? (string)restaurant["id"] : String.Empty,
+                        PictureUri = new Uri(string.Format("https://graph.facebook.com/{0}/picture?type={1}&access_token={2}", (string)restaurant["id"], "square", App.AccessToken))
+                    });
+                }
+
+                NavigationService.Navigate(new Uri("/Pages/Restaurants.xaml", UriKind.Relative));
+            });
+
+        };
+
+        GeoPosition<GeoCoordinate> currentLocation = GetCurrentLocation();
+        fb.GetTaskAsync("/search", new { q = "restaurant", type = "place", center = currentLocation.Location.Latitude.ToString() + "," + currentLocation.Location.Longitude.ToString(), distance = "1000" });
+    }
+
+The above code tries to connect to the Location Services in the device to try and get your location. If it fails, it falls back to a known Location in Redmond, WA as the center of the search. To make sure that your application has access to the Location Services, you have to declare Location Capability (_ID_CAP_LOCATION_) in the application manifest.
+
+Declare the Location capability in the manifiest file _WMAppManifest.xml_
+
+![Location Capability](images/Locations/1-LocationCapability.png)
+
+The rest of the code above connects to the Graph API URL _/search_ and supplies appropriate parameters to it to perform a location search within 1 Mile. Once this data has been retrieved, _FacebookData.Locations_ static variable gets populated with the result.
+
 
 At this step, if you have followed all the steps correctly and resolved all references, you should see the UI flow like the following:
 
@@ -1157,7 +1158,7 @@ Additionally, add the following ObservableCollection of Meal objects in the _Fac
 
 Now, create another Windows Phone Page in the Pages Folder called MealSelector that will host the Meal Selection ListBox and replace the contents of the MealSelector.xaml with the following XAML code inside it.
 
-<phone:PhoneApplicationPage
+    <phone:PhoneApplicationPage
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -1319,7 +1320,7 @@ Finally, add the following code to the _OnNavigatedTo_ event handler in _Landing
 
     if (!String.IsNullOrEmpty(FacebookData.SelectedMeal.Name))
     {
-        this.selectMealTextBox.Text = FacebookData.SelectedMeal.Name;
+        this.MealName.Text = FacebookData.SelectedMeal.Name;
     }
 
 If you  followed the tutorial correctly, you should, at this point be able to run the application and see the following additional UI:
@@ -1350,7 +1351,7 @@ Add the following code to LandingPage.xaml directly as a descendent of _<phone:P
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
-Finally, add the following code to LandingPage.xaml.cs to request _publish\_stream_ permissions from the user to get publish access to the user's timeline, post the Open Graph Action to Facebook and show a MessageDialog on success:
+Finally, add the following code to LandingPage.xaml.cs to request _publish\_stream_ permissions from the user to get publish access to the user's timeline, post the Open Graph Action to Facebook and show a MessageDialog on success. Resolve all the missing dependencies.
 
     async private void PostActionToFBHandler(object sender, EventArgs evtArgs)
     {
@@ -1403,9 +1404,9 @@ Finally, add the following code to LandingPage.xaml.cs to request _publish\_stre
 
 The above code simply posts to _/me/scrumptiousmsft:eat_ url with the meal, friend's id and the location of the restaurant using the PostTaskAsync API once the publish_permissions are granted by the user.
 
-> **Note**: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is No need to pre-create these objects.
+> **Note**: Look at the Open Graph API for reference on how to fetch and post various kinds of data. Use the GetDataAsync or PostDataAsync to retrieve/send data to the URL depending on what operation the API supports. Passing the parameters is pretty easy by just creating a new object with properties set to the parameter names etc. There is no need to pre-create these objects.
 
-If you followed the tutorial correctly, at this step  you should be able to run and publish the action to Facebook and see the following UI:
+If you followed the tutorial correctly, at this step you should be able to run and publish the action to Facebook and see the following UI:
 
 AppBar with the Post icon to post an action to Facebook:
 
