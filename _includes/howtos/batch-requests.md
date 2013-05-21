@@ -24,6 +24,9 @@ The completed sample demonstrates fetching user information via a Batch Request.
 
 The implementation builds on top of Facebook Login, adding a button that initiates a Batch Request and displays the retrieved data.
 
+
+->![Running solution](images/running-solution.png)<-
+
 ---
 
 ## Step 1: Set Up the User Interface
@@ -33,7 +36,7 @@ In this step, you'll add a button in the initial layout that launches the Batch 
 First, open the Main.xaml file and add a button control to the main page just below the login button as well as a TextBlock to hold the results of our Batch Request.
 
 {% if page.platform == 'phone' %}
-<Button
+    <Button
         x:Name="queryButton"
         Height="70"
         Width="300"
@@ -118,11 +121,11 @@ Add the following code in the Main.xaml.cs file to implement the OnBatchRequestB
 
     private async void OnBatchRequestButtonClick(object sender, RoutedEventArgs e)
     {
-        var fb = new FacebookClient(App.AccessToken);
+        var fb = new Facebook.FacebookClient(this.loginButton.AccessToken);
 
         dynamic result = await fb.BatchTaskAsync(
-            new FacebookBatchParameter("me"),
-            new FacebookBatchParameter("4"));
+            new Facebook.FacebookBatchParameter("me"),
+            new Facebook.FacebookBatchParameter("4"));
 
         txtResults.Text = string.Format("{0}: {1}\n{2}: {3}", result[0].id, result[0].name, result[1].id, result[1].name);
     }

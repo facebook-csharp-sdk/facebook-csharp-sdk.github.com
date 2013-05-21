@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Batch Requests
+title: Use Batch Requests
 platform: phone
 ---
 
