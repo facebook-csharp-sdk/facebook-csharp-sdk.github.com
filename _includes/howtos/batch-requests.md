@@ -55,8 +55,7 @@ First, open the Main.xaml file and add a button control to the main page just be
         Margin="0,190,0,0"
         TextWrapping="Wrap"
         Text=""
-        FontSize="20"
-        Visibility="Collapsed" />
+        FontSize="20" />
 
 {% endif %}
 
@@ -80,8 +79,7 @@ First, open the Main.xaml file and add a button control to the main page just be
         Margin="0,390,0,0"
         TextWrapping="Wrap"
         Text=""
-        FontSize="20"
-        Visibility="Collapsed" />
+        FontSize="20" />
 {% endif %}
 
 The button will be set to hidden initially.
@@ -93,12 +91,10 @@ If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateCh
         if (e.SessionState == Facebook.Client.Controls.FacebookSessionState.Opened)
         {
             this.queryButton.Visibility = Visibility.Visible;
-            this.txtResults.Visibility = Visibility.Visible;
         }
         else if (e.SessionState == Facebook.Client.Controls.FacebookSessionState.Closed)
         {
             this.queryButton.Visibility = Visibility.Collapsed;
-            this.txtResults.Visibility = Visibility.Collapsed;
         }
     }
 
@@ -146,6 +142,6 @@ Execute your batch requests asynchronously (with _facebookClient.BatchTaskAsync(
 - [FacebookBatchParameter][2] - Reference for FacebookBatchParameter class
 - [Handling Facebook API Errors][3]: Graph API topic on error handling
 
-[1]: http://facebook-sdk.github.io/docs/reference/SDK/Facebook.FacebookClient.html#BatchTaskAsync(FacebookBatchParameter[])
-[2]: http://facebook-sdk.github.io/docs/reference/SDK/Facebook.FacebookBatchParameter.html
+[1]: /docs/reference/SDK/Facebook.FacebookClient.html#BatchTaskAsync(FacebookBatchParameter[])
+[2]: /docs/reference/SDK/Facebook.FacebookBatchParameter.html
 [3]: https://developers.facebook.com/docs/reference/api/errors/
