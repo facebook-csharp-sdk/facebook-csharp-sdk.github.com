@@ -12,7 +12,8 @@ This document walks through the following:
 * [Sample Overview](#2)
 * [Step 1: Set Up the UI](#3)
 * [Step 2: Ask for Permissions](#4)
-* [Step 3: Fetch User Data](#5)
+* [Step 3 - A: Fetch User Data using the Facebook SDK](#5)
+* [Step 3 - B: Fetch User Data using the Login Control](#6)
 * [Additional Info](#6)
 
 
@@ -105,7 +106,7 @@ If you followed the [Facebook Login](#) doc, you should have a LoginButton contr
 
 ---
 
-## Step 3: Fetch User Data
+## Step 3 - A: Fetch User Data using the Facebook SDK
 
 In this step, you'll fetch the user info when the user authenticates. Again, the user data you can access depends on the permissions a user has granted your app along with the data a user has chosen to share with apps. To get an idea of the data you can access, here's an example Graph API raw response for the permissions in the previous step:
 
@@ -196,6 +197,43 @@ Define a private helper method that takes in the returned user data and builds u
         return userInfo.ToString();
     }
 
+To retrieve the information define a private helper method to fetch the user data and builds up the display string. Add the following code in the Main.xaml.cs file:
+
+    private async System.Threading.Tasks.Task RetriveUserInfo()
+    {
+        var client = new Facebook.FacebookClient(this.loginButton.CurrentSession.AccessToken);
+
+        dynamic result = await client.GetTaskAsync("me");
+        var currentUser = new Facebook.Client.GraphUser(result);
+
+        this.userInfo.Text = this.BuildUserInfoDisplay(currentUser);
+    }
+
+Now, add the call to the helper method right after the update to the userInfo visibility as it is shown below:
+
+    private void OnSessionStateChanged(object sender, Facebook.Client.Controls.SessionStateChangedEventArgs e)
+    {
+        if (e.SessionState == Facebook.Client.Controls.FacebookSessionState.Opened)
+        {
+            this.userInfo.Visibility = Visibility.Visible;
+            this.RetriveUserInfo();
+        }
+        else if (e.SessionState == Facebook.Client.Controls.FacebookSessionState.Closed)
+        {
+            this.userInfo.Visibility = Visibility.Collapsed;
+        }
+    }
+
+Build and run the project to make sure it runs without errors. Tap the _Login_ button to log in with Facebook.
+
+During the authentication step, you should see a dialog asking for the permissions you requested. Once authenticated, you should see the sample set of user data.
+
+## Step 3 - B: Fetch User Data using the Login Control
+
+In this step, you'll fetch the user info when the user authenticates using the Login Control instead of retrieving the information manually.
+
+First, remove the call to the _RetriveUserInfo_ method that was added previously.
+
 Implement the "loginButton"'s UserInfoChanged event handler to fetch the user data. In the Main.xaml page, set the UserInfoChanged attribute of the "loginButton" button as shown below.
 
     <Button 
@@ -213,7 +251,7 @@ Add the following code in the Main.xaml.cs file to implement the _OnUserInfoChan
 
 Build and run the project to make sure it runs without errors. Tap the _Login_ button to log in with Facebook.
 
-During the authentication step, you should see a dialog asking for the permissions you requested. Once authenticated, you should see the sample set of user data.
+Once authenticated, you should see the sample set of user data you saw in the preview step.
 
 ---
 
