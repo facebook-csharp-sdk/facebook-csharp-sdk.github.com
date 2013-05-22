@@ -89,6 +89,7 @@ If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateCh
             this.userInfo.Visibility = Visibility.Collapsed;
         }
     }
+
 ---
 
 ## Step 2: Ask for Permissions
