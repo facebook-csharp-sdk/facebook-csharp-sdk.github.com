@@ -1,10 +1,10 @@
 The Facebook SDK for .NET includes methods to access the [Graph API User](https://developers.facebook.com/docs/reference/api/user/) object. It also supports strongly-typed access to common _User_ properties.
 
-The _Request_ class method _executeMeRequestAsync()_ can be used to initiate a Graph API call for user data. This is essentially a call to the _/me_ Graph API endpoint. The permissions in the _access_token_ that are sent with the API call control the returned data (ex: if no access token is provided, only public info will be returned). See the [User doc](https://developers.facebook.com/docs/reference/api/user/) for more details on _User_ properties and permissions.
+The _LoginButton_ class event _UserInfoChanged_ can be used to obtain the user data from a Graph API call. When you log in, the control creates a call to the _/me_ Graph API endpoint. The permissions in the _access_token_ that are sent with the API call control the returned data (ex: if no access token is provided, only public info will be returned). See the [User doc](https://developers.facebook.com/docs/reference/api/user/) for more details on _User_ properties and permissions.
 
-The _executeMeRequestAsync()_ method takes in a _Request.GraphUserCallback_ callback parameter. The callback's _onCompleted()_ method is called when the request completes. If the API call is successful, a _GraphUser_ object is passed in to the _onCompleted()_ method that provides typed access to the following _User_ fields: _id, name, first_name, middle_name, ast_name, link, username, birthday and location_. You have access to other user properties with the _getProperty()_ method on the result data. You can also extend the _GraphUser_ interface to get typed access to user properties that are not part of the default list.
+If the API call is successful, a _GraphUser_ object is passed in to the _UserInfoChanged_ event handler method that provides typed access to the following _User_ fields: _id, name, first_name, middle_name, last_name, link, username, birthday, location and picture_. You have access to other user properties using an _index_ on the result data.
 
-This doc outlines how to use the SDK to request user data and retrieve user details for fields available via typed access and non-typed access. You'll also learn how to extend the _GraphUser_ interface and how to use the _GraphObjectList_ interface to help fetch graph objects that are returned in an array.
+This doc outlines how to use the SDK to request user data and retrieve user details for fields available via typed access and non-typed access.
 
 This document walks through the following:
 
@@ -50,11 +50,11 @@ First, open the Main.xaml file and add a TextBlock control to the main page just
 
 {% if page.platform == 'phone' %}
     <TextBlock 
-        x:Name="txtResults"
+        x:Name="userInfo"
         Width="400"
         VerticalAlignment="Top"
         HorizontalAlignment="Center"
-        Margin="0,190,0,0"
+        Margin="0,90,0,0"
         TextWrapping="Wrap"
         Text=""
         FontSize="20"
@@ -111,24 +111,24 @@ In this step, you'll fetch the user info when the user authenticates. Again, the
     {
         bio = "Love sports of all kinds.";
         birthday = "01/01/1980";
-        "favorite_athletes" =             (
-                            {
+        "favorite_athletes" = (
+            {
                 id = 20242388857;
                 name = "Usain Bolt";
             }
         );
         "first_name" = Chris;
-        hometown =             {
+        hometown = {
             id = 106033362761104;
             name = "Campbell, California";
         };
         id = 100003086810435;
-        languages =             (
-                            {
+        languages = (
+            {
                 id = 108106272550772;
                 name = French;
             },
-                            {
+            {
                 id = 312525296370;
                 name = Spanish;
             }
@@ -154,7 +154,7 @@ Define a private helper method that takes in the returned user data and builds u
 
     private string BuildUserInfoDisplay(Facebook.Client.GraphUser user)
     {
-        var userInfo = new StringWriter();
+        var userInfo = new System.IO.StringWriter();
 
         // Example: typed access (name)
         // - no special permissions required
