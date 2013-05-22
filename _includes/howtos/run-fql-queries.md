@@ -124,7 +124,7 @@ Add the following code in the Main.xaml.cs to implement the _OnQueryButtonClick_
 
     private async void OnQueryButtonClick(object sender, RoutedEventArgs e)
     {
-        var fb = new Facebook.FacebookClient(this.loginButton.AccessToken);
+        var fb = new Facebook.FacebookClient(this.loginButton.CurrentSession.AccessToken);
         var result = await fb.GetTaskAsync("fql",
             new
             { 
@@ -164,7 +164,7 @@ Add the following code in the Main.xaml.cs to implement the _OnMultyQueryButtonC
 
     private async void OnMultiQueryButtonClick(object sender, RoutedEventArgs e)
     {
-        var fb = new Facebook.FacebookClient(this.loginButton.AccessToken);
+        var fb = new Facebook.FacebookClient(this.loginButton.CurrentSession.AccessToken);
         var result = await fb.GetTaskAsync("fql",
             new
             {

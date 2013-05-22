@@ -117,7 +117,7 @@ Add the following code in the Main.xaml.cs file to implement the OnBatchRequestB
 
     private async void OnBatchRequestButtonClick(object sender, RoutedEventArgs e)
     {
-        var fb = new Facebook.FacebookClient(this.loginButton.AccessToken);
+        var fb = new Facebook.FacebookClient(this.loginButton.CurrentSession.AccessToken);
 
         dynamic result = await fb.BatchTaskAsync(
             new Facebook.FacebookBatchParameter("me"),
