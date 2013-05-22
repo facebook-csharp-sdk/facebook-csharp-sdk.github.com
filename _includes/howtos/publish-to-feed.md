@@ -1,6 +1,6 @@
-The Facebook SDK for Android provides a method to let you publish stories from your app to a user's timeline. You can also use this method to post a status update on your user's behalf. This method uses the Graph API, and is an alternative to using the Feed Dialog; if you are trying to publish an Open Graph story, you can read the how to here.
+The Facebook SDK for .NET provides a method to let you publish stories from your app to a user's timeline. You can also use this method to post a status update on your user's behalf. This method uses the Graph API, and is an alternative to using the [Feed Dialog](../feed-dialog); if you are trying to publish an Open Graph story, you can read the how to [here](../../tutorial/#5).
 
-To publish a story to a user's timeline, you create a Request object that includes the path to a user's feed and information about the story the app is about to post. Publishing a story will require write permissions to a user's account, so you'll pass the user through a reauthorization flow to get those permissions.
+To publish a story to a user's timeline, you create a use the _PostTaskAsync_ method in the _FacebookClient_ class that includes the path to a user's feed and information about the story the app is about to post. Publishing a story will require write permissions to a user's account, so you'll pass the user through a reauthorization flow to get those permissions.
 
 This document walks through the following:
 
@@ -24,7 +24,7 @@ Before you begin, make sure you already set up [Facebook Login](#). This ensures
 ## Sample Overview
 
 
-The completed sample application from this tutorial lets users log in with Facebook and publish a link to their Timeline. It builds on top of the sample from Facebook Login, adding a button that posts a hard-coded story to the user's Timeline. If the post is successful, an alert pops up with the story's ID.
+The completed sample application from this tutorial lets users log in with Facebook and publish a link to their Timeline. It builds on top of the sample from [Facebook Login](#), adding a button that posts a hard-coded story to the user's Timeline. If the post is successful, an alert pops up with the story's ID.
 
 ->![Running solution](images/running-solution.png)<-
 
@@ -33,37 +33,37 @@ The completed sample application from this tutorial lets users log in with Faceb
 
 ## Step 1: Set Up the Share Button
 
-In this step, you'll add the text view that displays the user data.
+In this step, you'll add the "share" button to the UI that will be visible only if the user has logged in.
 
-First, open the Main.xaml file and add a TextBlock control to the main page just below the login button.
+First, open the Main.xaml file and add a Button control to the main page just below the login button.
 
 {% if page.platform == 'phone' %}
-    <TextBlock 
-        x:Name="userInfo"
-        Width="400"
+    <Button
+        x:Name="shareButton"
+        Height="70"
+        Width="300"
         VerticalAlignment="Top"
         HorizontalAlignment="Center"
-        Margin="0,90,0,0"
-        TextWrapping="Wrap"
-        Text=""
+        Margin="0,100,0,0"
         FontSize="20"
+        Content="Share"
         Visibility="Collapsed" />
 {% endif %}
 
 {% if page.platform == 'windows' %}
-    <TextBlock 
-        x:Name="userInfo"
-        Width="500"
+    <Button
+        x:Name="shareButton"
+        Height="70"
+        Width="200"
         VerticalAlignment="Top"
         HorizontalAlignment="Center"
-        Margin="0,320,0,0"
-        TextWrapping="Wrap"
-        Text=""
+        Margin="0,290,0,0"
         FontSize="20"
+        Content="Share"
         Visibility="Collapsed" />
 {% endif %}
 
-The TextBlock will be set to hidden initially.
+The Button will be set to hidden initially.
 
 If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
 
@@ -83,25 +83,51 @@ If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateCh
 
 ## Step 2: Add Publishing Logic
 
+In this step, you'll add logic to publish a story to Facebook.
+
+In the _Main.xaml.cs_ class file define a new method called _PublishStory()_. The method will first check if the logged-in user has granted your app publish permissions; if they have not, they will be prompted to reauthorize the app and grant the missing permissions. The SDK provides methods and a standard UI to handle the reauthorization process.
+
+Next, it creates a _FracebookClient_ object that will execute the _PostTaskAsync_ method call to publish a new story to Facebook. Here, you're making a _POST_ to the _Graph API_, so you pass in the current user's access token (in the FacebookClient object), the Graph endpoint we're posting to, a _Bundle_ of _POST_ parameters, the HTTP method (_POST_) and a callback to handle the response when the call completes.
+
+In a production app, you would add an interface to handle user input, including the ability to add a message. For simplicity, you're going to post a hard-coded story to the user's feed. Note that you will NOT add in a message in this example, as pre-filled messages are against [Facebook's Platform Policies](https://developers.facebook.com/policy/).
+
+    private void publishStory()
+    {
+    }
+
+TODO.
 
 ---
 
 ## Step 3: Connect the Share Button
 
+To actually call _publishStory()_ initially, we'll need to implement the click event handler of our Share button. In the Main.xaml page, set the Click attribute of the "Share" button as shown below.
+
+
+    <Button 
+        x:Name="shareButton"
+        ...
+        Click="OnShareButtonClick" />
+
+Add the following code in the _Main.xaml.cs_ file to implement the _OnShareButtonClick_ event handler:
+
+    private async void OnBatchRequestButtonClick(object sender, RoutedEventArgs e)
+    {
+        this.PublishStory();
+    }
+
+Build and run the project to make sure it runs without errors. Tap the _Log In_ button to log in with Facebook. Once authenticated, tap _Share_ and verify that you are prompted to reauthorize the app. Afterward, you should see a success alert with the posted story ID. Check your Timeline to verify the story published correctly.
+
 ---
 
 ## Troubleshooting
 
-If you're having trouble posting to a user's feed, the Graph API Explorer can give you more detailed error information to help you debug the issue. Be sure that you have asked for the publish actions permission, and that all the fields in your postParams variable are valid.
+If you're having trouble posting to a user's feed, the [Graph API Explorer](https://developers.facebook.com/tools/explorer) can give you more detailed error information to help you debug the issue. Be sure that you have asked for the publish actions permission, and that all the fields in your _postParams_ variable are valid.
 
 ---
 
 ## Additional Info
 
 - [Scrumptious][1]: sample that shows an example of getting user info.
-- [Handling Facebook API Errors][2]: Graph API topic on error handling
-- [User][3]: Graph API User documentation.
 
 [1]: ../../tutorial/
-[2]: https://developers.facebook.com/docs/reference/api/errors/
-[3]: https://developers.facebook.com/docs/reference/api/user/
