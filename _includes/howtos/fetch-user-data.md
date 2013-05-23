@@ -99,7 +99,7 @@ In this step, you'll configure your app to ask for permissions to display the sa
 
 If you followed the [Facebook Login](#) doc, you should have a LoginButton control instance set up in the Main.xaml file. Open up the Main.xaml page. To request additional permissions, set the permissions attribute of the "loginButton" button as shown below:
 
-    <Button 
+    <Controls:LoginButton 
         x:Name="loginButton"
         ...
         Permissions="user_location, user_birthday, user_likes" />
@@ -236,7 +236,7 @@ First, remove the call to the _RetriveUserInfo_ method that was added previously
 
 Implement the "loginButton"'s UserInfoChanged event handler to fetch the user data. In the Main.xaml page, set the UserInfoChanged attribute of the "loginButton" button as shown below.
 
-    <Button 
+    <Controls:LoginButton
         x:Name="loginButton"
         ...
         Permissions="user_location, user_birthday, user_likes"
