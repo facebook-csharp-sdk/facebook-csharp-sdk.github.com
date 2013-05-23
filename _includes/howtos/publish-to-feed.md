@@ -1,4 +1,4 @@
-The Facebook SDK for .NET provides a method to let you publish stories from your app to a user's timeline. You can also use this method to post a status update on your user's behalf. This method uses the Graph API, and is an alternative to using the [Feed Dialog](../feed-dialog); if you are trying to publish an Open Graph story, you can read the how to [here](../../tutorial/#5).
+The Facebook SDK for .NET provides a method to let you publish stories from your app to a user's timeline. You can also use this method to post a status update on your user's behalf. This method uses the Graph API, if you are trying to publish an Open Graph story, you can read the how to [here](../../tutorial/#5).
 
 To publish a story to a user's timeline, you create a use the _PostTaskAsync_ method in the _FacebookClient_ class that includes the path to a user's feed and information about the story the app is about to post. Publishing a story will require write permissions to a user's account, so you'll pass the user through a reauthorization flow to get those permissions.
 
