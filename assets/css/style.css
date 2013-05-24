@@ -731,14 +731,14 @@ blockquote p {
     padding-bottom: 20px;
 }
 
-    .portalBlock.tutorials, .portalBlock.guides {
+    .portalBlock.tutorials, .portalBlock.guides, .portalBlock.controls {
         padding-left: 128px;
         border-top-color: #d8dfea;
         border-top-style: solid;
         border-top-width: 1px;
     }
 
-    .portalBlock.tutorials {
+    .portalBlock.tutorials, .portalBlock.guides {
         background-color: rgb(239, 241, 246);
     }
 
