@@ -30,6 +30,3 @@ There are no known issues at this time.
 
 ## Internet Explorer
 There are no known issues at this time.
-
-## Windows Azure
-There are no known issues at this time.
