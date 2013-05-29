@@ -69,11 +69,11 @@ In this tutorial, you will add a [PlacePicker](/docs/reference/client/Client.Con
 		
 		</Grid>
 
-1.	The [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control offers several modes of selection including _None_, _Single_, _Multiple_, and _Extended_, which you specify using the **SelectionMode** property. The current selection is available through the **SelectedItems** property. Change the **SelectionMode** property of the control to _Single_, as shown below.
+1.	The [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control offers several modes of selection including _None_, _Single_, _Multiple_, and _Extended_, which you specify using the **SelectionMode** property. The current selection is available through the **SelectedItem** property, when the **SelectionMode** is specified as _Single_, or through the **SelectedItems** property for the multiple item selection modes. Change the **SelectionMode** property of the control to _Single_, as shown below.
  
 	![image](images/image35.png)
 
-1.	To show the current selection, insert the following XAML markup inside the details section adding a couple of text block elements bound to the **SelectedItems** property of the [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html). The first text block shows the name of the current selection and the second one, its street address. Note that the **SelectedItems** property is a collection and that the text blocks below are bound to its first element.  This is appropriate whenever the **SelectionMode** is set to _Single_.
+1.	To show the current selection, insert the following XAML markup inside the details section adding a couple of text block elements bound to the **SelectedItem** property of the [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html). The first text block shows the name of the current selection and the second one, its street address.
 
 		<!-- current selection -->
 		<TextBlock 
@@ -86,11 +86,11 @@ In this tutorial, you will add a [PlacePicker](/docs/reference/client/Client.Con
 			<TextBlock
 				Style="{StaticResource BasicTextStyle}" 
 				VerticalAlignment="Top"
-				Text="{Binding SelectedItems[0].Name, ElementName=placePicker}" />
+				Text="{Binding SelectedItem.Name, ElementName=placePicker}" />
 			<TextBlock
 				Style="{StaticResource BasicTextStyle}" 
 				VerticalAlignment="Top"
-				Text="{Binding SelectedItems[0].Location.Street, ElementName=placePicker}" />
+				Text="{Binding SelectedItem.Location.Street, ElementName=placePicker}" />
 		</StackPanel>
 
 1.	Build and run the application. Navigate around the list shown by the [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) selecting different places as you scroll, and notice how the right panel updates to show information about the current selection.
@@ -275,11 +275,11 @@ In this tutorial, you will add a [PlacePicker](/docs/reference/client/Client.Con
 								<TextBlock
 									Style="{StaticResource BasicTextStyle}" 
 									VerticalAlignment="Top"
-									Text="{Binding SelectedItems[0].Name, ElementName=placePicker}" />
+									Text="{Binding SelectedItem.Name, ElementName=placePicker}" />
 								<TextBlock
 									Style="{StaticResource BasicTextStyle}" 
 									VerticalAlignment="Top"
-									Text="{Binding SelectedItems[0].Location.Street, ElementName=placePicker}" />
+									Text="{Binding SelectedItem.Location.Street, ElementName=placePicker}" />
 							</StackPanel>
 		
 							<!-- latitude and longitude -->
