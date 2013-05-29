@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Place Picker Control
+title: PlacePicker Control
 platform: windows
 ---
 

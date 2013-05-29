@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Profile Picture Control
+title: ProfilePicture Control
 platform: windows
 ---
 

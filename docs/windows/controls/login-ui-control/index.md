@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Login Control
+title: LoginButton Control
 platform: windows
 ---
 

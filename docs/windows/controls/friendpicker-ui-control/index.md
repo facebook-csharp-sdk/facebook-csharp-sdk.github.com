@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Friend Picker Control
+title: FriendPicker Control
 platform: windows
 ---
 
