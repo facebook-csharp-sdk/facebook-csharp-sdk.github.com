@@ -213,7 +213,7 @@ Use the following XAML markup that defines a **TextBlock** element nested inside
  
 	![image](images/image10.png)
 
-1.	Once the log in dialog window closes, notice that the caption of the button changes to **Log Out** and your user name is displayed in the upper right corner of the page. Lastly, observe the welcome message in the page confirming that the **SessionStateChanged** event was raised to indicate that the session was opened successfully.
+1.	Once the log in dialog window closes, notice that the caption of the button changes to **Log Out** and your user name is displayed in the lower left corner of the page. Lastly, observe the welcome message in the page confirming that the **SessionStateChanged** event was raised to indicate that the session was opened successfully.
  
 	![image](images/image11.png)
 
