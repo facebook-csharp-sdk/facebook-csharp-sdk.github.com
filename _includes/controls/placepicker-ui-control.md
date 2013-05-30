@@ -14,7 +14,7 @@ The [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) contr
 
 ## Using the PlacePicker Control
 
-In this tutorial, you will add a [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control to an application that adds the capability for selecting places that are nearby. This tutorial builds on top of the LoginButton control tutorial </docs/windows/controls/login-ui-control/>, which you need to complete before proceeding; in particular, you should have already added the **Facebook.Client NuGet** to your project as well as inserted and configured a [LoginButton](file:///D:\docs\reference\client\Client.Controls.LoginButton.html) in your page.
+In this tutorial, you will add a [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control to an application that adds the capability for selecting places that are nearby. This tutorial builds on top of the [LoginButton control tutorial](/docs/windows/controls/login-ui-control/), which you need to complete before proceeding; in particular, you should have already added the **Facebook.Client NuGet** to your project as well as inserted and configured a [LoginButton](/docs/reference/client/Client.Controls.LoginButton.html) in your page.
 
 1.	Open the **MainPage.xaml** page of the application that you created for the [LoginButton control tutorial](/docs/windows/controls/login-ui-control/). Alternatively, you can start with the result of the [ProfilePicture control tutorial](/docs/windows/controls/profilepicture-ui-control/), which also adds a [ProfilePicture](/docs/reference/client/Client.Controls.ProfilePicture.html) control to the page.
 
@@ -142,7 +142,7 @@ In this tutorial, you will add a [PlacePicker](/docs/reference/client/Client.Con
  
 	![image](images/image37.png)
 
-1.	Another useful feature of the [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control is its location tracking capability. Many applications require search results that are based on the user’s current location. The [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control takes advantage of support available in the platform to determine the current geographic location. To enable this feature, the **LocationTracking** property must be set to t_rue_. Once enabled, the control returns search results for places that are within the maximum search radius from the current position, overriding the values specified by the **Latitude** and **Longitude** properties. Insert the following XAML markup inside the details section, adding a checkbox that will allow control of this setting.
+1.	Another useful feature of the [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control is its location tracking capability. Many applications require search results that are based on the user’s current location. The [PlacePicker](/docs/reference/client/Client.Controls.PlacePicker.html) control takes advantage of support available in the platform to determine the current geographic location. To enable this feature, the **LocationTracking** property must be set to _true_. Once enabled, the control returns search results for places that are within the maximum search radius from the current position, overriding the values specified by the **Latitude** and **Longitude** properties. Insert the following XAML markup inside the details section, adding a checkbox that will allow control of this setting.
 
 		<!-- location tracking -->
 		<TextBlock
