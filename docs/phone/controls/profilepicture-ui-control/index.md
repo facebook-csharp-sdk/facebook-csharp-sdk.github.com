@@ -46,7 +46,7 @@ In this tutorial, you will add a [ProfilePicture](/docs/reference/client/Client.
  
 	![image](images/image17.png)
 
-1.	You can customize the profile picture by changing its display size.  To change the size, set the value of the control�s **Width** and **Height** properties to _60_. The control ensures that the image it retrieves is large enough to preserve its quality.
+1.	You can customize the profile picture by changing its display size.  To change the size, set the value of the control's **Width** and **Height** properties to _60_. The control ensures that the image it retrieves is large enough to preserve its quality.
  
 	![image](images/image18.png)
 
