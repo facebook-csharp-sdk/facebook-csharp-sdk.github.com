@@ -53,7 +53,7 @@ Before you get started, you need to register a Facebook Application by visiting 
 
 	In this layout, the top row will be used to display information about the logged in user, the bottom row will contain a login button, whereas the center row will be used for content and to place other controls in the library as you explore them.
 
-1.	First, define the content of the top row by inserting a panel that will, for the time being, be used to display the name of the user currently logged in. In another tutorial, you will learn how to display the user’s picture in this area using the ProfilePicture </docs/reference/client/Client.Controls.ProfilePicture.html> control. 
+1.	First, define the content of the top row by inserting a panel that will, for the time being, be used to display the name of the user currently logged in. In another tutorial, you will learn how to display the user’s picture in this area using the [ProfilePicture](/docs/reference/client/Client.Controls.ProfilePicture.html) control. 
 Use the following XAML markup that defines a **TextBlock** element nested inside a **StackPanel** container.
 
         <!-- user information -->
