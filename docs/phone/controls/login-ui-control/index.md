@@ -75,7 +75,7 @@ to insert an additional row and set its height to _Auto_. The updated section is
 
         </Grid>
 
-1.	Add a panel to the bottom row that will, for the time being, be used to display the name of the user currently logged in. In another tutorial, you will learn how to display the user’s picture in this area using the ProfilePicture </docs/reference/client/Client.Controls.ProfilePicture.html> control. 
+1.	Add a panel to the bottom row that will, for the time being, be used to display the name of the user currently logged in. In another tutorial, you will learn how to display the user’s picture in this area using the [ProfilePicture](/docs/reference/client/Client.Controls.ProfilePicture.html) control. 
 Use the following XAML markup that defines a **TextBlock** element nested inside a **StackPanel** container.
 
        <!--user information-->
