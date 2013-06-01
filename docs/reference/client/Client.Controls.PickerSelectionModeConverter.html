@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SDK Reference</title>
+  <link rel="icon" href="http://docs.csharpsdk.org/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://docs.csharpsdk.org/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="SDK Reference">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://csharpsdk.org/docs/reference/">
+  <meta property="og:image" content="http://csharpsdk.org/assets/img/logo500x500.png">
+  <meta property="og:site_name" content="Facebook SDK for .NET">
+  <meta property="fb:admins" content="14812017,605430316,537883665"><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28972181-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top"><a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <div class="navbar-inner">
+      <div class="container"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="/" class="brand"><strong>facebook</strong> SDK for .NET</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><a href="/docs">Docs</a></li>
+            <li class="active"><a href="/docs/reference">SDK Reference</a></li>
+            <li><a href="/docs/windows">Windows 8</a></li>
+            <li><a href="/docs/phone">Windows Phone</a></li>
+            <li><a href="/docs/web">Web</a></li>
+            <li><a href="/docs/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="top" class="container content">
+    <div class="container-body">
+      <div class="bodyMenu">
+        <div id="toc" class="referenceSidebar">
+          <h5>Topics</h5>
+          <h5>Facebook.Client</h5>
+          <h6> <a href="Facebook.Client.FacebookDialog.html" title="Facebook.Client.FacebookDialog">FacebookDialog</a></h6>
+          <h6> <a href="Facebook.Client.FacebookDialogPage.html" title="Facebook.Client.FacebookDialogPage">FacebookDialogPage</a></h6>
+          <h6> <a href="Facebook.Client.FacebookSession.html" title="Facebook.Client.FacebookSession">FacebookSession</a></h6>
+          <h6> <a href="Facebook.Client.FacebookSessionCacheProvider.html" title="Facebook.Client.FacebookSessionCacheProvider">FacebookSessionCacheProvider</a></h6>
+          <h6> <a href="Facebook.Client.FacebookSessionClient.html" title="Facebook.Client.FacebookSessionClient">FacebookSessionClient</a></h6>
+          <h6> <a href="Facebook.Client.FacebookSessionIsolatedStorageCacheProvider.html" title="Facebook.Client.FacebookSessionIsolatedStorageCacheProvider">FacebookSessionIsolatedStorageCacheProvider</a></h6>
+          <h6> <a href="Facebook.Client.FacebookSessionRoamingSettingsCacheProvider.html" title="Facebook.Client.FacebookSessionRoamingSettingsCacheProvider">FacebookSessionRoamingSettingsCacheProvider</a></h6>
+          <h6> <a href="Facebook.Client.FacebookWebDialog.html" title="Facebook.Client.FacebookWebDialog">FacebookWebDialog</a></h6>
+          <h6> <a href="Facebook.Client.GraphLocation.html" title="Facebook.Client.GraphLocation">GraphLocation</a></h6>
+          <h6> <a href="Facebook.Client.GraphObject.html" title="Facebook.Client.GraphObject">GraphObject</a></h6>
+          <h6> <a href="Facebook.Client.GraphPlace.html" title="Facebook.Client.GraphPlace">GraphPlace</a></h6>
+          <h6> <a href="Facebook.Client.GraphUser.html" title="Facebook.Client.GraphUser">GraphUser</a></h6>
+          <h6> <a href="Facebook.Client.LoginPage.html" title="Facebook.Client.LoginPage">LoginPage</a></h6>
+          <h5>Client.Controls</h5>
+          <h6> <a href="Client.Controls.Audience.html" title="Client.Controls.Audience">Audience</a></h6>
+          <h6> <a href="Client.Controls.AuthenticationErrorEventArgs.html" title="Client.Controls.AuthenticationErrorEventArgs">AuthenticationErrorEventArgs</a></h6>
+          <h6> <a href="Client.Controls.BooleanToVisibilityConverter.html" title="Client.Controls.BooleanToVisibilityConverter">BooleanToVisibilityConverter</a></h6>
+          <h6> <a href="Client.Controls.ColorLuminosityConverter.html" title="Client.Controls.ColorLuminosityConverter">ColorLuminosityConverter</a></h6>
+          <h6> <a href="Client.Controls.CropMode.html" title="Client.Controls.CropMode">CropMode</a></h6>
+          <h6> <a href="Client.Controls.DataItemRetrievedEventArgs.html" title="Client.Controls.DataItemRetrievedEventArgs">DataItemRetrievedEventArgs</a></h6>
+          <h6> <a href="Client.Controls.DataReadyEventArgs.html" title="Client.Controls.DataReadyEventArgs">DataReadyEventArgs</a></h6>
+          <h6> <a href="Client.Controls.FacebookSessionState.html" title="Client.Controls.FacebookSessionState">FacebookSessionState</a></h6>
+          <h6> <a href="Client.Controls.FriendPicker.html" title="Client.Controls.FriendPicker">FriendPicker</a></h6>
+          <h6> <a href="Client.Controls.FriendPickerDisplayOrder.html" title="Client.Controls.FriendPickerDisplayOrder">FriendPickerDisplayOrder</a></h6>
+          <h6> <a href="Client.Controls.FriendPickerGroupTemplateSelector.html" title="Client.Controls.FriendPickerGroupTemplateSelector">FriendPickerGroupTemplateSelector</a></h6>
+          <h6> <a href="Client.Controls.FriendPickerSortOrder.html" title="Client.Controls.FriendPickerSortOrder">FriendPickerSortOrder</a></h6>
+          <h6> <a href="Client.Controls.GroupTemplateSelector.html" title="Client.Controls.GroupTemplateSelector">GroupTemplateSelector</a></h6>
+          <h6> <a href="Client.Controls.ImageSourceUriConverter.html" title="Client.Controls.ImageSourceUriConverter">ImageSourceUriConverter</a></h6>
+          <h6> <a href="Client.Controls.IsNullOrEmptyConverter.html" title="Client.Controls.IsNullOrEmptyConverter">IsNullOrEmptyConverter</a></h6>
+          <h6> <a href="Client.Controls.LoadFailedEventArgs.html" title="Client.Controls.LoadFailedEventArgs">LoadFailedEventArgs</a></h6>
+          <h6> <a href="Client.Controls.LocationCoordinate.html" title="Client.Controls.LocationCoordinate">LocationCoordinate</a></h6>
+          <h6> <a href="Client.Controls.LoginButton.html" title="Client.Controls.LoginButton">LoginButton</a></h6>
+          <h6> <a href="Client.Controls.ParameterizedConverter.html" title="Client.Controls.ParameterizedConverter">ParameterizedConverter</a></h6>
+          <h6> <a href="Client.Controls.Picker.html" title="Client.Controls.Picker">Picker</a></h6>
+          <h6> <a href="Client.Controls.PickerSelectionMode.html" title="Client.Controls.PickerSelectionMode">PickerSelectionMode</a></h6>
+          <h6> <a href="Client.Controls.PickerSelectionModeConverter.html" title="Client.Controls.PickerSelectionModeConverter">PickerSelectionModeConverter</a></h6>
+          <h6> <a href="Client.Controls.PlacePicker.html" title="Client.Controls.PlacePicker">PlacePicker</a></h6>
+          <h6> <a href="Client.Controls.ProfilePicture.html" title="Client.Controls.ProfilePicture">ProfilePicture</a></h6>
+          <h6> <a href="Client.Controls.ScaleConverter.html" title="Client.Controls.ScaleConverter">ScaleConverter</a></h6>
+          <h6> <a href="Client.Controls.SessionStateChangedEventArgs.html" title="Client.Controls.SessionStateChangedEventArgs">SessionStateChangedEventArgs</a></h6>
+          <h6> <a href="Client.Controls.SizeToGridCellConverter.html" title="Client.Controls.SizeToGridCellConverter">SizeToGridCellConverter</a></h6>
+          <h6> <a href="Client.Controls.UserInfoChangedEventArgs.html" title="Client.Controls.UserInfoChangedEventArgs">UserInfoChangedEventArgs</a></h6>
+        </div>
+      </div>
+      <div class="bodyText">
+        <div class="header">
+          <h1>PickerSelectionModeConverter Class</h1>
+        </div>
+        <div id="doc">
+          <div class="typeHeader">
+            <div class="namespace">namespace Client.Controls</div><span class="modifiers">public class</span><span class="typeName">PickerSelectionModeConverter</span>
+          </div>
+          <div class="referenceTitle">Overview</div>
+          <p class="overview">Converts between PickerSelectionMode and ListViewSelectionMode values.</p>
+          <div class="supportedProjects">
+            <div class="projectTitle">Supported in:</div>
+            <ul>
+              <li class="projectName">Windows Store</li>
+            </ul>
+          </div>
+          <div class="referenceTitle">Summary</div>
+          <div class="summarySection">
+            <table>
+              <tr>
+                <th>Constructors</th>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#.ctor()">.ctor</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary"></div>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <th colspan="2">Methods</th>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Convert(object,Type,object,string)">Convert</a><span>(</span><span>object value</span><span>, </span><span>Type targetType</span><span>, </span><span>object parameter</span><span>, </span><span>string language</span><span>)</span></span>
+                  <div class="itemSummary">Converts a PickerSelectionMode value to a ListViewSelectionMode value.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ConvertBack(object,Type,object,string)">ConvertBack</a><span>(</span><span>object value</span><span>, </span><span>Type targetType</span><span>, </span><span>object parameter</span><span>, </span><span>string language</span><span>)</span></span>
+                  <div class="itemSummary">Not implemented.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="referenceTitle">Constructors</div>
+          <div id=".ctor()" class="itemDetails">
+            <div class="itemDetailsTitle">public .ctor<span>(</span><span>)</span></div>
+            <div class="itemDetailsDescription"></div>
+          </div>
+          <div class="referenceTitle">Methods</div>
+          <div id="Convert(object,Type,object,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Convert</span><span>(</span><span>object value</span><span>, </span><span>Type targetType</span><span>, </span><span>object parameter</span><span>, </span><span>string language</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Converts a PickerSelectionMode value to a ListViewSelectionMode value.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">value</span><span class="paramSummary"> The value that is produced by the binding target.</span></div>
+                <div class="paramDesc"><span class="paramName">targetType</span><span class="paramSummary"> The type to convert to.</span></div>
+                <div class="paramDesc"><span class="paramName">parameter</span><span class="paramSummary"> Unused.</span></div>
+                <div class="paramDesc"><span class="paramName">language</span><span class="paramSummary"> The culture to use in the converter (unused).</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">A converted value.</div>
+              </div></div>
+          </div>
+          <div id="ConvertBack(object,Type,object,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>ConvertBack</span><span>(</span><span>object value</span><span>, </span><span>Type targetType</span><span>, </span><span>object parameter</span><span>, </span><span>string language</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Not implemented.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">value</span><span class="paramSummary"> </span></div>
+                <div class="paramDesc"><span class="paramName">targetType</span><span class="paramSummary"> </span></div>
+                <div class="paramDesc"><span class="paramName">parameter</span><span class="paramSummary"> </span></div>
+                <div class="paramDesc"><span class="paramName">language</span><span class="paramSummary"> </span></div>
+              </div></div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <footer class="footer">
+      <div class="container-footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right"><a href="/docs/about/#2">License</a></p>
+        <p>Copyright © 2012 ⋅<a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/js/jquery-1.7.1.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/prettify.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('code').addClass('prettyprint');
+    prettyPrint();
+    });
+  </script>
+</body>
