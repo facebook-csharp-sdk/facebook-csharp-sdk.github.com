@@ -21,7 +21,7 @@ This document walks through the following:
 
 ## Prerequisites
 
-Before you begin, make sure you already set up [Facebook Login](#). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
+Before you begin, make sure you already set up [Facebook Login](../login). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
 
 ---
 
@@ -36,7 +36,7 @@ The completed sample lets users log in with Facebook and view a sample set of th
 
 - Data that is not strongly typed through the _GraphUser_ interface.
 
-The sample builds on top of [Facebook Login](#), adding a non-editable text view that displays the returned user data:
+The sample builds on top of [Facebook Login](../login), adding a non-editable text view that displays the returned user data:
 
 ->![Running solution](images/running-solution.png)<-
 
@@ -77,7 +77,7 @@ First, open the Main.xaml file and add a TextBlock control to the main page just
 
 The TextBlock will be set to hidden initially.
 
-If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
+If you followed the [Facebook Login](../login) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
 
     private void OnSessionStateChanged(object sender, Facebook.Client.Controls.SessionStateChangedEventArgs e)
     {
@@ -97,7 +97,7 @@ If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateCh
 
 In this step, you'll configure your app to ask for permissions to display the sample set of user data. You'll ask for _user_location_ to get the user's current city, _user_birthday_ to get their birthday, and _user_likes_ to get their languages. The other user data you'll display are available publicly or with basic permissions.
 
-If you followed the [Facebook Login](#) doc, you should have a LoginButton control instance set up in the Main.xaml file. Open up the Main.xaml page. To request additional permissions, set the permissions attribute of the "loginButton" button as shown below:
+If you followed the [Facebook Login](../login) doc, you should have a LoginButton control instance set up in the Main.xaml file. Open up the Main.xaml page. To request additional permissions, set the permissions attribute of the "loginButton" button as shown below:
 
     <Controls:LoginButton 
         x:Name="loginButton"

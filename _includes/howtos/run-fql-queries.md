@@ -20,7 +20,7 @@ This document covers the following topics:
 
 ## Prerequisites
 
-Before you begin, make sure you already set up [Facebook Login](#). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
+Before you begin, make sure you already set up [Facebook Login](../login). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
 
 ---
 
@@ -28,7 +28,7 @@ Before you begin, make sure you already set up [Facebook Login](#). This ensures
 
 The completed sample allows users to log in with Facebook and run a query to output a limited set of friends.
 
-The implementation builds on top of [Facebook Login](#) with two buttons that make FQL calls to fetch essentially the same information. One button runs a query that includes a sub query. The second button splits the call up into a multi-query. This shows how you can take data from one query and use it in the second. The completed app allows you to retrieve similar information from the query and multi-query call:
+The implementation builds on top of [Facebook Login](../login) with two buttons that make FQL calls to fetch essentially the same information. One button runs a query that includes a sub query. The second button splits the call up into a multi-query. This shows how you can take data from one query and use it in the second. The completed app allows you to retrieve similar information from the query and multi-query call:
 
 ->![FQL Sample](images/fql-howto-sample.png)<-
 
@@ -84,7 +84,7 @@ First, open the Main.xaml file and add two button controls to the main page just
 
 The buttons will be set to hidden initially.
 
-If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
+If you followed the [Facebook Login](../login) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
 
 	private void OnSessionStateChanged(object sender, Facebook.Client.Controls.SessionStateChangedEventArgs e)
 	{

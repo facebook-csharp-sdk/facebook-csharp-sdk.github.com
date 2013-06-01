@@ -17,14 +17,14 @@ This document walks through the following:
 
 ## Prerequisites
 
-Before you begin, make sure you already set up [Facebook Login](#). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
+Before you begin, make sure you already set up [Facebook Login](../login). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
 
 ---
 
 ## Sample Overview
 
 
-The completed sample application from this tutorial lets users log in with Facebook and publish a link to their Timeline. It builds on top of the sample from [Facebook Login](#), adding a button that posts a hard-coded story to the user's Timeline. If the post is successful, an alert pops up with the story's ID.
+The completed sample application from this tutorial lets users log in with Facebook and publish a link to their Timeline. It builds on top of the sample from [Facebook Login](../login), adding a button that posts a hard-coded story to the user's Timeline. If the post is successful, an alert pops up with the story's ID.
 
 ->![Running solution](images/running-solution.png)<-
 
@@ -65,7 +65,7 @@ First, open the Main.xaml file and add a Button control to the main page just be
 
 The Button will be set to hidden initially.
 
-If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
+If you followed the [Facebook Login](../login) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
 
     private void OnSessionStateChanged(object sender, Facebook.Client.Controls.SessionStateChangedEventArgs e)
     {

@@ -13,7 +13,7 @@ This document walks through the following topics:
 
 ## Prerequisites
 
-Before you begin, make sure you already set up [Facebook Login](#). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
+Before you begin, make sure you already set up [Facebook Login](../login). This ensures you have the prerequisites and your app is ready for additional Facebook integration.
 
 ---
 
@@ -84,7 +84,7 @@ First, open the Main.xaml file and add a button control to the main page just be
 
 The button will be set to hidden initially.
 
-If you followed the [Facebook Login](#) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
+If you followed the [Facebook Login](../login) doc, you should have a _OnSessionStateChange()_ event handler in your Main.xaml.cs class file that is invoked whenever the user session state changes. Modify this method to show the buttons only when the user is authenticated:
 
     private void OnSessionStateChanged(object sender, Facebook.Client.Controls.SessionStateChangedEventArgs e)
     {
