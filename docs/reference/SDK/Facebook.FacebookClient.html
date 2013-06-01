@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SDK Reference</title>
+  <link rel="icon" href="http://docs.csharpsdk.org/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://docs.csharpsdk.org/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="SDK Reference">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://csharpsdk.org/docs/reference/">
+  <meta property="og:image" content="http://csharpsdk.org/assets/img/logo500x500.png">
+  <meta property="og:site_name" content="Facebook SDK for .NET">
+  <meta property="fb:admins" content="14812017,605430316,537883665"><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28972181-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top"><a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <div class="navbar-inner">
+      <div class="container"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="/" class="brand"><strong>facebook</strong> SDK for .NET</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><a href="/docs">Docs</a></li>
+            <li class="active"><a href="/docs/reference">SDK Reference</a></li>
+            <li><a href="/docs/windows">Windows 8</a></li>
+            <li><a href="/docs/phone">Windows Phone</a></li>
+            <li><a href="/docs/web">Web</a></li>
+            <li><a href="/docs/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="top" class="container content">
+    <div class="container-body">
+      <div class="bodyMenu">
+        <div id="toc" class="referenceSidebar">
+          <h5>Topics</h5>
+          <h5>Facebook</h5>
+          <h6> <a href="Facebook.DateTimeConvertor.html" title="Facebook.DateTimeConvertor">DateTimeConvertor</a></h6>
+          <h6> <a href="Facebook.FacebookApiEventArgs.html" title="Facebook.FacebookApiEventArgs">FacebookApiEventArgs</a></h6>
+          <h6> <a href="Facebook.FacebookApiException.html" title="Facebook.FacebookApiException">FacebookApiException</a></h6>
+          <h6> <a href="Facebook.FacebookApiLimitException.html" title="Facebook.FacebookApiLimitException">FacebookApiLimitException</a></h6>
+          <h6> <a href="Facebook.FacebookBatchParameter.html" title="Facebook.FacebookBatchParameter">FacebookBatchParameter</a></h6>
+          <h6> <a href="Facebook.FacebookClient.html" title="Facebook.FacebookClient">FacebookClient</a></h6>
+          <h6> <a href="Facebook.FacebookMediaObject.html" title="Facebook.FacebookMediaObject">FacebookMediaObject</a></h6>
+          <h6> <a href="Facebook.FacebookMediaStream.html" title="Facebook.FacebookMediaStream">FacebookMediaStream</a></h6>
+          <h6> <a href="Facebook.FacebookOAuthException.html" title="Facebook.FacebookOAuthException">FacebookOAuthException</a></h6>
+          <h6> <a href="Facebook.FacebookOAuthResult.html" title="Facebook.FacebookOAuthResult">FacebookOAuthResult</a></h6>
+          <h6> <a href="Facebook.FacebookUploadProgressChangedEventArgs.html" title="Facebook.FacebookUploadProgressChangedEventArgs">FacebookUploadProgressChangedEventArgs</a></h6>
+          <h6> <a href="Facebook.HttpMethod.html" title="Facebook.HttpMethod">HttpMethod</a></h6>
+          <h6> <a href="Facebook.HttpWebRequestWrapper.html" title="Facebook.HttpWebRequestWrapper">HttpWebRequestWrapper</a></h6>
+          <h6> <a href="Facebook.HttpWebResponseWrapper.html" title="Facebook.HttpWebResponseWrapper">HttpWebResponseWrapper</a></h6>
+          <h6> <a href="Facebook.JsonArray.html" title="Facebook.JsonArray">JsonArray</a></h6>
+          <h6> <a href="Facebook.JsonObject.html" title="Facebook.JsonObject">JsonObject</a></h6>
+          <h6> <a href="Facebook.WebExceptionWrapper.html" title="Facebook.WebExceptionWrapper">WebExceptionWrapper</a></h6>
+        </div>
+      </div>
+      <div class="bodyText">
+        <div class="header">
+          <h1>FacebookClient Class</h1>
+        </div>
+        <div id="doc">
+          <div class="typeHeader">
+            <div class="namespace">namespace Facebook</div><span class="modifiers">public class</span><span class="typeName">FacebookClient</span>
+          </div>
+          <div class="referenceTitle">Overview</div>
+          <p class="overview">Provides access to the Facbook Platform.</p>
+          <div class="supportedProjects">
+            <div class="projectTitle">Supported in:</div>
+            <ul>
+              <li class="projectName">.NET Framework 3.5</li>
+              <li class="projectName">.NET Framework 4.0</li>
+              <li class="projectName">.NET Framework 4.5</li>
+              <li class="projectName">Silverlight 5</li>
+              <li class="projectName">.NET for Windows Store apps</li>
+              <li class="projectName">Windows Phone 7</li>
+              <li class="projectName">Windows Phone 8</li>
+            </ul>
+          </div>
+          <div class="referenceTitle">Summary</div>
+          <div class="summarySection">
+            <table>
+              <tr>
+                <th>Constructors</th>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#.ctor()">.ctor</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Initializes a new instance of the <see cref="FacebookClient" /> class.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#.ctor(string)">.ctor</a><span>(</span><span>string accessToken</span><span>)</span></span>
+                  <div class="itemSummary">Initializes a new instance of the <see cref="FacebookClient" /> class.</div>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <th colspan="2">Properties</th>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#AccessToken">AccessToken</a></span>
+                  <div class="itemSummary">Gets or sets the access token.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#AppId">AppId</a></span>
+                  <div class="itemSummary">Gets or sets the app id.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#AppSecret">AppSecret</a></span>
+                  <div class="itemSummary">Gets or sets the app secret.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">Func&lt;string, Type, object&gt;</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#DeserializeJson">DeserializeJson</a></span>
+                  <div class="itemSummary">Deserialize json to object.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">Func&lt;Uri, HttpWebRequestWrapper&gt;</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#HttpWebRequestFactory">HttpWebRequestFactory</a></span>
+                  <div class="itemSummary">Http web request factory.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">bool</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#IsSecureConnection">IsSecureConnection</a></span>
+                  <div class="itemSummary">Gets or sets the value indicating whether to add return_ssl_resource as default parameter in every request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">Func&lt;object, string&gt;</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#SerializeJson">SerializeJson</a></span>
+                  <div class="itemSummary">Serialize object to json.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#SubscriptionVerifyToken">SubscriptionVerifyToken</a></span>
+                  <div class="itemSummary">Gets or sets the verify_token used in Facebook Realtime updates API.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">bool</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#UseFacebookBeta">UseFacebookBeta</a></span>
+                  <div class="itemSummary">Gets or sets the value indicating whether to use Facebook beta.</div>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <th>Events</th>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#DeleteCompleted">DeleteCompleted</a></span>
+                  <div class="itemSummary"></div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetCompleted">GetCompleted</a></span>
+                  <div class="itemSummary"></div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostCompleted">PostCompleted</a></span>
+                  <div class="itemSummary"></div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#UploadProgressChanged">UploadProgressChanged</a></span>
+                  <div class="itemSummary"></div>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <th colspan="2">Methods</th>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#Api(HttpMethod,string,object,Type)">Api</a><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>)</span></span>
+                  <div class="itemSummary">Makes a request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#ApiAsync(HttpMethod,string,object,Type,object)">ApiAsync</a><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>, </span><span>object userState</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#ApiTaskAsync(HttpMethod,string,object,Type,object,CancellationToken)">ApiTaskAsync</a><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#ApiTaskAsync(HttpMethod,string,object,Type,object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)">ApiTaskAsync</a><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Batch(FacebookBatchParameter[])">Batch</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Batch(FacebookBatchParameter[],object)">Batch</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchAsync(FacebookBatchParameter[])">BatchAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchAsync(FacebookBatchParameter[],object)">BatchAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchAsync(FacebookBatchParameter[],object,object)">BatchAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchTaskAsync(FacebookBatchParameter[])">BatchTaskAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchTaskAsync(FacebookBatchParameter[],object,CancellationToken)">BatchTaskAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchTaskAsync(FacebookBatchParameter[],object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)">BatchTaskAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchTaskAsync(FacebookBatchParameter[],object,object,CancellationToken)">BatchTaskAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BatchTaskAsync(FacebookBatchParameter[],object,object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)">BatchTaskAsync</a><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous batch request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#CancelAsync()">CancelAsync</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Cancels asynchronous requests.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Delete(string)">Delete</a><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes a DELETE request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Delete(string,object)">Delete</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a DELETE request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#DeleteAsync(string)">DeleteAsync</a><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous DELETE request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#DeleteAsync(string,object,object)">DeleteAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous DELETE request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#DeleteTaskAsync(string)">DeleteTaskAsync</a><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous DELETE request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#DeleteTaskAsync(string,object,CancellationToken)">DeleteTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous DELETE request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get(object)">Get</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get(string)">Get</a><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get(string,object)">Get</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get(string,object,Type)">Get</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>TResult</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get_TResult_(object)">Get</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>TResult</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get_TResult_(string)">Get</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>TResult</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Get_TResult_(string,object)">Get</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync(object)">GetAsync</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync(string)">GetAsync</a><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync(string,object)">GetAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync(string,object,object)">GetAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync(string,object,object,Type)">GetAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>, </span><span>Type resultType</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync_TResult_(object)">GetAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync_TResult_(string)">GetAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync_TResult_(string,object)">GetAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetAsync_TResult_(string,object,object)">GetAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Uri</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetDialogUrl(string,object)">GetDialogUrl</a><span>(</span><span>string dialog</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Gets the Facebook dialog url.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Uri</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetLoginUrl(object)">GetLoginUrl</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Gets the Facebook OAuth login url.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Uri</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetLogoutUrl(object)">GetLogoutUrl</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Gets the Facebook OAuth logout url.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync(object)">GetTaskAsync</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync(string)">GetTaskAsync</a><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync(string,object)">GetTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync(string,object,CancellationToken)">GetTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync(string,object,CancellationToken,Type)">GetTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>Type resultType</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;TResult&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync_TResult_(object)">GetTaskAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;TResult&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync_TResult_(string)">GetTaskAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;TResult&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync_TResult_(string,object)">GetTaskAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;TResult&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetTaskAsync_TResult_(string,object,CancellationToken)">GetTaskAsync</a><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous GET request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#OnDeleteCompleted(FacebookApiEventArgs)">OnDeleteCompleted</a><span>(</span><span>FacebookApiEventArgs args</span><span>)</span></span>
+                  <div class="itemSummary">Raise OnDeletedCompleted event handler.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#OnGetCompleted(FacebookApiEventArgs)">OnGetCompleted</a><span>(</span><span>FacebookApiEventArgs args</span><span>)</span></span>
+                  <div class="itemSummary">Raise OnGetCompleted event handler.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#OnPostCompleted(FacebookApiEventArgs)">OnPostCompleted</a><span>(</span><span>FacebookApiEventArgs args</span><span>)</span></span>
+                  <div class="itemSummary">Raise OnPostCompleted event handler.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#OnUploadProgressChanged(FacebookUploadProgressChangedEventArgs)">OnUploadProgressChanged</a><span>(</span><span>FacebookUploadProgressChangedEventArgs args</span><span>)</span></span>
+                  <div class="itemSummary">Raise OnUploadProgressCompleted event handler.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ParseDialogCallbackUrl(Uri)">ParseDialogCallbackUrl</a><span>(</span><span>Uri uri</span><span>)</span></span>
+                  <div class="itemSummary">Parses the dialog callback url to an object of the resulting data.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>FacebookOAuthResult</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ParseOAuthCallbackUrl(Uri)">ParseOAuthCallbackUrl</a><span>(</span><span>Uri uri</span><span>)</span></span>
+                  <div class="itemSummary">Parse the url to <see cref="FacebookOAuthResult" />.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ParseSignedRequest(string)">ParseSignedRequest</a><span>(</span><span>string signedRequestValue</span><span>)</span></span>
+                  <div class="itemSummary">Parse the facebook signed_request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ParseSignedRequest(string,string)">ParseSignedRequest</a><span>(</span><span>string appSecret</span><span>, </span><span>string signedRequestValue</span><span>)</span></span>
+                  <div class="itemSummary">Parse the facebook signed_request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Post(object)">Post</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Post(string,object)">Post</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes a POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostAsync(object)">PostAsync</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostAsync(string,object)">PostAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostAsync(string,object,object)">PostAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostTaskAsync(object)">PostTaskAsync</a><span>(</span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostTaskAsync(string,object)">PostTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostTaskAsync(string,object,CancellationToken)">PostTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostTaskAsync(string,object,object,CancellationToken)">PostTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;object&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#PostTaskAsync(string,object,object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)">PostTaskAsync</a><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span></span>
+                  <div class="itemSummary">Makes an asynchronous POST request to the Facebook server.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#SetDefaultHttpWebRequestFactory(Func&lt;Uri, HttpWebRequestWrapper&gt;)">SetDefaultHttpWebRequestFactory</a><span>(</span><span>Func&lt;Uri, HttpWebRequestWrapper&gt; httpWebRequestFactory</span><span>)</span></span>
+                  <div class="itemSummary">Sets the default http web request factory.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#SetDefaultJsonSerializers(Func&lt;object, string&gt;,Func&lt;string, Type, object&gt;)">SetDefaultJsonSerializers</a><span>(</span><span>Func&lt;object, string&gt; jsonSerializer</span><span>, </span><span>Func&lt;string, Type, object&gt; jsonDeserializer</span><span>)</span></span>
+                  <div class="itemSummary">Sets the default json seriazliers and deserializers.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#SetHttpWebRequestFactory(Func&lt;Uri, HttpWebRequestWrapper&gt;)">SetHttpWebRequestFactory</a><span>(</span><span>Func&lt;Uri, HttpWebRequestWrapper&gt; httpWebRequestFactory</span><span>)</span></span>
+                  <div class="itemSummary">Sets the http web request factory for the current instance of <see cref="FacebookClient" />.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#SetJsonSerializers(Func&lt;object, string&gt;,Func&lt;string, Type, object&gt;)">SetJsonSerializers</a><span>(</span><span>Func&lt;object, string&gt; jsonSerializer</span><span>, </span><span>Func&lt;string, Type, object&gt; jsonDeserializer</span><span>)</span></span>
+                  <div class="itemSummary">Sets the json seriazliers and deserializers for the current instance of <see cref="FacebookClient" />.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>bool</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#TryParseOAuthCallbackUrl(Uri,FacebookOAuthResult)">TryParseOAuthCallbackUrl</a><span>(</span><span>Uri url</span><span>, </span><span>FacebookOAuthResult facebookOAuthResult</span><span>)</span></span>
+                  <div class="itemSummary">Try parsing the url to <see cref="FacebookOAuthResult" />.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>bool</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#TryParseSignedRequest(string,object)">TryParseSignedRequest</a><span>(</span><span>string signedRequestValue</span><span>, </span><span>object signedRequest</span><span>)</span></span>
+                  <div class="itemSummary">Tries parsing the facebook signed_request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>bool</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#TryParseSignedRequest(string,string,object)">TryParseSignedRequest</a><span>(</span><span>string appSecret</span><span>, </span><span>string signedRequestValue</span><span>, </span><span>object signedRequest</span><span>)</span></span>
+                  <div class="itemSummary">Tries parsing the facebook signed_request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#VerifyGetSubscription(string,string,string)">VerifyGetSubscription</a><span>(</span><span>string requestHubMode</span><span>, </span><span>string requestVerifyToken</span><span>, </span><span>string requestHubChallenge</span><span>)</span></span>
+                  <div class="itemSummary">Verify HTTP_X_HUB_SIGNATURE for HTTP GET.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#VerifyGetSubscription(string,string,string,string)">VerifyGetSubscription</a><span>(</span><span>string requestHubMode</span><span>, </span><span>string requestVerifyToken</span><span>, </span><span>string requestHubChallenge</span><span>, </span><span>string verifyToken</span><span>)</span></span>
+                  <div class="itemSummary">Verify HTTP_X_HUB_SIGNATURE for HTTP GET.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#VerifyPostSubscription(string,string)">VerifyPostSubscription</a><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>)</span></span>
+                  <div class="itemSummary">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#VerifyPostSubscription(string,string,string)">VerifyPostSubscription</a><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>, </span><span>string appSecret</span><span>)</span></span>
+                  <div class="itemSummary">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#VerifyPostSubscription(string,string,Type)">VerifyPostSubscription</a><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>, </span><span>Type resultType</span><span>)</span></span>
+                  <div class="itemSummary">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>object</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#VerifyPostSubscription(string,string,Type,string)">VerifyPostSubscription</a><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>, </span><span>Type resultType</span><span>, </span><span>string appSecret</span><span>)</span></span>
+                  <div class="itemSummary">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="referenceTitle">Constructors</div>
+          <div id=".ctor()" class="itemDetails">
+            <div class="itemDetailsTitle">public .ctor<span>(</span><span>)</span></div>
+            <div class="itemDetailsDescription">Initializes a new instance of the <see cref="FacebookClient" /> class.</div>
+          </div>
+          <div id=".ctor(string)" class="itemDetails">
+            <div class="itemDetailsTitle">public .ctor<span>(</span><span>string accessToken</span><span>)</span></div>
+            <div class="itemDetailsDescription">Initializes a new instance of the <see cref="FacebookClient" /> class.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">accessToken</span>
+                  <param class="summary"></param>
+                </div>
+              </div></div>
+          </div>
+          <div class="referenceTitle">Properties</div>
+          <div id="AccessToken" class="itemDetails">
+            <div class="itemDetailsTitle">public AccessToken</div>
+            <div class="itemDetailsDescription">Gets or sets the access token.</div>
+          </div>
+          <div id="AppId" class="itemDetails">
+            <div class="itemDetailsTitle">public AppId</div>
+            <div class="itemDetailsDescription">Gets or sets the app id.</div>
+          </div>
+          <div id="AppSecret" class="itemDetails">
+            <div class="itemDetailsTitle">public AppSecret</div>
+            <div class="itemDetailsDescription">Gets or sets the app secret.</div>
+          </div>
+          <div id="DeserializeJson" class="itemDetails">
+            <div class="itemDetailsTitle">public DeserializeJson</div>
+            <div class="itemDetailsDescription">Deserialize json to object.</div>
+          </div>
+          <div id="HttpWebRequestFactory" class="itemDetails">
+            <div class="itemDetailsTitle">public HttpWebRequestFactory</div>
+            <div class="itemDetailsDescription">Http web request factory.</div>
+          </div>
+          <div id="IsSecureConnection" class="itemDetails">
+            <div class="itemDetailsTitle">public IsSecureConnection</div>
+            <div class="itemDetailsDescription">Gets or sets the value indicating whether to add return_ssl_resource as default parameter in every request.</div>
+          </div>
+          <div id="SerializeJson" class="itemDetails">
+            <div class="itemDetailsTitle">public SerializeJson</div>
+            <div class="itemDetailsDescription">Serialize object to json.</div>
+          </div>
+          <div id="SubscriptionVerifyToken" class="itemDetails">
+            <div class="itemDetailsTitle">public SubscriptionVerifyToken</div>
+            <div class="itemDetailsDescription">Gets or sets the verify_token used in Facebook Realtime updates API.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="UseFacebookBeta" class="itemDetails">
+            <div class="itemDetailsTitle">public UseFacebookBeta</div>
+            <div class="itemDetailsDescription">Gets or sets the value indicating whether to use Facebook beta.</div>
+          </div>
+          <div class="referenceTitle">events</div>
+          <div id="DeleteCompleted" class="itemDetails">
+            <div class="itemDetailsTitle">public DeleteCompleted</div>
+            <div class="itemDetailsDescription"></div>
+          </div>
+          <div id="GetCompleted" class="itemDetails">
+            <div class="itemDetailsTitle">public GetCompleted</div>
+            <div class="itemDetailsDescription"></div>
+          </div>
+          <div id="PostCompleted" class="itemDetails">
+            <div class="itemDetailsTitle">public PostCompleted</div>
+            <div class="itemDetailsDescription"></div>
+          </div>
+          <div id="UploadProgressChanged" class="itemDetails">
+            <div class="itemDetailsTitle">public UploadProgressChanged</div>
+            <div class="itemDetailsDescription"></div>
+          </div>
+          <div class="referenceTitle">Methods</div>
+          <div id="Api(HttpMethod,string,object,Type)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected object </span><span>Api</span><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpMethod</span><span class="paramSummary"> Http method. (GET/POST/DELETE)</span></div>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The type of deserialize object into.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="ApiAsync(HttpMethod,string,object,Type,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected void </span><span>ApiAsync</span><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>, </span><span>object userState</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpMethod</span><span class="paramSummary"> Http method. (GET/POST/DELETE)</span></div>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The type of deserialize object into.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+              </div></div>
+          </div>
+          <div id="ApiTaskAsync(HttpMethod,string,object,Type,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected Task&lt;object&gt; </span><span>ApiTaskAsync</span><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpMethod</span><span class="paramSummary"> Http method. (GET/POST/DELETE)</span></div>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The type of deserialize object into.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="ApiTaskAsync(HttpMethod,string,object,Type,object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected Task&lt;object&gt; </span><span>ApiTaskAsync</span><span>(</span><span>HttpMethod httpMethod</span><span>, </span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpMethod</span><span class="paramSummary"> Http method. (GET/POST/DELETE)</span></div>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The type of deserialize object into.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+                <div class="paramDesc"><span class="paramName">uploadProgress</span><span class="paramSummary"> </span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Batch(FacebookBatchParameter[])" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Batch</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Batch(FacebookBatchParameter[],object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Batch</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="BatchAsync(FacebookBatchParameter[])" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>BatchAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> The list of batch parameters.</span></div>
+              </div></div>
+          </div>
+          <div id="BatchAsync(FacebookBatchParameter[],object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>BatchAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> The list of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+              </div></div>
+          </div>
+          <div id="BatchAsync(FacebookBatchParameter[],object,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>BatchAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> The list of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div></div>
+          </div>
+          <div id="BatchTaskAsync(FacebookBatchParameter[])" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>BatchTaskAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="BatchTaskAsync(FacebookBatchParameter[],object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>BatchTaskAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="BatchTaskAsync(FacebookBatchParameter[],object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>BatchTaskAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+                <div class="paramDesc"><span class="paramName">uploadProgress</span><span class="paramSummary"> </span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="BatchTaskAsync(FacebookBatchParameter[],object,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>BatchTaskAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="BatchTaskAsync(FacebookBatchParameter[],object,object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>BatchTaskAsync</span><span>(</span><span>FacebookBatchParameter[] batchParameters</span><span>, </span><span>object userState</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous batch request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">batchParameters</span><span class="paramSummary"> List of batch parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+                <div class="paramDesc"><span class="paramName">uploadProgress</span><span class="paramSummary"> </span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="CancelAsync()" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>CancelAsync</span><span>(</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Cancels asynchronous requests.</div>
+          </div>
+          <div id="Delete(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Delete</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a DELETE request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Delete(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Delete</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a DELETE request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="DeleteAsync(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>DeleteAsync</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous DELETE request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="DeleteAsync(string,object,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>DeleteAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous DELETE request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="DeleteTaskAsync(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>DeleteTaskAsync</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous DELETE request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="DeleteTaskAsync(string,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>DeleteTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous DELETE request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Get</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Get</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Get</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get(string,object,Type)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Get</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>Type resultType</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The result type.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get_TResult_(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public TResult </span><span>Get</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get_TResult_(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public TResult </span><span>Get</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Get_TResult_(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public TResult </span><span>Get</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetAsync(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="GetAsync(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="GetAsync(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="GetAsync(string,object,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="GetAsync(string,object,object,Type)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>, </span><span>Type resultType</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The result type.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="GetAsync_TResult_(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div></div>
+          </div>
+          <div id="GetAsync_TResult_(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div></div>
+          </div>
+          <div id="GetAsync_TResult_(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div></div>
+          </div>
+          <div id="GetAsync_TResult_(string,object,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>GetAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+              </div></div>
+          </div>
+          <div id="GetDialogUrl(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Uri </span><span>GetDialogUrl</span><span>(</span><span>string dialog</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Gets the Facebook dialog url.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">dialog</span><span class="paramSummary"> The dialog name. Values can be oauth, feed, pagetab, friends, pay, apprequests, and send.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The dialog url.</div>
+              </div></div>
+          </div>
+          <div id="GetLoginUrl(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Uri </span><span>GetLoginUrl</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Gets the Facebook OAuth login url.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The login url.</div>
+              </div></div>
+          </div>
+          <div id="GetLogoutUrl(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Uri </span><span>GetLogoutUrl</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Gets the Facebook OAuth logout url.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The logout url.</div>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>GetTaskAsync</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>GetTaskAsync</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>GetTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync(string,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>GetTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync(string,object,CancellationToken,Type)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>GetTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>Type resultType</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The result type.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync_TResult_(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;TResult&gt; </span><span>GetTaskAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync_TResult_(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;TResult&gt; </span><span>GetTaskAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync_TResult_(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;TResult&gt; </span><span>GetTaskAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetTaskAsync_TResult_(string,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;TResult&gt; </span><span>GetTaskAsync</span><span>&lt;</span><span>TResult</span><span>&gt;</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous GET request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="OnDeleteCompleted(FacebookApiEventArgs)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected void </span><span>OnDeleteCompleted</span><span>(</span><span>FacebookApiEventArgs args</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Raise OnDeletedCompleted event handler.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">args</span><span class="paramSummary"> The &lt;see cref=&quot;FacebookApiEventArgs&quot; /&gt;.</span></div>
+              </div></div>
+          </div>
+          <div id="OnGetCompleted(FacebookApiEventArgs)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected void </span><span>OnGetCompleted</span><span>(</span><span>FacebookApiEventArgs args</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Raise OnGetCompleted event handler.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">args</span><span class="paramSummary"> The &lt;see cref=&quot;FacebookApiEventArgs&quot; /&gt;.</span></div>
+              </div></div>
+          </div>
+          <div id="OnPostCompleted(FacebookApiEventArgs)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected void </span><span>OnPostCompleted</span><span>(</span><span>FacebookApiEventArgs args</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Raise OnPostCompleted event handler.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">args</span><span class="paramSummary"> The &lt;see cref=&quot;FacebookApiEventArgs&quot; /&gt;.</span></div>
+              </div></div>
+          </div>
+          <div id="OnUploadProgressChanged(FacebookUploadProgressChangedEventArgs)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>protected void </span><span>OnUploadProgressChanged</span><span>(</span><span>FacebookUploadProgressChangedEventArgs args</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Raise OnUploadProgressCompleted event handler.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">args</span><span class="paramSummary"> The &lt;see cref=&quot;FacebookApiEventArgs&quot; /&gt;.</span></div>
+              </div></div>
+          </div>
+          <div id="ParseDialogCallbackUrl(Uri)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>ParseDialogCallbackUrl</span><span>(</span><span>Uri uri</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Parses the dialog callback url to an object of the resulting data.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">uri</span><span class="paramSummary"> </span></div>
+              </div></div>
+          </div>
+          <div id="ParseOAuthCallbackUrl(Uri)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public FacebookOAuthResult </span><span>ParseOAuthCallbackUrl</span><span>(</span><span>Uri uri</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Parse the url to <see cref="FacebookOAuthResult" />.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">uri</span><span class="paramSummary"> </span></div>
+              </div></div>
+          </div>
+          <div id="ParseSignedRequest(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>ParseSignedRequest</span><span>(</span><span>string signedRequestValue</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Parse the facebook signed_request.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">signedRequestValue</span><span class="paramSummary"> The signed_request value.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The parse signed_request value.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">Windows Phone 7</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="ParseSignedRequest(string,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>ParseSignedRequest</span><span>(</span><span>string appSecret</span><span>, </span><span>string signedRequestValue</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Parse the facebook signed_request.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">appSecret</span><span class="paramSummary"> The appsecret.</span></div>
+                <div class="paramDesc"><span class="paramName">signedRequestValue</span><span class="paramSummary"> The signed_request value.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The parse signed_request value.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">Windows Phone 7</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Post(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Post</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Post(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>Post</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes a POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="PostAsync(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>PostAsync</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="PostAsync(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>PostAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="PostAsync(string,object,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>PostAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result.</div>
+              </div></div>
+          </div>
+          <div id="PostTaskAsync(object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>PostTaskAsync</span><span>(</span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="PostTaskAsync(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>PostTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="PostTaskAsync(string,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>PostTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="PostTaskAsync(string,object,object,CancellationToken)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>PostTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The json result task.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="PostTaskAsync(string,object,object,CancellationToken,IProgress&lt;FacebookUploadProgressChangedEventArgs&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;object&gt; </span><span>PostTaskAsync</span><span>(</span><span>string path</span><span>, </span><span>object parameters</span><span>, </span><span>object userState</span><span>, </span><span>CancellationToken cancellationToken</span><span>, </span><span>IProgress&lt;FacebookUploadProgressChangedEventArgs&gt; uploadProgress</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Makes an asynchronous POST request to the Facebook server.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">path</span><span class="paramSummary"> The resource path or the resource url.</span></div>
+                <div class="paramDesc"><span class="paramName">parameters</span><span class="paramSummary"> The parameters</span></div>
+                <div class="paramDesc"><span class="paramName">userState</span><span class="paramSummary"> The user state.</span></div>
+                <div class="paramDesc"><span class="paramName">cancellationToken</span><span class="paramSummary"> The cancellation token.</span></div>
+                <div class="paramDesc"><span class="paramName">uploadProgress</span><span class="paramSummary"> </span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="SetDefaultHttpWebRequestFactory(Func&lt;Uri, HttpWebRequestWrapper&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>SetDefaultHttpWebRequestFactory</span><span>(</span><span>Func&lt;Uri, HttpWebRequestWrapper&gt; httpWebRequestFactory</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Sets the default http web request factory.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpWebRequestFactory</span><span class="paramSummary"> </span></div>
+              </div></div>
+          </div>
+          <div id="SetDefaultJsonSerializers(Func&lt;object, string&gt;,Func&lt;string, Type, object&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>SetDefaultJsonSerializers</span><span>(</span><span>Func&lt;object, string&gt; jsonSerializer</span><span>, </span><span>Func&lt;string, Type, object&gt; jsonDeserializer</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Sets the default json seriazliers and deserializers.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">jsonSerializer</span><span class="paramSummary"> Json serializer</span></div>
+                <div class="paramDesc"><span class="paramName">jsonDeserializer</span><span class="paramSummary"> Json deserializer</span></div>
+              </div></div>
+          </div>
+          <div id="SetHttpWebRequestFactory(Func&lt;Uri, HttpWebRequestWrapper&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>SetHttpWebRequestFactory</span><span>(</span><span>Func&lt;Uri, HttpWebRequestWrapper&gt; httpWebRequestFactory</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Sets the http web request factory for the current instance of <see cref="FacebookClient" />.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpWebRequestFactory</span><span class="paramSummary"> </span></div>
+              </div></div>
+          </div>
+          <div id="SetJsonSerializers(Func&lt;object, string&gt;,Func&lt;string, Type, object&gt;)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>SetJsonSerializers</span><span>(</span><span>Func&lt;object, string&gt; jsonSerializer</span><span>, </span><span>Func&lt;string, Type, object&gt; jsonDeserializer</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Sets the json seriazliers and deserializers for the current instance of <see cref="FacebookClient" />.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">jsonSerializer</span><span class="paramSummary"> Json serializer</span></div>
+                <div class="paramDesc"><span class="paramName">jsonDeserializer</span><span class="paramSummary"> Json deserializer</span></div>
+              </div></div>
+          </div>
+          <div id="TryParseOAuthCallbackUrl(Uri,FacebookOAuthResult)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public bool </span><span>TryParseOAuthCallbackUrl</span><span>(</span><span>Uri url</span><span>, </span><span>FacebookOAuthResult facebookOAuthResult</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Try parsing the url to <see cref="FacebookOAuthResult" />.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">url</span><span class="paramSummary"> The url to parse</span></div>
+                <div class="paramDesc"><span class="paramName">facebookOAuthResult</span><span class="paramSummary"> The facebook oauth result.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">True if parse successful, otherwise false.</div>
+              </div></div>
+          </div>
+          <div id="TryParseSignedRequest(string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public bool </span><span>TryParseSignedRequest</span><span>(</span><span>string signedRequestValue</span><span>, </span><span>object signedRequest</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Tries parsing the facebook signed_request.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">signedRequestValue</span><span class="paramSummary"> The signed_request value.</span></div>
+                <div class="paramDesc"><span class="paramName">signedRequest</span><span class="paramSummary"> The parsed signed request.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">True if signed request parsed successfully otherwise false.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">Windows Phone 7</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="TryParseSignedRequest(string,string,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public bool </span><span>TryParseSignedRequest</span><span>(</span><span>string appSecret</span><span>, </span><span>string signedRequestValue</span><span>, </span><span>object signedRequest</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Tries parsing the facebook signed_request.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">appSecret</span><span class="paramSummary"> The app secret.</span></div>
+                <div class="paramDesc"><span class="paramName">signedRequestValue</span><span class="paramSummary"> The signed_request value.</span></div>
+                <div class="paramDesc"><span class="paramName">signedRequest</span><span class="paramSummary"> The parsed signed request.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">True if signed request parsed successfully otherwise false.</div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">Windows Phone 7</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="VerifyGetSubscription(string,string,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>VerifyGetSubscription</span><span>(</span><span>string requestHubMode</span><span>, </span><span>string requestVerifyToken</span><span>, </span><span>string requestHubChallenge</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Verify HTTP_X_HUB_SIGNATURE for HTTP GET.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">requestHubMode</span><span class="paramSummary"> The request hub.mode</span></div>
+                <div class="paramDesc"><span class="paramName">requestVerifyToken</span><span class="paramSummary"> The request hub.verify_token</span></div>
+                <div class="paramDesc"><span class="paramName">requestHubChallenge</span><span class="paramSummary"> The request hub.challenge</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="VerifyGetSubscription(string,string,string,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>VerifyGetSubscription</span><span>(</span><span>string requestHubMode</span><span>, </span><span>string requestVerifyToken</span><span>, </span><span>string requestHubChallenge</span><span>, </span><span>string verifyToken</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Verify HTTP_X_HUB_SIGNATURE for HTTP GET.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">requestHubMode</span><span class="paramSummary"> The request hub.mode</span></div>
+                <div class="paramDesc"><span class="paramName">requestVerifyToken</span><span class="paramSummary"> The request hub.verify_token</span></div>
+                <div class="paramDesc"><span class="paramName">requestHubChallenge</span><span class="paramSummary"> The request hub.challenge</span></div>
+                <div class="paramDesc"><span class="paramName">verifyToken</span><span class="paramSummary"> Expected verify token.</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="VerifyPostSubscription(string,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>VerifyPostSubscription</span><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">requestHttpXHubSignature</span><span class="paramSummary"> The request HTTP_X_HUB_SIGNATURE</span></div>
+                <div class="paramDesc"><span class="paramName">requestBody</span><span class="paramSummary"> The request body.</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="VerifyPostSubscription(string,string,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>VerifyPostSubscription</span><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>, </span><span>string appSecret</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">requestHttpXHubSignature</span><span class="paramSummary"> The request HTTP_X_HUB_SIGNATURE</span></div>
+                <div class="paramDesc"><span class="paramName">requestBody</span><span class="paramSummary"> The request body.</span></div>
+                <div class="paramDesc"><span class="paramName">appSecret</span><span class="paramSummary"> The App secret.</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="VerifyPostSubscription(string,string,Type)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>VerifyPostSubscription</span><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>, </span><span>Type resultType</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">requestHttpXHubSignature</span><span class="paramSummary"> The request HTTP_X_HUB_SIGNATURE</span></div>
+                <div class="paramDesc"><span class="paramName">requestBody</span><span class="paramSummary"> The request body.</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The result type.</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="VerifyPostSubscription(string,string,Type,string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public object </span><span>VerifyPostSubscription</span><span>(</span><span>string requestHttpXHubSignature</span><span>, </span><span>string requestBody</span><span>, </span><span>Type resultType</span><span>, </span><span>string appSecret</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Verify HTTP_X_HUB_SIGNATURE for HTTP POST.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">requestHttpXHubSignature</span><span class="paramSummary"> The request HTTP_X_HUB_SIGNATURE</span></div>
+                <div class="paramDesc"><span class="paramName">requestBody</span><span class="paramSummary"> The request body.</span></div>
+                <div class="paramDesc"><span class="paramName">resultType</span><span class="paramSummary"> The result type.</span></div>
+                <div class="paramDesc"><span class="paramName">appSecret</span><span class="paramSummary"> The App secret.</span></div>
+              </div>
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <footer class="footer">
+      <div class="container-footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right"><a href="/docs/about/#2">License</a></p>
+        <p>Copyright © 2012 ⋅<a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/js/jquery-1.7.1.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/prettify.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('code').addClass('prettyprint');
+    prettyPrint();
+    });
+  </script>
+</body>
