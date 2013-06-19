@@ -156,7 +156,7 @@ a {
 }
 
 .navbar-inner {
-    background: #3b5998 url(../img/header-background.png) repeat-x;
+    background: #006633 ;
     height: 34px;
     min-height: 34px;
     width: 100%;
@@ -173,7 +173,7 @@ a {
     }
 
         .navbar .nav > li > a:hover {
-            background: #1A3C6C;
+            background: #153f09;
         }
 
 .navbar .brand {
@@ -187,7 +187,7 @@ a {
 }
 
     .navbar .brand:hover {
-        background: #1A3C6C;
+        background: #153f09;
     }
 
 
@@ -645,7 +645,6 @@ blockquote p {
     .wikiPanel .wikiHeader {
         background-color: #cdd5e5;
         height: 350px;
-        background-image: url('../img/mobile_ads_tile.png');
     }
 
         .wikiPanel .wikiHeader.small {
@@ -979,13 +978,13 @@ blockquote p {
     background-image: url('../img/assets.png');
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: -1px -196px;
+    background-position: -1px -496px;
     background-color: #69a74e;
     border-color: #3b6e22 #3b6e22 #2c5115;
 }
 
     .uiButtonSpecial .uiButtonText {
-        color: #fff;
+        color: darkblue;
     }
 
 .uiButton {
