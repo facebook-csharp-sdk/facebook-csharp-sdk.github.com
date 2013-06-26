@@ -3,6 +3,10 @@ layout: default
 title: Getting Started with the Facebook SDK for .NET and ASP.NET
 ---
 
+<div class="blueBox">
+	<p>Before you begin developing your Facebook app with the Facebook SDK for .NET we recommend you read the official <a href="https://developers.facebook.com/docs/">Facebook developer documentation</a>. You cannot develop Facebook apps using the Facebook SDK for .NET without understanding the Facebook Graph API, Facebook Javascript SDK, or OAuth 2.0. These concepts are not addressed in the documentation for the Facebook SDK for .NET.</p>
+</div>
+
 ## Creating a Facebook Application
 Before you even begin using the Facebook SDK for .NET you must create a Facebook application. To do so navigate to [http://developers.facebook.com/apps](https://developers.facebook.com/apps) and click the 'Create New App' button. Follow the steps to create an app and record your AppId for use later.
 

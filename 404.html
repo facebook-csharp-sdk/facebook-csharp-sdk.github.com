@@ -27,7 +27,7 @@
 
   <body>
     <div class="navbar navbar-fixed-top">
-      <a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+      <a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -38,13 +38,12 @@
           <a class="brand" href="#">Facebook SDK for .NET</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="/docs">Overview</a></li>
-              <li><a href="/docs/web">Web</a></li>
+              <li><a href="/docs">Docs</a></li>
+              <li><a href="/docs/reference">SDK Reference</a></li>
               <li><a href="/docs/windows">Windows 8</a></li>
-              <li><a href="/docs/azure">Windows Azure</a></li>
               <li><a href="/docs/phone">Windows Phone</a></li>
+              <li><a href="/docs/web">Web</a></li>
               <li><a href="/docs/about">About</a></li>
-              </li>
             </ul>
           </div>
         </div>
@@ -52,15 +51,27 @@
     </div>
 
     <div id="top" class="container content">
-      <h1>404: Page Not Found</h1>
-      
-      <p>The content you were looking for was not found.</p>
+        <div class="main-container">
+            <div class="error-container">
+                <div class="header">
+                    <h1>Page not found</h1>
+                </div>
+                <p>The page you requested was not found.</p>
 
-      <footer class="footer">
-      <p class="pull-right"><a id="back-to-top" href="#top">Back to top</a></p>
-      <p>Copyright &copy; 2012, <a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
-      <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-      </footer>
+                <ul>
+                    <li><a href="/">Return home</a></li>
+                    <li><a onclick="history.back()">Go back to the previous page</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-footer">
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p class="pull-right"><a href="/docs/about/#2">License</a></p>
+                <p>Copyright &copy; 2012 &sdot; <a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
+            </div>
+        </footer>
 
     </div>
   </body>

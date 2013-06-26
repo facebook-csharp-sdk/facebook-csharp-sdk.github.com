@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SDK Reference</title>
+  <link rel="icon" href="http://docs.csharpsdk.org/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://docs.csharpsdk.org/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="SDK Reference">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://csharpsdk.org/docs/reference/">
+  <meta property="og:image" content="http://csharpsdk.org/assets/img/logo500x500.png">
+  <meta property="og:site_name" content="Facebook SDK for .NET">
+  <meta property="fb:admins" content="14812017,605430316,537883665"><!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28972181-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top"><a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <div class="navbar-inner">
+      <div class="container"><a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="/" class="brand">Facebook SDK for .NET</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><a href="/docs">Docs</a></li>
+            <li class="active"><a href="/docs/reference">SDK Reference</a></li>
+            <li><a href="/docs/windows">Windows 8</a></li>
+            <li><a href="/docs/phone">Windows Phone</a></li>
+            <li><a href="/docs/web">Web</a></li>
+            <li><a href="/docs/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="top" class="container content">
+    <div class="container-body">
+      <div class="bodyMenu">
+        <div id="toc" class="referenceSidebar">
+          <h5>Topics</h5>
+          <h5>Facebook</h5>
+          <h6> <a href="Facebook.DateTimeConvertor.html" title="Facebook.DateTimeConvertor">DateTimeConvertor</a></h6>
+          <h6> <a href="Facebook.FacebookApiEventArgs.html" title="Facebook.FacebookApiEventArgs">FacebookApiEventArgs</a></h6>
+          <h6> <a href="Facebook.FacebookApiException.html" title="Facebook.FacebookApiException">FacebookApiException</a></h6>
+          <h6> <a href="Facebook.FacebookApiLimitException.html" title="Facebook.FacebookApiLimitException">FacebookApiLimitException</a></h6>
+          <h6> <a href="Facebook.FacebookBatchParameter.html" title="Facebook.FacebookBatchParameter">FacebookBatchParameter</a></h6>
+          <h6> <a href="Facebook.FacebookClient.html" title="Facebook.FacebookClient">FacebookClient</a></h6>
+          <h6> <a href="Facebook.FacebookMediaObject.html" title="Facebook.FacebookMediaObject">FacebookMediaObject</a></h6>
+          <h6> <a href="Facebook.FacebookMediaStream.html" title="Facebook.FacebookMediaStream">FacebookMediaStream</a></h6>
+          <h6> <a href="Facebook.FacebookOAuthException.html" title="Facebook.FacebookOAuthException">FacebookOAuthException</a></h6>
+          <h6> <a href="Facebook.FacebookOAuthResult.html" title="Facebook.FacebookOAuthResult">FacebookOAuthResult</a></h6>
+          <h6> <a href="Facebook.FacebookUploadProgressChangedEventArgs.html" title="Facebook.FacebookUploadProgressChangedEventArgs">FacebookUploadProgressChangedEventArgs</a></h6>
+          <h6> <a href="Facebook.HttpMethod.html" title="Facebook.HttpMethod">HttpMethod</a></h6>
+          <h6> <a href="Facebook.HttpWebRequestWrapper.html" title="Facebook.HttpWebRequestWrapper">HttpWebRequestWrapper</a></h6>
+          <h6> <a href="Facebook.HttpWebResponseWrapper.html" title="Facebook.HttpWebResponseWrapper">HttpWebResponseWrapper</a></h6>
+          <h6> <a href="Facebook.JsonArray.html" title="Facebook.JsonArray">JsonArray</a></h6>
+          <h6> <a href="Facebook.JsonObject.html" title="Facebook.JsonObject">JsonObject</a></h6>
+          <h6> <a href="Facebook.WebExceptionWrapper.html" title="Facebook.WebExceptionWrapper">WebExceptionWrapper</a></h6>
+        </div>
+      </div>
+      <div class="bodyText">
+        <div class="header">
+          <h1>HttpWebRequestWrapper Class</h1>
+        </div>
+        <div id="doc">
+          <div class="typeHeader">
+            <div class="namespace">namespace Facebook</div><span class="modifiers">public class</span><span class="typeName">HttpWebRequestWrapper</span>
+          </div>
+          <div class="referenceTitle">Overview</div>
+          <p class="overview">Represents the http web request wrapper.</p>
+          <div class="supportedProjects">
+            <div class="projectTitle">Supported in:</div>
+            <ul>
+              <li class="projectName">.NET Framework 3.5</li>
+              <li class="projectName">.NET Framework 4.0</li>
+              <li class="projectName">.NET Framework 4.5</li>
+              <li class="projectName">Silverlight 5</li>
+              <li class="projectName">.NET for Windows Store apps</li>
+              <li class="projectName">Windows Phone 7</li>
+              <li class="projectName">Windows Phone 8</li>
+            </ul>
+          </div>
+          <div class="referenceTitle">Summary</div>
+          <div class="summarySection">
+            <table>
+              <tr>
+                <th>Constructors</th>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">protected </span><a href="#.ctor()">.ctor</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Initializes a new instance of the <see cref="HttpWebRequestWrapper" /> class.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#.ctor(HttpWebRequest)">.ctor</a><span>(</span><span>HttpWebRequest httpWebRequest</span><span>)</span></span>
+                  <div class="itemSummary">Initializes a new instance of the <see cref="HttpWebRequestWrapper" /> class.</div>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <th colspan="2">Properties</th>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Accept">Accept</a></span>
+                  <div class="itemSummary">Gets or sets the accept.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">bool</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#AllowAutoRedirect">AllowAutoRedirect</a></span>
+                  <div class="itemSummary">Gets or sets a value that indicates whether the request should follow redirection responses.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">bool</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#AllowWriteStreamBuffering">AllowWriteStreamBuffering</a></span>
+                  <div class="itemSummary">True to enable buffering of the data sent to the Internet resource; false to disable buffering. The default is true.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">DecompressionMethods</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#AutomaticDecompression">AutomaticDecompression</a></span>
+                  <div class="itemSummary">Gets or sets the decompression method.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Connection">Connection</a></span>
+                  <div class="itemSummary">Gets or sets the connection.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">long</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ContentLength">ContentLength</a></span>
+                  <div class="itemSummary">Gets or sets the content length.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ContentType">ContentType</a></span>
+                  <div class="itemSummary">Gets or sets the content type.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">CookieContainer</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#CookieContainer">CookieContainer</a></span>
+                  <div class="itemSummary">Gets or sets the cookie container.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">ICredentials</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Credentials">Credentials</a></span>
+                  <div class="itemSummary">Gets or sets the credentials.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Expect">Expect</a></span>
+                  <div class="itemSummary">Gets or sets the expect.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">WebHeaderCollection</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Headers">Headers</a></span>
+                  <div class="itemSummary">Gets or sets the http headers.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">DateTime</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#IfModifiedSince">IfModifiedSince</a></span>
+                  <div class="itemSummary">Gets or sets the if modified since.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">bool</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#IsCancelled">IsCancelled</a></span>
+                  <div class="itemSummary">Gets or sets if the request to an Internet resource was cancelled.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Method">Method</a></span>
+                  <div class="itemSummary">Gets or sets the http method.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">IWebProxy</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Proxy">Proxy</a></span>
+                  <div class="itemSummary">Gets or sets the proxy.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">int</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ReadWriteTimeout">ReadWriteTimeout</a></span>
+                  <div class="itemSummary">Gets or sets the read write timeout.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Referer">Referer</a></span>
+                  <div class="itemSummary">Gets or sets the referrer.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">Uri</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#RequestUri">RequestUri</a></span>
+                  <div class="itemSummary">Gets the request uri.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">ServicePoint</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#ServicePoint">ServicePoint</a></span>
+                  <div class="itemSummary">Gets the service point to use for the request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">int</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Timeout">Timeout</a></span>
+                  <div class="itemSummary">Gets or set the time in milliseconds, before the request times out.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#TransferEncoding">TransferEncoding</a></span>
+                  <div class="itemSummary">Gets or sets the transfer encoding.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>
+                    <item class="type">string</item></span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#UserAgent">UserAgent</a></span>
+                  <div class="itemSummary">Gets or sets the user agent.</div>
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <th colspan="2">Methods</th>
+              </tr>
+              <tr>
+                <td><span>void</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#Abort()">Abort</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Aborts the http web request.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>IAsyncResult</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BeginGetRequestStream(AsyncCallback,object)">BeginGetRequestStream</a><span>(</span><span>AsyncCallback callback</span><span>, </span><span>object state</span><span>)</span></span>
+                  <div class="itemSummary">Begins getting the request stream.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>IAsyncResult</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#BeginGetResponse(AsyncCallback,object)">BeginGetResponse</a><span>(</span><span>AsyncCallback callback</span><span>, </span><span>object state</span><span>)</span></span>
+                  <div class="itemSummary">Begins the get response.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Stream</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#EndGetRequestStream(IAsyncResult)">EndGetRequestStream</a><span>(</span><span>IAsyncResult asyncResult</span><span>)</span></span>
+                  <div class="itemSummary">Ends the get request stream.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>HttpWebResponseWrapper</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#EndGetResponse(IAsyncResult)">EndGetResponse</a><span>(</span><span>IAsyncResult asyncResult</span><span>)</span></span>
+                  <div class="itemSummary">Ends the http web get response.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Stream</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetRequestStream()">GetRequestStream</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Gets the request stream.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;Stream&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetRequestStreamAsync()">GetRequestStreamAsync</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Asynchronously gets the request stream.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>HttpWebResponseWrapper</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetResponse()">GetResponse</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Gets the response.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>Task&lt;HttpWebResponseWrapper&gt;</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#GetResponseAsync()">GetResponseAsync</a><span>(</span><span>)</span></span>
+                  <div class="itemSummary">Asynchronously gets the response.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>bool</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#TrySetContentLength(long)">TrySetContentLength</a><span>(</span><span>long contentLength</span><span>)</span></span>
+                  <div class="itemSummary">Try to set the value of the content length header.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><span>bool</span></td>
+                <td><span class="itemName"><span class="modifier">public </span><a href="#TrySetUserAgent(string)">TrySetUserAgent</a><span>(</span><span>string userAgent</span><span>)</span></span>
+                  <div class="itemSummary">Try to set the value of the user agenet header.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="referenceTitle">Constructors</div>
+          <div id=".ctor()" class="itemDetails">
+            <div class="itemDetailsTitle">protected .ctor<span>(</span><span>)</span></div>
+            <div class="itemDetailsDescription">Initializes a new instance of the <see cref="HttpWebRequestWrapper" /> class.</div>
+          </div>
+          <div id=".ctor(HttpWebRequest)" class="itemDetails">
+            <div class="itemDetailsTitle">public .ctor<span>(</span><span>HttpWebRequest httpWebRequest</span><span>)</span></div>
+            <div class="itemDetailsDescription">Initializes a new instance of the <see cref="HttpWebRequestWrapper" /> class.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">httpWebRequest</span>
+                  <param class="summary"></param>
+                </div>
+              </div></div>
+          </div>
+          <div class="referenceTitle">Properties</div>
+          <div id="Accept" class="itemDetails">
+            <div class="itemDetailsTitle">public Accept</div>
+            <div class="itemDetailsDescription">Gets or sets the accept.</div>
+          </div>
+          <div id="AllowAutoRedirect" class="itemDetails">
+            <div class="itemDetailsTitle">public AllowAutoRedirect</div>
+            <div class="itemDetailsDescription">Gets or sets a value that indicates whether the request should follow redirection responses.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">Windows Phone 7</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="AllowWriteStreamBuffering" class="itemDetails">
+            <div class="itemDetailsTitle">public AllowWriteStreamBuffering</div>
+            <div class="itemDetailsDescription">True to enable buffering of the data sent to the Internet resource; false to disable buffering. The default is true.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="AutomaticDecompression" class="itemDetails">
+            <div class="itemDetailsTitle">public AutomaticDecompression</div>
+            <div class="itemDetailsDescription">Gets or sets the decompression method.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Connection" class="itemDetails">
+            <div class="itemDetailsTitle">public Connection</div>
+            <div class="itemDetailsDescription">Gets or sets the connection.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="ContentLength" class="itemDetails">
+            <div class="itemDetailsTitle">public ContentLength</div>
+            <div class="itemDetailsDescription">Gets or sets the content length.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="ContentType" class="itemDetails">
+            <div class="itemDetailsTitle">public ContentType</div>
+            <div class="itemDetailsDescription">Gets or sets the content type.</div>
+          </div>
+          <div id="CookieContainer" class="itemDetails">
+            <div class="itemDetailsTitle">public CookieContainer</div>
+            <div class="itemDetailsDescription">Gets or sets the cookie container.</div>
+          </div>
+          <div id="Credentials" class="itemDetails">
+            <div class="itemDetailsTitle">public Credentials</div>
+            <div class="itemDetailsDescription">Gets or sets the credentials.</div>
+          </div>
+          <div id="Expect" class="itemDetails">
+            <div class="itemDetailsTitle">public Expect</div>
+            <div class="itemDetailsDescription">Gets or sets the expect.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Headers" class="itemDetails">
+            <div class="itemDetailsTitle">public Headers</div>
+            <div class="itemDetailsDescription">Gets or sets the http headers.</div>
+          </div>
+          <div id="IfModifiedSince" class="itemDetails">
+            <div class="itemDetailsTitle">public IfModifiedSince</div>
+            <div class="itemDetailsDescription">Gets or sets the if modified since.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="IsCancelled" class="itemDetails">
+            <div class="itemDetailsTitle">public IsCancelled</div>
+            <div class="itemDetailsDescription">Gets or sets if the request to an Internet resource was cancelled.</div>
+          </div>
+          <div id="Method" class="itemDetails">
+            <div class="itemDetailsTitle">public Method</div>
+            <div class="itemDetailsDescription">Gets or sets the http method.</div>
+          </div>
+          <div id="Proxy" class="itemDetails">
+            <div class="itemDetailsTitle">public Proxy</div>
+            <div class="itemDetailsDescription">Gets or sets the proxy.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="ReadWriteTimeout" class="itemDetails">
+            <div class="itemDetailsTitle">public ReadWriteTimeout</div>
+            <div class="itemDetailsDescription">Gets or sets the read write timeout.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Referer" class="itemDetails">
+            <div class="itemDetailsTitle">public Referer</div>
+            <div class="itemDetailsDescription">Gets or sets the referrer.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="RequestUri" class="itemDetails">
+            <div class="itemDetailsTitle">public RequestUri</div>
+            <div class="itemDetailsDescription">Gets the request uri.</div>
+          </div>
+          <div id="ServicePoint" class="itemDetails">
+            <div class="itemDetailsTitle">public ServicePoint</div>
+            <div class="itemDetailsDescription">Gets the service point to use for the request.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="Timeout" class="itemDetails">
+            <div class="itemDetailsTitle">public Timeout</div>
+            <div class="itemDetailsDescription">Gets or set the time in milliseconds, before the request times out.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="TransferEncoding" class="itemDetails">
+            <div class="itemDetailsTitle">public TransferEncoding</div>
+            <div class="itemDetailsDescription">Gets or sets the transfer encoding.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="UserAgent" class="itemDetails">
+            <div class="itemDetailsTitle">public UserAgent</div>
+            <div class="itemDetailsDescription">Gets or sets the user agent.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">Windows Phone 7</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div class="referenceTitle">Methods</div>
+          <div id="Abort()" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public void </span><span>Abort</span><span>(</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Aborts the http web request.</div>
+          </div>
+          <div id="BeginGetRequestStream(AsyncCallback,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public IAsyncResult </span><span>BeginGetRequestStream</span><span>(</span><span>AsyncCallback callback</span><span>, </span><span>object state</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Begins getting the request stream.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">callback</span><span class="paramSummary"> The callback.</span></div>
+                <div class="paramDesc"><span class="paramName">state</span><span class="paramSummary"> The state.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The async result.</div>
+              </div></div>
+          </div>
+          <div id="BeginGetResponse(AsyncCallback,object)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public IAsyncResult </span><span>BeginGetResponse</span><span>(</span><span>AsyncCallback callback</span><span>, </span><span>object state</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Begins the get response.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">callback</span><span class="paramSummary"> The callback.</span></div>
+                <div class="paramDesc"><span class="paramName">state</span><span class="paramSummary"> The state.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The async result.</div>
+              </div></div>
+          </div>
+          <div id="EndGetRequestStream(IAsyncResult)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Stream </span><span>EndGetRequestStream</span><span>(</span><span>IAsyncResult asyncResult</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Ends the get request stream.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">asyncResult</span><span class="paramSummary"> The async result.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The request stream.</div>
+              </div></div>
+          </div>
+          <div id="EndGetResponse(IAsyncResult)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public HttpWebResponseWrapper </span><span>EndGetResponse</span><span>(</span><span>IAsyncResult asyncResult</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Ends the http web get response.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">asyncResult</span><span class="paramSummary"> The async result.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">The http web response.</div>
+              </div></div>
+          </div>
+          <div id="GetRequestStream()" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Stream </span><span>GetRequestStream</span><span>(</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Gets the request stream.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetRequestStreamAsync()" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;Stream&gt; </span><span>GetRequestStreamAsync</span><span>(</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Asynchronously gets the request stream.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetResponse()" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public HttpWebResponseWrapper </span><span>GetResponse</span><span>(</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Gets the response.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 3.5</li>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="GetResponseAsync()" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public Task&lt;HttpWebResponseWrapper&gt; </span><span>GetResponseAsync</span><span>(</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Asynchronously gets the response.
+              <div class="supportedProjects">
+                <div class="projectTitle">Supported only in:</div>
+                <ul>
+                  <li class="projectName">.NET Framework 4.0</li>
+                  <li class="projectName">.NET Framework 4.5</li>
+                  <li class="projectName">Silverlight 5</li>
+                  <li class="projectName">.NET for Windows Store apps</li>
+                  <li class="projectName">Windows Phone 8</li>
+                </ul>
+              </div></div>
+          </div>
+          <div id="TrySetContentLength(long)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public bool </span><span>TrySetContentLength</span><span>(</span><span>long contentLength</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Try to set the value of the content length header.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">contentLength</span><span class="paramSummary"> The Content-Length header value.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">True if ContentLength set, otherwise false.</div>
+              </div></div>
+          </div>
+          <div id="TrySetUserAgent(string)" class="itemDetails">
+            <div class="itemDetailsTitle"><span>public bool </span><span>TrySetUserAgent</span><span>(</span><span>string userAgent</span><span>)</span>
+            </div>
+            <div class="itemDetailsDescription">Try to set the value of the user agenet header.
+              <div class="params"><span class="paramsTitle">Parameters</span>
+                <div class="paramDesc"><span class="paramName">userAgent</span><span class="paramSummary"> The UserAgent value.</span></div>
+              </div>
+              <div class="return"><span class="returnTitle">Returns</span>
+                <div class="returnDesc">True if UserAgent is set, otherwise false.</div>
+              </div></div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <footer class="footer">
+      <div class="container-footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right"><a href="/docs/about/#2">License</a></p>
+        <p>Copyright © 2012 ⋅<a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/js/jquery-1.7.1.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/prettify.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('code').addClass('prettyprint');
+    prettyPrint();
+    });
+  </script>
+</body>
