@@ -32,7 +32,7 @@ The Facebook SDK for .NET helps developers build web, desktop, phone and Windows
 <p>Sanjeev Dwivedi is a contributor to the Facebook SDK. He works for Microsoft as a Technical Evangelist where he focuses on Windows 8, Windows Phone and Azure.</p> 
 </div>
 
-<br/></br/>
+<br/></br/><br/><br/>
 
 ## License
 
