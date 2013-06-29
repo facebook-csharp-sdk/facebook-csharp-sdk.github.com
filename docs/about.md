@@ -29,9 +29,10 @@ The Facebook SDK for .NET helps developers build web, desktop, phone and Windows
 <div class="person">
 <h3><a href="http://sanjeev.dwivedi.net">Sanjeev Dwivedi</a></h3>
 <a href="http://sanjeev.dwivedi.net"><img src="http://www.gravatar.com/avatar/c92022072e01db2c19eaa8b53312d3d8.png?s=150" /></a>
-<p>Sanjeev Dwivedi is an contributor and caretaker for the Facebook SDK for .NET. He works for Microsoft as a Technical Evangelist where he focuses on Windows 8, Windows Phone and Azure.</p> 
+<p>Sanjeev Dwivedi is a contributor to the Facebook SDK. He works for Microsoft as a Technical Evangelist where he focuses on Windows 8, Windows Phone and Azure.</p> 
 </div>
 
+<hr/>
 
 ## License
 
