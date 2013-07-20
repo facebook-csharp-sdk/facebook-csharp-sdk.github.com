@@ -9,6 +9,7 @@ This document outlines the process for creating and publishing a new release of 
 
 1. Set the version number in VERSION.
   * Only change the second version number unless this is a major release.
+1. After the VERSION numbers are set run a build.
 1. git tag vX.X.X
 1. git push --tags
 1. git clean -xdf
