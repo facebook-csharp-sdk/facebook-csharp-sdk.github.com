@@ -38,10 +38,66 @@ Finally, be mindful that there can be errors with Facebook's API. If you make a 
 
 > Currently, you can request a permission called 'offline_access' which grants you an access token that will never expire. This is being deprecated by Facebook and it is no longer recommended you built applications that rely on this type of token.
 
-## Renewing an Access Token
-[TOTO]
+## Requesting Long Term Access Tokens
+According to Facebook doc's standard short term access tokens expire after 1 -2 hours, and extended tokens expire after approx. 60 days.  Don't depend on the 60 day time limit , I have seen extended tokens expire in as little as 30 days.  Extended Access tokens are necessary any time you want to make an API call after the user has ended their session on your app.  For example, telling a user to make a specific post or liking a specific page, then later checking to see if the user has made that specific post after they leave your app.  You have to already have a short term token before requesting the long term token.
+
+        private string GetExtendedAccessToken(string ShortLivedToken)
+        {
+            FacebookClient client = new FacebookClient();
+            string extendedToken = "";
+            try
+            {
+                dynamic result = client.Get("/oauth/access_token", new
+                {
+                    grant_type = "fb_exchange_token",
+                    client_id = "{your app id}",
+                    client_secret = "{your app secret id}",
+                    fb_exchange_token = ShortLivedToken
+                });
+                extendedToken = result.access_token;
+            }
+            catch
+            {
+                extendedToken = ShortLivedToken;
+            }
+            return extendedToken;
+        }
+
+##Getting info and Expire date of Tokens
+The input token will be the token that you are requesting information about, your app access token or a valid user access token from a developer of the app
+
+         FacebookClient client = new FacebookClient();
+         dynamic result = client.Get("debug_token", new
+                           {
+                             input_token = "{input-token} ",
+                             access_token = "{access-token}"
+                           });
+
+The resuls will come back formatted like this.  scope are the extended permissions that were granted with this token.  This request can also be used to check what extended permissions the user has authorized.  Note:  that the issued_at field is not returned for short-lived access tokens.
+
+{
+        "data": {
+            "app_id": 138483919580948, 
+            "application": "Social Cafe", 
+            "expires_at": 1352419328, 
+            "is_valid": true, 
+            "issued_at": 1347235328, 
+            "scopes": [
+                "email", 
+                "publish_actions"
+            ], 
+            "user_id": 1207059
+        }
+    }
+
+
 
 ## Reauthorizing a Users
-[TOTO]
+When making any API call, if any OAuth exception is caught then then user will need to reauthenticate to get a new access token.  This can be done through the Facebook Javascript SDK, or by redirecting the user to the Log In page.
+
+            return Redirect("https://www.facebook.com/dialog/oauth?" +
+                   "client_id=" + "{your app id}" +
+                   "&redirect_uri=" + "{url for Facebook to send access token}");
+
 
 {% include web-see-also.md %}
