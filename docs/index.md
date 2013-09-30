@@ -12,7 +12,8 @@ title: Documentation
 ## Developer Centers
 
 <div class="sections">
-    <div class="section clearfix">
+	<div class="row">
+	<div class="col-md-4">
         <div class="logo"><a href="/docs/windows/">
             <img src="/assets/img/logos/WindowsMainIcon-100.png"></img></a></div>
         <div class="name"><a href="/docs/windows/">Windows 8</a></div>
@@ -20,7 +21,7 @@ title: Documentation
             <p>Learn how to use the Facebook SDK for Windows to build Windows Store apps. You can use the Facebook SDK for Windows to create a great social app on Windows 8.</p>
         </div>
     </div>
-    <div class="section clearfix">
+	<div class="col-md-4">
         <div class="logo"><a href="/docs/phone/">
             <img src="/assets/img/logos/WindowsPhoneMainIcon-100.png"></img></a></div>
         <div class="name"><a href="/docs/phone/">Windows Phone</a></div>
@@ -28,7 +29,7 @@ title: Documentation
             <p>Learn how to use the Facebook SDK for Windows Phone to connect your mobile app or game to Facebook. You can use the Facebook SDK for Windows Phone to authenticate your users with Facebook or post status messages directly from your app.</p>
         </div>
     </div>
-    <div class="section clearfix">
+	<div class="col-md-4">
         <div class="logo"><a href="/docs/web/">
             <img src="/assets/img/logos/WebMainIcon-100.png"></img></a></div>
         <div class="name"><a href="/docs/web/">Web</a></div>
@@ -36,6 +37,7 @@ title: Documentation
             <p>Learn how to build Facebook Apps and websites that integrate with the Facebook Platform. This is the place to learn how to build ASP.NET or ASP.NET MVC Facebook Apps.</p>
         </div>
     </div>
+	</div>
 </div>
 
 ---
