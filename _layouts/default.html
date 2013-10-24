@@ -30,47 +30,121 @@
     </script>
   </head>
 
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">Facebook SDK for .NET</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li{% if page.url == "/docs/index.html" %} class="active" {% endif %}><a href="/docs">Overview</a></li>
-              <li{% if page.url == "/docs/reference/index.html" %} class="active" {% endif %}><a href="/docs/reference">SDK Reference</a></li>
-              <li{% if page.url contains "/docs/windows/" %} class="active" {% endif %}><a href="/docs/windows">Windows 8</a></li>
-              <li{% if page.url contains "/docs/phone/" %} class="active" {% endif %}><a href="/docs/phone">Windows Phone</a></li>
-              <li{% if page.url contains "/docs/web/" %} class="active" {% endif %}><a href="/docs/web">Web</a></li>
-              <li{% if page.url == "/docs/about.html" %} class="active" {% endif %}><a href="/docs/about">About</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<body class="MsdnPageBody" id="MTPS_Body">
+	<div id="BodyBackground">
+		<a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk" class="hidden-xs">
+			<img style="position: absolute; top: 0; right: 0; border: 0;"src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+		</a>
+		<div class="IE ltr" id="ux-header">
+			<div id="headerContainer">
+				<div id="logoAndSearchBox">
+					<div id="logo">
+						<a title="Facebook ADK for .NET" href="/">
+							<img src="/assets/img/logo32x32.png" />
+						</a>
+					</div>
+					<div id="selectedTab">
+						<a class="dropDownToggle" href="/">Facebook SDK for .NET</a>
+					</div>
+					<div class="Clear"></div>
+					<div class="ux-internav">
+						<div class="toclevel2">
+							<a href="/docs" {% if page.url == "/docs/" %} class="active" {% endif %}>Docs</a>
+							<a href="/docs/reference" {% if page.url contains "/docs/reference" %} class="active" {% endif %}>SDK Reference</a>
+							<a href="/docs/windows" {% if page.url contains "/docs/windows" %} class="active" {% endif %}>Windows 8</a>
+							<a href="/docs/phone" {% if page.url contains "/docs/phone" %} class="active" {% endif %}>Windows Phone</a>
+							<a href="/docs/web" {% if page.url contains "/docs/web" %} class="active" {% endif %}>Web</a>
+							<a href="/docs/about" {% if page.url contains "/docs/about" %} class="active" {% endif %}>About</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="blackBar">
+				<div class="toclevel3">
+				</div>
+			</div>
+		</div>
+
+		<div class="Clear"></div>
+		<div id="MainContent">
+			<div id="top" class="container content">
+				<h1>{{page.title}}</h1>
+				<div class="row">
+					<div class="col-md-3"><div id="toc"><h2>Table of Contents</h2></div>&nbsp;</div>
+					<div class="col-md-9"><div id="doc">{{content}}</div></div>
+				</div>
+			</div>
+		</div>
+		<div id="ux-footer" class="IE ltr">
+			<div id="footerContainer" class="container">
+				<div id="fourColumnFooter">
+					<div class="col-md-3" data-fragmentName="Column1">
+						<div class="ListOfLinkLists">
+							<div class="LinkList">
+								<div class="LinkListTitle">Related developer sites</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=282089">Visual Studio</a></li>
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=282085">Windows Azure</a></li>
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=280293">Windows Phone</a></li>
+										<li><a href="http://msdn.microsoft.com/en-US/windows/apps/">Windows Development</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+					<div class="col-md-3">
+						<div class="ListOfLinkLists">    
+							<div class="LinkList">
+								<div class="LinkListTitle">Downloads</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=280301">Windows 8</a></li>
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=280302">Visual Studio Express 2012 for Windows 8</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+					<div class="col-md-3">
+						<div class="ListOfLinkLists">
+							<div class="LinkList">
+								<div class="LinkListTitle">Connect with us</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+<li><a href="https://www.facebook.com/csharpsdk">Find us on Facebook</a></li>
+										<li><a href="https://twitter.com/csharpsdk">Follow us on Twitter</a></li>
+										<li><a href="https://twitter.com/intent/follow?region=follow_link&screen_name=SanjeevOnTech&tw_p=followbutton&variant=2.0">Follow @SanjeevOnTech</a></li>
+										<li><a href="https://twitter.com/intent/follow?original_referer=/docs%2Fweb%2F&region=follow_link&screen_name=ntotten&tw_p=followbutton&variant=2.0">Follow @ntotten</a></li>
+										<li><a href="https://twitter.com/intent/follow?original_referer=/docs%2Fweb%2F&region=follow_link&screen_name=prabirshrestha&tw_p=followbutton&variant=2.0">Follow @prabirshrestha</a></li>
+								
+																		</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+					<div class="col-md-3">
+						<div class="ListOfLinkLists">
+							<div class="LinkList">
+								<div class="LinkListTitle">Licensing Information</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+										<li><a href="http://www.outercurve.org/">The Outercurve Foundation</a></li>
+										<li><a href="http://www.apache.org/licenses/LICENSE-2.0">Code - Apache v2.0</a></li>
+										<li><a href="http://creativecommons.org/licenses/by/3.0/">Documentation - Creative Commons</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+				</div>
+			</div>
+		</div>
     </div>
-
-    <div id="top" class="container content">
-      <h1>{{page.title}}</h1>
-      <div class="row">
-        <div class="span3"><div id="toc"><h2>Table of Contents</h2></div>&nbsp;</div>
-        <div class="span9"><div id="doc">{{content}}</div></div>
-      </div>
-      
-
-      <footer class="footer">
-      <p class="pull-right"><a id="back-to-top" href="#top">Back to top</a></p>
-      <p>Copyright &copy; 2012, <a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
-      <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
-      </footer>
-
-    </div>
-    <script src="/assets/js/jquery-1.7.1.min.js"></script>
+	<script src="/assets/js/jquery-1.7.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/prettify.js" type="text/javascript"></script>
     <script src="/assets/js/jquery.smooth-scroll.min.js" type="text/javascript"></script>

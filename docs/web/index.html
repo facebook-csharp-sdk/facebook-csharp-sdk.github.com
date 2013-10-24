@@ -33,107 +33,169 @@
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
-      <a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">Facebook SDK for .NET</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/docs">Docs</a></li>
-              <li><a href="/docs/reference">SDK Reference</a></li>
-              <li><a href="/docs/windows">Windows 8</a></li>
-              <li><a href="/docs/phone">Windows Phone</a></li>
-              <li class="active"><a href="/docs/web">Web</a></li>
-              <li><a href="/docs/about">About</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div id="BodyBackground">
+		<div class="IE ltr" id="ux-header">
+			<a href="http://github.com/facebook-csharp-sdk/facebook-csharp-sdk" class="hidden-xs">
+				<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+			</a>
+			<div id="headerContainer">
+				<div id="logoAndSearchBox">
+					<div id="logo">
+						<a title="Facebook ADK for .NET" href="/">
+							<img src="/assets/img/logo32x32.png" />
+						</a>
+					</div>
+					<div id="selectedTab">
+						<a class="dropDownToggle" href="/">Facebook SDK for .NET</a>
+					</div>
+					<div class="Clear"></div>
+					<div class="ux-internav">
+						<div class="toclevel2">
+							<a href="/docs" class="normal">Docs</a>
+							<a href="/docs/reference" class="normal">SDK Reference</a>
+							<a href="/docs/windows" class="normal">Windows 8</a>
+							<a href="/docs/phone" class="normal">Windows Phone</a>
+							<a href="/docs/web" class="active">Web</a>
+							<a href="/docs/about" class="normal">About</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="blackBar">
+				<div class="toclevel3">
+					<!--<a title="Tutorials" class="normal" style="left:0px; opacity: 1" href="#tutorials">Tutorials</a>-->
+				</div>
+			</div>
+		</div>
+		<div class="Clear" />
+		<div id="MainContent">
+			<div id="top" class="container content">
+				<div class="main-container">
+					<div class="clearfix wikiPanel small">
+						<div class="wikiHeader small">
+							<div class="wikiTitle small">
+								<img src="/assets/img/logos/WebMainIcon-140.png" class="lg-icon" />
+								<div style="float:left;clear:none">
+									<h1 class="small">Facebook SDK for Web Developers</h1>
+									<div class="wikiDesc">Build Facebook Apps and websites that integrate with the Facebook Platform.</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-    <div id="top" class="container content">
-        <div class="main-container">
-            <div class="clearfix wikiPanel small">
-                <div class="wikiHeader small">
-                    <div class="wikiTitle small">
-                        <img src="/assets/img/logos/WebMainIcon-140.png"/>
-                        <h1 class="small">Facebook SDK for Web Developers</h1>
-                        <div class="wikiDesc">Build Facebook Apps and websites that integrate with the Facebook Platform.</div>
-                    </div>
-                    <ul class="wikiMenu">
-                        <li>
-                            <a href="#overview">Overview</a>
-                        </li>
-                        <li>
-                            <a href="#tutorials">Tutorials</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+					<hr style="width: 100%; color: #dcdcdc;" />
+					<div class="row">
+						<div class="col-md-4">
+							<div id="tutorials" class="clearfix portalBlock tutorials">
+								<h2>Tutorials</h2>
+								<div class="clearfix blockRow sr">
+									<div class="blockItem sr">
+										<h3><a href="/docs/web/ajax-requests/">Making Ajax Requests</a></h3>
+										<p class="itemDescription">This tutorial shows you how to consume the Facebook SDK in ASP.NET using jQuery AJAX request.</p>
+									</div>
+									<div class="blockItem sr">
+										<h3><a href="/docs/web/permissions/">Request Permissions</a></h3>
+										<p class="itemDescription">Learn how to ask for different permissions to perform actions using the Facebook SDK.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div id="tutorials" class="clearfix portalBlock tutorials">
+								<h2>&nbsp</h2>
+								<div class="blockItem sr">
+									<h3><a href="/docs/web/handling-expired-access-tokens/">Handling Expired Access Tokens</a></h3>
+									<p class="itemDescription">Learn how to deal with expired access tokens when making requests, and how to renew an expired access token.</p>
+								</div>
+								<div class="blockItem sr">
+									<h3><a href="http://www.asp.net/mvc/overview/security/using-oauth-providers-with-mvc">Using OAuth Providers with MVC 4</a></h3>
+									<p class="itemDescription">This tutorial shows you how to build an ASP.NET MVC 4 web application that enables users to log in with their Facebook credentials.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div id="tutorials" class="clearfix portalBlock tutorials">
+								<h2>&nbsp</h2>
+								<div class="blockItem sr">
+									<h3><a href="http://www.asp.net/mvc/tutorials/mvc-4/aspnet-mvc-facebook-birthday-app">ASP.NET MVC Facebook Birthday App</a></h3>
+									<p class="itemDescription">This tutorial will teach you how to build a Facebook app by using an MVC 4 template in Visual Studio 2012.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="ux-footer" class="IE ltr">
+			<div id="footerContainer" class="container">
+				<div id="fourColumnFooter">
+					<div class="col-md-3" data-fragmentName="Column1">
+						<div class="ListOfLinkLists">
+							<div class="LinkList">
+								<div class="LinkListTitle">Related developer sites</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=282089">Visual Studio</a></li>
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=282085">Windows Azure</a></li>
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=280293">Windows Phone</a></li>
+										<li><a href="http://msdn.microsoft.com/en-US/windows/apps/">Windows Development</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+					<div class="col-md-3">
+						<div class="ListOfLinkLists">    
+							<div class="LinkList">
+								<div class="LinkListTitle">Downloads</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=280301">Windows 8</a></li>
+										<li><a href="http://go.microsoft.com/fwlink/p/?linkid=280302">Visual Studio Express 2012 for Windows 8</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+					<div class="col-md-3">
+						<div class="ListOfLinkLists">
+							<div class="LinkList">
+								<div class="LinkListTitle">Connect with us</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+<li><a href="https://www.facebook.com/csharpsdk">Find us on Facebook</a></li>
+										<li><a href="https://twitter.com/csharpsdk">Follow us on Twitter</a></li>
+										<li><a href="https://twitter.com/intent/follow?region=follow_link&screen_name=SanjeevOnTech&tw_p=followbutton&variant=2.0">Follow @SanjeevOnTech</a></li>
+										<li><a href="https://twitter.com/intent/follow?original_referer=/docs%2Fweb%2F&region=follow_link&screen_name=ntotten&tw_p=followbutton&variant=2.0">Follow @ntotten</a></li>
+										<li><a href="https://twitter.com/intent/follow?original_referer=/docs%2Fweb%2F&region=follow_link&screen_name=prabirshrestha&tw_p=followbutton&variant=2.0">Follow @prabirshrestha</a></li>
 
-            <div id="overview" class="clearfix portalBlock">
-                <div class="blockRow">
-                    <div class="blockItem sr">
-                        <p class="itemImage"><a href="/docs/web/getting-started/"><img alt="" height="70" width="70" src="/assets/img/logos/GettingStartedSubIcon-70.png" /></a></p>
-                        <h3><a href="/docs/web/getting-started/">Getting Started</a></h3>
-                        <p class="itemDescription">Get up and running with the .NET SDK in a few steps.</p>
-                    </div>
-                    <div class="blockItem sr">
-                        <p class="itemImage"><a href="/docs/reference"><img alt="" height="70" width="70" src="/assets/img/logos/ReferenceSubIcon-70.png"></a></p>
-                        <h3><a href="/docs/reference">.NET SDK Reference</a></h3>
-                        <p class="itemDescription">Start coding with our documentation.</p>
-                    </div>
-                    <div class="blockItem">
-                        <p class="itemImage"><a href="#"><img alt="" height="70" width="70" src="/assets/img/logos/ConceptsSubIcon-70.png"></a></p>
-                        <h3><a href="#">Concepts</a></h3>
-                        <p class="itemDescription">Learn the basics of building and growing your app.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tutorials" class="clearfix portalBlock tutorials">
-                <h2>Tutorials</h2>
-                <div class="clearfix blockRow sr">
-                    <div class="blockItem sr">
-                        <h3><a href="/docs/web/ajax-requests/">Making Ajax Requests</a></h3>
-                        <p class="itemDescription">This tutorial shows you how to consume the Facebook SDK in ASP.NET using jQuery AJAX request.</p>
-                    </div>
-                    <div class="blockItem sr">
-                        <h3><a href="/docs/web/permissions/">Request Permissions</a></h3>
-                        <p class="itemDescription">Learn how to ask for different permissions to perform actions using the Facebook SDK.</p>
-                    </div>
-                    <div class="blockItem sr">
-                        <h3><a href="/docs/web/handling-expired-access-tokens/">Handling Expired Access Tokens</a></h3>
-                        <p class="itemDescription">Learn how to deal with expired access tokens when making requests, and how to renew an expired access token.</p>
-                    </div>
-                </div>
-                <div class="clearfix blockRow">
-                    <div class="blockItem sr">
-                        <h3><a href="http://www.asp.net/mvc/overview/security/using-oauth-providers-with-mvc">Using OAuth Providers with MVC 4</a></h3>
-                        <p class="itemDescription">This tutorial shows you how to build an ASP.NET MVC 4 web application that enables users to log in with their Facebook credentials.</p>
-                    </div>
-                    <div class="blockItem sr">
-                        <h3><a href="http://www.asp.net/mvc/tutorials/mvc-4/aspnet-mvc-facebook-birthday-app">ASP.NET MVC Facebook Birthday App</a></h3>
-                        <p class="itemDescription">This tutorial will teach you how to build a Facebook app by using an MVC 4 template in Visual Studio 2012.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="container-footer">
-                <p class="pull-right"><a href="#">Back to top</a></p>
-                <p class="pull-right"><a href="/docs/about/#2">License</a></p>
-                <p>Copyright &copy; 2012 &sdot; <a href="http://www.outercurve.org">The Outercurve Foundation</a>.</p>
-            </div>
-        </footer>
-    </div>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+					<div class="col-md-3">
+						<div class="ListOfLinkLists">
+							<div class="LinkList">
+								<div class="LinkListTitle">Licensing Information</div>
+								<div class="LinkListDescription"></div>
+								<div class="Links">
+									<ul class="LinkColumn" style="width: 100%">
+										<li><a href="http://www.outercurve.org/">The Outercurve Foundation</a></li>
+										<li><a href="http://www.apache.org/licenses/LICENSE-2.0">Code - Apache v2.0</a></li>
+										<li><a href="http://creativecommons.org/licenses/by/3.0/">Documentation - Creative Commons</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>              
+				</div>
+			</div>
+		</div>
+	</div>
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
   </body>
 </html>
