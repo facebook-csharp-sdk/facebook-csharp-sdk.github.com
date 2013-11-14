@@ -19,6 +19,9 @@ All the user needs to do is agree to give your application access to the specifi
 
 In this post, we will walk  you through the steps on how to setup your applications for a Single Sign On with [WebAuthenticationBroker](http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.authentication.web.webauthenticationbroker.aspx) for Windows Store apps.
 
+
+> **Note**: To get the Facebook Login with SSO working, you do not necessarily need to have a Windows Store account. You can simply get your Package Security Identifier (SID) by looking at the value of the AbsoluteURI property of the URI returned by the [GetCurrentApplicationCallbackUri](http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.authentication.web.webauthenticationbroker.getcurrentapplicationcallbackuri.aspx) function of the WebAuthenticationBroker via a debugger, printing it on console (JavaScript Applications) or viewing it by attaching its value to a UI element such as a TextBox. However, It is strongly recommended that you get the value via the Windows Store by following the steps below because the Package Security Identifier is computed by Windows based on your App Name and if there is any difference between the name you reserve in the Store for your app and what you use when creating a project in Visual Studio, the Facebook login may break.
+
 ## Setting up on Windows Store app on Facebook
 *	Log on to the Facebook developer portal (https://developers.facebook.com) and navigate to your application. Click Edit App or Create new app 
 
@@ -63,7 +66,61 @@ To:
 
 https://www.facebook.com/dialog/oauth?client_id=<Your Facebook App ID>&display=popup&response_type=token&redirect_uri=**ms-app://[Your Windows Store Package SID]/**
 
-Its just that easy!
+> **Note**: For the first parameter of the *AuthenticateAsync* call, you should use the *None* option unless you are performing advance operations such as silent token extension. These valid values for the first parameter are listed on the [WebAuthenticationOptions page](http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.authentication.web.webauthenticationoptions.aspx) but for Facebook Login scenarios, only *None* and *SilentMode* values are appropriate.
+
+Here is a code sample that showcases the usage with the SDK for Windows Store apps:
+
+    FacebookClient _fb = new FacebookClient();
+    var loginUrl = _fb.GetLoginUrl(new
+    {
+        client_id = Constants.FacebookAppId,
+        redirect_uri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
+        scope = _permissions,
+        display = "popup",
+        response_type = "token"
+    });
+ 
+    WebAuthenticationResult WebAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(
+          WebAuthenticationOptions.None,
+          loginUrl);
+ 
+    if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
+    {
+        var callbackUri = new Uri(WebAuthenticationResult.ResponseData.ToString());
+        var facebookOAuthResult = _fb.ParseOAuthCallbackUrl(callbackUri);
+
+        // Retrieve the Access Token. You can now interact with Facebook on behalf of the user
+        // using the Access Token.
+        var accessToken = facebookOAuthResult.AccessToken;
+    }
+    else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
+    {
+        // handle authentication failure
+    }
+    else
+    {
+       // The user canceled the authentication
+    }
+
+	
+Once you have the Access Token, you can easily retrieve information about the user, or their friends by using Facebook Open Graph APIs. Here is a short snippet that shows how you can retrieve the list of friends using the SDK:
+
+    FacebookClient fb = new FacebookClient(App.AccessToken);
+ 
+    dynamic friendsTaskResult = await fb.GetTaskAsync("/me/friends");
+    var result = (IDictionary<string, object>)friendsTaskResult;
+    var data = (IEnumerable<object>)result["data"];
+    foreach (var item in data)
+    {
+        var friend = (IDictionary<string, object>)item;
+        // now you can retrieve data from the dictionary above
+        string friendName = string)friend["name"];
+        string friendFacebookId = (string)friend["id"];
+    }
+
+Its just that easy! 
+
+Check out the [Scrumptious tutorial](/docs/windows/tutorial/) that uses the SDK to build a social meal sharing story to learn more.
 
 ## Summary
 
