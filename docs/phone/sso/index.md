@@ -52,7 +52,7 @@ Here’s an example of how the Facebook Developers site looks when set up.
 
 If you are developing on a phone, you will need the latest version of the Facebook Beta app installed. 
 
-However, if you are developing on an emulator you will not be able to install the Facebook Beta app as the emulator cannot connect to the Windows Phone Store. To help enable emulator development, you should use the login simulator app present in the [github repository](http://) that you can deploy to your emulator and use for development and testing. This is a very simple app that does not actually connect to Facebook, but simply echoes back any user supplied Access Tokens in exactly the same way as the official Facebook app does. This way, you can test success and failure paths easily.
+However, if you are developing on an emulator you will not be able to install the Facebook Beta app as the emulator cannot connect to the Windows Phone Store. To help enable emulator development, you should use the login simulator app present among the samples in the [github repository](https://github.com/facebook-csharp-sdk/facebook-winclient-sdk.git) that you can deploy to your emulator and use for development and testing. This is a very simple app that does not actually connect to Facebook, but simply echoes back any user supplied Access Tokens in exactly the same way as the official Facebook app does. This way, you can test success and failure paths easily.
 
 Before you deploy the simulator, you need to provide an access token to use in success cases. To get an access token, visit the [Graph Explorer Tool](http://developers.facebook.com/tools/explorer/) on the Facebook Developers site and click *Get Access Token*.
 
