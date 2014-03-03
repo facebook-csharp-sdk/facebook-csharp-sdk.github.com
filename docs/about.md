@@ -23,17 +23,17 @@ The Facebook SDK for .NET helps developers build web, desktop, phone and Windows
 <div style="clear:all"></div>
 
 <div class="person" >
-<h3><a href="http://ntotten.com">Nathan Totten</a></h3>
-<a href="http://ntotten.com"><img src="http://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=150" /></a>
-<p>Nathan Totten is the founder of the Facebook SDK for .NET and a Senior Technical Evangelist at Microsoft where he focuses on Windows Azure. Nathan's current role with the Facebook SDK for .NET is that of a contributor. Additionally, Nathan contributes bug fixes, documentation, and assists with supporting the community on StackOverflow.</p>
+<h3><a href="http://prabir.me">Prabir Shrestha</a></h3>
+<a href="http://prabir.me"><img src="http://www.gravatar.com/avatar/08580f0e341ffc9146050ac8d368a8e2.png?s=150" /></a>
+<p>Prabir Shrestha is the lead developer of the Facebook SDK for .NET and a Senior Engineer at Thuzi. Prabir spends significant amounts of time developing improvements to the SDK, fixing bugs, and writing samples. Prabir is also very active on StackOverflow and answers many questions about the Facebook SDK for .NET.</p>
 </div>
 
 <div style="clear:all"></div>
 
 <div class="person" >
-<h3><a href="http://prabir.me">Prabir Shrestha</a></h3>
-<a href="http://prabir.me"><img src="http://www.gravatar.com/avatar/08580f0e341ffc9146050ac8d368a8e2.png?s=150" /></a>
-<p>Prabir Shrestha is the lead developer of the Facebook SDK for .NET and a Senior Engineer at Thuzi. Prabir spends significant amounts of time developing improvements to the SDK, fixing bugs, and writing samples. Prabir is also very active on StackOverflow and answers many questions about the Facebook SDK for .NET.</p>
+<h3><a href="http://ntotten.com">Nathan Totten</a></h3>
+<a href="http://ntotten.com"><img src="http://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=150" /></a>
+<p>Nathan Totten is the founder of the Facebook SDK for .NET and a Senior Program Manager at Microsoft working on the Windows Azure team. Nathan currently serves as an advisor to the Facebook SDK for .NET team.</p>
 </div>
 
 <br/></br/><br/><br/>
