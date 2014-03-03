@@ -28,14 +28,6 @@ The Facebook SDK for .NET helps developers build web, desktop, phone and Windows
 <p>Prabir Shrestha is the lead developer of the Facebook SDK for .NET and a Senior Engineer at Thuzi. Prabir spends significant amounts of time developing improvements to the SDK, fixing bugs, and writing samples. Prabir is also very active on StackOverflow and answers many questions about the Facebook SDK for .NET.</p>
 </div>
 
-<div style="clear:all"></div>
-
-<div class="person" >
-<h3><a href="http://ntotten.com">Nathan Totten</a></h3>
-<a href="http://ntotten.com"><img src="http://www.gravatar.com/avatar/d48b998c2dce49ca309710eba498c562.png?s=150" /></a>
-<p>Nathan Totten is the founder of the Facebook SDK for .NET and a Senior Program Manager at Microsoft working on the Windows Azure team. Nathan currently serves as an advisor to the Facebook SDK for .NET team.</p>
-</div>
-
 <br/></br/><br/><br/>
 
 ## License
