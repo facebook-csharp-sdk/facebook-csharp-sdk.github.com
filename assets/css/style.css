@@ -755,7 +755,7 @@ hr.horizontalRule {
     background-color: #00188F;
 }
 #MainContent {
-	/*width: 998px;*/
+	width: 998px;
 	margin-left: auto;
 	margin-right: auto
 }
