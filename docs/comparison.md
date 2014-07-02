@@ -26,12 +26,12 @@ curl \
 // Response
 
 {
-	"id": "14812017", 
-	"name": "Nathan Totten", 
-	"first_name": "Nathan", 
-	"last_name": "Totten", 
-	"link": "https://www.facebook.com/totten", 
-	"username": "totten"
+	"id": "123456", 
+	"name": "John Doe", 
+	"first_name": "John", 
+	"last_name": "Doe", 
+	"link": "https://www.facebook.com/jondoe", 
+	"username": "jondoe"
 }
 		</code></pre>
 	</div>

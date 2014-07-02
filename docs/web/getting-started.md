@@ -25,33 +25,33 @@ After you install the package you must configure the application. The only setti
 
 
 ## Making Your First Request
-Retrieving data form the Facebook Graph API is very easy using the Facebook SDK for .NET. The following code shows how to call the Graph API to retrieve [Nathan Totten's](http://facebook.com/totten) public information.
+Retrieving data form the Facebook Graph API is very easy using the Facebook SDK for .NET. The following code shows how to call the Graph API to retrieve [Mark Zuckerberg's](http://facebook.com/zuck) public information.
 
 	var client = new FacebookClient();
-	dynamic me = client.Get("totten");
+	dynamic me = client.Get("zuck");
 
-The result of this request is a dynamic object containing various properties such as first_name, last_name, user name, etc. You can see the values of this request by browsing to [http://graph.facebook.com/totten](http://graph.facebook.com/totten) in your web browser. The JSON result is shown below.
+The result of this request is a dynamic object containing various properties such as first_name, last_name, user name, etc. You can see the values of this request by browsing to [http://graph.facebook.com/zuck](http://graph.facebook.com/zuck) in your web browser. The JSON result is shown below.
 
 	{
-		id: "14812017",
-		name: "Nathan Totten",
-		first_name: "Nathan",
-		last_name: "Totten",
-		link: "https://www.facebook.com/totten",
-		username: "totten",
+		id: "4",
+		first_name: "Mark",
 		gender: "male",
-		locale: "en_US"
+		last_name: "Zuckerberg",
+		link: "https://www.facebook.com/zuck",
+		locale: "en_US",
+		name: "Mark Zuckerberg",
+		username: "zuck"
 	}
 
 In you aren't familiar with dynamic objects in C# you can see below that they are very easy to use. 
 
-	dynamic me = client.Get("totten");
+	dynamic me = client.Get("zuck");
 	string firstName = me.first_name;
 	string lastName = me.last_name;
 
 A dynamic object is an object that is evaluated only at runtime. You can think of it as being a ```Dictionary<string, object>``` that is easier to use. In fact, the dynamic object we use actually _is_ an ```IDictionary<string, object>```. So if you don't like dynamic objects or are on a platform such as Windows Phone that doesn't support dynamic you can access the same information with a dictionary.
 
-	var me = client.Get("totten") as IDictionary<string, object>;
+	var me = client.Get("zuck") as IDictionary<string, object>;
 	string firstName = (string)me["first_name"];
 	string lastName = me["last_name"].ToString();
 

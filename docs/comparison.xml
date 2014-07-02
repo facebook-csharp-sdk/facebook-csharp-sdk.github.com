@@ -15,12 +15,14 @@ curl \
 // Response
 
 {
-	"id": "14812017", 
-	"name": "Nathan Totten", 
-	"first_name": "Nathan", 
-	"last_name": "Totten", 
-	"link": "https://www.facebook.com/totten", 
-	"username": "totten"
+	id: "4",
+	first_name: "Mark",
+	gender: "male",
+	last_name: "Zuckerberg",
+	link: "https://www.facebook.com/zuck",
+	locale: "en_US",
+	name: "Mark Zuckerberg",
+	username: "zuck"
 }
 		]]></source>
 		</code>
