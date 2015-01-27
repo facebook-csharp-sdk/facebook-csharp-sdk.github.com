@@ -24,7 +24,8 @@ In this tutorial, you will add a [FriendPicker](/docs/reference/client/Client.Co
 
 1.  Open the **MainPage.xaml** page of the application that you created for the [LoginButton control tutorial](/docs/windows/controls/login-ui-control/). Alternatively, you can start with the result of the [ProfilePicture control tutorial](/docs/windows/controls/profilepicture-ui-control/), which also adds a [ProfilePicture](/docs/reference/client/Client.Controls.ProfilePicture.html) control to the page.
 
-1.  In the content area in the center row, locate the **Grid** element and replace any nested content with a [FriendPicker](/docs/reference/client/Client.Controls.FriendPicker.html) control, binding its **AccessToken** property to the property of the same name in the **CurrentSession** object of the **LoginButton**, as shown below.
+1.  In the content area in the center row, locate the **Grid** element and replace any nested content with a [FriendPicker](/docs/reference/client/Client.Controls.FriendPicker.html) control
+
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" 
@@ -32,9 +33,10 @@ In this tutorial, you will add a [FriendPicker](/docs/reference/client/Client.Co
             Visibility="Collapsed">
 
             <facebookControls:FriendPicker 
-                x:Name="friendPicker" 
-                AccessToken="{Binding CurrentSession.AccessToken, ElementName=loginButton}" />
+                x:Name="friendPicker" />
         </Grid>
+
+> Note: The FriendsPicker control relies on the AccessToken property to be set to fetch the list of your friends. If you use the [LoginButton](/docs/reference/client/Client.Controls.LoginButton.html), you don't need to do any further work. As soon as the user logs in,  the FriendPicker will get notified and populate itself. 
 
 1.  Build and run the application and click **Log In** to retrieve a list of friends in your Facebook profile.  
 
@@ -62,8 +64,7 @@ In this tutorial, you will add a [FriendPicker](/docs/reference/client/Client.Co
             </Grid.ColumnDefinitions>
             
             <facebookControls:FriendPicker 
-                x:Name="friendPicker" 
-                AccessToken="{Binding CurrentSession.AccessToken, ElementName=loginButton}" />
+                x:Name="friendPicker" />
         </Grid>
 
 1.  To define the details view, insert another **Grid** element nested inside the content area, placing it immediately below the **FriendPicker**. The row and column definitions create the layout of the details section. 
@@ -229,8 +230,7 @@ In this tutorial, you will add a [FriendPicker](/docs/reference/client/Client.Co
 								
 						<facebookControls:FriendPicker 
 							x:Name="friendPicker" 
-							DisplayFields="id,name,first_name,middle_name,last_name,picture,location" 
-							AccessToken="{Binding CurrentSession.AccessToken, ElementName=loginButton}" />
+							DisplayFields="id,name,first_name,middle_name,last_name,picture,location" />
 		
 						<!-- details section -->
 						<Grid
