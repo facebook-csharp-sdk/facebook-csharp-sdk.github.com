@@ -36,9 +36,6 @@ In this tutorial, you will add a [ProfilePicture](/docs/reference/client/Client.
  
 	![image](images/image15.png)
 
-1.	To display a picture, the control requires a profile ID to be configured. This can be the ID of any Facebook object, such as a user, a place, or an event. For this tutorial, configure the ID of the currently logged in user by binding the control’s **ProfileID** property to the **FacebookId** property of the **CurrentUser** object provided by the **LoginButton** control. This property is initialized once the user opens a session. Add the property and configure the binding as shown below.
- 
-	![image](images/image16.png)
 
 	Access to profile pictures can be rate limited to prevent abuse. To avoid running into any restrictions, the [ProfilePicture](/docs/reference/client/Client.Controls.ProfilePicture.html) control includes an **AccessToken** property. If this property is initialized with a valid token, this token is passed along with the request, thus avoiding rate limits. However, for this tutorial, this additional measure will not be necessary.
 

@@ -85,18 +85,6 @@ Use the following XAML markup that defines a **TextBlock** element nested inside
 			Grid.Row="2" 
 			HorizontalAlignment="Right" />
 
-1.	If you briefly switch to the Design view of the page, you will notice that the button appears to be disabled. This is because its **ApplicationId** property still needs to be configured.
- 
-	![image](images/image4.png)
-
-1.	Set the **ApplicationId** property of the [LoginButton](/docs/reference/client/Client.Controls.LoginButton.html) to the ID obtained when you registered your application in the Facebook portal. 
- 
-	![image](images/image5.png)
-
-	For example:
- 
-	![image](images/image6.png)
-
 1.	Whenever a user clicks the [LoginButton](/docs/reference/client/Client.Controls.LoginButton.html) and proceeds to log in, the control retrieves profile information about the user and makes it available through its **CurrentUser** property, which returns an instance of a **GraphUser** object. Using this object, you can access information such as the user’s ID, their first, middle, and last name, birthday, location, and profile picture URL, among other values. Note that you can prevent the control from retrieving any information by setting its **FetchUserInfo** property to _false_.
 
 	As mentioned previously, the top row in the page’s layout displays user information, in this case, their name. To set it up, locate the **TextBlock** that you previously inserted into the user information panel in the top row and bind its **Text** property to the **Name** of the **CurrentUser** property provided by the [LoginButton](/docs/reference/client/Client.Controls.LoginButton.html) control, as shown below.

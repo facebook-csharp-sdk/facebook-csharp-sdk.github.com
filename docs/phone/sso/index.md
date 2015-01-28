@@ -61,67 +61,20 @@ Before you deploy the simulator, you need to provide an access token to use in s
 
 ### Initiate Login
 
-Using the *Facebook.Client* nuget package, make a call to *Facebook.Client.FacebookSessionClient.LoginWithApp()*. This method has different overloads, which require the following parameters:
+Using the *Facebook.Client* nuget package, make a call to *Facebook.Client.Session.ActiveSession.LoginWithBehavior*. This method has different overloads, which require the following parameters:
 
 * The set of permissions your app is requesting
-* A custom state parameter, which is echoed back to your application upon login completion. 
-
-> **Note**: The custom state parameter is a security feature that you can use to ensure that your app takes action only when you the state you supplied during the authentication matches the state supplied back by the app. This will help you alleviate denial of service attacks. It is a good idea to supply random values for state during each invocation.
+* The login behavior that your app wants. Possible options are: LoginBehaviorApplicationOnly, LoginBehaviorMobileInternetExplorerOnly or LoginBehaviorWebViewOnly. For this tutorial, we are using LoginBehaviorApplicationOnly.
 
 This can be used to redirect the user back to the original page within your application that initiated login, or any other app specific logic.
 A full example would be:
 
-    FacebookSessionClient fb = new FacebookSessionClient(AppId);
-    fb.LoginWithApp("basic_info,publish_actions,read_stream", "custom_state_string");
+    Session.ActiveSession.LoginWithBehavior("email,public_profile,user_friends", FacebookLoginBehavior.LoginBehaviorApplicationOnly);
 
 
 ### Login response handler
 
-The response comes back from Facebook as a custom URI scheme invocation. This URI can be passed into the *AppAuthenticationHelper.IsFacebookLoginResponse()* method to determine whether this is a normal app invocation or a Facebook login response. There is also a helpful *FacebookSession.ParseQueryString* method that you can use to easily parse the response and determine if it was successful. 
-
-An example of this can be found in the UriMapper of the github code sample:
-
-    /// <summary>
-    /// Maps a deep link Uri to a navigation within this application
-    /// </summary>
-    /// <param name="uri">Deep link Uri to map</param>
-    /// <returns>Navigation Uri within this app</returns>
-    public override Uri MapUri(Uri uri)
-    {
-        // if URI is a facebook login response, handle the deep link (once per invocation)
-        if (AppAuthenticationHelper.IsFacebookLoginResponse(uri))
-        {
-            FacebookSession session = new FacebookSession();
-
-            try
-            {
-                session.ParseQueryString(HttpUtility.UrlDecode(uri.ToString()));
-
-                // Handle success case
-
-                // do something with the custom state parameter
-                if (session.State != "custom_state_string")
-                {
-                    MessageBox.Show("Unexpected state: " + session.State);
-                }
-                else
-                {
-                    // retrieve the token and continue. The token is stored in the session object
-                }
-            }
-            catch (Facebook.FacebookOAuthException exc)
-            {
-                // handle error case
-            }
-
-            return new Uri("/MainPage.xaml", UriKind.Relative);
-        }
-
-        // by default, navigate to the requested uri
-        return uri;
-    }
-
-Once your app is successfully invoked using the UriMapper, you will have the Access Token for the user which you can use to create personalized experiences that you wish to provide.
+You can register an event handler to be notified when the login has successfully been finished. Take a look at the [config sample for an example](/docs/phone/config)
 
 ## Conclusion
 This article introduces you on the Facebook app based Single Sign On login for Windows Phone 8. Also check out the [Facebook login for Windows Store apps](/docs/windows/sso) which offers similar functionality for on the Windows Store side.
