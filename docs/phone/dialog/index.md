@@ -6,8 +6,6 @@ title: Facebook Login for Windows Phone 8
 ##Introduction
 
 Facebook Login in Windows Phone 8 apps allows you to offer a personalized experience to your users by integrating social experiences in the app and increasing the app distribution by means of social and viral sharing.
-
-Windows Phone 8 allows you to integrate a friction free Facebook login experience using the Facebook app in the marketplace. The rest of the articles explains how you can integrate the consent based Facebook login into your app. Continue on ahead to understand the user experience this features offers and the step-by-step on how to implement this feature for your app.
  
 ## User Experience
 

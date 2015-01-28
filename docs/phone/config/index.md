@@ -37,6 +37,12 @@ For Windows Phone 8, if you are doing app based authentication, browser based au
        <Protocol Name="msft-<your guid as configured on Facebook portal>" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" /> <!-- Facebook app based authentication -->
     </Extensions>
 
+
+
+> Note: The custom uri scheme shown above i.e. that of the form *msft-{ProductID}*, where *{ProductID}* is your app's product ID, without the dashes. It should look like this:
+
+    <Protocol Name="msft-43245dd584d84cde837aa19a4a2e3914" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
+
 The above protocol launch declarations are required so that after authentication, the facebook app and browser can redirect the access token to your app. 
 
 An example would be:
