@@ -28,7 +28,7 @@ The Facebook SDK for .NET helps developers build web, desktop, phone and Windows
 <p>Prabir Shrestha is the lead developer of the Facebook SDK for .NET and a Software Engineer at Microsoft. Prabir spends significant amounts of time developing improvements to the SDK, fixing bugs, and writing samples. Prabir is also very active on StackOverflow and answers many questions about the Facebook SDK for .NET.</p>
 </div>
 
-<br/></br/><br/><br/>
+<br/><br/><br/><br/>
 
 ## License
 
